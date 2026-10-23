@@ -14,7 +14,8 @@ import Layout from '../layouts/Layout.astro';
     const count = document.querySelector('#cart-count');
     if (count) count.textContent = String(items.length);
     if (!items.length) { root.innerHTML = '<div class="empty-state"><h2>Noch nichts vorgemerkt</h2><p>Entdecke das Sortiment und speichere deine Favoriten für später.</p></div>'; return; }
-    root.innerHTML = items.map((item) => `<article class="saved-item"><img src="${item.image}" alt="" width="70" height="70"><div><h3>${item.name}</h3><p>${item.type} · Beispielprodukt</p></div><button class="remove-button" type="button" data-remove="${item.id}">Entfernen</button></article>`).join('');
+    const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char] || char);
+    root.innerHTML = items.map((item) => `<article class="saved-item"><img src="${escapeHtml(item.image)}" alt="" width="70" height="70"><div><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.type)} · Beispielprodukt</p></div><button class="remove-button" type="button" data-remove="${escapeHtml(item.id)}">Entfernen</button></article>`).join('');
     root.querySelectorAll<HTMLButtonElement>('[data-remove]').forEach((button) => button.addEventListener('click', () => {
       const id = button.dataset.remove;
       items = items.filter((item) => item.id !== id);
