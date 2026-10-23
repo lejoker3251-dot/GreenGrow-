@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname;
     <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
     <header class="site-header">
       <a class="brand brand-seedx" href="/" aria-label="SEED³X Startseite"><img class="brand-banner" src="/images/seedx-banner.png.PNG" alt="SEED³X – Grow with intention" width="760" height="220" /></a>
-      <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">Menü <span aria-hidden="true">☰</span></button>
+      <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav"><span class="menu-toggle-label">Menü</span><span class="menu-toggle-icon" aria-hidden="true">☰</span></button>
       <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
         <a href="/shop/" aria-current={currentPath.startsWith('/shop') ? 'page' : undefined}>Shop</a><a href="/wissen/" aria-current={currentPath.startsWith('/wissen') ? 'page' : undefined}>Wissen</a><a href="/#wachstumsreise">Unsere Idee</a><a href="/#ueber-greengrow">Über uns</a>
       </nav>
@@ -37,6 +37,10 @@ const currentPath = Astro.url.pathname;
       const setMenuOpen = (open) => {
         menuButton?.setAttribute('aria-expanded', String(open));
         menuButton?.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+        const menuLabel = menuButton?.querySelector('.menu-toggle-label');
+        if (menuLabel) menuLabel.textContent = open ? 'Schließen' : 'Menü';
+        const menuIcon = menuButton?.querySelector('.menu-toggle-icon');
+        if (menuIcon) menuIcon.textContent = open ? '×' : '☰';
         nav?.classList.toggle('is-open', open);
       };
 
