@@ -2,7 +2,9 @@ name: Verify GreenGrow Astro
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/premium-storefront-v1]
+  pull_request:
+    branches: [main, feature/premium-storefront-v1]
   workflow_dispatch:
 
 permissions:
