@@ -185,3 +185,11 @@
  .luxury-trust-row{grid-template-columns:1fr;gap:.7rem;padding-block:1.25rem}
  .luxury-trust-row .trust-item{justify-content:flex-start}
 }
+
+/* Navigation clarity and keyboard accessibility */
+.skip-link{position:fixed;z-index:100;top:.75rem;left:.75rem;padding:.8rem 1rem;background:#173f2a;color:#fffdf5;border-radius:8px;transform:translateY(-180%);transition:transform .18s ease}
+.skip-link:focus{transform:translateY(0);outline:3px solid #8a5a00;outline-offset:3px}
+.main-nav a[aria-current="page"]{color:var(--green-2);font-weight:800;position:relative}
+.main-nav a[aria-current="page"]:after{content:"";position:absolute;left:0;right:0;bottom:-.45rem;height:2px;background:#9aae70;border-radius:2px}
+@media(max-width:680px){.main-nav a[aria-current="page"]:after{left:.6rem;right:auto;bottom:.35rem;width:24px}}
+@media(prefers-reduced-motion:reduce){.skip-link{transition:none}}
