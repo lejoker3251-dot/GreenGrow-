@@ -77,3 +77,10 @@
 @keyframes root-arrive{from{opacity:0;scale:.6}to{opacity:.8;scale:1}}
 @keyframes leaf-open{from{opacity:.5;scale:.7}to{opacity:1;scale:1}}
 @media(prefers-reduced-motion:reduce){.growth-stage,.growth-stage.is-inview .seed-object:before,.growth-stage.is-inview .root-object i,.growth-stage.is-inview .leaf-object i{animation:none!important;transition:none!important}}
+
+/* SEED³X brand assets */
+.brand-seedx{gap:.7rem}
+.brand-logo{display:block;width:48px;height:48px;object-fit:contain;border-radius:50%}
+.brand-seedx small{font-size:.52rem;letter-spacing:.15em}
+.seedx-hero-banner{display:block;width:min(100%,520px);height:auto;max-height:145px;object-fit:contain;object-position:left center;margin:0 0 1.1rem;filter:drop-shadow(0 8px 18px #173f2a12)}
+@media(max-width:680px){.brand-logo{width:36px;height:36px}.brand-seedx{gap:.45rem}.brand-seedx small{font-size:.43rem;letter-spacing:.1em}.seedx-hero-banner{max-height:110px;margin-bottom:.8rem}}
