@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install dependencies
+      - name: Install website dependencies
         run: npm install --no-package-lock
       - name: Validate imported seed catalog
         run: node scripts/validate-seed-products.mjs
@@ -44,3 +44,22 @@ jobs:
           test -s dist/shopping-cart/index.html
           test -s dist/product/seed-0001/index.html
           test -s dist/products/hero-seedling.svg
+
+  master-agent:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: agents/master-agent
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install master agent dependencies
+        run: npm install --no-package-lock
+      - name: Type-check master agent
+        run: npm run typecheck
+      - name: Test master agent request handlers
+        run: npm test
