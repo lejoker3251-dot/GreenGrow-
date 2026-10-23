@@ -16,7 +16,7 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 | Produktimport | Umgesetzt als Entwurf | 1.269 Einträge aus der bereitgestellten PDF-Liste, je 423 pro Typ. Schreibvarianten wurden nicht automatisch zusammengeführt. |
 | Gemeinsames Mamba-Platzhalterbild | Umgesetzt | Für alle Karten gleich; kein Beleg für ein echtes Produktfoto. |
 | Produktsuche und Kategorienfilter | Umgesetzt | Browserseitige Suche nach Namen/Kategorie und Kategorie-Buttons. |
-| Sortierung | In Arbeit / soeben ergänzt | Originalreihenfolge, Name A–Z, Name Z–A, Kategorie; durch die CI noch zu verifizieren. |
+| Sortierung | Implementiert, CI ausstehend | Originalreihenfolge, Name A–Z, Name Z–A, Kategorie; wartet auf aktuellen CI-Lauf und Preview-Deployment. |
 | Merkliste | Umgesetzt, CI grün | Browserlokal gespeichert; kein serverseitiger Warenkorb. Entfernen und erneutes Laden sollten manuell auf iPad geprüft werden. |
 | Produktdetailseiten | Offen | Vorhandene `/product/`-Seite ist nur eine allgemeine Platzhalteransicht, keine dynamische Seite pro Produkt. |
 | Neuheiten und Bestseller | Offen | Benötigen belegte Sortiments-/Verkaufsdaten; nichts als Bestseller markieren, solange keine Daten vorliegen. |
