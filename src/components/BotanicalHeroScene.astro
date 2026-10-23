@@ -167,9 +167,9 @@
         let targetScrollProgress = 0;
         const updateScrollProgress = () => {
           if (reducedMotion) return;
-          const rect = hero.getBoundingClientRect();
-          const travel = Math.max(1, rect.height + window.innerHeight);
-          targetScrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / travel));
+          const heroTop = hero.getBoundingClientRect().top + window.scrollY;
+          const travel = Math.max(1, hero.offsetHeight * .85);
+          targetScrollProgress = Math.max(0, Math.min(1, (window.scrollY - heroTop + window.innerHeight * .08) / travel));
           schedule();
         };
         window.addEventListener('scroll', updateScrollProgress, { passive: true });
