@@ -84,3 +84,8 @@
 .brand-seedx small{font-size:.52rem;letter-spacing:.15em}
 .seedx-hero-banner{display:block;width:min(100%,520px);height:auto;max-height:145px;object-fit:contain;object-position:left center;margin:0 0 1.1rem;filter:drop-shadow(0 8px 18px #173f2a12)}
 @media(max-width:680px){.brand-logo{width:36px;height:36px}.brand-seedx{gap:.45rem}.brand-seedx small{font-size:.43rem;letter-spacing:.1em}.seedx-hero-banner{max-height:110px;margin-bottom:.8rem}}
+
+/* Use the supplied SEED³X banner instead of the separate logo */
+.brand-banner{display:block;width:clamp(130px,14vw,178px);height:auto;max-height:54px;object-fit:contain;object-position:left center}
+.brand-banner-footer{width:220px;max-height:72px}
+@media(max-width:680px){.brand-banner{width:124px;max-height:46px}.brand-banner-footer{width:190px;max-height:62px}}
