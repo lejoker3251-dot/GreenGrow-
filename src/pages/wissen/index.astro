@@ -20,7 +20,7 @@ const groups = [
       {groups.map((group) => <a href={'#' + group.id}>{group.number} / {group.title} ↘</a>)}
     </div>
   </section>
-  <main class="knowledge-main">
+  <div class="knowledge-main">
     {groups.map((group) => <section class="knowledge-group" id={group.id} aria-labelledby={group.id + '-title'}>
       <div class="knowledge-group-head">
         <span class="knowledge-number">{group.number}</span>
@@ -35,7 +35,7 @@ const groups = [
       </div>
     </section>)}
     <aside class="knowledge-note"><strong>Hinweis zum aktuellen Stand</strong><p>Diese Seite ist die neue Struktur der Wissensrubrik. Die Themen sind bereits eingeordnet; die ausführlichen Einzelartikel werden redaktionell ergänzt und vor Veröffentlichung auf Aktualität, sachliche Richtigkeit und geltende rechtliche Rahmenbedingungen geprüft.</p></aside>
-  </main>
+  </div>
   <style>
     .knowledge-hero{padding-top:clamp(3.5rem,8vw,7rem);padding-bottom:clamp(3rem,6vw,5rem);background:radial-gradient(ellipse at 90% 10%,#dfe9c5 0,transparent 43%),#f1efdf}
     .knowledge-hero h1 em{color:var(--green-2);font-weight:500}
