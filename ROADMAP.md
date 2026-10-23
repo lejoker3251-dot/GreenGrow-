@@ -28,6 +28,15 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 | iPad Safari / Bedienbarkeit / visuelle Abnahme | Teilweise bestätigt | Nutzer bestätigt, dass die ganze Vorschauseite sichtbar ist und Suche, Kategorienfilter, Sortierung, Merkliste sowie eine Produktdetailseite im Preview bestanden haben. Der GitHub-Actions-Lauf für Commit `df436d666359bcd7fb3142ef3265656041f890c1` ist erfolgreich abgeschlossen; iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. |
 | Produktionsfreigabe | Gesperrt | Nicht deployen oder mergen ohne ausdrückliche Freigabe. |
 
+## Startseite und Shop-Trennung (23.10.2026)
+- [x] Vollständigen Produktkatalog von der Startseite auf die eigenständige Route `/shop/` verschieben.
+- [x] Shop-Link in die Hauptnavigation und den Footer aufnehmen; Startseite zeigt stattdessen einen kuratierten Sortiments-Teaser.
+- [x] Katalogsuche, Kategorienfilter, Sortierung, Merkliste und Produktlinks auf der Shop-Seite belassen.
+- [x] Aktiven Menüpunkt semantisch mit `aria-current` kennzeichnen und Tastatur-Sprunglink zum Hauptinhalt ergänzen.
+- [x] CI-Build um Prüfung der generierten Shop-Route erweitern.
+- [ ] Preview-Deployment erfolgreich abwarten und Shop-Route samt Funktionen manuell prüfen.
+- [ ] Hochwertige Einzelproduktbilder, echte Preise und verifizierte Produktdetails erst nach Datenfreigabe ergänzen.
+
 ## Nächste Entwicklungsstufen
 
 ### Stufe 1 – Stabilität und Katalogbedienung
