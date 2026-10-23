@@ -64,16 +64,4 @@ import BotanicalHeroScene from '../components/BotanicalHeroScene.astro';
     }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
     revealTargets.forEach((element) => revealObserver.observe(element));
   }
-  const growthStages = [...document.querySelectorAll<HTMLElement>('.growth-stage')];
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const stageObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-inview');
-          stageObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.18 });
-    growthStages.forEach((stage) => stageObserver.observe(stage));
-  }
 </script>
