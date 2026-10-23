@@ -2,13 +2,22 @@
   "name": "greengrow-seeds",
   "private": true,
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",
-    "preview": "astro preview --host 0.0.0.0"
+    "preview": "astro preview --host 0.0.0.0",
+    "check": "astro check"
   },
   "dependencies": {
-    "astro": "^5.5.5"
+    "@astrojs/react": "^4.2.2",
+    "astro": "^5.5.5",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "sass": "^1.77.6"
   }
 }

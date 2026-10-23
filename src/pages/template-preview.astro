@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
+import PromoSectionLarge from '../components/promo/promoSectionLarge';
+import CardProduct from '../components/products/cardProduct';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import '../styles/template-preview.css';
+const products = [
+  { title: 'Tomate Black Cherry', category: 'Gemüsesaatgut', description: 'Aromatische Tomaten für sonnige Plätze.', thumb_src: '/products/tomate.svg', thumb_alt: 'Illustration einer dunklen Tomate' },
+  { title: 'Basilikum Genovese', category: 'Kräutersaatgut', description: 'Duftende Blätter für Küche und Balkon.', thumb_src: '/products/basilikum.svg', thumb_alt: 'Illustration eines Basilikumtopfs' },
+  { title: 'Sonnenblume Lemon', category: 'Blumensaatgut', description: 'Sonnige Blüten für einen lebendigen Garten.', thumb_src: '/products/sonnenblume.svg', thumb_alt: 'Illustration einer Sonnenblume' },
+  { title: 'Chili Jalapeño', category: 'Gemüsesaatgut', description: 'Würzige Schoten für warme, helle Standorte.', thumb_src: '/products/chili.svg', thumb_alt: 'Illustration einer roten Chili' },
+];
+---
+<Layout title="Astro Ecommerce Vorschau – GreenGrow Seeds" description="Technische Vorschau der Creative Tim Astro Ecommerce Komponenten mit GreenGrow Seeds Inhalten.">
+  <div class="gg-template-page">
+    <Navbar />
+    <main>
+      <PromoSectionLarge title="Grow something good." full_description="Ein erster Blick auf die Astro-Ecommerce-Komponenten mit GreenGrow Seeds Inhalten. Noch ist dies eine Vorschau, kein aktiver Shop." pageHeaderBgImg="/products/hero-seedling.svg" pageHeaderMinVh="48vh" pageHeaderRadius="24px" />
+      <section class="gg-template-section" id="sortiment">
+        <div class="gg-template-section-heading"><span class="gg-template-product-category">Komponenten-Integration</span><h2 class="mt-2">Saatgut für deine nächste Idee.</h2><p class="text-secondary">Die Produktkarten basieren auf der Creative-Tim-Komponentenstruktur und verwenden GreenGrow-Beispieldaten und eigene SVG-Illustrationen.</p></div>
+        <div class="row g-4">{products.map((product) => <div class="col-12 col-sm-6 col-xl-3"><CardProduct {...product} position="start" /></div>)}</div>
+        <div class="gg-template-notice mt-4">Technische Vorschau: Produktpreise, Lagerbestand, Nutzerkonten, Warenkorb-Backend, Versand und Zahlungsabwicklung sind nicht verbunden. Die Schaltflächen führen nicht zu einem Checkout.</div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+  <script>
+    const toggle = document.querySelector<HTMLButtonElement>('[data-gg-toggle]');
+    const nav = document.querySelector<HTMLElement>('#gg-template-nav');
+    toggle?.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav?.classList.toggle('is-open', !open);
+    });
+  </script>
+</Layout>
