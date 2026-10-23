@@ -22,6 +22,8 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm install --no-package-lock
+      - name: Validate imported seed catalog
+        run: node scripts/validate-seed-products.mjs
       - name: Check Astro project
         run: npx astro check
       - name: Build static site
