@@ -1,14 +1,15 @@
 # GreenGrow Seeds
 
-Erste responsive GreenGrow-Markenhomepage auf Astro-Basis. Das Layout ist für die Saatgut-Marke eigenständig angepasst und orientiert sich an typischen Shop-Mustern; die Creative-Tim-Komponenten wurden in dieser ersten Stufe **noch nicht direkt übernommen**.
+GreenGrow Seeds ist ein Astro-basiertes Frontend für eine Saatgut-Marke. Die bestehende Hauptseite bleibt unter `/` erreichbar; die zusätzliche Komponenten-Vorschau liegt unter `/template-preview/`.
 
-## Status
+## Entwicklungsstand
 
-- Astro 5, statischer Build
-- Responsive Landingpage mit Produktkategorien und Filter
-- Beispielprodukte und lokal gespeicherte Merkliste
-- Produktseiten- und Cloudflare-Worker-Grundgerüst
-- Noch kein echter Shop: keine Preise, Lagerbestände, Zahlungsabwicklung oder Bestellungen
+- Astro 5 mit React-Integration
+- Responsive GreenGrow-Hauptseite mit Beispielprodukten und lokal gespeicherter Merkliste
+- Zusätzliche `/template-preview/`-Route mit angepassten Creative-Tim-Komponenten: Navbar, Promo-Abschnitt, Produktkarten und Footer
+- Bootstrap 5 als Basis für das Komponentenlayout; zusätzliche GreenGrow-Stile unter `src/styles/template-preview.css`
+- GitHub Actions Workflow prüft `astro check`, den statischen Build und die erwarteten Ausgabedateien
+- Cloudflare-Worker-Konfiguration als Vorbereitung vorhanden; keine Veröffentlichung oder Änderung an der laufenden Cloudflare-Produktion durchgeführt
 
 ## Lokal starten
 
@@ -17,19 +18,24 @@ npm install
 npm run dev
 ```
 
-## Build prüfen
+## Prüfungen
 
 ```sh
+npm run check
 npm run build
 npm run preview
 ```
 
-## Cloudflare-Vorbereitung
+Der Build erzeugt die statische Website in `dist/`. Der Workflow `.github/workflows/verify-astro.yml` führt dieselben wesentlichen Prüfungen in GitHub Actions aus. Bitte den Status des neuesten Workflows prüfen, bevor die Vorschau als verifiziert gilt.
 
-`wrangler.jsonc` definiert `dist` als Verzeichnis statischer Assets. Erst nach erfolgreichem lokalem Build und ausdrücklicher Freigabe sollte eine Bereitstellung erfolgen. Die Cloudflare-Produktion wurde nicht verändert.
+## Wichtige Grenzen
+
+Die Produktnamen und Illustrationen sind Beispiele. Es gibt keine produktive Produktdatenbank, Preis-/Lagerverwaltung, Nutzerkonten, serverseitige Warenkorb-Persistenz, Bestellabwicklung oder Zahlungsintegration. Die Merkliste der Hauptseite ist lokal im Browser gespeichert. Es werden keine echten Bestellungen ausgelöst.
+
+Die Creative-Tim-Komponenten wurden in einer separaten Vorschau-Route integriert. Das vollständige Creative-Tim-SCSS-Themesystem wurde noch nicht übernommen; die Vorschau verwendet Bootstrap und eine GreenGrow-spezifische CSS-Anpassung. Damit bleibt die bestehende Hauptseite optisch getrennt und unberührt.
 
 ## Lizenz
 
-Die Vorlage [Creative Tim Astro Ecommerce](https://github.com/creativetimofficial/astro-ecommerce) ist im Original unter MIT lizenziert. Diese erste GreenGrow-Stufe verwendet keine direkt übernommenen Creative-Tim-Komponenten; die Gestaltung und SVG-Illustrationen wurden für GreenGrow neu erstellt. `LICENSE.MD` enthält den Original-Lizenztext als Referenz für eine mögliche spätere Übernahme von Vorlagen-Code. Externe Bilder werden nicht eingebunden.
+Die Komponentenbasis stammt aus [Creative Tim Astro Ecommerce](https://github.com/creativetimofficial/astro-ecommerce), veröffentlicht unter der MIT-Lizenz. Der MIT-Lizenzhinweis ist in `LICENSE.MD` enthalten. Die GreenGrow-spezifischen CSS-Anpassungen und SVG-Illustrationen wurden für dieses Projekt erstellt.
 
 Vor einem öffentlichen Verkaufsstart müssen echte Produktdaten, Impressum, Datenschutzhinweise, Kontaktangaben, Versand- und Zahlungsinformationen sowie rechtliche Shop-Anforderungen ergänzt und geprüft werden.
