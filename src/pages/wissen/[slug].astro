@@ -65,6 +65,7 @@ const articles = [
   ], takeaway:'F1 bezeichnet eine erste Kreuzungsgeneration; konkrete Vorteile müssen für die jeweilige Züchtung belegt werden.', sources:[{label:'Royal Botanic Gardens, Kew – Grundlagen zu Pflanzenzüchtung und genetischer Vielfalt',url:'https://www.kew.org/read-and-watch/plant-breeding-explained'}] }];
 export function getStaticPaths() { return articles.map((article) => ({ params: { slug: article.slug }, props: { article } })); }
 const { article } = Astro.props;
+const sources = article.sources ?? [{label:'Konsumcannabisgesetz (KCanG) – amtliche Rechtsquelle',url:'https://www.gesetze-im-internet.de/kcang/'},{label:'FAQ des Bundesgesundheitsministeriums zum Cannabisgesetz',url:'https://www.bundesgesundheitsministerium.de/themen/cannabis/faq-cannabisgesetz/seite'}];
 ---
 <Layout title={article.title + ' – SEED³X Wissen'} description={article.intro}>
   <section class="page-hero article-hero">
@@ -78,7 +79,7 @@ const { article } = Astro.props;
     <p class="article-lead">{article.takeaway}</p>
     {article.sections.map(([heading, body]) => <section><h2>{heading}</h2><p>{body}</p></section>)}
     <aside class="source-note"><strong>Fach- und Rechtsprüfung</strong><p>Dieser Beitrag dient der allgemeinen Information und ersetzt keine individuelle fachliche Beratung. Aussagen zu Anbau und Pflanzenentwicklung können je nach Genetik und Bedingungen variieren. Rechtliche Hinweise müssen vor Veröffentlichung anhand amtlicher Quellen aktualisiert werden.</p>
-    <p>Amtliche Rechtsinformationen für Deutschland: <a href="https://www.gesetze-im-internet.de/kcang/" target="_blank" rel="noreferrer">Konsumcannabisgesetz (KCanG)</a> und <a href="https://www.bundesgesundheitsministerium.de/themen/cannabis/faq-cannabisgesetz/seite" target="_blank" rel="noreferrer">FAQ des Bundesgesundheitsministeriums</a>.</p></aside>
+    <p><strong>Quellen und weiterführende Literatur</strong></p><ul>{sources.map((source) => <li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul><p>Rechtsstand und Quellen wurden für die Entwicklung recherchiert; vor öffentlicher Veröffentlichung bitte erneut prüfen. Zuletzt fachlich gegengeprüft: 23. Oktober 2026.</p></aside>
     <a class="button secondary" href="/wissen/#cannabisanbau">Alle Themen im Grundkurs ansehen</a>
   </article>
   <style>
