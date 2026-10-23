@@ -43,10 +43,15 @@ const currentPath = Astro.url.pathname;
     <header class="site-header">
       <a class="brand brand-seedx" href="/" aria-label="SEED³X Startseite"><img class="brand-banner" src="/images/seedx-banner.png.PNG" alt="SEED³X – Grow with intention" width="760" height="220" /></a>
       <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav"><span class="menu-toggle-label">Menü</span><span class="menu-toggle-icon" aria-hidden="true">☰</span></button>
-      <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
-        <a href="/shop/" aria-current={currentPath.startsWith('/shop') ? 'page' : undefined}>Shop</a><a href="/wissen/" aria-current={currentPath.startsWith('/wissen') ? 'page' : undefined}>Wissen</a><a href="/#wachstumsreise">Unsere Idee</a><a href="/#ueber-greengrow">Über uns</a>
+      <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation" hidden>
+        <a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Startseite</a>
+        <a href="/shop/" aria-current={currentPath.startsWith('/shop') ? 'page' : undefined}>Sortiment</a>
+        <a href="/wissen/" aria-current={currentPath.startsWith('/wissen') ? 'page' : undefined}>Wissenswertes</a>
+        <a href="/#wachstumsreise">Unsere Idee</a>
+        <a href="/#ueber-greengrow">Über uns</a>
+        <a href="mailto:hallo@greengrow.example">Kontakt</a>
+        <a class="menu-wishlist" href="/shopping-cart/" aria-label="Merkliste öffnen">Merkliste <span id="cart-count" class="cart-count">0</span></a>
       </nav>
-      <a class="cart-link" href="/shopping-cart/" aria-label="Merkliste öffnen">Merkliste <span id="cart-count" class="cart-count">0</span></a>
     </header>
     <main id="main-content" tabindex="-1"><slot /></main>
     <footer class="site-footer">
@@ -65,6 +70,7 @@ const currentPath = Astro.url.pathname;
         if (menuLabel) menuLabel.textContent = open ? 'Schließen' : 'Menü';
         const menuIcon = menuButton?.querySelector('.menu-toggle-icon');
         if (menuIcon) menuIcon.textContent = open ? '×' : '☰';
+        if (nav) nav.hidden = !open;
         nav?.classList.toggle('is-open', open);
       };
 
@@ -75,6 +81,13 @@ const currentPath = Astro.url.pathname;
 
       nav?.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => setMenuOpen(false));
+      });
+
+      document.addEventListener('click', (event) => {
+        if (menuButton?.getAttribute('aria-expanded') !== 'true') return;
+        if (event.target instanceof Node && !menuButton?.contains(event.target) && !nav?.contains(event.target)) {
+          setMenuOpen(false);
+        }
       });
 
       document.addEventListener('keydown', (event) => {
