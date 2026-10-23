@@ -1,0 +1,41 @@
+name: Extract seed list PDF
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/premium-storefront-v1
+    paths:
+      - .github/workflows/extract-seed-list.yml
+permissions:
+  contents: read
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/premium-storefront-v1
+      - name: Install PyMuPDF
+        run: python -m pip install --disable-pip-version-check pymupdf
+      - name: Extract selectable PDF text
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import fitz
+          pdf = Path("product-data/Seed List Full .pdf")
+          if not pdf.exists():
+              raise SystemExit(f"Missing source PDF: {pdf}")
+          doc = fitz.open(pdf)
+          chunks = [f"--- PAGE {n} ---\n{page.get_text('text')}" for n, page in enumerate(doc, 1)]
+          text = "\n\n".join(chunks).strip()
+          if not text:
+              raise SystemExit("PDF contains no selectable text; OCR required.")
+          Path("seed-list-extracted.txt").write_text(text + "\n", encoding="utf-8")
+          print(f"Extracted {len(doc)} pages, {len(text)} characters.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: seed-list-extracted-text
+          path: seed-list-extracted.txt
+          if-no-files-found: error
+          retention-days: 7
