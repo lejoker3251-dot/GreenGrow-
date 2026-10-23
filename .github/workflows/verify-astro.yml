@@ -31,6 +31,7 @@ jobs:
       - name: Verify expected routes and assets
         run: |
           test -s dist/index.html
+          test -s dist/shop/index.html
           test -s dist/template-preview/index.html
           test -s dist/shopping-cart/index.html
           test -s dist/product/seed-0001/index.html
