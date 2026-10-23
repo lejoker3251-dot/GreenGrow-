@@ -17,8 +17,9 @@
   .feature-card:hover img, .feature-card:focus-visible img { transform: scale(1.06) rotate(-2deg); }
   .luxury-button { transition: transform .25s var(--motion-ease), box-shadow .25s ease, background .25s ease; }
   .luxury-button:hover, .luxury-button:focus-visible { transform: translateY(-3px); box-shadow: 0 12px 28px #d7d5b72b; }
-  .motion-ready [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .75s var(--motion-ease), transform .75s var(--motion-ease); transition-delay: var(--reveal-delay, 0ms); }
-  .motion-ready [data-reveal].is-inview { opacity: 1; transform: translateY(0); }
+  /* Keep all content visible by default: scroll-reveal must never hide page sections if an observer stalls (notably on mobile browsers). */
+  .motion-ready [data-reveal] { opacity: 1; transform: none; transition: opacity .75s var(--motion-ease), transform .75s var(--motion-ease); transition-delay: var(--reveal-delay, 0ms); }
+  .motion-ready [data-reveal].is-inview { opacity: 1; transform: none; }
   .growth-stage.is-inview .seed-object:before { animation-duration: 4s; }
 }
 @keyframes botanical-glow { from { opacity: .55; transform: scale(.92); } to { opacity: 1; transform: scale(1.08); } }
