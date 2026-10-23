@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const groups = [
+  { id: 'cannabisanbau', number: '01', title: 'Grundkurs Cannabisanbau', intro: 'Die wichtigsten Entwicklungsphasen einer Cannabispflanze – vom ersten Keimen bis zur Ernte.', articles: ['Cannabissamen keimen', 'Die Wachstumsphase', 'Cannabis-Blütephase', 'Die letzten Blüte-Wochen', 'Cannabis ernten'] },
+  { id: 'cannabissamen', number: '02', title: 'Grundkurs Cannabissamen', intro: 'Samenarten, Lagerung und grundlegende Unterschiede auf einen Blick.', articles: ['Wie man Samen aufbewahrt', 'Was sind feminisierte Samen?', 'Was sind autoflowering Samen?', 'Reguläre, CBD-, Auto- und feminisierte Samen', 'Anbau von F1-Hybridsamen'] },
+  { id: 'auswahl', number: '03', title: 'Auswahl von Cannabis-Samen', intro: 'Orientierung zu Sortenmerkmalen und Auswahlkriterien – ohne pauschale Versprechen.', articles: ['Die stärksten Cannabissamen', 'Ertragreiche Sorten', 'Sativa-Sorten', 'Indica-Sorten', 'Lila-Sorten'] },
+  { id: 'bildung', number: '04', title: 'Cannabis-Bildung', intro: 'Sachliche Informationen zu Cannabis, möglichen Wirkungen und verantwortungsvollem Umgang.', articles: ['Cannabis verantwortungsvoll nutzen', 'Cannabis Indica vs. Sativa', 'Was ist das Endocannabinoid-System?', 'Leitfaden zu Geschmack und Wirkung'] },
+];
+---
+<Layout title="Wissen, das mitwächst – SEED³X" description="Die SEED³X Wissenswelt: Grundkurse zu Cannabisanbau und Cannabissamen, Sortenauswahl und Cannabis-Bildung.">
+  <section class="page-hero knowledge-hero">
+    <span class="eyebrow">SEED³X · WISSENSWELT</span>
+    <h1>Wissen, das<br/><em>mitwächst.</em></h1>
+    <p>Vier Wissensbereiche führen dich Schritt für Schritt durch Grundlagen, Samenarten, Sortenmerkmale und Cannabis-Bildung. Die Themenübersicht wächst nach und nach zu ausführlichen Artikeln.</p>
+    <div class="knowledge-jump">
+      {groups.map((group) => <a href={'#' + group.id}>{group.number} / {group.title} ↘</a>)}
+    </div>
+  </section>
+  <main class="knowledge-main">
+    {groups.map((group) => <section class="knowledge-group" id={group.id} aria-labelledby={group.id + '-title'}>
+      <div class="knowledge-group-head">
+        <span class="knowledge-number">{group.number}</span>
+        <div><span class="eyebrow">WISSENSBEREICH {group.number}</span><h2 id={group.id + '-title'}>{group.title}</h2><p>{group.intro}</p></div>
+      </div>
+      <div class="knowledge-articles">
+        {group.articles.map((article, index) => <article class="knowledge-article">
+          <span class="article-index">{group.number}.{String(index + 1).padStart(2, '0')}</span>
+          <h3>{article}</h3>
+          <span class="article-status">Artikel in Vorbereitung</span>
+        </article>)}
+      </div>
+    </section>)}
+    <aside class="knowledge-note"><strong>Hinweis zum aktuellen Stand</strong><p>Diese Seite ist die neue Struktur der Wissensrubrik. Die Themen sind bereits eingeordnet; die ausführlichen Einzelartikel werden redaktionell ergänzt und vor Veröffentlichung auf Aktualität, sachliche Richtigkeit und geltende rechtliche Rahmenbedingungen geprüft.</p></aside>
+  </main>
+  <style>
+    .knowledge-hero{padding-top:clamp(3.5rem,8vw,7rem);padding-bottom:clamp(3rem,6vw,5rem);background:radial-gradient(ellipse at 90% 10%,#dfe9c5 0,transparent 43%),#f1efdf}
+    .knowledge-hero h1 em{color:var(--green-2);font-weight:500}
+    .knowledge-hero p{max-width:720px}
+    .knowledge-jump{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:2rem}
+    .knowledge-jump a{padding:.7rem .9rem;border:1px solid #d5ddcb;border-radius:999px;text-decoration:none;color:var(--green);font-size:.83rem;font-weight:750;background:#fffaf0}
+    .knowledge-main{padding:0 clamp(1rem,6vw,6rem) 5rem}
+    .knowledge-group{padding:clamp(2.5rem,5vw,4rem) 0;border-bottom:1px solid var(--line);scroll-margin-top:110px}
+    .knowledge-group-head{display:grid;grid-template-columns:70px 1fr;gap:1rem;align-items:start;margin-bottom:1.5rem}
+    .knowledge-number{font-family:Georgia,serif;font-size:2.6rem;color:#8aa078;line-height:1}
+    .knowledge-group h2{font-family:Georgia,serif;font-weight:500;letter-spacing:-.045em;font-size:clamp(1.8rem,3.5vw,3rem);margin:.6rem 0}
+    .knowledge-group-head p{max-width:660px;color:var(--muted);line-height:1.7;margin:0}
+    .knowledge-articles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem;margin-left:calc(70px + 1rem)}
+    .knowledge-article{display:grid;grid-template-columns:48px 1fr;gap:.15rem .7rem;align-items:center;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:14px;background:#fffdf8}
+    .article-index{grid-row:span 2;font-size:.78rem;color:var(--green-2);font-weight:850}
+    .knowledge-article h3{font-size:.98rem;line-height:1.4;margin:0;font-weight:700}
+    .article-status{font-size:.72rem;color:var(--muted);margin-top:.25rem}
+    .knowledge-note{margin-top:2rem;padding:1.3rem 1.5rem;border-radius:14px;background:#edf1e4;color:var(--ink)}
+    .knowledge-note p{line-height:1.7;color:var(--muted);margin:.4rem 0 0}
+    @media(max-width:700px){.knowledge-group-head{grid-template-columns:42px 1fr;gap:.8rem}.knowledge-number{font-size:2rem}.knowledge-articles{grid-template-columns:1fr;margin-left:0}.knowledge-jump a{font-size:.76rem}}
+  </style>
+</Layout>
