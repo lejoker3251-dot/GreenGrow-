@@ -50,6 +50,13 @@ try {
   assert.ok(before?.width > 0 && after?.width > 0, 'fallback remains laid out at desktop and mobile viewport sizes');
   assert.ok(after.width < before.width, 'fallback responds to the narrower mobile viewport');
 
+  // Dismiss the age confirmation first; it intentionally blocks page interaction.
+  const ageGate = page.locator('#age-gate');
+  if (await ageGate.isVisible()) {
+    await page.locator('#age-gate-yes').click();
+    await page.waitForFunction(() => !document.documentElement.classList.contains('age-gate-active'));
+  }
+
   // The mobile navigation must expose its state and close predictably with Escape.
   const menuButton = page.locator('.menu-toggle');
   await menuButton.click();
