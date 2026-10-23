@@ -149,6 +149,17 @@
         let pointerY = 0;
         let targetX = 0;
         let targetY = 0;
+        let scrollProgress = 0;
+        let targetScrollProgress = 0;
+        const updateScrollProgress = () => {
+          if (reducedMotion) return;
+          const rect = hero.getBoundingClientRect();
+          const travel = Math.max(1, rect.height + window.innerHeight);
+          targetScrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / travel));
+          schedule();
+        };
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+        updateScrollProgress();
         if (finePointer && !reducedMotion) {
           hero.addEventListener('pointermove', (event) => {
             const rect = hero.getBoundingClientRect();
@@ -168,11 +179,19 @@
           const t = reducedMotion ? 0 : elapsed;
           pointerX += (targetX - pointerX) * .045;
           pointerY += (targetY - pointerY) * .045;
+          scrollProgress += (targetScrollProgress - scrollProgress) * .055;
+          // A restrained scroll-linked camera move gives the plant a sense of depth
+          // without hijacking native iPad scrolling or changing the page layout.
+          const growthScale = 1 + scrollProgress * .075;
+          plant.scale.setScalar(growthScale);
+          camera.position.z = 8.5 - scrollProgress * .28;
+          camera.position.y = .08 + scrollProgress * .06;
+          camera.lookAt(0, .12, 0);
           plant.rotation.x = pointerX + (reducedMotion ? 0 : Math.sin(t * .45) * .018);
-          plant.rotation.y = pointerY + (reducedMotion ? 0 : Math.sin(t * .32) * .035);
-          plant.position.y = reducedMotion ? 0 : Math.sin(t * .8) * .035;
-          particles.rotation.y = reducedMotion ? 0 : t * .025;
-          ring.rotation.z = reducedMotion ? 0 : t * .025;
+          plant.rotation.y = pointerY + scrollProgress * .09 + (reducedMotion ? 0 : Math.sin(t * .32) * .035);
+          plant.position.y = reducedMotion ? 0 : Math.sin(t * .8) * .035 + scrollProgress * .035;
+          particles.rotation.y = reducedMotion ? 0 : t * .025 + scrollProgress * .04;
+          ring.rotation.z = reducedMotion ? 0 : t * .025 + scrollProgress * .06;
           renderer.render(scene, camera);
           lastFrame = now;
           if (!reducedMotion) schedule();
@@ -191,6 +210,7 @@
       if (frame) cancelAnimationFrame(frame);
       resizeObserver?.disconnect();
       intersectionObserver?.disconnect();
+      window.removeEventListener('scroll', updateScrollProgress);
       renderer?.dispose();
     }, { once: true });
   });
