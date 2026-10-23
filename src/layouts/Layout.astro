@@ -33,15 +33,33 @@ const currentPath = Astro.url.pathname;
     <script is:inline>
       const menuButton = document.querySelector('.menu-toggle');
       const nav = document.querySelector('#main-nav');
+
+      const setMenuOpen = (open) => {
+        menuButton?.setAttribute('aria-expanded', String(open));
+        menuButton?.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+        nav?.classList.toggle('is-open', open);
+      };
+
       menuButton?.addEventListener('click', () => {
-        const open = menuButton.getAttribute('aria-expanded') === 'true';
-        menuButton.setAttribute('aria-expanded', String(!open));
-        nav?.classList.toggle('is-open', !open);
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        setMenuOpen(!isOpen);
       });
+
+      nav?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setMenuOpen(false));
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') {
+          setMenuOpen(false);
+          menuButton.focus();
+        }
+      });
+
       try {
         const saved = JSON.parse(localStorage.getItem('greengrow-list') || '[]');
         const count = document.querySelector('#cart-count');
-        if (count) count.textContent = String(saved.length);
+        if (count) count.textContent = String(Array.isArray(saved) ? saved.length : 0);
       } catch {}
     </script>
   </body>
