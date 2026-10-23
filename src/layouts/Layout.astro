@@ -90,16 +90,59 @@ const currentPath = Astro.url.pathname;
         if (count) count.textContent = String(Array.isArray(saved) ? saved.length : 0);
       } catch {}
 
+      const ageGate = document.querySelector('#age-gate');
       const ageGateYes = document.querySelector('#age-gate-yes');
       const ageGateNo = document.querySelector('#age-gate-no');
+      const pageRegions = [
+        document.querySelector('.site-header'),
+        document.querySelector('#main-content'),
+        document.querySelector('.site-footer')
+      ].filter(Boolean);
+      const isAgeGateActive = () => document.documentElement.classList.contains('age-gate-active');
+
+      const syncAgeGateAccess = (active) => {
+        pageRegions.forEach((region) => {
+          region.inert = active;
+        });
+      };
+
+      syncAgeGateAccess(isAgeGateActive());
+      if (isAgeGateActive()) ageGateYes?.focus();
+
       ageGateYes?.addEventListener('click', () => {
         try {
           localStorage.setItem('seedx-age-confirmed', 'true');
         } catch {}
         document.documentElement.classList.remove('age-gate-active');
+        syncAgeGateAccess(false);
+        document.querySelector('#main-content')?.focus();
       });
       ageGateNo?.addEventListener('click', () => {
         window.location.href = '/altershinweis/';
+      });
+
+      ageGate?.addEventListener('keydown', (event) => {
+        if (event.key !== 'Tab') return;
+        const focusable = Array.from(ageGate.querySelectorAll('button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+        if (!focusable.length) {
+          event.preventDefault();
+          return;
+        }
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
+
+      document.addEventListener('focusin', (event) => {
+        if (isAgeGateActive() && ageGate && !ageGate.contains(event.target)) {
+          ageGateYes?.focus();
+        }
       });
     </script>
     <style>
