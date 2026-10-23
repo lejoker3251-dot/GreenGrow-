@@ -63,8 +63,9 @@ const articles = [
     ['Was passiert in späteren Generationen?', 'Werden F1-Pflanzen miteinander weitergekreuzt, können Merkmale in späteren Generationen stärker aufspalten. Die Ergebnisse hängen von den beteiligten Genen und der Zuchtgeschichte ab. „F1“ allein belegt weder die Qualität der Elternlinien noch eine bestimmte Leistung.'],
     ['Sortenangaben kritisch bewerten', 'Achte auf nachvollziehbare Angaben zur Abstammung, Stabilität und Prüfung der Sorte. Behauptungen zu Ertrag, THC-Gehalt oder Resistenz sollten durch geeignete Vergleichsdaten gestützt werden. Eine Bezeichnung auf der Verpackung ist für sich allein kein unabhängiger Nachweis.']
   ], takeaway:'F1 bezeichnet eine erste Kreuzungsgeneration; konkrete Vorteile müssen für die jeweilige Züchtung belegt werden.', sources:[{label:'Royal Botanic Gardens, Kew – Grundlagen zu Pflanzenzüchtung und genetischer Vielfalt',url:'https://www.kew.org/read-and-watch/back-to-the-future-green-revolution'}] }];
-export function getStaticPaths() { return articles.map((article) => ({ params: { slug: article.slug }, props: { article } })); }
-const { article } = Astro.props;
+export function getStaticPaths() { return ['cannabissamen-keimen','wachstumsphase','cannabis-bluetephase','letzte-bluete-wochen','cannabis-ernten','cannabissamen-aufbewahren','feminisierte-samen','autoflowering-samen','samenarten-vergleich','f1-hybridsamen'].map((slug) => ({ params: { slug } })); }
+const article = articles.find((entry) => entry.slug === Astro.params.slug);
+if (!article) throw new Error('Knowledge article not found');
 const sources = article.sources ?? [{label:'Konsumcannabisgesetz (KCanG) – amtliche Rechtsquelle',url:'https://www.gesetze-im-internet.de/kcang/'},{label:'FAQ des Bundesgesundheitsministeriums zum Cannabisgesetz',url:'https://www.bundesgesundheitsministerium.de/themen/cannabis/faq-cannabisgesetz/seite'}];
 ---
 <Layout title={article.title + ' – SEED³X Wissen'} description={article.intro}>
