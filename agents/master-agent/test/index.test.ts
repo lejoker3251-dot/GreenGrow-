@@ -111,3 +111,30 @@ test("GitHub read provider rejects oversized file contents", async () => {
   });
   await assert.rejects(readAllowedGitHubFile("README.md", "test-token", mockFetch), /size limit/);
 });
+
+
+test("GitHub read provider rejects oversized declared byte size before decoding", async () => {
+  const { readAllowedGitHubFile, MAX_FILE_BYTES } = await import("../src/github-readonly.ts");
+  const mockFetch: typeof fetch = async () => Response.json({
+    type: "file",
+    encoding: "base64",
+    size: MAX_FILE_BYTES + 1,
+    content: btoa("small"),
+  });
+  await assert.rejects(readAllowedGitHubFile("README.md", "test-token", mockFetch), /byte size limit/);
+});
+
+test("GitHub read provider rejects oversized encoded payload before base64 decoding", async () => {
+  const { readAllowedGitHubFile, MAX_BASE64_CHARACTERS } = await import("../src/github-readonly.ts");
+  let decodedPayloadReturned = false;
+  const mockFetch: typeof fetch = async () => {
+    decodedPayloadReturned = true;
+    return Response.json({
+      type: "file",
+      encoding: "base64",
+      content: "A".repeat(MAX_BASE64_CHARACTERS + 4),
+    });
+  };
+  await assert.rejects(readAllowedGitHubFile("README.md", "test-token", mockFetch), /Encoded file exceeds/);
+  assert.equal(decodedPayloadReturned, true);
+});
