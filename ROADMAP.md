@@ -16,15 +16,15 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 | Produktimport | Umgesetzt als Entwurf | 1.269 Einträge aus der bereitgestellten PDF-Liste, je 423 pro Typ. Schreibvarianten wurden nicht automatisch zusammengeführt. |
 | Gemeinsames Mamba-Platzhalterbild | Umgesetzt | Für alle Karten gleich; kein Beleg für ein echtes Produktfoto. |
 | Produktsuche und Kategorienfilter | Umgesetzt | Browserseitige Suche nach Namen/Kategorie und Kategorie-Buttons. |
-| Sortierung | Implementiert, Funktionsprüfung offen | Originalreihenfolge, Name A–Z, Name Z–A, Kategorie; Code ist vorhanden, Interaktion muss noch im Preview geprüft werden. |
-| Merkliste | Umgesetzt, CI grün | Browserlokal gespeichert; kein serverseitiger Warenkorb. Entfernen und erneutes Laden sollten manuell auf iPad geprüft werden. |
-| Produktdetailseiten | Implementiert, Abnahme offen | Dynamische Route `/product/[id]/` generiert Seiten je Produkt-ID und zeigt Name, Kategorie, Quelltyp, Entwurfsstatus und Platzhalterbild; gültige und unbekannte IDs noch praktisch prüfen. |
+| Sortierung | Implementiert, manuell bestanden | Nutzer hat die Sortiersteuerung im Preview mit A–Z, Z–A und Kategorie als bestanden bestätigt. |
+| Merkliste | Manuell bestanden | Nutzer hat Speichern/Verhalten der Merkliste im Preview als bestanden bestätigt; sie bleibt browserlokal und ist kein serverseitiger Warenkorb. |
+| Produktdetailseiten | Manuell bestanden (gültige Produktseite) | Nutzer hat eine Produktdetailseite im Preview als bestanden bestätigt. Unbekannte IDs/404 und Tastaturbedienung sind noch nicht separat getestet. |
 | Neuheiten und Bestseller | Offen | Benötigen belegte Sortiments-/Verkaufsdaten; nichts als Bestseller markieren, solange keine Daten vorliegen. |
 | Vollständige Produktdaten | Offen | Preise, Bestand, Beschreibungen und Merkmale fehlen bzw. sind nicht verifiziert. Alle Einträge bleiben Entwürfe. |
 | Ratgeber-Navigation | Teilweise umgesetzt | Wissensübersicht vorhanden; tatsächliche Vollständigkeit und fachliche/rechtliche Prüfung der Artikel bleibt offen. |
 | Impressum, Datenschutz, Kontakt und Shop-Recht | Offen | Platzhalter und Angaben vor einer öffentlichen Verkaufsfreigabe überprüfen. |
 | Backend, Bestellungen und Zahlung | Nicht umgesetzt | Absichtlich nicht Teil der Vorschau. Erfordert Architektur- und Sicherheitsentscheidungen. |
-| iPad Safari / Bedienbarkeit / visuelle Abnahme | Teilweise bestätigt | Nutzer bestätigt, dass die gesamte Vorschauseite inklusive Produkt-Testbild sichtbar ist. Suche, Sortierung, Merkliste, Tastaturbedienung und einzelne Produktdetails müssen noch praktisch geprüft werden. |
+| iPad Safari / Bedienbarkeit / visuelle Abnahme | Teilweise bestätigt | Nutzer bestätigt, dass die ganze Vorschauseite sichtbar ist und Suche, Kategorienfilter, Sortierung, Merkliste sowie eine Produktdetailseite im Preview bestanden haben. iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. |
 | Produktionsfreigabe | Gesperrt | Nicht deployen oder mergen ohne ausdrückliche Freigabe. |
 
 ## Nächste Entwicklungsstufen
@@ -34,19 +34,21 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 - [x] Suche, Kategoriefilter und lokale Merkliste bereitstellen.
 - [x] Merkliste bei erneutem Laden synchronisieren und Speicherfehler behandeln.
 - [x] Sortiersteuerung für Originalreihenfolge, Name A–Z, Name Z–A und Kategorie implementieren.
-- [ ] Sortierung im Preview praktisch prüfen; technische CI-Prüfung läuft mit dem neuen Validator an.
-- [ ] Produktbild- und Tastatur-/Screenreader-Verhalten auf iPad Safari prüfen.
+- [x] Sortierung im Preview praktisch prüfen (Nutzer bestätigt: bestanden).
+- [ ] Platzhalterbild ist sichtbar; Tastatur-/Screenreader-Verhalten und Bildsemantik auf iPad Safari noch prüfen.
+- [x] Sichtbare Tastatur-Fokusrahmen für Links, Buttons, Eingaben und Auswahlfelder ergänzt (automatische Prüfung / reale iPad-Abnahme noch offen).
 
 ### Stufe 2 – Echte Produktdetailseiten ohne Verkauf
 - [x] Dynamische, anhand stabiler Produkt-ID adressierbare Detailseiten implementieren.
 - [x] Name, Quelltyp, Entwurfsstatus und Platzhalterbild anzeigen.
 - [x] Keine erfundenen Produktangaben, Preise, Bestände oder Kaufbuttons.
-- [ ] Gültige IDs, unbekannte IDs und Rücknavigation praktisch prüfen.
+- [x] Gültige Produktdetailseite praktisch geprüft (Nutzer bestätigt: bestanden).
+- [ ] Unbekannte IDs/404 und Rücknavigation separat prüfen.
 
 ### Stufe 3 – Datenqualität und redaktionelle Freigabe
 - [ ] Produktdaten aus verlässlichen Quellen ergänzen, Quellen und Prüfstatus erfassen.
 - [ ] Schreibvarianten vergleichen, aber nicht ohne menschliche Freigabe zusammenführen.
-- [x] Automatische Prüfung auf 1.269 Einträge, Pflichtfelder, eindeutige IDs, erlaubte Kategorien und Entwurfsstatus ergänzt; erster CI-Lauf steht noch aus.
+- [x] Automatische Prüfung auf 1.269 Einträge, Pflichtfelder, eindeutige IDs, erlaubte Kategorien und Entwurfsstatus ergänzt; lokale/inhaltliche Prüfung bestanden, GitHub-Actions-Lauf noch nicht bestätigt.
 - [ ] Neuheiten/Bestseller erst anzeigen, wenn entsprechende Fakten vorhanden sind.
 
 ### Stufe 4 – Recht, Betrieb und Barrierefreiheit
