@@ -238,3 +238,69 @@
   .shop-teaser-art{min-height:180px;padding:1.1rem;border-radius:16px}
   .shop-teaser-copy h2{font-size:clamp(2.4rem,10vw,3.5rem)}
 }
+
+
+/* Accessibility pass: readable typography across the storefront */
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body { font-size: 1rem; line-height: 1.7; }
+p, li { font-size: 1rem; line-height: 1.75; }
+.announcement { font-size: .85rem; line-height: 1.5; letter-spacing: .04em; }
+.brand { font-size: 1.3rem; }
+.brand small { font-size: .7rem; letter-spacing: .18em; }
+.main-nav a, .site-header .main-nav a, .footer-links a { font-size: .95rem; line-height: 1.5; }
+.cart-link { font-size: .95rem; }
+.cart-count { font-size: .85rem; }
+.eyebrow { font-size: .85rem; letter-spacing: .12em; }
+.hero-overline { font-size: .8rem; letter-spacing: .18em; }
+.hero-copy, .luxury-hero .hero-copy { font-size: 1.1rem; line-height: 1.8; }
+.hero-proof, .luxury-hero .hero-proof { font-size: .82rem; line-height: 1.6; letter-spacing: .06em; }
+.button { font-size: 1rem; line-height: 1.4; padding: 1rem 1.4rem; }
+.trust-item { font-size: .95rem; line-height: 1.6; }
+.section-heading p, .split-copy p { font-size: 1.05rem; line-height: 1.8; }
+.section-kicker { font-size: .85rem; letter-spacing: .1em; }
+.product-tag { font-size: .82rem; }
+.product-info h3 { font-size: 1.4rem; line-height: 1.3; }
+.product-info p { font-size: .95rem; line-height: 1.7; min-height: 0; }
+.product-type, .product-note { font-size: .85rem; line-height: 1.5; }
+.save-button, .filter-button { font-size: .95rem; line-height: 1.4; padding: .7rem 1rem; }
+.search-box input { font-size: 1rem; }
+.results-count, .notice { font-size: .95rem; line-height: 1.7; }
+.feature-card small { font-size: .8rem; letter-spacing: .1em; }
+.feature-card strong { font-size: 1.55rem; line-height: 1.35; }
+.feature-card em { font-size: .95rem; line-height: 1.6; }
+.benefit strong { font-size: 1.05rem; line-height: 1.5; }
+.benefit span { font-size: .98rem; line-height: 1.7; }
+.tip-number { font-size: .9rem; }
+.tip h3 { font-size: 1.6rem; line-height: 1.35; }
+.tip p { font-size: 1rem; line-height: 1.75; }
+.cta p, .site-footer p { font-size: 1rem; line-height: 1.8; }
+.site-footer > small { font-size: .9rem; line-height: 1.7; }
+.page-hero p, .product-detail p { font-size: 1.08rem; line-height: 1.8; }
+.product-detail h1 { line-height: 1.1; }
+.saved-item p { font-size: .95rem; line-height: 1.6; }
+.remove-button, .guide-link { font-size: .95rem; }
+@media (max-width: 1050px) {
+  .site-header .main-nav a { font-size: .9rem; }
+}
+@media (max-width: 800px) {
+  :root { font-size: 17px; }
+  .site-header .main-nav a { font-size: 1rem; }
+  .site-header .cart-link { font-size: .9rem; }
+  .luxury-hero { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  :root { font-size: 17px; }
+  .hero-copy, .luxury-hero .hero-copy { font-size: 1.05rem; line-height: 1.8; }
+  .hero h1, .luxury-hero h1 { line-height: 1.06; }
+  .section-heading p, .split-copy p { font-size: 1rem; }
+  .product-info h3 { font-size: 1.25rem; }
+  .product-info p { font-size: .92rem; }
+  .feature-card strong { font-size: 1.35rem; }
+  .filter-button { font-size: .9rem; }
+}
