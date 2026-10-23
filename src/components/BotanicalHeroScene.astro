@@ -34,15 +34,16 @@
     let resizeObserver: ResizeObserver | undefined;
     let intersectionObserver: IntersectionObserver | undefined;
     let THREE: any;
+    let updateScrollProgress: (() => void) | undefined;
     const rootMeshes: any[] = [];
     const leafMeshes: Array<{ mesh: any; base: any }> = [];
 
-    const makeTube = (points: any[], radius: number, material: any, radialSegments = 7) => {
+    const makeTube = (points: any[], radius: number, material: any, radialSegments = 7, trackRoot = false) => {
       const curve = new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(p[0], p[1], p[2])));
       const geometry = new THREE.TubeGeometry(curve, Math.max(16, points.length * 8), radius, radialSegments, false);
       const mesh = new THREE.Mesh(geometry, material);
       plant.add(mesh);
-      if (material === rootMat) rootMeshes.push(mesh);
+      if (trackRoot) rootMeshes.push(mesh);
       return mesh;
     };
 
@@ -111,12 +112,12 @@
         plant.add(seed);
 
         makeTube([[0,-.38,0],[.02,-.05,.02],[-.03,.35,.03],[.04,.7,.02],[.02,1.05,0],[.06,1.42,0],[.02,1.68,0]], .035, stemMat, 8);
-        makeTube([[0,-.32,.02],[-.05,-.6,.05],[-.12,-.88,.08],[-.2,-1.18,.1],[-.18,-1.43,.08]], .018, rootMat);
-        makeTube([[0,-.35,.02],[.12,-.62,.02],[.25,-.88,.02],[.4,-1.1,.02],[.48,-1.34,.03]], .016, rootMat);
-        makeTube([[-.05,-.68,.05],[-.28,-.83,.07],[-.44,-1.02,.09],[-.58,-1.16,.09]], .009, rootMat, 5);
-        makeTube([[.22,-.83,.02],[.12,-1.02,.03],[.1,-1.22,.02]], .009, rootMat, 5);
-        makeTube([[.39,-1.08,.02],[.62,-1.13,.04],[.72,-1.27,.02]], .008, rootMat, 5);
-        makeTube([[-.16,-1.1,.08],[-.1,-1.23,.1],[-.13,-1.36,.12]], .008, rootMat, 5);
+        makeTube([[0,-.32,.02],[-.05,-.6,.05],[-.12,-.88,.08],[-.2,-1.18,.1],[-.18,-1.43,.08]], .018, rootMat, 7, true);
+        makeTube([[0,-.35,.02],[.12,-.62,.02],[.25,-.88,.02],[.4,-1.1,.02],[.48,-1.34,.03]], .016, rootMat, 7, true);
+        makeTube([[-.05,-.68,.05],[-.28,-.83,.07],[-.44,-1.02,.09],[-.58,-1.16,.09]], .009, rootMat, 5, true);
+        makeTube([[.22,-.83,.02],[.12,-1.02,.03],[.1,-1.22,.02]], .009, rootMat, 5, true);
+        makeTube([[.39,-1.08,.02],[.62,-1.13,.04],[.72,-1.27,.02]], .008, rootMat, 5, true);
+        makeTube([[-.16,-1.1,.08],[-.1,-1.23,.1],[-.13,-1.36,.12]], .008, rootMat, 5, true);
 
         makeLeaf([-.34,.86,.03],[.53,.2,.1],[0,0,-.48],leafMat);
         makeLeaf([.36,1.12,.03],[.55,.21,.1],[0,0,.48],leafLight);
@@ -165,7 +166,7 @@
         let targetY = 0;
         let scrollProgress = 0;
         let targetScrollProgress = 0;
-        const updateScrollProgress = () => {
+        updateScrollProgress = () => {
           if (reducedMotion) return;
           const heroTop = hero.getBoundingClientRect().top + window.scrollY;
           const travel = Math.max(1, hero.offsetHeight * .85);
@@ -241,7 +242,7 @@
       if (frame) cancelAnimationFrame(frame);
       resizeObserver?.disconnect();
       intersectionObserver?.disconnect();
-      window.removeEventListener('scroll', updateScrollProgress);
+      if (updateScrollProgress) window.removeEventListener('scroll', updateScrollProgress);
       renderer?.dispose();
     }, { once: true });
   });
