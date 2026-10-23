@@ -8,6 +8,8 @@
 export const GITHUB_REPOSITORY = "lejoker3251-dot/GreenGrow-";
 export const GITHUB_BRANCH = "feature/premium-storefront-v1";
 export const MAX_FILE_CHARACTERS = 24_000;
+export const MAX_FILE_BYTES = 48_000;
+export const MAX_BASE64_CHARACTERS = Math.ceil(MAX_FILE_BYTES / 3) * 4;
 
 export const ALLOWED_PROJECT_FILES = [
   "README.md",
@@ -82,7 +84,18 @@ export async function readAllowedGitHubFile(
     throw new GitHubReadError("GitHub returned an unsupported file response.", 502);
   }
 
-  const binary = atob(payload.content.replace(/\s/g, ""));
+  const encodedContent = payload.content.replace(/\s/g, "");
+  if (encodedContent.length > MAX_BASE64_CHARACTERS) {
+    throw new GitHubReadError("Encoded file exceeds the configured response size limit.", 413);
+  }
+  if (typeof payload.size === "number" && payload.size > MAX_FILE_BYTES) {
+    throw new GitHubReadError("File exceeds the configured byte size limit.", 413);
+  }
+
+  const binary = atob(encodedContent);
+  if (binary.length > MAX_FILE_BYTES) {
+    throw new GitHubReadError("Decoded file exceeds the configured byte size limit.", 413);
+  }
   const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
   const content = new TextDecoder().decode(bytes);
   if (content.length > MAX_FILE_CHARACTERS) {
