@@ -50,6 +50,10 @@ curl -X POST http://localhost:8787/plan \
 
 The prototype's Wrangler configuration uses the separate name `greengrow-master-agent-preview` and its own Durable Object binding. The existing Worker configuration remains named `greengrow`. Do not run a deployment command as part of routine tests.
 
+## Verification record
+
+GitHub Actions run for commit `2d985c6ff9e786eb4ee36a46d664784dfd99a4e7` on `feature/premium-storefront-v1` completed successfully: the Master Agent type-check passed, all 18 request-handler tests passed, and the Astro website check/build/browser-layout/route-and-asset checks passed. See the [workflow run](https://github.com/lejoker3251-dot/GreenGrow-/actions/runs/40026675882). This verifies CI for that commit; it does not constitute a production deployment or a live Cloudflare smoke test.
+
 ## Deployment
 
 Do not deploy this prototype yet. The current endpoints have no authentication and are intended for local development only. Production deployment is out of scope.
