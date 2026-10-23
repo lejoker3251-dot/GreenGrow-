@@ -138,3 +138,63 @@ test("GitHub read provider rejects oversized encoded payload before base64 decod
   await assert.rejects(readAllowedGitHubFile("README.md", "test-token", mockFetch), /Encoded file exceeds/);
   assert.equal(decodedPayloadReturned, true);
 });
+
+
+test("JSON primitives and null are rejected without throwing", async () => {
+  for (const body of ["null", "[]", "123", "\"text\""]) {
+    const response = await handlePlanRequest(new Request("https://worker.test/plan", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body
+    }));
+    assert.equal(response.status, 400);
+  }
+});
+
+test("wrong content type returns 415", async () => {
+  const response = await handlePlanRequest(new Request("https://worker.test/plan", {
+    method: "POST",
+    headers: { "content-type": "text/plain" },
+    body: JSON.stringify({ task: "Review project structure" })
+  }));
+  assert.equal(response.status, 415);
+});
+
+test("oversized request body returns 413 even when task field is not reached", async () => {
+  const response = await handlePlanRequest(new Request("https://worker.test/plan", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ other: "x".repeat(17_000) })
+  }));
+  assert.equal(response.status, 413);
+});
+
+test("successful plan responses are not cacheable", async () => {
+  const response = await handlePlanRequest(new Request("https://worker.test/plan", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ task: "Review project structure" })
+  }));
+  assert.equal(response.headers.get("cache-control"), "no-store");
+});
+
+test("GitHub reader rejects redirects instead of following them", async () => {
+  const { readAllowedGitHubFile } = await import("../src/github-readonly.ts");
+  let requestedInit: RequestInit | undefined;
+  const mockFetch: typeof fetch = async (_input, init) => {
+    requestedInit = init;
+    return Response.json({ type: "file", encoding: "base64", content: btoa("ok") });
+  };
+  await readAllowedGitHubFile("README.md", "test-token", mockFetch);
+  assert.equal(requestedInit?.redirect, "error");
+});
+
+test("GitHub reader rejects unexpected response shapes", async () => {
+  const { readAllowedGitHubFile } = await import("../src/github-readonly.ts");
+  const mockFetch: typeof fetch = async () => Response.json({
+    type: "dir",
+    encoding: "base64",
+    content: btoa("not a file")
+  });
+  await assert.rejects(readAllowedGitHubFile("README.md", "test-token", mockFetch), /unsupported file response/);
+});
