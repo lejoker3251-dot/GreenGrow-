@@ -74,7 +74,7 @@
       const resetButton = document.querySelector('#view-reset');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduceMotion) motionButton.textContent = 'Animation deaktiviert (Systemeinstellung)';
-      let renderer, scene, camera, plant, leaves = [], raf = 0, observer, resizeObserver;
+      let renderer, scene, camera, plant, leaves = [], raf = 0, observer, resizeObserver, renderFrame;
       let paused = reduceMotion, disposed = false, pointerX = 0, pointerY = 0, targetX = 0, targetY = 0;
       let startTime = 0;
       const materials = [];
@@ -83,7 +83,7 @@
       const rememberGeometry = (g) => (geometries.push(g), g);
       const makeMaterial = (opts) => rememberMaterial(new THREE.MeshStandardMaterial(opts));
       let THREE;
-      const schedule = () => { if (!raf && !paused && !disposed && document.visibilityState === 'visible') raf = requestAnimationFrame(render); };
+      const schedule = () => { if (!raf && !paused && !disposed && document.visibilityState === 'visible') raf = requestAnimationFrame(renderFrame); };
       const dispose = () => {
         disposed = true;
         if (raf) cancelAnimationFrame(raf);
@@ -162,7 +162,7 @@
         stage.classList.add('ready');
         status.textContent = reduceMotion ? '3D bereit · Animation wegen Systemeinstellung pausiert' : '3D bereit · Bewege den Zeiger über die Szene';
         startTime=performance.now();
-        function render(now){
+        renderFrame = function(now){
           raf=0; if(disposed||paused||document.visibilityState!=='visible') return;
           const elapsed=(now-startTime)/1000;
           pointerX+=(targetX-pointerX)*.045; pointerY+=(targetY-pointerY)*.045;
@@ -172,7 +172,7 @@
           leaves.forEach(({group,base,phase})=>{group.rotation.z=base+Math.sin(elapsed*.85+phase)*.025; group.rotation.x=Math.sin(elapsed*.55+phase)*.018;});
           particles.rotation.y=elapsed*.018; ring.rotation.z=elapsed*.018;
           renderer.render(scene,camera); schedule();
-        }
+        };
         stage.addEventListener('pointermove',e=>{ if(reduceMotion) return; const r=stage.getBoundingClientRect(); targetX=((e.clientX-r.left)/r.width-.5)*.15; targetY=((e.clientY-r.top)/r.height-.5)*-.09; },{passive:true});
         stage.addEventListener('pointerleave',()=>{targetX=0;targetY=0;},{passive:true});
         document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') schedule(); else if(raf){cancelAnimationFrame(raf);raf=0;} });
