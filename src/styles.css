@@ -193,3 +193,48 @@
 .main-nav a[aria-current="page"]:after{content:"";position:absolute;left:0;right:0;bottom:-.45rem;height:2px;background:#9aae70;border-radius:2px}
 @media(max-width:680px){.main-nav a[aria-current="page"]:after{left:.6rem;right:auto;bottom:.35rem;width:24px}}
 @media(prefers-reduced-motion:reduce){.skip-link{transition:none}}
+
+
+/* Homepage collection teaser with the supplied SEED³X banner */
+.shop-teaser{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:center;
+  gap:clamp(2rem,6vw,6rem);
+  background:#f1efdf;
+}
+.shop-teaser-art{
+  min-width:0;
+  min-height:300px;
+  display:grid;
+  place-items:center;
+  padding:clamp(1.25rem,3vw,3rem);
+  border:1px solid #dfe2d2;
+  border-radius:22px;
+  background:linear-gradient(145deg,#fbfaf5,#e6ebd8);
+  overflow:hidden;
+}
+.shop-teaser-art img{
+  display:block;
+  width:100%;
+  max-width:760px;
+  height:auto;
+  object-fit:contain;
+}
+.shop-teaser-copy{max-width:650px}
+.shop-teaser-copy h2{
+  margin:.85rem 0 1rem;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.5rem,4.5vw,4.5rem);
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-.055em;
+}
+.shop-teaser-copy h2 em{color:var(--green-2);font-weight:500}
+.shop-teaser-copy p{max-width:590px;color:var(--muted);line-height:1.8}
+.shop-teaser-note{display:block;margin-top:1rem;color:#73806d;font-size:.78rem;line-height:1.6}
+@media(max-width:760px){
+  .shop-teaser{grid-template-columns:1fr;gap:1.5rem}
+  .shop-teaser-art{min-height:180px;padding:1.1rem;border-radius:16px}
+  .shop-teaser-copy h2{font-size:clamp(2.4rem,10vw,3.5rem)}
+}
