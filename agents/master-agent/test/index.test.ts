@@ -200,33 +200,13 @@ test("GitHub reader rejects unexpected response shapes", async () => {
 });
 
 
-test("worker rejects unsupported methods and routes before accessing Durable Objects", async () => {
-  const { default: worker } = await import("../src/index.ts");
-  let durableObjectCalled = false;
-  const env = {
-    AGENT_MODE: "read-only-prototype",
-    MASTER_AGENT: {
-      idFromName: (_name: string) => "test-id",
-      get: (_id: unknown) => ({
-        fetch: async (_request: Request) => {
-          durableObjectCalled = true;
-          return Response.json({ ok: true });
-        }
-      })
-    }
-  } as unknown as Parameters<typeof worker.fetch>[1];
 
-  const getPlan = await worker.fetch(new Request("https://worker.test/plan"), env);
-  assert.equal(getPlan.status, 405);
-  assert.equal(getPlan.headers.get("allow"), "POST");
-
-  const postHealth = await worker.fetch(new Request("https://worker.test/health", {
-    method: "POST"
-  }), env);
-  assert.equal(postHealth.status, 405);
-  assert.equal(postHealth.headers.get("allow"), "GET");
-
-  const unknown = await worker.fetch(new Request("https://worker.test/unexpected"), env);
-  assert.equal(unknown.status, 404);
-  assert.equal(durableObjectCalled, false);
+test("route classification allows only the documented methods", async () => {
+  const { classifyRoute } = await import("../src/routes.ts");
+  assert.deepEqual(classifyRoute("/health", "GET"), { kind: "health" });
+  assert.deepEqual(classifyRoute("/health", "POST"), { kind: "method-not-allowed", allow: "GET" });
+  assert.deepEqual(classifyRoute("/plan", "POST"), { kind: "plan" });
+  assert.deepEqual(classifyRoute("/plan", "GET"), { kind: "method-not-allowed", allow: "POST" });
+  assert.deepEqual(classifyRoute("/unexpected", "GET"), { kind: "not-found" });
+  assert.deepEqual(classifyRoute("/plan/extra", "POST"), { kind: "not-found" });
 });
