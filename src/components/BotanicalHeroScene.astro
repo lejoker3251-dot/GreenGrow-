@@ -27,6 +27,10 @@
     let disposed = false;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    // Keep the lightweight SVG fallback for reduced-motion and data-saving users.
+    // Avoid downloading Three.js or creating a WebGL context when the user has opted out.
+    if (reducedMotion || connection?.saveData) return;
     const clockStart = performance.now();
     let scene: any;
     let camera: any;
