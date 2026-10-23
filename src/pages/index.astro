@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+const products = [
+  { id: 'tomate', name: 'Tomate Black Cherry', type: 'Gemüse', tag: 'Beliebt', description: 'Aromatische Früchte und ein echtes Highlight im Sommer.', image: '/products/tomate.svg' },
+  { id: 'basilikum', name: 'Basilikum Genovese', type: 'Kräuter', tag: 'Einfach starten', description: 'Duftende Blätter für Küche, Balkon und Hochbeet.', image: '/products/basilikum.svg' },
+  { id: 'sonnenblume', name: 'Sonnenblume Lemon', type: 'Blumen', tag: 'Für Bestäuber', description: 'Sonnige Farbe und ein lebendiger Gartenblickfang.', image: '/products/sonnenblume.svg' },
+  { id: 'chili', name: 'Chili Jalapeño', type: 'Gemüse', tag: 'Für Mutige', description: 'Würzige Schoten für alle, die es feurig mögen.', image: '/products/chili.svg' },
+];
+---
+<Layout>
+  <section class="hero">
+    <div class="hero-content"><span class="eyebrow">Dein Garten beginnt hier</span><h1>Grow something <em>good.</em></h1><p class="hero-copy">Entdecke Saatgut für kleine Balkone, wilde Beete und alles, was dazwischen wächst. Ein bisschen Erde, ein guter Samen – und schon beginnt etwas Schönes.</p><div class="actions"><a class="button" href="#sortiment">Sortiment entdecken <span aria-hidden="true">↗</span></a><a class="button secondary" href="#tipps">So wächst es los</a></div></div>
+    <div class="hero-art"><div class="sun-disc"></div><img src="/products/hero-seedling.svg" alt="Illustration eines jungen grünen Keimlings" width="500" height="460"/><div class="art-note">✦ Von der Saat bis zum Staunen</div></div>
+  </section>
+  <div class="trust-row" aria-label="GreenGrow Grundsätze"><div class="trust-item"><span class="trust-icon">🌱</span><span>Einfaches Gärtnern für alle</span></div><div class="trust-item"><span class="trust-icon">☀️</span><span>Ideen für Balkon und Beet</span></div><div class="trust-item"><span class="trust-icon">🐝</span><span>Mehr Leben im Grünen</span></div></div>
+  <section class="section" id="sortiment"><div class="section-heading"><div><span class="eyebrow">Finde deinen Favoriten</span><h2>Was möchtest du wachsen lassen?</h2><p>Ein erster Blick ins geplante Sortiment. Die gezeigten Produkte sind Platzhalter und werden vor dem Verkaufsstart durch bestätigte Produktdaten ersetzt.</p></div><a class="text-link" href="#vorteile">Unsere Idee kennenlernen ↗</a></div>
+    <div class="filter-row" aria-label="Produkte filtern"><button class="filter-button" data-filter="Alle" aria-pressed="true">Alles entdecken</button><button class="filter-button" data-filter="Gemüse" aria-pressed="false">Gemüse</button><button class="filter-button" data-filter="Kräuter" aria-pressed="false">Kräuter</button><button class="filter-button" data-filter="Blumen" aria-pressed="false">Blumen</button></div>
+    <div class="product-grid">{products.map((product) => <article class="product-card" data-category={product.type} data-id={product.id} data-name={product.name} data-type={product.type} data-image={product.image}><div class="product-image"><span class="product-tag">{product.tag}</span><img src={product.image} alt={'Illustration: ' + product.name} loading="lazy" width="280" height="280"/></div><div class="product-info"><h3>{product.name}</h3><p>{product.description}</p><div class="product-actions"><span class="product-type">{product.type} · Beispiel</span><button class="save-button" type="button" data-save={product.id} aria-pressed="false">+ Merken</button></div></div></article>)}</div>
+    <div class="notice">Hinweis: Diese Vorschau ist noch kein verkaufsbereiter Shop. Preise, Verfügbarkeit, Versand, rechtliche Angaben und echte Bestellabwicklung sind noch nicht eingerichtet.</div>
+  </section>
+  <section class="section split-section" id="vorteile"><div class="split-art"><img src="/products/hero-seedling.svg" alt="Junger Keimling mit kräftigen Blättern" width="440" height="360" loading="lazy"/></div><div class="split-copy"><span class="eyebrow">Weniger kompliziert. Mehr grün.</span><h2>Gute Dinge wachsen Schritt für Schritt.</h2><p>GreenGrow Seeds soll den Einstieg ins Gärtnern einfach und inspirierend machen – mit verständlichen Informationen, ausgewählten Sorten und Tipps, die im Alltag helfen.</p><div class="benefit-list"><div class="benefit"><span class="benefit-mark">✓</span><div><strong>Für deinen Platz</strong><span>Ideen für Fensterbank, Balkon, Hochbeet und Garten.</span></div></div><div class="benefit"><span class="benefit-mark">✓</span><div><strong>Mitwachsen statt überfordern</strong><span>Klare Hinweise zu Aussaat, Pflege und Ernte als geplanter Bestandteil des Shops.</span></div></div><div class="benefit"><span class="benefit-mark">✓</span><div><strong>Ein Projekt mit Zukunft</strong><span>Die technische Basis kann später um Produktverwaltung und echte Bestellungen erweitert werden.</span></div></div></div><a class="button" href="#tipps">Tipps ansehen <span aria-hidden="true">↗</span></a></div></section>
+  <section class="section" id="tipps"><div class="section-heading"><div><span class="eyebrow">Kleine Schritte, starke Wurzeln</span><h2>So startet dein Garten.</h2><p>Ein paar Grundlagen für den Anfang – praktische Sorteninformationen und saisonale Anleitungen können später ergänzt werden.</p></div></div><div class="tips-grid"><article class="tip"><span class="tip-number">01 / VORBEREITEN</span><h3>Den richtigen Platz finden</h3><p>Beobachte Licht und Temperatur und wähle Gefäße mit ausreichend Platz und Abfluss.</p></article><article class="tip"><span class="tip-number">02 / AUSSÄEN</span><h3>Klein anfangen</h3><p>Beachte die Hinweise auf der jeweiligen Saatgutpackung und halte das Substrat passend feucht.</p></article><article class="tip"><span class="tip-number">03 / WACHSEN LASSEN</span><h3>Geduld mitbringen</h3><p>Kontrolliere regelmäßig die Feuchtigkeit und gib den jungen Pflanzen Zeit, sich zu entwickeln.</p></article></div></section>
+  <section class="cta"><div><span class="eyebrow" style="color:#d6ed9a">Mach Platz für etwas Neues</span><h2>Dein nächstes Lieblingsprojekt könnte grün sein.</h2><p>GreenGrow Seeds wächst gerade. Entdecke den ersten Entwurf und hilf uns, die nächsten Schritte zu planen.</p></div><a class="button" href="#sortiment">Sortiment ansehen ↗</a></section>
+</Layout>
+<script>
+  const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.product-card')];
+  filterButtons.forEach((button) => button.addEventListener('click', () => {
+    const filter = button.dataset.filter || 'Alle';
+    filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+    cards.forEach((card) => { card.hidden = filter !== 'Alle' && card.dataset.category !== filter; });
+  }));
+  document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => button.addEventListener('click', () => {
+    const card = button.closest<HTMLElement>('.product-card');
+    if (!card) return;
+    const product = { id: card.dataset.id, name: card.dataset.name, type: card.dataset.type, image: card.dataset.image };
+    let saved: typeof product[] = [];
+    try { saved = JSON.parse(localStorage.getItem('greengrow-list') || '[]'); } catch {}
+    const exists = saved.some((item) => item.id === product.id);
+    saved = exists ? saved.filter((item) => item.id !== product.id) : [...saved, product];
+    localStorage.setItem('greengrow-list', JSON.stringify(saved));
+    button.setAttribute('aria-pressed', String(!exists));
+    button.textContent = exists ? '+ Merken' : '✓ Gemerkt';
+    const count = document.querySelector('#cart-count');
+    if (count) count.textContent = String(saved.length);
+  }));
+</script>
