@@ -11,7 +11,7 @@ This is an isolated Cloudflare Worker project. It is not part of the Astro Pages
 - No GitHub, Cloudflare management API, or external tools connected.
 - No repository writes, commits, pull requests, merges, or deployments.
 
-The plan endpoint is a scaffold, not yet an autonomous reasoning agent. The next implementation slice is to add a narrowly scoped read-only repository context provider and tests, then connect a model only after the provider and runtime behavior are verified.
+The plan endpoint is a scaffold, not yet an autonomous reasoning agent. A fixed-scope GitHub read provider now exists in `src/github-readonly.ts`; it is deliberately not wired to any HTTP endpoint. It is pinned to `lejoker3251-dot/GreenGrow-`, branch `feature/premium-storefront-v1`, and an exact file allowlist. It requires a server-side token and has a 24,000-character content limit. Tests use mocked fetch responses only; no GitHub credential is configured or used by CI.
 
 ## Local development
 
