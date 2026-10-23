@@ -51,3 +51,63 @@ test("oversized task returns 413", async () => {
   }));
   assert.equal(response.status, 413);
 });
+
+
+test("GitHub read provider requests only an allowlisted file on the fixed branch", async () => {
+  const { readAllowedGitHubFile, GITHUB_BRANCH, GITHUB_REPOSITORY } = await import("../src/github-readonly.ts");
+  let requestedUrl = "";
+  let requestedInit: RequestInit | undefined;
+  const mockFetch: typeof fetch = async (input, init) => {
+    requestedUrl = String(input);
+    requestedInit = init;
+    return Response.json({
+      type: "file",
+      encoding: "base64",
+      content: btoa("# test README"),
+      path: "README.md"
+    });
+  };
+
+  const result = await readAllowedGitHubFile("README.md", "test-token", mockFetch);
+  assert.equal(result.content, "# test README");
+  assert.equal(result.repository, GITHUB_REPOSITORY);
+  assert.equal(result.branch, GITHUB_BRANCH);
+  assert.ok(requestedUrl.includes("/repos/lejoker3251-dot/GreenGrow-/contents/README.md?ref=feature%2Fpremium-storefront-v1"));
+  assert.equal(requestedInit?.method, "GET");
+  assert.equal(new Headers(requestedInit?.headers).get("authorization"), "Bearer test-token");
+});
+
+test("GitHub read provider rejects arbitrary paths before making a request", async () => {
+  const { readAllowedGitHubFile } = await import("../src/github-readonly.ts");
+  let called = false;
+  const mockFetch: typeof fetch = async () => {
+    called = true;
+    return Response.json({});
+  };
+  await assert.rejects(
+    readAllowedGitHubFile("../../.env", "test-token", mockFetch),
+    /allowlisted/
+  );
+  assert.equal(called, false);
+});
+
+test("GitHub read provider requires a token and does not call GitHub without one", async () => {
+  const { readAllowedGitHubFile } = await import("../src/github-readonly.ts");
+  let called = false;
+  const mockFetch: typeof fetch = async () => {
+    called = true;
+    return Response.json({});
+  };
+  await assert.rejects(readAllowedGitHubFile("README.md", "", mockFetch), /token is required/);
+  assert.equal(called, false);
+});
+
+test("GitHub read provider rejects oversized file contents", async () => {
+  const { readAllowedGitHubFile, MAX_FILE_CHARACTERS } = await import("../src/github-readonly.ts");
+  const mockFetch: typeof fetch = async () => Response.json({
+    type: "file",
+    encoding: "base64",
+    content: btoa("x".repeat(MAX_FILE_CHARACTERS + 1)),
+  });
+  await assert.rejects(readAllowedGitHubFile("README.md", "test-token", mockFetch), /size limit/);
+});
