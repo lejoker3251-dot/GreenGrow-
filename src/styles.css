@@ -66,3 +66,14 @@
 @media(max-width:600px){.luxury-hero{padding:2rem 1rem 4.7rem;gap:.2rem}.luxury-hero-art{min-height:330px;max-height:390px;margin-inline:-.6rem}.hero-sculpture{width:108%!important}.hero-caption{font-size:.48rem}.hero-caption strong{font-size:.5rem}.caption-top{top:10%;right:0}.caption-bottom{bottom:5%;right:0}.hero-side-note{left:0;font-size:.45rem}.luxury-hero h1{font-size:clamp(3.1rem,14vw,4.8rem)}.luxury-hero .hero-copy{font-size:.92rem}.luxury-hero .hero-proof{font-size:.55rem;gap:.6rem}.luxury-hero .actions{align-items:stretch;flex-direction:column}.luxury-hero .actions .button{width:100%}.hero-index{left:1rem;right:1rem;bottom:1.1rem;font-size:.49rem}.growth-intro{padding:3.5rem 1rem 1.5rem}.growth-heading{margin-bottom:2rem}.growth-heading h2{font-size:clamp(2.7rem,12vw,4rem)}.growth-stages{grid-template-columns:1fr}.growth-stage{min-height:260px;padding:1.2rem 1.4rem 1.5rem}.seed-object,.root-object,.leaf-object{height:120px}.growth-footnote{font-size:.48rem;gap:.8rem}.growth-footnote span:last-child{text-align:right}}
 @media(hover:none){.hero-sculpture{transition:none}}
 @media(prefers-reduced-motion:reduce){.hero-sculpture{transition:none!important;will-change:auto}html{scroll-behavior:auto}*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+.growth-stage{transition:background-color .45s ease,transform .65s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease}
+.growth-stage.is-inview{background:#f0eee3;box-shadow:inset 0 3px 0 #8c9b71}
+.growth-stage.is-inview .seed-object:before{animation:seed-arrive .8s cubic-bezier(.2,.7,.2,1) both}
+.growth-stage.is-inview .root-object i{animation:root-arrive .7s ease-out both}
+.growth-stage.is-inview .root-object i:nth-child(2){animation-delay:.08s}.growth-stage.is-inview .root-object i:nth-child(3){animation-delay:.14s}.growth-stage.is-inview .root-object i:nth-child(4){animation-delay:.2s}
+.growth-stage.is-inview .leaf-object i:first-child{animation:leaf-open .75s ease-out both}.growth-stage.is-inview .leaf-object i:last-child{animation:leaf-open .75s .12s ease-out both}
+@keyframes seed-arrive{from{opacity:.55;transform:translateY(-9px) rotate(25deg)}to{opacity:1;transform:rotate(35deg)}}
+@keyframes root-arrive{from{opacity:0;scale:.6}to{opacity:.8;scale:1}}
+@keyframes leaf-open{from{opacity:.5;scale:.7}to{opacity:1;scale:1}}
+@media(prefers-reduced-motion:reduce){.growth-stage,.growth-stage.is-inview .seed-object:before,.growth-stage.is-inview .root-object i,.growth-stage.is-inview .leaf-object i{animation:none!important;transition:none!important}}
