@@ -21,10 +21,11 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 | Produktdetailseiten | Manuell bestanden (gültige Produktseite) | Nutzer hat eine Produktdetailseite im Preview als bestanden bestätigt. Unbekannte IDs/404 und Tastaturbedienung sind noch nicht separat getestet. |
 | Neuheiten und Bestseller | Offen | Benötigen belegte Sortiments-/Verkaufsdaten; nichts als Bestseller markieren, solange keine Daten vorliegen. |
 | Vollständige Produktdaten | Offen | Preise, Bestand, Beschreibungen und Merkmale fehlen bzw. sind nicht verifiziert. Alle Einträge bleiben Entwürfe. |
+| Namensvarianten-Audit | Erste Prüfung abgeschlossen | 1.269 Einträge geprüft: 423 normalisierte Namensgruppen, jeweils genau ein Datensatz je Kategorie; 4 Gruppen mit Schreibvarianten zur manuellen Prüfung dokumentiert in `reports/seed-name-variant-audit.md`. Keine Namen geändert oder Datensätze zusammengeführt. |
 | Ratgeber-Navigation | Teilweise umgesetzt | Wissensübersicht vorhanden; tatsächliche Vollständigkeit und fachliche/rechtliche Prüfung der Artikel bleibt offen. |
 | Impressum, Datenschutz, Kontakt und Shop-Recht | Offen | Platzhalter und Angaben vor einer öffentlichen Verkaufsfreigabe überprüfen. |
 | Backend, Bestellungen und Zahlung | Nicht umgesetzt | Absichtlich nicht Teil der Vorschau. Erfordert Architektur- und Sicherheitsentscheidungen. |
-| iPad Safari / Bedienbarkeit / visuelle Abnahme | Teilweise bestätigt | Nutzer bestätigt, dass die ganze Vorschauseite sichtbar ist und Suche, Kategorienfilter, Sortierung, Merkliste sowie eine Produktdetailseite im Preview bestanden haben. iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. |
+| iPad Safari / Bedienbarkeit / visuelle Abnahme | Teilweise bestätigt | Nutzer bestätigt, dass die ganze Vorschauseite sichtbar ist und Suche, Kategorienfilter, Sortierung, Merkliste sowie eine Produktdetailseite im Preview bestanden haben. Der GitHub-Actions-Lauf für Commit `df436d666359bcd7fb3142ef3265656041f890c1` ist erfolgreich abgeschlossen; iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. |
 | Produktionsfreigabe | Gesperrt | Nicht deployen oder mergen ohne ausdrückliche Freigabe. |
 
 ## Nächste Entwicklungsstufen
@@ -47,6 +48,8 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 
 ### Stufe 3 – Datenqualität und redaktionelle Freigabe
 - [ ] Produktdaten aus verlässlichen Quellen ergänzen, Quellen und Prüfstatus erfassen.
+- [x] Namensvarianten-Audit für alle 1.269 Einträge erstellt; 4 Kandidatengruppen dokumentiert, ohne automatische Zusammenführung.
+- [ ] Vier Schreibvarianten anhand Original-PDF/Lieferantenquelle prüfen und erst nach Freigabe vereinheitlichen.
 - [ ] Schreibvarianten vergleichen, aber nicht ohne menschliche Freigabe zusammenführen.
 - [x] Automatische Prüfung auf 1.269 Einträge, Pflichtfelder, eindeutige IDs, erlaubte Kategorien und Entwurfsstatus ergänzt; lokale/inhaltliche Prüfung bestanden, GitHub-Actions-Lauf noch nicht bestätigt.
 - [ ] Neuheiten/Bestseller erst anzeigen, wenn entsprechende Fakten vorhanden sind.
