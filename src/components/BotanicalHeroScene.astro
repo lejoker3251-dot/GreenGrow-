@@ -34,12 +34,15 @@
     let resizeObserver: ResizeObserver | undefined;
     let intersectionObserver: IntersectionObserver | undefined;
     let THREE: any;
+    const rootMeshes: any[] = [];
+    const leafMeshes: Array<{ mesh: any; base: any }> = [];
 
     const makeTube = (points: any[], radius: number, material: any, radialSegments = 7) => {
       const curve = new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(p[0], p[1], p[2])));
       const geometry = new THREE.TubeGeometry(curve, Math.max(16, points.length * 8), radius, radialSegments, false);
       const mesh = new THREE.Mesh(geometry, material);
       plant.add(mesh);
+      if (material === rootMat) rootMeshes.push(mesh);
       return mesh;
     };
 
@@ -49,6 +52,7 @@
       leaf.scale.set(scale[0], scale[1], scale[2]);
       leaf.rotation.set(rotation[0], rotation[1], rotation[2]);
       plant.add(leaf);
+      leafMeshes.push({ mesh: leaf, base: leaf.scale.clone() });
       const veinMaterial = new THREE.MeshStandardMaterial({ color: '#d6dfaa', roughness: .65, metalness: .04 });
       const start = new THREE.Vector3(position[0], position[1] - scale[1] * .82, position[2] + scale[2] * .45);
       const end = new THREE.Vector3(position[0] + Math.sin(rotation[2]) * scale[0] * .8, position[1] + scale[1] * .72, position[2] + scale[2] * .48);
@@ -95,6 +99,16 @@
         const shell = new THREE.Mesh(new THREE.SphereGeometry(1.49, 24, 18), shellMat);
         shell.position.copy(orb.position);
         plant.add(shell);
+
+        // A dormant seed sits beneath the surface at the beginning of the story.
+        const seed = new THREE.Mesh(
+          new THREE.SphereGeometry(1, 20, 14),
+          new THREE.MeshStandardMaterial({ color: '#b9a16b', roughness: .5, metalness: .02 })
+        );
+        seed.position.set(0, -.48, .42);
+        seed.scale.set(.14, .2, .12);
+        seed.rotation.z = -.3;
+        plant.add(seed);
 
         makeTube([[0,-.38,0],[.02,-.05,.02],[-.03,.35,.03],[.04,.7,.02],[.02,1.05,0],[.06,1.42,0],[.02,1.68,0]], .035, stemMat, 8);
         makeTube([[0,-.32,.02],[-.05,-.6,.05],[-.12,-.88,.08],[-.2,-1.18,.1],[-.18,-1.43,.08]], .018, rootMat);
@@ -180,6 +194,23 @@
           pointerX += (targetX - pointerX) * .045;
           pointerY += (targetY - pointerY) * .045;
           scrollProgress += (targetScrollProgress - scrollProgress) * .055;
+          // Scroll reveals the botanical story in stages: seed, roots, then leaves.
+          const seedReveal = Math.max(0, 1 - scrollProgress * 3.4);
+          const rootReveal = Math.max(.035, Math.min(1, (scrollProgress - .08) * 3.2));
+          const leafReveal = Math.max(.08, Math.min(1, (scrollProgress - .34) * 2.4));
+          seed.scale.set(.14 * seedReveal, .2 * seedReveal, .12 * seedReveal);
+          seed.material.opacity = Math.max(.12, seedReveal);
+          seed.material.transparent = true;
+          rootMeshes.forEach((rootMesh, index) => {
+            const stagger = Math.min(1, rootReveal * (1.12 - index * .025));
+            rootMesh.scale.set(stagger, stagger, stagger);
+            rootMesh.material.transparent = true;
+            rootMesh.material.opacity = .18 + stagger * .82;
+          });
+          leafMeshes.forEach(({ mesh, base }, index) => {
+            const stagger = Math.max(.06, Math.min(1, leafReveal * (1.12 - index * .035)));
+            mesh.scale.set(base.x * stagger, base.y * stagger, base.z * stagger);
+          });
           // A restrained scroll-linked camera move gives the plant a sense of depth
           // without hijacking native iPad scrolling or changing the page layout.
           const growthScale = 1 + scrollProgress * .075;
