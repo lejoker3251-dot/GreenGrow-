@@ -82,7 +82,9 @@ export async function readAllowedGitHubFile(
     throw new GitHubReadError("GitHub returned an unsupported file response.", 502);
   }
 
-  const content = atob(payload.content.replace(/\s/g, ""));
+  const binary = atob(payload.content.replace(/\s/g, ""));
+  const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+  const content = new TextDecoder().decode(bytes);
   if (content.length > MAX_FILE_CHARACTERS) {
     throw new GitHubReadError("File exceeds the configured response size limit.", 413);
   }
