@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BotanicalHeroScene from '../components/BotanicalHeroScene.astro';
 const products = [
   { id: 'tomate', name: 'Tomate Black Cherry', type: 'Gemüse', tag: 'Bestseller', description: 'Aromatische Früchte und ein Highlight für sonnige Tage.', image: '/products/tomate.svg', status: 'bestseller' },
   { id: 'basilikum', name: 'Basilikum Genovese', type: 'Kräuter', tag: 'Neu entdecken', description: 'Duftende Blätter für Küche, Balkon und Hochbeet.', image: '/products/basilikum.svg', status: 'neuheit' },
@@ -21,7 +22,7 @@ const categories = ['Alle', 'Gemüse', 'Kräuter', 'Blumen'];
     <div class="hero-art luxury-hero-art" id="hero-art" aria-label="Dreidimensionale botanische Illustration">
       <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
       <div class="hero-glow"></div>
-      <img class="hero-sculpture" src="/products/botanical-luxury-hero.svg" alt="Künstlerische botanische Darstellung eines jungen Keimlings mit sichtbaren Wurzeln in einer schwebenden Erdkugel" width="900" height="860" fetchpriority="high"/>
+      <BotanicalHeroScene />
       <div class="hero-caption caption-top"><span>FIG. 01</span><strong>THE FIRST SPROUT</strong></div>
       <div class="hero-caption caption-bottom"><span>ROOTED IN NATURE</span><strong>GROW WITH INTENTION</strong></div>
       <span class="hero-side-note">A STUDY IN GROWTH</span>
@@ -127,21 +128,6 @@ const categories = ['Alle', 'Gemüse', 'Kräuter', 'Blumen'];
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
     revealTargets.forEach((element) => revealObserver.observe(element));
-  }
-  const heroArt = document.querySelector<HTMLElement>('#hero-art');
-  const heroMotion = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
-  if (heroArt && heroMotion.matches) {
-    heroArt.addEventListener('pointermove', (event) => {
-      const bounds = heroArt.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-      heroArt.style.setProperty('--pointer-x', (y * -5).toFixed(2) + 'deg');
-      heroArt.style.setProperty('--pointer-y', (x * 6).toFixed(2) + 'deg');
-    }, { passive: true });
-    heroArt.addEventListener('pointerleave', () => {
-      heroArt.style.setProperty('--pointer-x', '0deg');
-      heroArt.style.setProperty('--pointer-y', '0deg');
-    }, { passive: true });
   }
   const growthStages = [...document.querySelectorAll<HTMLElement>('.growth-stage')];
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
