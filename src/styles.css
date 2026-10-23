@@ -304,3 +304,93 @@ p, li { font-size: 1rem; line-height: 1.75; }
   .feature-card strong { font-size: 1.35rem; }
   .filter-button { font-size: .9rem; }
 }
+
+
+/* SEED³X design foundation — consistent interaction and reading rhythm */
+:root {
+  --content-max: 1360px;
+  --reading-max: 72ch;
+  --focus-ring: #8a5a00;
+  --surface-page: #fbfaf5;
+  --surface-raised: #fffdf8;
+  --motion-fast: 160ms;
+  --motion-standard: 220ms;
+  --radius-card: 18px;
+  --shadow-soft: 0 12px 32px #173f2a0d;
+}
+
+html {
+  scroll-padding-top: 6rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  color: var(--ink);
+  background: var(--surface-page);
+  overflow-wrap: break-word;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+a,
+button,
+select,
+input {
+  touch-action: manipulation;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+:where(button, input, select, textarea) {
+  font: inherit;
+}
+
+:where(.section, .page-hero, .knowledge-group, .shop-catalog) {
+  scroll-margin-top: 6rem;
+}
+
+:where(.hero-copy, .page-hero p, .section-heading p, .split-copy p, .product-detail p) {
+  text-wrap: pretty;
+}
+
+:where(.button, .filter-button, .save-button, .feature-card, .product-card) {
+  transition-duration: var(--motion-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .main-nav a,
+  .footer-links a,
+  .button,
+  .filter-button,
+  .save-button {
+    min-height: 44px;
+  }
+
+  .main-nav a,
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+  }
+}
