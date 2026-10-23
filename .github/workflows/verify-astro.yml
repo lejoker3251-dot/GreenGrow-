@@ -31,4 +31,5 @@ jobs:
           test -s dist/index.html
           test -s dist/template-preview/index.html
           test -s dist/shopping-cart/index.html
+          test -s dist/product/seed-0001/index.html
           test -s dist/products/hero-seedling.svg
