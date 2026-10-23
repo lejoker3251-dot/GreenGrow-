@@ -629,3 +629,86 @@ body { color: var(--ink); background: var(--cream); }
     transition-duration: .01ms !important;
   }
 }
+
+
+/* Global collapsible navigation: one tidy menu on desktop, tablet and mobile */
+.site-header {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 82px;
+  height: auto;
+  gap: 1rem;
+}
+.site-header .menu-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  margin-left: auto;
+  cursor: pointer;
+}
+.site-header .main-nav,
+.site-header .main-nav[hidden] {
+  display: none;
+}
+.site-header .main-nav.is-open:not([hidden]) {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: .15rem;
+  top: calc(100% + 1px);
+  right: var(--page-gutter, clamp(1rem, 5.2vw, 5rem));
+  left: auto;
+  width: min(360px, calc(100vw - 2rem));
+  max-height: min(72vh, 560px);
+  overflow-y: auto;
+  margin: 0;
+  padding: .75rem;
+  background: var(--paper, #fffef9);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 22px 48px rgb(19 47 34 / 16%);
+  z-index: 30;
+}
+.site-header .main-nav.is-open:not([hidden]) a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 48px;
+  padding: .7rem .85rem;
+  border-radius: 10px;
+  white-space: normal;
+  font-size: 1rem;
+}
+.site-header .main-nav.is-open:not([hidden]) a:hover,
+.site-header .main-nav.is-open:not([hidden]) a:focus-visible {
+  background: var(--green-soft, #e8eddf);
+}
+.site-header .main-nav.is-open:not([hidden]) a::after {
+  display: none;
+}
+.site-header .main-nav.is-open:not([hidden]) .menu-wishlist {
+  justify-content: space-between;
+  margin-top: .3rem;
+  padding-top: .85rem;
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 10px 10px;
+}
+.site-header .main-nav.is-open:not([hidden]) .cart-count {
+  display: inline-grid;
+  flex: 0 0 27px;
+}
+@media (max-width: 800px) {
+  .site-header .main-nav.is-open:not([hidden]) {
+    right: .75rem;
+    width: min(360px, calc(100vw - 1.5rem));
+  }
+  .site-header .main-nav.is-open:not([hidden]) a {
+    min-height: 48px;
+  }
+}
+@media (max-width: 420px) {
+  .site-header .brand-banner { width: min(42vw, 150px); }
+  .site-header .menu-toggle { padding-inline: .7rem; }
+}
