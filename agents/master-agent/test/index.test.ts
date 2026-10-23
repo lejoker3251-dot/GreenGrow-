@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildTaskPlan, handlePlanRequest } from "../src/index.ts";
+import { buildTaskPlan, handlePlanRequest } from "../src/plan.ts";
 
 test("health-style plan metadata stays read-only", () => {
   const plan = buildTaskPlan("  Inspect project structure  ");
