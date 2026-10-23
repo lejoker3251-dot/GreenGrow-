@@ -9,17 +9,35 @@ const products = [
 const categories = ['Alle', 'Gemüse', 'Kräuter', 'Blumen'];
 ---
 <Layout title="GreenGrow Seeds – Entdecke, was wachsen kann" description="Entdecke Saatgut für Balkon, Beet und Garten. Finde Inspiration, Produkte und verständliche Anzucht-Tipps bei GreenGrow Seeds.">
-  <section class="hero">
-    <div class="hero-content">
-      <span class="eyebrow">Für alles, was wachsen soll</span>
-      <h1>Make room for <em>green.</em></h1>
-      <p class="hero-copy">Gute Dinge beginnen klein. Entdecke Saatgut für deinen Lieblingsplatz – vom sonnigen Balkon bis zum lebendigen Garten.</p>
-      <div class="actions"><a class="button" href="#sortiment">Sortiment entdecken <span aria-hidden="true">↗</span></a><a class="button secondary" href="#ratgeber">Inspiration finden</a></div>
-      <div class="hero-proof"><span>✳ Mit Liebe ausgewählt</span><span>✳ Einfach loswachsen</span></div>
+  <section class="hero luxury-hero" aria-labelledby="hero-title">
+    <div class="hero-content luxury-hero-content">
+      <span class="eyebrow">Botanical objects · Naturally considered</span>
+      <p class="hero-overline">GREEN GROWING, REIMAGINED</p>
+      <h1 id="hero-title">Ein kleines Wunder.<br/><em>Unendliches Grün.</em></h1>
+      <p class="hero-copy">Jedes Wachstum beginnt leise. Entdecke Saatgut und Inspiration für lebendige Lieblingsorte – sorgfältig ausgewählt und mit Freude zum Wachsen gedacht.</p>
+      <div class="actions"><a class="button luxury-button" href="#sortiment">Kollektion entdecken <span aria-hidden="true">↗</span></a><a class="button secondary" href="#wachstumsreise">Die Geschichte dahinter</a></div>
+      <div class="hero-proof"><span>01 / NATÜRLICH AUSGEWÄHLT</span><span>02 / MIT LIEBE GEZOGEN</span></div>
     </div>
-    <div class="hero-art"><div class="sun-disc"></div><img src="/products/hero-seedling.svg" alt="Illustration eines jungen grünen Keimlings" width="500" height="460"/><div class="art-note">Dein nächstes grünes Kapitel</div></div>
+    <div class="hero-art luxury-hero-art" id="hero-art" aria-label="Dreidimensionale botanische Illustration">
+      <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+      <div class="hero-glow"></div>
+      <img class="hero-sculpture" src="/products/botanical-luxury-hero.svg" alt="Künstlerische botanische Darstellung eines jungen Keimlings mit sichtbaren Wurzeln in einer schwebenden Erdkugel" width="900" height="860" fetchpriority="high"/>
+      <div class="hero-caption caption-top"><span>FIG. 01</span><strong>THE FIRST SPROUT</strong></div>
+      <div class="hero-caption caption-bottom"><span>ROOTED IN NATURE</span><strong>GROW WITH INTENTION</strong></div>
+      <span class="hero-side-note">A STUDY IN GROWTH</span>
+    </div>
+    <div class="hero-index"><span>BOTANICAL LUXURY</span><span>01 — 04</span></div>
   </section>
-  <div class="trust-row" aria-label="GreenGrow Grundsätze"><div class="trust-item"><span class="trust-icon">🌱</span><span>Einfach starten</span></div><div class="trust-item"><span class="trust-icon">☀️</span><span>Für Balkon und Beet</span></div><div class="trust-item"><span class="trust-icon">🐝</span><span>Mehr Leben im Grünen</span></div></div>
+  <section class="growth-intro" id="wachstumsreise" aria-labelledby="growth-title">
+    <div class="growth-heading"><span class="eyebrow">The art of becoming</span><h2 id="growth-title">Von etwas Kleinem.<br/><em>Zu etwas Lebendigem.</em></h2><p>Ein Samen trägt bereits eine ganze Möglichkeit in sich. Wir machen diese Reise sichtbar – mit botanischer Inspiration, sorgfältigen Details und Raum zum Entdecken.</p></div>
+    <div class="growth-stages">
+      <article class="growth-stage stage-seed"><span class="stage-number">01</span><div class="seed-object" aria-hidden="true"><i></i></div><small>DER ANFANG</small><h3>Die Möglichkeit</h3><p>Alles beginnt mit einem Samen und dem richtigen Ort.</p></article>
+      <article class="growth-stage stage-root"><span class="stage-number">02</span><div class="root-object" aria-hidden="true"><i></i><i></i><i></i><i></i></div><small>UNTER DER OBERFLÄCHE</small><h3>Die Verbindung</h3><p>Wurzeln finden Halt. Wachstum bekommt Richtung.</p></article>
+      <article class="growth-stage stage-leaf"><span class="stage-number">03</span><div class="leaf-object" aria-hidden="true"><i></i><i></i></div><small>DEM LICHT ENTGEGEN</small><h3>Das Entfalten</h3><p>Aus kleinen Schritten wird etwas, das weiterwächst.</p></article>
+    </div>
+    <div class="growth-footnote"><span>GROWING IS A JOURNEY</span><span>DESIGNED TO FEEL NATURAL</span></div>
+  </section>
+  <div class="trust-row luxury-trust-row" aria-label="GreenGrow Grundsätze"><div class="trust-item"><span class="trust-icon">✳</span><span>Sorgfältig ausgewählt</span></div><div class="trust-item"><span class="trust-icon">◌</span><span>Für deinen Lieblingsort</span></div><div class="trust-item"><span class="trust-icon">↗</span><span>Schritt für Schritt wachsen</span></div></div>
 
   <section class="section" id="sortiment">
     <div class="section-heading"><div><span class="eyebrow">Finde deinen Favoriten</span><h2>Dein grüner Anfang.</h2><p>Entdecke die ersten Bereiche unseres geplanten Sortiments. Die Produktbeispiele dienen aktuell nur der Vorschau.</p></div><span class="section-kicker">DAS SORTIMENT · 01</span></div>
