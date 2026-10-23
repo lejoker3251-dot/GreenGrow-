@@ -9,6 +9,13 @@ export interface TaskPlan {
 const MAX_TASK_CHARACTERS = 2000;
 const MAX_REQUEST_BYTES = 16_384;
 
+function clientError(message: string, status: number): Response {
+  return Response.json({ error: message }, {
+    status,
+    headers: { "Cache-Control": "no-store" }
+  });
+}
+
 export function buildTaskPlan(task: string): TaskPlan {
   return {
     mode: "read-only-prototype",
@@ -31,19 +38,19 @@ export function buildTaskPlan(task: string): TaskPlan {
 export async function handlePlanRequest(request: Request): Promise<Response> {
   const contentType = request.headers.get("content-type") ?? "";
   if (!/^application\/json(?:\s*;|\s*$)/i.test(contentType)) {
-    return Response.json({ error: "Content-Type must be application/json." }, { status: 415 });
+    return clientError("Content-Type must be application/json.", 415);
   }
 
   const declaredLength = Number(request.headers.get("content-length"));
   if (Number.isFinite(declaredLength) && declaredLength > MAX_REQUEST_BYTES) {
-    return Response.json({ error: "Request body is too large." }, { status: 413 });
+    return clientError("Request body is too large.", 413);
   }
 
   let rawBody: string;
   try {
     rawBody = await request.text();
   } catch {
-    return Response.json({ error: "Request body could not be read." }, { status: 400 });
+    return clientError("Request body could not be read.", 400);
   }
 
   if (new TextEncoder().encode(rawBody).byteLength > MAX_REQUEST_BYTES) {
@@ -54,19 +61,19 @@ export async function handlePlanRequest(request: Request): Promise<Response> {
   try {
     body = JSON.parse(rawBody);
   } catch {
-    return Response.json({ error: "Request body must be valid JSON." }, { status: 400 });
+    return clientError("Request body must be valid JSON.", 400);
   }
 
   if (body === null || typeof body !== "object" || Array.isArray(body)) {
-    return Response.json({ error: "Request body must be a JSON object." }, { status: 400 });
+    return clientError("Request body must be a JSON object.", 400);
   }
 
   const task = (body as { task?: unknown }).task;
   if (typeof task !== "string" || task.trim().length === 0) {
-    return Response.json({ error: "A non-empty task string is required." }, { status: 400 });
+    return clientError("A non-empty task string is required.", 400);
   }
   if (task.length > MAX_TASK_CHARACTERS) {
-    return Response.json({ error: "Task must be 2000 characters or fewer." }, { status: 413 });
+    return clientError("Task must be 2000 characters or fewer.", 413);
   }
 
   return Response.json(buildTaskPlan(task), {
