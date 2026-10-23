@@ -68,6 +68,28 @@ const categories = ['Alle', 'Autoflowering', 'Feminisierte Samen', 'Reguläre Sa
   const count = document.querySelector<HTMLElement>('#results-count');
   const empty = document.querySelector<HTMLElement>('#no-results');
   let activeFilter = 'Alle';
+  function readSavedProducts(): { id: string; name: string; type: string; image: string }[] {
+    try {
+      const value: unknown = JSON.parse(localStorage.getItem('greengrow-list') || '[]');
+      if (!Array.isArray(value)) return [];
+      return value.filter((item): item is { id: string; name: string; type: string; image: string } =>
+        item && typeof item.id === 'string' && typeof item.name === 'string' &&
+        typeof item.type === 'string' && typeof item.image === 'string'
+      );
+    } catch {
+      return [];
+    }
+  }
+  function syncSavedButtons() {
+    const savedIds = new Set(readSavedProducts().map((item) => item.id));
+    document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => {
+      const isSaved = savedIds.has(button.dataset.save || '');
+      button.setAttribute('aria-pressed', String(isSaved));
+      button.textContent = isSaved ? '✓ Gemerkt' : '+ Merken';
+    });
+    const savedCount = document.querySelector('#cart-count');
+    if (savedCount) savedCount.textContent = String(savedIds.size);
+  }
   function updateProducts() {
     const query = (search?.value || '').trim().toLocaleLowerCase('de');
     let visible = 0;
@@ -90,17 +112,29 @@ const categories = ['Alle', 'Autoflowering', 'Feminisierte Samen', 'Reguläre Sa
   document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => button.addEventListener('click', () => {
     const card = button.closest<HTMLElement>('.product-card');
     if (!card) return;
-    const product = { id: card.dataset.id, name: card.dataset.name, type: card.dataset.type, image: card.dataset.image };
-    let saved: typeof product[] = [];
-    try { saved = JSON.parse(localStorage.getItem('greengrow-list') || '[]'); } catch {}
-    const exists = saved.some((item) => item.id === product.id);
-    saved = exists ? saved.filter((item) => item.id !== product.id) : [...saved, product];
-    localStorage.setItem('greengrow-list', JSON.stringify(saved));
-    button.setAttribute('aria-pressed', String(!exists));
-    button.textContent = exists ? '+ Merken' : '✓ Gemerkt';
-    const savedCount = document.querySelector('#cart-count');
-    if (savedCount) savedCount.textContent = String(saved.length);
+    const id = card.dataset.id;
+    if (!id) return;
+    const saved = readSavedProducts();
+    const exists = saved.some((item) => item.id === id);
+    const next = exists
+      ? saved.filter((item) => item.id !== id)
+      : [...saved, {
+          id,
+          name: card.dataset.name || 'Unbenanntes Produkt',
+          type: card.dataset.type || 'Nicht zugeordnet',
+          image: card.dataset.image || ''
+        }];
+    try {
+      localStorage.setItem('greengrow-list', JSON.stringify(next));
+      syncSavedButtons();
+    } catch {
+      window.alert('Deine Merkliste konnte auf diesem Gerät nicht gespeichert werden. Bitte prüfe die Browser-Einstellungen.');
+    }
   }));
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'greengrow-list') syncSavedButtons();
+  });
+  syncSavedButtons();
   // Progressive reveal: content remains visible if motion APIs are unavailable.
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reducedMotion && 'IntersectionObserver' in window) {
