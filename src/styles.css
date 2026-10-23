@@ -34,3 +34,11 @@
 @media(min-width:1500px){.luxury-hero,.growth-intro,.section,.split-section{padding-left:max(6rem,calc((100vw - 1440px)/2));padding-right:max(6rem,calc((100vw - 1440px)/2))}.site-header{padding-left:max(5rem,calc((100vw - 1440px)/2));padding-right:max(5rem,calc((100vw - 1440px)/2))}}
 @media(max-width:680px){.product-grid{gap:.65rem}.product-card{border-radius:15px}.product-info{padding:.75rem}.product-info h3{font-size:1.02rem}.product-info p{font-size:.76rem;line-height:1.55}.product-actions{gap:.55rem;padding-top:.7rem}.product-note{font-size:.66rem}.product-tag{top:.55rem;left:.55rem;font-size:.61rem;padding:.35rem .5rem}.filter-button{padding:.62rem .78rem}.search-box input{font-size:16px}.tips-grid{gap:.75rem}}
 @media(prefers-reduced-motion:reduce){.product-card,.tip,.main-nav a:after,.filter-button,.save-button{transition:none!important}}
+
+
+/* Catalog sorting control – keyboard and touch friendly. */
+.catalog-sort{display:flex;align-items:center;justify-content:flex-end;gap:.7rem;margin:.9rem 0 1rem;color:#465747;font-size:.9rem}
+.catalog-sort label{font-weight:600}
+.catalog-sort select{max-width:100%;min-height:44px;padding:.65rem 2.4rem .65rem .85rem;border:1px solid #d9dfd1;border-radius:12px;background:#fbfaf5;color:#1e3425;font:inherit}
+.catalog-sort select:focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
+@media(max-width:680px){.catalog-sort{justify-content:stretch;align-items:stretch;flex-direction:column;gap:.35rem}.catalog-sort select{width:100%;font-size:16px}}
