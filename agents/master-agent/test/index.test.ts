@@ -169,6 +169,7 @@ test("oversized request body returns 413 even when task field is not reached", a
     body: JSON.stringify({ other: "x".repeat(17_000) })
   }));
   assert.equal(response.status, 413);
+  assert.equal(response.headers.get("cache-control"), "no-store");
 });
 
 test("successful plan responses are not cacheable", async () => {
