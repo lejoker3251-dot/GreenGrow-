@@ -48,6 +48,7 @@ const categories = ['Alle', 'Autoflowering', 'Feminisierte Samen', 'Reguläre Sa
     <div class="catalog-tools">
       <label class="search-box"><span aria-hidden="true">⌕</span><input id="product-search" type="search" placeholder="Produkte oder Kategorien suchen …" aria-label="Produkte oder Kategorien suchen"/></label>
       <div class="filter-row" aria-label="Produkte nach Kategorie filtern">{categories.map((category, index) => <button class="filter-button" data-filter={category} aria-pressed={index === 0 ? 'true' : 'false'}>{category === 'Alle' ? 'Alles entdecken' : category}</button>)}</div>
+      <div class="catalog-sort"><label for="product-sort">Sortieren</label><select id="product-sort" aria-label="Produkte sortieren"><option value="source">Originale Listenreihenfolge</option><option value="name-asc">Name: A–Z</option><option value="name-desc">Name: Z–A</option><option value="category">Kategorie</option></select></div>
     </div>
     <p class="results-count" id="results-count" aria-live="polite">1.269 Produkte · Vorschau</p>
     <div class="product-grid" id="product-grid">{products.map((product) => <article class="product-card" data-category={product.type} data-id={product.id} data-name={product.name} data-type={product.type} data-image={product.image} data-status={product.status}><div class="product-image"><span class="product-tag">{product.tag}</span><img src={product.image} alt={'Universelles Produktbild für ' + product.name} loading="lazy" width="280" height="280"/></div><div class="product-info"><span class="product-type">{product.type} · Entwurf</span><h3>{product.name}</h3><p>{product.description}</p><div class="product-actions"><span class="product-note">Produktdetails folgen</span><button class="save-button" type="button" data-save={product.id} aria-pressed="false">+ Merken</button></div></div></article>)}</div>
@@ -67,7 +68,24 @@ const categories = ['Alle', 'Autoflowering', 'Feminisierte Samen', 'Reguläre Sa
   const search = document.querySelector<HTMLInputElement>('#product-search');
   const count = document.querySelector<HTMLElement>('#results-count');
   const empty = document.querySelector<HTMLElement>('#no-results');
+  const sortSelect = document.querySelector<HTMLSelectElement>('#product-sort');
+  const grid = document.querySelector<HTMLElement>('#product-grid');
+  const originalOrder = new Map(cards.map((card, index) => [card.dataset.id || String(index), index]));
   let activeFilter = 'Alle';
+  function sortProducts() {
+    if (!grid || !sortSelect) return;
+    const mode = sortSelect.value;
+    const sorted = [...cards].sort((a, b) => {
+      if (mode === 'name-asc') return (a.dataset.name || '').localeCompare(b.dataset.name || '', 'de', { sensitivity: 'base' });
+      if (mode === 'name-desc') return (b.dataset.name || '').localeCompare(a.dataset.name || '', 'de', { sensitivity: 'base' });
+      if (mode === 'category') {
+        const categoryCompare = (a.dataset.category || '').localeCompare(b.dataset.category || '', 'de');
+        if (categoryCompare !== 0) return categoryCompare;
+      }
+      return (originalOrder.get(a.dataset.id || '') ?? 0) - (originalOrder.get(b.dataset.id || '') ?? 0);
+    });
+    sorted.forEach((card) => grid.append(card));
+  }
   function readSavedProducts(): { id: string; name: string; type: string; image: string }[] {
     try {
       const value: unknown = JSON.parse(localStorage.getItem('greengrow-list') || '[]');
@@ -109,6 +127,8 @@ const categories = ['Alle', 'Autoflowering', 'Feminisierte Samen', 'Reguläre Sa
     updateProducts();
   }));
   search?.addEventListener('input', updateProducts);
+  sortSelect?.addEventListener('change', sortProducts);
+  sortProducts();
   document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => button.addEventListener('click', () => {
     const card = button.closest<HTMLElement>('.product-card');
     if (!card) return;
