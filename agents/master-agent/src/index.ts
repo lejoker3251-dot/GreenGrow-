@@ -1,5 +1,6 @@
 import { Agent } from "agents";
 import { buildTaskPlan, handlePlanRequest, type TaskPlan } from "./plan";
+import { classifyRoute } from "./routes";
 
 interface Env {
   MASTER_AGENT: DurableObjectNamespace<MasterAgent>;
@@ -20,51 +21,39 @@ function notFound(): Response {
   );
 }
 
+function healthResponse(mode: string): Response {
+  return Response.json({
+    ok: true,
+    service: "greengrow-master-agent",
+    mode
+  }, { headers: { "Cache-Control": "no-store" } });
+}
+
 export class MasterAgent extends Agent<Env> {
   async planTask(task: string): Promise<TaskPlan> {
     return buildTaskPlan(task);
   }
 
   async onRequest(request: Request): Promise<Response> {
-    const url = new URL(request.url);
-
-    if (url.pathname === "/health") {
-      if (request.method !== "GET") return methodNotAllowed("GET");
-      return Response.json({
-        ok: true,
-        service: "greengrow-master-agent",
-        mode: "read-only-prototype"
-      }, { headers: { "Cache-Control": "no-store" } });
-    }
-
-    if (url.pathname === "/plan") {
-      if (request.method !== "POST") return methodNotAllowed("POST");
-      return handlePlanRequest(request);
-    }
-
+    const decision = classifyRoute(new URL(request.url).pathname, request.method);
+    if (decision.kind === "health") return healthResponse("read-only-prototype");
+    if (decision.kind === "method-not-allowed") return methodNotAllowed(decision.allow);
+    if (decision.kind === "plan") return handlePlanRequest(request);
     return notFound();
   }
 }
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const url = new URL(request.url);
-
-    if (url.pathname === "/health") {
-      if (request.method !== "GET") return methodNotAllowed("GET");
-      return Response.json({
-        ok: true,
-        service: "greengrow-master-agent",
-        mode: env.AGENT_MODE ?? "read-only-prototype"
-      }, { headers: { "Cache-Control": "no-store" } });
+    const decision = classifyRoute(new URL(request.url).pathname, request.method);
+    if (decision.kind === "health") {
+      return healthResponse(env.AGENT_MODE ?? "read-only-prototype");
     }
-
-    if (url.pathname === "/plan") {
-      if (request.method !== "POST") return methodNotAllowed("POST");
+    if (decision.kind === "method-not-allowed") return methodNotAllowed(decision.allow);
+    if (decision.kind === "plan") {
       const id = env.MASTER_AGENT.idFromName("master-agent-prototype");
       return env.MASTER_AGENT.get(id).fetch(request);
     }
-
     return notFound();
   }
 };
