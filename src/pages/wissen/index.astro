@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+const growSlugs = ['cannabissamen-keimen', 'wachstumsphase', 'cannabis-bluetephase', 'letzte-bluete-wochen', 'cannabis-ernten'];
 const groups = [
   { id: 'cannabisanbau', number: '01', title: 'Grundkurs Cannabisanbau', intro: 'Die wichtigsten Entwicklungsphasen einer Cannabispflanze – vom ersten Keimen bis zur Ernte.', articles: ['Cannabissamen keimen', 'Die Wachstumsphase', 'Cannabis-Blütephase', 'Die letzten Blüte-Wochen', 'Cannabis ernten'] },
   { id: 'cannabissamen', number: '02', title: 'Grundkurs Cannabissamen', intro: 'Samenarten, Lagerung und grundlegende Unterschiede auf einen Blick.', articles: ['Wie man Samen aufbewahrt', 'Was sind feminisierte Samen?', 'Was sind autoflowering Samen?', 'Reguläre, CBD-, Auto- und feminisierte Samen', 'Anbau von F1-Hybridsamen'] },
@@ -25,8 +26,8 @@ const groups = [
       <div class="knowledge-articles">
         {group.articles.map((article, index) => <article class="knowledge-article">
           <span class="article-index">{group.number}.{String(index + 1).padStart(2, '0')}</span>
-          <h3>{article}</h3>
-          <span class="article-status">Artikel in Vorbereitung</span>
+          {group.id === 'cannabisanbau' ? <h3><a href={'/wissen/' + growSlugs[index] + '/'}>{article} ↗</a></h3> : <h3>{article}</h3>}
+          <span class="article-status">{group.id === 'cannabisanbau' ? 'Artikel lesen' : 'Artikel in Vorbereitung'}</span>
         </article>)}
       </div>
     </section>)}
@@ -47,7 +48,7 @@ const groups = [
     .knowledge-articles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem;margin-left:calc(70px + 1rem)}
     .knowledge-article{display:grid;grid-template-columns:48px 1fr;gap:.15rem .7rem;align-items:center;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:14px;background:#fffdf8}
     .article-index{grid-row:span 2;font-size:.78rem;color:var(--green-2);font-weight:850}
-    .knowledge-article h3{font-size:.98rem;line-height:1.4;margin:0;font-weight:700}
+    .knowledge-article h3{font-size:.98rem;line-height:1.4;margin:0;font-weight:700}.knowledge-article h3 a{color:var(--ink);text-decoration:none}.knowledge-article h3 a:hover{color:var(--green-2)}
     .article-status{font-size:.72rem;color:var(--muted);margin-top:.25rem}
     .knowledge-note{margin-top:2rem;padding:1.3rem 1.5rem;border-radius:14px;background:#edf1e4;color:var(--ink)}
     .knowledge-note p{line-height:1.7;color:var(--muted);margin:.4rem 0 0}
