@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "greengrow-master-agent-preview",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "vars": {
+    "AGENT_MODE": "read-only-prototype"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "MASTER_AGENT",
+        "class_name": "MasterAgent"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["MasterAgent"]
+    }
+  ]
+}
