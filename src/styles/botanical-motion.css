@@ -38,3 +38,17 @@
   .luxury-hero .hero-sculpture { animation-duration: 9s; }
   .luxury-hero .hero-caption { font-size: .48rem; }
 }
+
+/* Accessible keyboard focus: keep controls clearly visible without relying on color alone. */
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 3px solid #8a5a00;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+:where(.filter-button, .save-button, .button, .menu-toggle, .cart-link):focus-visible {
+  outline-offset: 4px;
+}
+.product-title-link:focus-visible {
+  text-decoration-thickness: 3px;
+  text-underline-offset: .2em;
+}
