@@ -54,7 +54,7 @@ export async function handlePlanRequest(request: Request): Promise<Response> {
   }
 
   if (new TextEncoder().encode(rawBody).byteLength > MAX_REQUEST_BYTES) {
-    return Response.json({ error: "Request body is too large." }, { status: 413 });
+    return clientError("Request body is too large.", 413);
   }
 
   let body: unknown;
