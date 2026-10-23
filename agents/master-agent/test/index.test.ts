@@ -30,6 +30,7 @@ test("invalid JSON returns 400", async () => {
     body: "{"
   }));
   assert.equal(response.status, 400);
+  assert.equal(response.headers.get("cache-control"), "no-store");
 });
 
 test("missing or blank task returns 400", async () => {
@@ -158,6 +159,7 @@ test("wrong content type returns 415", async () => {
     body: JSON.stringify({ task: "Review project structure" })
   }));
   assert.equal(response.status, 415);
+  assert.equal(response.headers.get("cache-control"), "no-store");
 });
 
 test("oversized request body returns 413 even when task field is not reached", async () => {
