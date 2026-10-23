@@ -2,6 +2,10 @@
 
 GreenGrow Seeds ist ein Astro-basiertes Frontend für eine Saatgut-Marke. Die bestehende Hauptseite bleibt unter `/` erreichbar; die zusätzliche Komponenten-Vorschau liegt unter `/template-preview/`.
 
+## Online-Vorschau
+
+Cloudflare Pages ist mit diesem GitHub-Repository verbunden. Die Homepage wird unter https://greengrow-seeds.pages.dev veröffentlicht, sobald der erste Build erfolgreich abgeschlossen ist. Commits auf `main` lösen automatische Veröffentlichungen aus.
+
 ## Entwicklungsstand
 
 - Astro 5 mit React-Integration
@@ -9,7 +13,7 @@ GreenGrow Seeds ist ein Astro-basiertes Frontend für eine Saatgut-Marke. Die be
 - Zusätzliche `/template-preview/`-Route mit angepassten Creative-Tim-Komponenten: Navbar, Promo-Abschnitt, Produktkarten und Footer
 - Bootstrap 5 als Basis für das Komponentenlayout; zusätzliche GreenGrow-Stile unter `src/styles/template-preview.css`
 - GitHub Actions Workflow prüft `astro check`, den statischen Build und die erwarteten Ausgabedateien
-- Cloudflare-Worker-Konfiguration als Vorbereitung vorhanden; keine Veröffentlichung oder Änderung an der laufenden Cloudflare-Produktion durchgeführt
+- Cloudflare Pages als separate Veröffentlichung; der vorhandene Worker `greengrow` bleibt unverändert
 
 ## Lokal starten
 
@@ -26,7 +30,7 @@ npm run build
 npm run preview
 ```
 
-Der Build erzeugt die statische Website in `dist/`. Der Workflow `.github/workflows/verify-astro.yml` führt dieselben wesentlichen Prüfungen in GitHub Actions aus. Bitte den Status des neuesten Workflows prüfen, bevor die Vorschau als verifiziert gilt.
+Der Build erzeugt die statische Website in `dist/`. Der Workflow `.github/workflows/verify-astro.yml` führt dieselben wesentlichen Prüfungen in GitHub Actions aus.
 
 ## Wichtige Grenzen
 
