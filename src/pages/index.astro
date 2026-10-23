@@ -106,6 +106,28 @@ const categories = ['Alle', 'Gemüse', 'Kräuter', 'Blumen'];
     const savedCount = document.querySelector('#cart-count');
     if (savedCount) savedCount.textContent = String(saved.length);
   }));
+  // Progressive reveal: content remains visible if motion APIs are unavailable.
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    const revealTargets = [
+      ...document.querySelectorAll<HTMLElement>('main > section:not(.luxury-hero), .luxury-trust-row'),
+      ...document.querySelectorAll<HTMLElement>('.growth-stage, .product-card, .feature-card, .tip')
+    ];
+    revealTargets.forEach((element, index) => {
+      element.setAttribute('data-reveal', '');
+      element.style.setProperty('--reveal-delay', (index % 4) * 80 + 'ms');
+    });
+    document.body.classList.add('motion-ready');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-inview');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+    revealTargets.forEach((element) => revealObserver.observe(element));
+  }
   const heroArt = document.querySelector<HTMLElement>('#hero-art');
   const heroMotion = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
   if (heroArt && heroMotion.matches) {
