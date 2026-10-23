@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const image = 'https://raw.githubusercontent.com/lejoker3251-dot/GreenGrow-/feature/premium-storefront-v1/images/Mamba%20Test.png.WEBP';
+const image = '/images/products/platzhalter-saatgut.webp';
 const title = product.name + ' – SEED³X Sortimentsvorschau';
 ---
 <Layout title={title} description={'Entwurfsansicht für ' + product.name + '. Produktdaten werden noch geprüft; keine Bestellung möglich.'}>
@@ -35,7 +35,7 @@ const title = product.name + ' – SEED³X Sortimentsvorschau';
       <p>Weitere Produktinformationen, Preise und Verfügbarkeit werden erst ergänzt, wenn sie anhand verlässlicher Quellen geprüft wurden.</p>
       <div class="notice">Diese Seite ist eine unverbindliche Katalogvorschau. Es gibt keine Kauf- oder Bestellfunktion.</div>
       <div class="actions">
-        <a class="button" href="/#sortiment">Zurück zum Sortiment ↗</a>
+        <a class="button" href="/shop/">Zurück zum Sortiment ↗</a>
         <a class="button secondary" href="/shopping-cart/">Merkliste ansehen</a>
       </div>
     </div>

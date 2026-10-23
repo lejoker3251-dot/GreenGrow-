@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Altershinweis – SEED³X" description="Diese Website richtet sich ausschließlich an Personen ab 18 Jahren.">
+  <section class="page-hero legal-hero">
+    <span class="eyebrow">SEED³X · ALTERSHINWEIS</span>
+    <h1>Dieser Bereich ist nur für Erwachsene.</h1>
+    <p>SEED³X informiert über Vermehrungsmaterial (Samen) im Rahmen des Konsumcannabisgesetzes (KCanG). Das Angebot richtet sich ausschließlich an Personen ab 18 Jahren. Wir können dir diese Inhalte daher aktuell nicht zeigen.</p>
+  </section>
+  <div class="legal-main">
+    <section class="legal-section">
+      <h2>Mehr zum Jugendschutz</h2>
+      <p>Informationen zum Jugendschutz und zu Cannabis findest du unter anderem bei der Bundeszentrale für gesundheitliche Aufklärung: <a href="https://www.bzga.de" target="_blank" rel="noopener noreferrer">bzga.de</a>.</p>
+    </section>
+  </div>
+</Layout>
+<style>
+  .legal-hero{padding-top:clamp(3.5rem,8vw,7rem);padding-bottom:clamp(2.5rem,5vw,4rem);background:radial-gradient(ellipse at 90% 10%,#dfe9c5 0,transparent 43%),#f1efdf}
+  .legal-hero p{max-width:680px}
+  .legal-main{padding:0 clamp(1rem,6vw,6rem) 5rem;max-width:860px}
+  .legal-section{padding:1.8rem 0}
+  .legal-section h2{font-family:Georgia,serif;font-weight:500;font-size:1.3rem;margin:0 0 .7rem}
+  .legal-section p{line-height:1.8;color:var(--muted);margin:0}
+  .legal-section a{color:var(--green-2)}
+</style>

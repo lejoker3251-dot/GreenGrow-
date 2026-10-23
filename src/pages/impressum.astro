@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Impressum – SEED³X" description="Anbieterkennzeichnung gemäß § 5 Digitale-Dienste-Gesetz (DDG).">
+  <section class="page-hero legal-hero">
+    <span class="eyebrow">SEED³X · RECHTLICHES</span>
+    <h1>Impressum</h1>
+    <p>Diese Seite enthält Platzhalterfelder. Alle mit <strong>[Platzhalter]</strong> markierten Angaben müssen vor einer öffentlichen Veröffentlichung durch die tatsächlichen, geprüften Daten ersetzt werden.</p>
+  </section>
+  <div class="legal-main">
+    <aside class="legal-notice">
+      <strong>Entwurfsstatus</strong>
+      <p>Diese Seite ist noch kein rechtsgültiges Impressum. Sie dient als Gerüst gemäß § 5 Digitale-Dienste-Gesetz (DDG, vormals TMG) und muss vor dem Livegang mit echten, geprüften Daten befüllt und juristisch gegengelesen werden.</p>
+    </aside>
+
+    <section class="legal-section">
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>
+        [Platzhalter – vollständiger Name der verantwortlichen natürlichen oder juristischen Person]<br/>
+        [Platzhalter – Rechtsform, falls zutreffend, z. B. e. K., GmbH]<br/>
+        [Platzhalter – Straße und Hausnummer]<br/>
+        50181 Bedburg<br/>
+        Nordrhein-Westfalen, Deutschland
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: [Platzhalter]<br/>
+        E-Mail: [Platzhalter – echte, erreichbare Adresse statt Beispieladresse]
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Vertretungsberechtigte Person</h2>
+      <p>[Platzhalter – bei Einzelunternehmen: Name der/des Inhaberin/Inhabers; bei Gesellschaften: Name der/des Geschäftsführerin/Geschäftsführers]</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Registereintrag</h2>
+      <p>[Platzhalter – nur falls vorhanden: Handelsregister, Registergericht, Registernummer]</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Umsatzsteuer-ID</h2>
+      <p>[Platzhalter – Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG, falls vorhanden]</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Gewerbeanmeldung</h2>
+      <p>[Platzhalter – zuständige Gewerbebehörde, falls eine Gewerbeanmeldung vorliegt]</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Hinweis zum Sortiment</h2>
+      <p>SEED³X vertreibt ausschließlich Vermehrungsmaterial (Samen) im Rahmen der geltenden Bestimmungen des Konsumcannabisgesetzes (KCanG). Der Verkauf und die Auslieferung erfolgen ausschließlich an Personen ab 18 Jahren. Diese Website enthält keine Konsumaufforderung und richtet sich nicht an Minderjährige.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Streitschlichtung</h2>
+      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>. [Platzhalter – E-Mail-Adresse für die OS-Plattform ergänzen]. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen, sofern [Platzhalter – zutreffende Aussage nach rechtlicher Prüfung ergänzen].</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Haftung für Inhalte</h2>
+      <p>[Platzhalter – Standardklausel nach rechtlicher Prüfung ergänzen, z. B. zu §§ 7–10 DDG]</p>
+    </section>
+  </div>
+</Layout>
+<style>
+  .legal-hero{padding-top:clamp(3.5rem,8vw,7rem);padding-bottom:clamp(2.5rem,5vw,4rem);background:radial-gradient(ellipse at 90% 10%,#dfe9c5 0,transparent 43%),#f1efdf}
+  .legal-hero p{max-width:680px}
+  .legal-main{padding:0 clamp(1rem,6vw,6rem) 5rem;max-width:860px}
+  .legal-notice{margin:2rem 0;padding:1.3rem 1.5rem;border-radius:14px;background:#f8ecc9;color:var(--ink)}
+  .legal-notice strong{display:block;margin-bottom:.4rem;color:#7a5a12}
+  .legal-notice p{line-height:1.7;color:#5c470f;margin:0}
+  .legal-section{padding:1.8rem 0;border-bottom:1px solid var(--line)}
+  .legal-section:last-child{border-bottom:none}
+  .legal-section h2{font-family:Georgia,serif;font-weight:500;font-size:1.3rem;margin:0 0 .7rem}
+  .legal-section p{line-height:1.8;color:var(--muted);margin:0}
+  .legal-section a{color:var(--green-2)}
+</style>

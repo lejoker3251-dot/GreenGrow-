@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Datenschutzerklärung – SEED³X" description="Informationen zur Verarbeitung personenbezogener Daten gemäß Art. 13/14 DSGVO.">
+  <section class="page-hero legal-hero">
+    <span class="eyebrow">SEED³X · RECHTLICHES</span>
+    <h1>Datenschutzerklärung</h1>
+    <p>Diese Seite enthält Platzhalterfelder. Alle mit <strong>[Platzhalter]</strong> markierten Angaben müssen vor einer öffentlichen Veröffentlichung durch die tatsächlichen, geprüften Daten ersetzt und juristisch geprüft werden.</p>
+  </section>
+  <div class="legal-main">
+    <aside class="legal-notice">
+      <strong>Entwurfsstatus</strong>
+      <p>Diese Seite ist noch keine rechtsgültige Datenschutzerklärung. Sie listet die Verarbeitungsvorgänge auf, die im aktuellen Entwicklungsstand technisch stattfinden (Stand 23.10.2026), und muss vor Livegang vollständig geprüft werden – insbesondere sobald Bestellfunktion, Zahlungsabwicklung oder Tracking hinzukommen.</p>
+    </aside>
+
+    <section class="legal-section">
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        [Platzhalter – Name/Firma, Anschrift]<br/>
+        50181 Bedburg, Nordrhein-Westfalen<br/>
+        E-Mail: [Platzhalter]
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>2. Allgemeines zur Datenverarbeitung</h2>
+      <p>Wir verarbeiten personenbezogene Daten unserer Nutzerinnen und Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>3. Hosting und Server-Logfiles (Cloudflare)</h2>
+      <p>Diese Website wird über Cloudflare bereitgestellt (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA; für EU-Nutzerdaten ggf. Cloudflare Germany GmbH). Beim Aufruf der Website erhebt Cloudflare technisch bedingt Server-Logfiles (u. a. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser). [Platzhalter – Auftragsverarbeitungsvertrag (AVV) mit Cloudflare abschließen bzw. dessen Abschluss hier bestätigen; Rechtsgrundlage nach Art. 6 Abs. 1 lit. f DSGVO prüfen und ergänzen; Speicherdauer ergänzen].</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>4. Lokale Speicherung (Merkliste)</h2>
+      <p>Die Merkliste dieser Website speichert ausgewählte Produkt-IDs ausschließlich lokal im Browser (localStorage) auf dem Endgerät der Nutzerin oder des Nutzers. Diese Daten werden nicht an einen Server übertragen und nicht von uns eingesehen. Nutzerinnen und Nutzer können diese Daten jederzeit über die Browsereinstellungen löschen.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>5. Altersbestätigung</h2>
+      <p>Beim ersten Besuch wird lokal im Browser (localStorage) gespeichert, dass eine Bestätigung der Volljährigkeit (18 Jahre) erfolgt ist. Es findet keine Altersverifikation durch Dritte und keine Übertragung an einen Server statt; die Angabe dient ausschließlich der Steuerung der Anzeige auf diesem Gerät.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>6. Kontaktaufnahme</h2>
+      <p>[Platzhalter – sobald ein Kontaktformular oder eine Bestellfunktion live geschaltet wird: welche Daten erhoben werden, Zweck, Rechtsgrundlage (i. d. R. Art. 6 Abs. 1 lit. b DSGVO), Speicherdauer und ggf. eingesetzte Versanddienstleister ergänzen.]</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>7. Cookies und Tracking</h2>
+      <p>Zum aktuellen Stand werden keine Analyse-, Marketing- oder Tracking-Cookies eingesetzt. [Platzhalter – sobald Analyse-Tools, Zahlungsanbieter oder Werbe-Pixel integriert werden, diese hier einzeln mit Anbieter, Zweck, Rechtsgrundlage und Einwilligungsmechanismus (Consent-Banner) ergänzen.]</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>8. Rechte der betroffenen Personen</h2>
+      <p>Nutzerinnen und Nutzer haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gemäß Art. 15–21 DSGVO sowie das Recht auf Beschwerde bei einer Aufsichtsbehörde. Zuständige Aufsichtsbehörde: [Platzhalter – z. B. Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen].</p>
+    </section>
+  </div>
+</Layout>
+<style>
+  .legal-hero{padding-top:clamp(3.5rem,8vw,7rem);padding-bottom:clamp(2.5rem,5vw,4rem);background:radial-gradient(ellipse at 90% 10%,#dfe9c5 0,transparent 43%),#f1efdf}
+  .legal-hero p{max-width:680px}
+  .legal-main{padding:0 clamp(1rem,6vw,6rem) 5rem;max-width:860px}
+  .legal-notice{margin:2rem 0;padding:1.3rem 1.5rem;border-radius:14px;background:#f8ecc9;color:var(--ink)}
+  .legal-notice strong{display:block;margin-bottom:.4rem;color:#7a5a12}
+  .legal-notice p{line-height:1.7;color:#5c470f;margin:0}
+  .legal-section{padding:1.8rem 0;border-bottom:1px solid var(--line)}
+  .legal-section:last-child{border-bottom:none}
+  .legal-section h2{font-family:Georgia,serif;font-weight:500;font-size:1.3rem;margin:0 0 .7rem}
+  .legal-section p{line-height:1.8;color:var(--muted);margin:0}
+  .legal-section a{color:var(--green-2)}
+</style>
