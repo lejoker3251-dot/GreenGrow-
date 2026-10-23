@@ -1,0 +1,47 @@
+name: Deploy GreenGrow Preview
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install --no-package-lock
+      - name: Type-check Astro
+        run: npx astro check
+      - name: Build static site
+        run: npm run build
+      - name: Verify build output
+        run: |
+          test -s dist/index.html
+          test -s dist/template-preview/index.html
+          test -s dist/shopping-cart/index.html
+          test -s dist/products/hero-seedling.svg
+      - name: Deploy isolated preview worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || (echo "Missing GitHub Actions secret: CLOUDFLARE_API_TOKEN" && exit 1)
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || (echo "Missing GitHub Actions secret: CLOUDFLARE_ACCOUNT_ID" && exit 1)
+          npx wrangler deploy --config wrangler.preview.jsonc 2>&1 | tee /tmp/wrangler-deploy.log
+          PREVIEW_URL="$(grep -Eo 'https://greengrow-preview[^[:space:]]*workers\.dev' /tmp/wrangler-deploy.log | tail -n 1)"
+          test -n "$PREVIEW_URL" || (echo "Could not detect preview URL from Wrangler output" && exit 1)
+          echo "Preview URL: $PREVIEW_URL"
+          echo "PREVIEW_URL=$PREVIEW_URL" >> "$GITHUB_ENV"
+      - name: Verify deployed preview is reachable
+        run: |
+          curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/" -o /tmp/preview.html
+          test -s /tmp/preview.html
+          grep -qi "GreenGrow" /tmp/preview.html
