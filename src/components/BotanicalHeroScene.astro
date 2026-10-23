@@ -174,7 +174,6 @@
           schedule();
         };
         window.addEventListener('scroll', updateScrollProgress, { passive: true });
-        updateScrollProgress();
         if (finePointer && !reducedMotion) {
           hero.addEventListener('pointermove', (event) => {
             const rect = hero.getBoundingClientRect();
@@ -229,6 +228,7 @@
           if (!reducedMotion) schedule();
         };
         const schedule = () => { if (!frame && visible && !disposed) frame = requestAnimationFrame(render); };
+        updateScrollProgress();
         schedule();
       } catch (error) {
         console.warn('GreenGrow 3D scene unavailable; keeping botanical fallback.', error);
