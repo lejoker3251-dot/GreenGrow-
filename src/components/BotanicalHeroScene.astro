@@ -37,11 +37,41 @@
     let updateScrollProgress: (() => void) | undefined;
     const rootMeshes: any[] = [];
     const leafMeshes: Array<{ mesh: any; base: any }> = [];
+    const listeners: Array<{ target: EventTarget; type: string; listener: EventListener; options?: boolean | AddEventListenerOptions }> = [];
+    let cleaned = false;
+    const listen = (target: EventTarget, type: string, listener: EventListener, options?: boolean | AddEventListenerOptions) => {
+      target.addEventListener(type, listener, options);
+      listeners.push({ target, type, listener, options });
+    };
+    const cleanup = () => {
+      if (cleaned) return;
+      cleaned = true;
+      disposed = true;
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+      resizeObserver?.disconnect();
+      intersectionObserver?.disconnect();
+      listeners.forEach(({ target, type, listener, options }) => target.removeEventListener(type, listener, options));
+      listeners.length = 0;
+      const geometries = new Set<any>();
+      const materials = new Set<any>();
+      scene?.traverse?.((object: any) => {
+        if (object.geometry) geometries.add(object.geometry);
+        const objectMaterials = Array.isArray(object.material) ? object.material : object.material ? [object.material] : [];
+        objectMaterials.forEach((material: any) => materials.add(material));
+      });
+      geometries.forEach((geometry) => geometry.dispose?.());
+      materials.forEach((material) => material.dispose?.());
+      renderer?.dispose?.();
+      renderer = undefined;
+      root.classList.remove('is-ready');
+    };
 
     const makeTube = (points: any[], radius: number, material: any, radialSegments = 7, trackRoot = false) => {
       const curve = new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(p[0], p[1], p[2])));
       const geometry = new THREE.TubeGeometry(curve, Math.max(16, points.length * 8), radius, radialSegments, false);
-      const mesh = new THREE.Mesh(geometry, material);
+      const meshMaterial = trackRoot ? material.clone() : material;
+      const mesh = new THREE.Mesh(geometry, meshMaterial);
       plant.add(mesh);
       if (trackRoot) rootMeshes.push(mesh);
       return mesh;
@@ -164,8 +194,8 @@
         let pointerY = 0;
         let targetX = 0;
         let targetY = 0;
-        let scrollProgress = 0;
-        let targetScrollProgress = 0;
+        let scrollProgress = reducedMotion ? 1 : 0;
+        let targetScrollProgress = reducedMotion ? 1 : 0;
         updateScrollProgress = () => {
           if (reducedMotion) return;
           const heroTop = hero.getBoundingClientRect().top + window.scrollY;
@@ -173,14 +203,15 @@
           targetScrollProgress = Math.max(0, Math.min(1, (window.scrollY - heroTop + window.innerHeight * .08) / travel));
           schedule();
         };
-        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+        listen(window, 'scroll', updateScrollProgress as EventListener, { passive: true });
         if (finePointer && !reducedMotion) {
-          hero.addEventListener('pointermove', (event) => {
+          listen(hero, 'pointermove', ((event: PointerEvent) => {
             const rect = hero.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
             targetY = ((event.clientX - rect.left) / rect.width - .5) * .18;
             targetX = ((event.clientY - rect.top) / rect.height - .5) * -.1;
-          }, { passive: true });
-          hero.addEventListener('pointerleave', () => { targetX = 0; targetY = 0; }, { passive: true });
+          }) as EventListener, { passive: true });
+          listen(hero, 'pointerleave', (() => { targetX = 0; targetY = 0; }) as EventListener, { passive: true });
         }
 
         root.classList.add('is-ready');
@@ -231,19 +262,12 @@
         updateScrollProgress();
         schedule();
       } catch (error) {
+        cleanup();
         console.warn('GreenGrow 3D scene unavailable; keeping botanical fallback.', error);
-        root.classList.remove('is-ready');
       }
     };
 
     start();
-    window.addEventListener('pagehide', () => {
-      disposed = true;
-      if (frame) cancelAnimationFrame(frame);
-      resizeObserver?.disconnect();
-      intersectionObserver?.disconnect();
-      if (updateScrollProgress) window.removeEventListener('scroll', updateScrollProgress);
-      renderer?.dispose();
-    }, { once: true });
+    window.addEventListener('pagehide', cleanup, { once: true });
   });
 </script>
