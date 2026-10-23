@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 860" role="img" aria-labelledby="title desc">
+<title id="title">Botanical luxury — seed, roots and new growth</title>
+<desc id="desc">A sculptural young green plant rising from a rich, layered sphere of soil, with delicate roots and soft golden botanical light.</desc>
+<defs>
+ <radialGradient id="halo"><stop stop-color="#e7d9a5" stop-opacity=".55"/><stop offset="1" stop-color="#e7d9a5" stop-opacity="0"/></radialGradient>
+ <linearGradient id="soil" x1=".15" y1="0" x2=".85" y2="1"><stop stop-color="#6f6747"/><stop offset=".36" stop-color="#393d2a"/><stop offset=".75" stop-color="#202c20"/><stop offset="1" stop-color="#121d17"/></linearGradient>
+ <linearGradient id="soilLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9a8b61"/><stop offset=".4" stop-color="#5b6240"/><stop offset="1" stop-color="#273629"/></linearGradient>
+ <linearGradient id="leaf" x1=".05" y1="0" x2=".9" y2="1"><stop stop-color="#b3c887"/><stop offset=".28" stop-color="#6c9458"/><stop offset=".7" stop-color="#326847"/><stop offset="1" stop-color="#17412e"/></linearGradient>
+ <linearGradient id="leafLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d0dca0"/><stop offset=".42" stop-color="#86a968"/><stop offset="1" stop-color="#3a754b"/></linearGradient>
+ <linearGradient id="root" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0dfae"/><stop offset=".45" stop-color="#b8a678"/><stop offset="1" stop-color="#726c4b"/></linearGradient>
+ <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter>
+ <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+ <clipPath id="earthClip"><circle cx="452" cy="565" r="220"/></clipPath>
+</defs>
+<ellipse cx="468" cy="755" rx="240" ry="35" fill="#06120b" opacity=".36" filter="url(#shadow)"/>
+<circle cx="468" cy="400" r="340" fill="url(#halo)"/>
+<circle cx="452" cy="565" r="225" fill="#a6b77b" opacity=".18" filter="url(#glow)"/>
+<circle cx="452" cy="565" r="220" fill="url(#soil)"/>
+<g clip-path="url(#earthClip)" opacity=".82">
+ <path d="M220 494 Q320 451 412 482 T684 474 L710 530 Q587 573 477 543 T211 562Z" fill="url(#soilLight)" opacity=".8"/>
+ <path d="M226 579 Q350 541 438 579 T688 566 L690 630 Q561 666 457 633 T220 648Z" fill="#1b2d20"/>
+ <path d="M238 662 Q355 628 450 658 T671 650 L630 748 277 746Z" fill="#17251a"/>
+ <g fill="#b4a274" opacity=".45"><circle cx="318" cy="520" r="4"/><circle cx="568" cy="502" r="3"/><circle cx="365" cy="606" r="5"/><circle cx="594" cy="620" r="4"/><circle cx="448" cy="697" r="3"/><circle cx="292" cy="640" r="3"/><circle cx="534" cy="708" r="5"/></g>
+ <g fill="none" stroke="url(#root)" stroke-linecap="round">
+  <path d="M449 470 C433 516 455 541 433 582 S420 641 388 682" stroke-width="5"/>
+  <path d="M452 499 C480 529 471 555 504 582 S533 634 565 658" stroke-width="4"/>
+  <path d="M435 563 C402 574 389 599 365 607" stroke-width="3"/>
+  <path d="M433 591 C454 609 457 639 452 664" stroke-width="3"/>
+  <path d="M504 582 C530 573 550 585 574 603" stroke-width="2.5"/>
+  <path d="M413 636 C397 642 389 659 379 671" stroke-width="2"/>
+  <path d="M452 640 C479 655 488 677 491 700" stroke-width="2"/>
+  <path d="M469 534 C497 543 515 555 526 574" stroke-width="2"/>
+ </g>
+</g>
+<circle cx="452" cy="565" r="220" fill="none" stroke="#d7d5a3" stroke-opacity=".55" stroke-width="1.5"/>
+<circle cx="452" cy="565" r="231" fill="none" stroke="#e7d9a5" stroke-opacity=".26" stroke-width="1"/>
+<g fill="none" stroke="#e5d8a9" stroke-opacity=".65"><path d="M246 450 A245 245 0 0 1 636 423" stroke-width="1.2"/><path d="M254 692 A250 250 0 0 0 645 691" stroke-width="1.2"/></g>
+<path d="M449 490 C449 418 446 355 456 287" fill="none" stroke="#5c8650" stroke-width="13" stroke-linecap="round"/>
+<path d="M453 392 C389 355 334 300 341 228 C412 234 463 285 453 392Z" fill="url(#leaf)" stroke="#a5bd7d" stroke-opacity=".6" stroke-width="1.5"/>
+<path d="M453 389 Q410 315 350 240" fill="none" stroke="#d0d9a2" stroke-opacity=".78" stroke-width="2"/>
+<path d="M458 333 C493 255 563 211 636 232 C625 309 560 358 458 333Z" fill="url(#leafLight)" stroke="#c5d59a" stroke-opacity=".65" stroke-width="1.5"/>
+<path d="M466 328 Q539 273 625 238" fill="none" stroke="#e2e5b5" stroke-opacity=".8" stroke-width="2"/>
+<path d="M451 430 C391 419 340 438 306 493 C367 520 425 492 451 430Z" fill="url(#leafLight)" stroke="#c4d39b" stroke-opacity=".65" stroke-width="1.5"/>
+<path d="M445 439 Q385 461 318 489" fill="none" stroke="#e0e4b1" stroke-opacity=".72" stroke-width="2"/>
+<path d="M457 372 C511 368 553 395 572 447 C519 465 470 427 457 372Z" fill="url(#leaf)" stroke="#a5bd7d" stroke-opacity=".6" stroke-width="1.5"/>
+<path d="M462 380 Q517 408 563 441" fill="none" stroke="#d0d9a2" stroke-opacity=".7" stroke-width="2"/>
+<path d="M452 487 C439 470 424 455 405 444" fill="none" stroke="#5d8d50" stroke-width="7" stroke-linecap="round"/>
+<path d="M453 481 C466 458 482 445 502 436" fill="none" stroke="#5d8d50" stroke-width="7" stroke-linecap="round"/>
+<ellipse cx="456" cy="488" rx="18" ry="12" fill="#b9c98b" opacity=".7"/>
+<path d="M456 490 C451 513 451 531 452 548" fill="none" stroke="#c9c18e" stroke-width="3" stroke-linecap="round"/>
+<g fill="#f0dfae"><circle cx="687" cy="344" r="3"/><circle cx="244" cy="358" r="2.5"/><circle cx="678" cy="620" r="2"/><circle cx="260" cy="612" r="2.5"/></g>
+</svg>
