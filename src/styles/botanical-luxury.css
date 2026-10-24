@@ -220,3 +220,14 @@ body { color: var(--color-ink); background: var(--color-porcelain); }
   .shop-teaser-art { min-height: 230px; }
   .site-footer { padding: 2.5rem 1.2rem 1.5rem; }
 }
+
+
+/* The optional brand intro follows the same palette as the rest of the site. */
+.brand-intro { background: radial-gradient(ellipse at 50% 42%, #294c35 0%, #173d2b 45%, #10291d 100%); }
+.brand-intro-light { background: radial-gradient(ellipse at 50% 45%, #d8cbea38, transparent 38%), radial-gradient(ellipse at 50% 100%, #c8a96a28, transparent 52%); }
+.brand-intro-botanical { color: var(--color-champagne-light); filter: drop-shadow(0 0 24px #d8cbea24); }
+.brand-intro-kicker { color: var(--color-champagne-light); }
+.brand-intro-logo { color: var(--color-porcelain); }
+.brand-intro-tagline { color: var(--color-lavender); }
+.brand-intro-skip { border-color: #d8cbea80; }
+.brand-intro-skip:focus-visible { outline-color: var(--color-champagne-light); }
