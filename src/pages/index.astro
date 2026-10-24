@@ -42,38 +42,13 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
     <div class="growth-footnote"><span>GROWING IS A JOURNEY</span><span>DESIGNED TO FEEL NATURAL</span></div>
   </section>
 
-  <section class="section grow-doctor-section" id="grow-doctor" aria-labelledby="grow-doctor-title">
-    <div class="grow-doctor-intro">
+  <section class="section grow-doctor-teaser" aria-labelledby="grow-doctor-teaser-title">
+    <div class="grow-doctor-teaser-copy">
       <span class="eyebrow">Persönliche Unterstützung · Bedburg & Umgebung</span>
       <p class="grow-doctor-kicker">GROW DOCTOR</p>
-      <h2 id="grow-doctor-title">Wenn es im Anbau nicht läuft, <em>helfen wir weiter.</em></h2>
-      <p class="grow-doctor-lead">Manchmal braucht es einen zweiten Blick. Grow Doctor bietet volljährigen Privatpersonen Orientierung bei Fragen zum privaten Eigenanbau – persönlich, verständlich und mit Blick auf die jeweilige Situation.</p>
-      <p class="grow-doctor-radius"><span aria-hidden="true">⌖</span> Bedburg und Umgebung · im Umkreis von bis zu 25 km</p>
-    </div>
-    <div class="grow-doctor-credential">
-      <span class="grow-doctor-credential-mark" aria-hidden="true">GD</span>
-      <div><span class="eyebrow">Wissen trifft Praxis</span><h3>Individuell statt nach Schema F.</h3><p>Die Beratung orientiert sich an deinen Fragen, den sichtbaren Symptomen und den Rahmenbedingungen vor Ort. Ausbildungs- und Zertifikatsangaben werden erst nach Prüfung der Nachweise veröffentlicht.</p></div>
-    </div>
-    <div class="grow-doctor-services">
-      <article class="grow-doctor-card"><span>01 / START</span><h3>Begleitung beim ersten Grow</h3><p>Orientierung zu Standort, Ausstattung, Vorbereitung und den einzelnen Phasen – passend zu deiner Ausgangslage.</p></article>
-      <article class="grow-doctor-card"><span>02 / ANALYSE</span><h3>Wenn etwas nicht stimmt</h3><p>Gemeinsame Einordnung von Verfärbungen, Schädlingsverdacht, Pilzproblemen oder auffälligem Wachstum anhand deiner Beschreibung und Fotos.</p></article>
-      <article class="grow-doctor-card"><span>03 / VOR ORT</span><h3>Plan statt Rätselraten</h3><p>Wenn es sinnvoll und verfügbar ist, schauen wir uns die Situation vor Ort an und besprechen konkrete nächste Schritte samt Nachbetreuung.</p></article>
-      <article class="grow-doctor-card"><span>04 / DRANBLEIBEN</span><h3>Begleitung nach Bedarf</h3><p>Regelmäßige Unterstützung nach individueller Vereinbarung – etwa mit Fotodiagnose, festen Terminen und abgestimmten Rückmeldungen.</p></article>
-    </div>
-    <div class="grow-doctor-process">
-      <div class="grow-doctor-process-heading"><span class="eyebrow">So läuft es ab</span><h3>Ein klarer Weg zu den nächsten Schritten.</h3></div>
-      <ol>
-        <li><span>01</span><div><strong>Kontakt aufnehmen</strong><p>Du schilderst dein Anliegen und sendest – wenn hilfreich – ein paar aussagekräftige Fotos.</p></div></li>
-        <li><span>02</span><div><strong>Erste Einschätzung</strong><p>Wir klären offene Fragen und besprechen mögliche erste Maßnahmen.</p></div></li>
-        <li><span>03</span><div><strong>Termin abstimmen</strong><p>Falls nötig und verfügbar, vereinbaren wir einen Vor-Ort-Termin im Umkreis von bis zu 25 km.</p></div></li>
-        <li><span>04</span><div><strong>Schritte festlegen</strong><p>Du erhältst einen verständlichen Plan, den du eigenverantwortlich umsetzen kannst.</p></div></li>
-        <li><span>05</span><div><strong>Nachfassen</strong><p>Wir besprechen den Verlauf und klären, ob weitere Unterstützung sinnvoll ist.</p></div></li>
-      </ol>
-    </div>
-    <aside class="grow-doctor-notice"><strong>Wichtig zu wissen</strong><p>Das Angebot richtet sich ausschließlich an Erwachsene und steht unter dem Vorbehalt der jeweils geltenden gesetzlichen Vorgaben. Grow Doctor bietet Orientierung und praktische Beratung, aber keine Rechts- oder Medizinberatung. Pflanzen, Pflanzenteile oder Ernte werden im Rahmen dieses Services nicht übernommen; ebenso werden darüber keine Vermehrungsmaterialien beschafft oder verkauft. Die Verantwortung für den eigenen Anbau und die Umsetzung aller Maßnahmen bleibt bei dir.</p></aside>
-    <div class="grow-doctor-contact">
-      <div><span class="eyebrow">Persönlich ins Gespräch kommen</span><h3>Erzähl uns, wo du gerade feststeckst.</h3><p>Kontaktiere uns für eine erste Abstimmung. Erreichbarkeit, mögliche Termine und ein etwaiger Vor-Ort-Besuch werden individuell vereinbart.</p></div>
-      <div class="grow-doctor-contact-actions"><a class="button grow-doctor-button" href="/kontakt/">Kontakt aufnehmen <span aria-hidden="true">↗</span></a><span>Telefon: [Telefon ergänzen]</span><span>E-Mail: [E-Mail ergänzen]</span><span>Zeiten: [Zeiten ergänzen]</span></div>
+      <h2 id="grow-doctor-teaser-title">Wenn es im Anbau nicht läuft, <em>helfen wir weiter.</em></h2>
+      <p>Manchmal braucht es einen zweiten Blick. Entdecke unser Beratungsangebot auf einer eigenen Seite.</p>
+      <a class="button luxury-button" href="/grow-doctor/">Grow Doctor entdecken <span aria-hidden="true">↗</span></a>
     </div>
   </section>
 
@@ -237,99 +212,13 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
   @media(max-width:640px){.seed-category-visual{padding:2.7rem 1rem}.seed-category-visual-art{border-radius:14px}.seed-category-visual-footer{align-items:flex-start;flex-direction:column}.seed-category-visual-heading h2{font-size:clamp(2.4rem,11vw,3.5rem)}}
 
   /* Grow Doctor: separate service section, matching Botanical Luxury palette. */
-  .grow-doctor-section{padding-top:clamp(3.5rem,7vw,6.5rem);padding-bottom:clamp(3.5rem,7vw,6.5rem);color:#203b2a}
-  .grow-doctor-intro{max-width:850px;margin:0 auto 2.4rem;text-align:center}
-  .grow-doctor-kicker{margin:.9rem 0 .6rem;color:#536b4b;font-size:.72rem;font-weight:850;letter-spacing:.24em}
-  .grow-doctor-intro h2{margin:0 auto 1rem;max-width:800px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.5rem,5.5vw,4.8rem);font-weight:500;line-height:1.04;letter-spacing:-.055em}
-  .grow-doctor-intro h2 em{color:#78618d;font-weight:500}
-  .grow-doctor-lead{max-width:680px;margin:0 auto;color:#566458;font-size:1.05rem;line-height:1.85}
-  .grow-doctor-radius{display:inline-flex;align-items:center;gap:.55rem;margin:1.25rem 0 0;padding:.65rem 1rem;border:1px solid #d9d1bd;border-radius:999px;background:#fffdf8;color:#40583e;font-size:.84rem}
-  .grow-doctor-radius span{color:#9b7b3f;font-size:1.1rem}
-  .grow-doctor-credential{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.25rem;max-width:900px;margin:0 auto 2rem;padding:clamp(1.2rem,3vw,2rem);border:1px solid #d9d1bd;border-radius:22px;background:linear-gradient(120deg,#fffdf8,#f0edf5)}
-  .grow-doctor-credential-mark{display:grid;place-items:center;width:74px;height:74px;border:1px solid #c5aa6d;border-radius:50%;color:#244a31;font-family:Georgia,serif;font-size:1.3rem}
-  .grow-doctor-credential h3,.grow-doctor-process-heading h3,.grow-doctor-contact h3{margin:.35rem 0 .6rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.45rem,2.8vw,2.15rem);font-weight:500;letter-spacing:-.035em}
-  .grow-doctor-credential p,.grow-doctor-card p,.grow-doctor-process p,.grow-doctor-contact p{margin:0;color:#58665a;line-height:1.75;font-size:.92rem}
-  .grow-doctor-services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:2rem 0 3rem}
-  .grow-doctor-card{padding:1.35rem;border:1px solid #ded8c9;border-radius:18px;background:#fffdf8;box-shadow:0 10px 28px #20362a08}
-  .grow-doctor-card>span{color:#8c7544;font-size:.65rem;font-weight:850;letter-spacing:.14em}
-  .grow-doctor-card h3{margin:1rem 0 .6rem;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;font-weight:500;line-height:1.2}
-  .grow-doctor-process{display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr);gap:clamp(1.5rem,5vw,4rem);padding:clamp(1.4rem,4vw,3rem);border-radius:24px;background:#edf0e7}
-  .grow-doctor-process-heading h3{font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.1}
-  .grow-doctor-process ol{display:grid;gap:1.15rem;margin:0;padding:0;list-style:none}
-  .grow-doctor-process li{display:grid;grid-template-columns:42px 1fr;gap:.9rem;align-items:start}
-  .grow-doctor-process li>span{display:grid;place-items:center;width:38px;height:38px;border:1px solid #c7b27c;border-radius:50%;color:#31543a;font-size:.72rem;font-weight:800}
-  .grow-doctor-process li strong{display:block;margin:.1rem 0 .25rem;color:#23422e}
-  .grow-doctor-notice{margin:1.4rem 0;padding:1.25rem 1.4rem;border-left:3px solid #b59a5e;background:#f6f3eb}
-  .grow-doctor-notice strong{color:#284831}
-  .grow-doctor-notice p{margin:.5rem 0 0;color:#5a6559;font-size:.86rem;line-height:1.8}
-  .grow-doctor-contact{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2rem;margin-top:1.5rem;padding:clamp(1.5rem,4vw,3rem);border-radius:24px;background:linear-gradient(120deg,#173d2a,#254d35);color:#fffdf8}
-  .grow-doctor-contact .eyebrow{color:#d7c38c}
-  .grow-doctor-contact h3{max-width:620px;font-size:clamp(2rem,4vw,3rem)}
-  .grow-doctor-contact p{max-width:620px;color:#e0e8df}
-  .grow-doctor-contact-actions{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;min-width:200px}
-  .grow-doctor-button{background:#e9dfc4!important;color:#1d422d!important;border-color:#e9dfc4!important}
-  .grow-doctor-contact-actions>span{color:#d8e2d7;font-size:.78rem}
-  @media(max-width:900px){.grow-doctor-services{grid-template-columns:repeat(2,minmax(0,1fr))}.grow-doctor-process{grid-template-columns:1fr}.grow-doctor-contact{grid-template-columns:1fr}.grow-doctor-contact-actions{min-width:0}}
-  @media(max-width:560px){.grow-doctor-services{grid-template-columns:1fr}.grow-doctor-credential{grid-template-columns:1fr}.grow-doctor-credential-mark{width:58px;height:58px}.grow-doctor-intro h2{font-size:clamp(2.35rem,11vw,3.5rem)}.grow-doctor-radius{border-radius:14px;align-items:flex-start}}
-
-  /* Botanical Luxury refinement: cinematic contrast and a slow, organic image drift. */
-  .premium-hero.luxury-hero.botanical-title-hero{isolation:isolate;overflow:hidden}
-  .premium-hero.luxury-hero.botanical-title-hero:before{
-    content:"";position:absolute;z-index:1;inset:0;pointer-events:none;opacity:1;
-    background:
-      linear-gradient(90deg,rgba(5,22,14,.84) 0%,rgba(5,22,14,.62) 38%,rgba(5,22,14,.18) 72%,rgba(5,22,14,.08) 100%),
-      linear-gradient(0deg,rgba(5,22,14,.56) 0%,transparent 38%,rgba(5,22,14,.12) 100%);
-  }
-  .premium-hero.luxury-hero.botanical-title-hero .hero-art.botanical-title-art{z-index:0!important}
-  .premium-hero.luxury-hero.botanical-title-hero .botanical-title-content{position:relative;z-index:2}
-  .premium-hero.luxury-hero.botanical-title-hero .hero-index{z-index:2}
-  .premium-hero.luxury-hero.botanical-title-hero .hero-overline{color:#e0d2a8!important;letter-spacing:.22em}
-  .premium-hero.luxury-hero.botanical-title-hero .hero-proof{gap:.8rem 1.4rem}
-  .premium-hero.luxury-hero.botanical-title-hero .button.secondary{backdrop-filter:blur(8px);background:rgba(255,253,247,.08)}
-  .seed-category-visual-art img{transition:transform .9s cubic-bezier(.2,.72,.2,1),filter .9s ease}
-  @media (prefers-reduced-motion:no-preference){
-    .premium-hero.luxury-hero.botanical-title-hero .botanical-title-art img{
-      animation:seedx-botanical-drift 30s ease-in-out infinite alternate;
-      transform-origin:54% 48%;will-change:transform;
-    }
-    .seed-category-visual-art:hover img{transform:scale(1.025);filter:saturate(1.04)}
-  }
-  @keyframes seedx-botanical-drift{
-    0%{transform:scale(1.015) translate3d(0,0,0)}
-    100%{transform:scale(1.075) translate3d(-.7%,.35%,0)}
-  }
-  @media(max-width:900px){
-    .premium-hero.luxury-hero.botanical-title-hero:before{
-      background:linear-gradient(90deg,rgba(5,22,14,.76),rgba(5,22,14,.25)),linear-gradient(0deg,rgba(5,22,14,.6),transparent 58%);
-    }
-  }
-  @media(max-width:640px){
-    .premium-hero.luxury-hero.botanical-title-hero:before{
-      background:linear-gradient(0deg,rgba(5,22,14,.96) 0%,rgba(5,22,14,.79) 42%,rgba(5,22,14,.2) 100%),linear-gradient(90deg,rgba(5,22,14,.25),transparent);
-    }
-    .premium-hero.luxury-hero.botanical-title-hero .botanical-title-art img{object-position:58% top!important}
-  }
-  /* The second botanical photograph now belongs to the light “Art of Becoming” section. */
-  .growth-intro .growth-image-bridge{
-    position:relative;isolation:isolate;overflow:hidden;
-    width:calc(100% + clamp(2rem,12vw,12rem));margin:0 calc(clamp(1rem,6vw,6rem) * -1) 3.5rem;
-    height:clamp(190px,29vw,390px);
-    clip-path:polygon(0 9%,8% 15%,17% 7%,27% 13%,38% 5%,49% 12%,60% 6%,71% 14%,82% 7%,92% 13%,100% 8%,100% 100%,0 100%);
-    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 66%,rgba(0,0,0,.75) 82%,transparent 100%);
-    mask-image:linear-gradient(to bottom,#000 0%,#000 66%,rgba(0,0,0,.75) 82%,transparent 100%);
-  }
-  .growth-intro .growth-image-bridge:after{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(180deg,rgba(251,250,245,.04),rgba(251,250,245,0) 35%,rgba(251,250,245,.08));
-  }
-  .growth-intro .growth-image-bridge img{
-    display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%;
-    filter:saturate(.94) contrast(1.02);
-  }
-  @media(max-width:640px){
-    .growth-intro .growth-image-bridge{width:calc(100% + 2.3rem);margin:0 -1.15rem 2.25rem;height:clamp(165px,48vw,245px);clip-path:polygon(0 10%,13% 16%,25% 7%,38% 14%,51% 6%,64% 13%,77% 8%,89% 15%,100% 9%,100% 100%,0 100%)}
-    .growth-intro .growth-image-bridge img{object-position:center 50%}
-  }
+  .grow-doctor-teaser{padding:clamp(3rem,6vw,5.5rem) clamp(1.2rem,6vw,6rem);background:linear-gradient(120deg,#f0eee4,#fbfaf5);color:#203b2a}
+  .grow-doctor-teaser-copy{max-width:980px;margin:0 auto;padding:clamp(1.5rem,4vw,3rem);border:1px solid #d9d1bd;border-radius:24px;background:linear-gradient(120deg,#fffdf8,#f0edf5)}
+  .grow-doctor-teaser .grow-doctor-kicker{margin:.9rem 0 .6rem;color:#536b4b;font-size:.72rem;font-weight:850;letter-spacing:.24em}
+  .grow-doctor-teaser h2{max-width:800px;margin:0 0 1rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,4.8vw,4rem);font-weight:500;line-height:1.04;letter-spacing:-.055em}
+  .grow-doctor-teaser h2 em{color:#78618d;font-weight:500}
+  .grow-doctor-teaser p:not(.grow-doctor-kicker){max-width:650px;color:#566458;line-height:1.8}
+  .grow-doctor-teaser .button{margin-top:.7rem}
   @media(prefers-reduced-motion:reduce){
     .premium-hero.luxury-hero.botanical-title-hero .botanical-title-art img{animation:none!important;transform:none!important}
     .seed-category-visual-art img{transition:none!important}
