@@ -80,6 +80,13 @@ const currentPath = Astro.url.pathname;
         if (menuIcon) menuIcon.textContent = open ? '×' : '☰';
         if (nav) nav.hidden = !open;
         nav?.classList.toggle('is-open', open);
+        if (!open) {
+          const submenu = nav?.querySelector('#shop-submenu');
+          const submenuToggle = nav?.querySelector('.nav-group-toggle');
+          if (submenu) submenu.hidden = true;
+          submenuToggle?.setAttribute('aria-expanded', 'false');
+          nav?.querySelector('[data-nav-group="shop"]')?.classList.remove('is-open');
+        }
       };
 
       menuButton?.addEventListener('click', () => {
