@@ -220,3 +220,9 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Für die Abschnitte zu Schimmelrisiken und Ernte/Nachbehandlung wurden konkrete Übersichtsarbeiten zu Pilzen/Mykotoxinen in Cannabisblüten und Post-Harvest-Prozessen verknüpft: https://pmc.ncbi.nlm.nih.gov/articles/PMC10620813/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC9404914/
 - Die Wachstumshinweise bleiben allgemeine Pflanzenpflegeaussagen und enthalten keine starren Dünge- oder Bewässerungspläne. Die konkrete fachliche Tragfähigkeit der einzelnen Sätze ist noch im vollständigen Satz-für-Satz-Audit zu verifizieren.
 - Quellenkonkretisierung durchgeführt; Audit-Checkboxen bleiben unverändert.
+
+
+### „Cannabissamen keimen“ – spezifischere Keimungsquellen (24. Oktober 2026)
+- Ergänzt wurden zwei Studien, die Temperatur und Keimung von Cannabis sativa direkt untersuchen: Geneve et al. (2022) testeten zwei industrielle Hanfsorten und fanden in ihrem Versuchsrahmen günstige Keimungsbereiche zwischen 19 und 30 °C; Chavalina et al. (2025) untersuchten die Industriehanfsorte Santhica 70. Diese Ergebnisse werden nicht als allgemeingültige optimale Bedingungen für jede kommerzielle Cannabissorte dargestellt: https://doi.org/10.3390/crops2040029 ; https://doi.org/10.17660/ActaHortic.2025.1437.53
+- Small & Brookes (2012) bleibt als Quelle für Lagerung und Lebensfähigkeit mehrerer Cannabis-Formen relevant, nicht als alleiniger Beleg für alle Details der Keimungsmethode: https://doi.org/10.1080/15440478.2012.737179
+- Der Artikel nennt keine exakte Keimtemperatur als universelle Regel und verweist auf Produktangaben. Quellenabgleich teilweise erfolgt; Satz-für-Satz-Prüfung offen, Checkboxen unverändert.
