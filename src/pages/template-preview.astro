@@ -14,13 +14,13 @@ const products = [
   { title: 'Chili Jalapeño', category: 'Gemüsesaatgut', description: 'Würzige Schoten für warme, helle Standorte.', thumb_src: '/products/chili.svg', thumb_alt: 'Illustration einer roten Chili' },
 ];
 ---
-<Layout title="Astro Ecommerce Vorschau – GreenGrow Seeds" description="Technische Vorschau der Creative Tim Astro Ecommerce Komponenten mit GreenGrow Seeds Inhalten.">
+<Layout title="Astro Ecommerce Vorschau – SEED³X" description="Technische Vorschau der Creative Tim Astro Ecommerce Komponenten mit SEED³X-Inhalten.">
   <div class="gg-template-page">
     <Navbar />
     <main>
-      <PromoSectionLarge title="Grow something good." full_description="Ein erster Blick auf die Astro-Ecommerce-Komponenten mit GreenGrow Seeds Inhalten. Noch ist dies eine Vorschau, kein aktiver Shop." pageHeaderBgImg="/products/hero-seedling.svg" pageHeaderMinVh="48vh" pageHeaderRadius="24px" />
+      <PromoSectionLarge title="Grow something good." full_description="Ein erster Blick auf die Astro-Ecommerce-Komponenten mit SEED³X-Inhalten. Noch ist dies eine Vorschau, kein aktiver Shop." pageHeaderBgImg="/products/hero-seedling.svg" pageHeaderMinVh="48vh" pageHeaderRadius="24px" />
       <section class="gg-template-section" id="sortiment">
-        <div class="gg-template-section-heading"><span class="gg-template-product-category">Komponenten-Integration</span><h2 class="mt-2">Saatgut für deine nächste Idee.</h2><p class="text-secondary">Die Produktkarten basieren auf der Creative-Tim-Komponentenstruktur und verwenden GreenGrow-Beispieldaten und eigene SVG-Illustrationen.</p></div>
+        <div class="gg-template-section-heading"><span class="gg-template-product-category">Komponenten-Integration</span><h2 class="mt-2">Saatgut für deine nächste Idee.</h2><p class="text-secondary">Die Produktkarten basieren auf der Creative-Tim-Komponentenstruktur und verwenden SEED³X-Beispieldaten und eigene SVG-Illustrationen.</p></div>
         <div class="row g-4">{products.map((product) => <div class="col-12 col-sm-6 col-xl-3"><CardProduct {...product} position="start" /></div>)}</div>
         <div class="gg-template-notice mt-4">Technische Vorschau: Produktpreise, Lagerbestand, Nutzerkonten, Warenkorb-Backend, Versand und Zahlungsabwicklung sind nicht verbunden. Die Schaltflächen führen nicht zu einem Checkout.</div>
       </section>
