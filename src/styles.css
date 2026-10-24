@@ -712,3 +712,84 @@ body { color: var(--ink); background: var(--cream); }
   .site-header .brand-banner { width: min(42vw, 150px); }
   .site-header .menu-toggle { padding-inline: .7rem; }
 }
+
+/* Typography refinement v1 — measured defaults, responsive and intentionally restrained */
+:root {
+  --line-height-body: 1.7;
+  --line-height-reading: 1.75;
+  --font-size-reading: clamp(1rem, .96rem + .18vw, 1.1rem);
+}
+body {
+  font-family: var(--font-body);
+  line-height: var(--line-height-body);
+}
+.hero-copy,
+.luxury-hero .hero-copy {
+  max-width: 58ch;
+  font-size: var(--font-size-reading);
+  line-height: var(--line-height-reading);
+  text-wrap: pretty;
+}
+.luxury-hero h1 {
+  max-width: 11ch;
+  font-size: clamp(3.1rem, 5.6vw, 6.1rem);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+.section-heading h2,
+.split-copy h2,
+.growth-heading h2,
+.cta h2 {
+  text-wrap: balance;
+}
+.section-heading p,
+.split-copy p,
+.growth-heading > p,
+.cta p,
+.page-hero p {
+  line-height: var(--line-height-reading);
+  text-wrap: pretty;
+}
+.product-info h3,
+.tip h3,
+.feature-card strong {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.product-info p,
+.tip p,
+.feature-card em,
+.saved-item p {
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+@media (max-width: 800px) {
+  .luxury-hero h1 {
+    max-width: 12ch;
+    font-size: clamp(3rem, 10.8vw, 5rem);
+    line-height: 1.04;
+    letter-spacing: -.05em;
+  }
+  .hero-copy,
+  .luxury-hero .hero-copy {
+    max-width: 60ch;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .section-heading h2,
+  .split-copy h2 {
+    font-size: clamp(2rem, 7vw, 3.25rem);
+    line-height: 1.08;
+  }
+}
+@media (max-width: 420px) {
+  .luxury-hero h1 {
+    font-size: clamp(2.8rem, 11.2vw, 3.5rem);
+    letter-spacing: -.045em;
+  }
+  .section-heading h2,
+  .split-copy h2 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+  }
+}
