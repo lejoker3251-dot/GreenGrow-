@@ -145,7 +145,7 @@ Genetik spielt eine wichtige Rolle; Entwicklungs- und Umweltfaktoren können ebe
 
 **Kernaussage:** Feminisierte Samen zielen auf überwiegend weibliche Pflanzen ab, sind aber keine absolute Erfolgsgarantie.
 
-**Quellen:** [Timoteo Junior & Oswald (2024)](https://doi.org/10.3389/fpls.2024.1384286) – vor Veröffentlichung DOI und vollständige bibliografische Angaben verifizieren; [Punja & Holmes (2020)](https://doi.org/10.1007/s10681-020-02609-9); [Richards et al. (2026)](https://doi.org/10.3390/plants15111643); [Toth et al. (2022)](https://doi.org/10.1094/PHYTO-03-22-0089-R). **Quellenhinweis:** Die genaue bibliografische Zuordnung einzelner Links ist vor Veröffentlichung erneut zu prüfen; nicht alle Quellen stützen jede Aussage dieses Artikels unmittelbar.
+**Quellen:** [Timoteo Junior & Oswald (2024), Optimized guidelines for feminized seed production in high-THC Cannabis cultivars](https://doi.org/10.3389/fpls.2024.1384286) – Review zu untersuchten High-THC-Cultivaren; kein Beleg für eine allgemeine Marktfehlerquote; [Punja & Holmes (2020)](https://doi.org/10.1007/s10681-020-02609-9); [Richards et al. (2026)](https://doi.org/10.3390/plants15111643); [Toth et al. (2022)](https://doi.org/10.1094/PHYTO-03-22-0089-R). **Quellenhinweis:** Die genaue bibliografische Zuordnung einzelner Links ist vor Veröffentlichung erneut zu prüfen; nicht alle Quellen stützen jede Aussage dieses Artikels unmittelbar.
 
 ## 08. Was sind autoflowering Samen?
 **Slug:** `autoflowering-samen`
@@ -164,7 +164,7 @@ Autoflowering und feminisiert beschreiben unterschiedliche Merkmale. Eine Sorte 
 
 **Kernaussage:** Autoflowering beschreibt vor allem die Blüteninduktion und garantiert weder Ertrag noch Wirkstoffkonzentration.
 
-**Quellen:** [Toth et al. (2022), flowering-time loci](https://doi.org/10.1094/PHYTO-03-22-0089-R); [Dowling et al. (2024), FLOWERING LOCUS T ortholog](https://doi.org/10.3389/fpls.2024.1378940); [Steel et al. (2023)](https://doi.org/10.3389/fpls.2023.1227898). Bibliografische Angaben und Passung der DOI sind vor Veröffentlichung zu verifizieren.
+**Quellen:** [Toth et al. (2022), flowering-time loci](https://doi.org/10.1094/PHYTO-03-22-0089-R); [Dowling et al. (2024), FLOWERING LOCUS T ortholog] – Originalquelle und DOI vor Veröffentlichung verifizieren; [Steel et al. (2023)](https://doi.org/10.3389/fpls.2023.1227898). Bibliografische Angaben und Passung der DOI sind vor Veröffentlichung zu verifizieren.
 
 ## 09. Reguläre, feminisierte, Automatic-, CBD- und F1-Hybridsamen
 **Slug:** `samenarten-vergleich`
@@ -248,7 +248,7 @@ Ein hoher Ertrag beweist weder ein bestimmtes Cannabinoidprofil noch Aroma, gene
 
 **Kernaussage:** Ertragszahlen sind nur mit klaren Messgrößen und vergleichbaren Bedingungen sinnvoll interpretierbar.
 
-**Quellen:** [Tamang et al. (2025), industrial hemp variety characterization](https://doi.org/10.1002/agg2.70129) – bitte DOI-Zuordnung zum exakten Titel vor Veröffentlichung prüfen; [Multi-location industrial hemp trials (2026)](https://www.mdpi.com/journal/agronomy) – konkrete Publikation/DOI vor Veröffentlichung ergänzen; [USDA-ARS Hemp Phenotyping and Descriptors Handbook](https://www.ars.usda.gov). Quellen belegen keine spezifischen Ertragsversprechen für Handels-Blütensorten.
+**Quellen:** [Tamang et al. (2025), industrial hemp variety characterization] – Originalpublikation und DOI vor Veröffentlichung verifizieren; [Multi-location industrial hemp trials (2026)](https://www.mdpi.com/journal/agronomy) – konkrete Publikation/DOI vor Veröffentlichung ergänzen; [USDA-ARS Hemp Phenotyping and Descriptors Handbook](https://www.ars.usda.gov). Quellen belegen keine spezifischen Ertragsversprechen für Handels-Blütensorten.
 
 ## 13. Sativa-Sorten
 **Slug:** `sativa-sorten`
@@ -305,7 +305,7 @@ Beleuchtung, Kameraeinstellungen und Bildbearbeitung können Farben deutlich ver
 
 **Kernaussage:** Violette Pigmente sind ein sichtbares Merkmal, aber kein verlässlicher Hinweis auf Potenz, Aroma oder Qualität.
 
-**Quellen:** [Bassolino et al. (2023), When Cannabis sativa L. Turns Purple](https://doi.org/10.3390/antiox12071393); [Kim et al. (2025), Anthocyanin accumulation and temperature optima](https://doi.org/10.1186/s42238-025-00261-5) – exakte bibliografische Zuordnung vor Veröffentlichung prüfen; [Leaf pigmentation in Cannabis sativa (2024)](https://doi.org/10.3390/plants13070968) – DOI-Titel-Zuordnung vor Veröffentlichung verifizieren.
+**Quellen:** [Bassolino et al. (2023), When Cannabis sativa L. Turns Purple](https://doi.org/10.3390/antiox12071393); [Kim et al. (2025), Anthocyanin accumulation and temperature optima] – Originalpublikation und DOI vor Veröffentlichung verifizieren; [Leaf pigmentation in Cannabis sativa (2024)] – Originalpublikation und DOI vor Veröffentlichung verifizieren.
 
 ## 16. Cannabis verantwortungsvoll nutzen
 **Slug:** `cannabis-verantwortungsvoll-nutzen`
