@@ -145,7 +145,7 @@ Genetik spielt eine wichtige Rolle; Entwicklungs- und Umweltfaktoren können ebe
 
 **Kernaussage:** Feminisierte Samen zielen auf überwiegend weibliche Pflanzen ab, sind aber keine absolute Erfolgsgarantie.
 
-**Quellen:** [Timoteo Junior & Oswald (2024), Optimized guidelines for feminized seed production in high-THC Cannabis cultivars](https://doi.org/10.3389/fpls.2024.1384286) – Review zu untersuchten High-THC-Cultivaren; kein Beleg für eine allgemeine Marktfehlerquote; [Punja & Holmes (2020)](https://doi.org/10.1007/s10681-020-02609-9); [Richards et al. (2026)](https://doi.org/10.3390/plants15111643); [Toth et al. (2022)](https://doi.org/10.1094/PHYTO-03-22-0089-R). **Quellenhinweis:** Die genaue bibliografische Zuordnung einzelner Links ist vor Veröffentlichung erneut zu prüfen; nicht alle Quellen stützen jede Aussage dieses Artikels unmittelbar.
+**Quellen:** [Timoteo Junior & Oswald (2024), Optimized guidelines for feminized seed production in high-THC Cannabis cultivars](https://doi.org/10.3389/fpls.2024.1384286) – Review zu untersuchten High-THC-Cultivaren; kein Beleg für eine allgemeine Marktfehlerquote; [Punja & Holmes (2020)](https://doi.org/10.3389/fpls.2020.00718); [Richards et al. (2026)](https://doi.org/10.3390/plants15111643); [Toth et al. (2022)](https://doi.org/10.3389/fpls.2022.991680). **Quellenhinweis:** Die genaue bibliografische Zuordnung einzelner Links ist vor Veröffentlichung erneut zu prüfen; nicht alle Quellen stützen jede Aussage dieses Artikels unmittelbar.
 
 ## 08. Was sind autoflowering Samen?
 **Slug:** `autoflowering-samen`
@@ -210,7 +210,7 @@ Aussagen über Einheitlichkeit, Ertrag, Potenz oder Widerstandsfähigkeit sollte
 
 **Kernaussage:** F1 benennt eine Kreuzungsgeneration; konkrete Vorteile müssen für die jeweilige Züchtung belegt werden.
 
-**Quellen:** [UC Master Gardeners – What Does F1 Hybrid Mean?](https://ucanr.edu/sites/ucmgnapa/files/290453.pdf); [South Dakota State University Extension – Saving Seed](https://extension.sdstate.edu/saving-seed-will-seed-produce-plants-similar-plant-it-was-collected); [Pflanzenforschung.de – Hybridzüchtung](https://www.pflanzenforschung.de); [Bundesverband Deutscher Pflanzenzüchter – Hybridzüchtung](https://www.bdp-online.de). Die letzten beiden Links sind Einstiegspunkte; vor Veröffentlichung konkrete Unterseiten verlinken.
+**Quellen:** [UC Master Gardeners – What Does F1 Hybrid Mean?](https://ucanr.edu/sites/ucmgnapa/files/290453.pdf); [South Dakota State University Extension – Saving Seed](https://extension.sdstate.edu/saving-seed-will-seed-produce-plants-similar-plant-it-was-collected); [Pflanzenforschung.de – Hybridzüchtung](https://www.pflanzenforschung.de/de/pflanzenwissen/lexikon-a-z/hybridzuechtung-zuechtungsmethode-452); [Bundesverband Deutscher Pflanzenzüchter – Hybridzüchtung](https://www.bdp-online.de/de/Pflanzenzuechtung/Methoden/Hybridzuechtung/). Die letzten beiden Links sind Einstiegspunkte; vor Veröffentlichung konkrete Unterseiten verlinken.
 
 ## 11. Die stärksten Cannabissamen
 **Slug:** `staerkste-cannabissamen`
@@ -248,7 +248,7 @@ Ein hoher Ertrag beweist weder ein bestimmtes Cannabinoidprofil noch Aroma, gene
 
 **Kernaussage:** Ertragszahlen sind nur mit klaren Messgrößen und vergleichbaren Bedingungen sinnvoll interpretierbar.
 
-**Quellen:** [Tamang et al. (2025), industrial hemp variety characterization] – Originalpublikation und DOI vor Veröffentlichung verifizieren; [Multi-location industrial hemp trials (2026)](https://www.mdpi.com/journal/agronomy) – konkrete Publikation/DOI vor Veröffentlichung ergänzen; [USDA-ARS Hemp Phenotyping and Descriptors Handbook](https://www.ars.usda.gov). Quellen belegen keine spezifischen Ertragsversprechen für Handels-Blütensorten.
+**Quellen:** [Tamang et al. (2025), industrial hemp variety characterization] – Originalpublikation und DOI vor Veröffentlichung verifizieren; [Multi-location industrial hemp trials (2026)](https://doi.org/10.3389/fagro.2026.1745927) – Industriehanf, keine direkte Grundlage für konkrete Blütensorten;  [USDA-ARS Hemp Phenotyping and Descriptors Handbook](https://www.ars.usda.gov). Quellen belegen keine spezifischen Ertragsversprechen für Handels-Blütensorten.
 
 ## 13. Sativa-Sorten
 **Slug:** `sativa-sorten`
