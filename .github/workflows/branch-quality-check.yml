@@ -44,7 +44,7 @@ jobs:
             assert.equal(counts[category]?.length, 423, category + ' should contain 423 entries');
           }
           const shop = readFileSync('dist/shop/index.html', 'utf8');
-          assert.match(shop, /Beschreibung aus dem bereitgestellten Katalog/, 'shop cards should show the source note');
+          assert.match(shop, /Individuelle Sortenangaben werden vor einer Veröffentlichung anhand verlässlicher Züchter- oder Herstellerquellen geprüft\./, 'shop cards should show the updated verification note');
           assert.match(shop, /Produktbeschreibung|product-card/, 'shop output should include product card markup');
           const doctor = readFileSync('dist/grow-doctor/index.html', 'utf8');
           assert.match(doctor, /Grow Doctor/, 'dedicated Grow Doctor route should render its title/content');
