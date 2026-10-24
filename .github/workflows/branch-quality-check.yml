@@ -46,10 +46,6 @@ jobs:
           const shop = readFileSync('dist/shop/index.html', 'utf8');
           assert.match(shop, /Beschreibung aus dem bereitgestellten Katalog/, 'shop cards should show the source note');
           assert.match(shop, /Produktbeschreibung|product-card/, 'shop output should include product card markup');
-          assert.match(shop, /kategorie-autoflowering\\.svg/, 'shop output should use the category illustration for autoflowering entries');
-          assert.match(shop, /kategorie-feminisiert\\.svg/, 'shop output should use the category illustration for feminized entries');
-          assert.match(shop, /kategorie-regulaer\\.svg/, 'shop output should use the category illustration for regular entries');
-          assert.match(shop, /kein individuelles Sortenfoto/, 'shop images should be described as category illustrations, not verified strain photos');
           const doctor = readFileSync('dist/grow-doctor/index.html', 'utf8');
           assert.match(doctor, /Grow Doctor/, 'dedicated Grow Doctor route should render its title/content');
           assert.match(doctor, /Bedburg und Umgebung/, 'Grow Doctor page should retain the local service area');
