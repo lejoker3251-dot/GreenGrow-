@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Kontakt – SEED³X" description="Kontakt und Anfragen an SEED³X. Kontaktdaten werden vor Veröffentlichung ergänzt.">
+  <section class="page-hero contact-hero">
+    <span class="eyebrow">SEED³X · WIR SIND IM AUFBAU</span>
+    <h1>Kontakt</h1>
+    <p>Du hast eine Frage zu SEED³X oder zu unserem Angebot? Hier entsteht der zentrale Anlaufpunkt für deine Anfrage.</p>
+  </section>
+  <div class="contact-main">
+    <section class="contact-card" aria-labelledby="contact-status-title">
+      <span class="eyebrow">Kontaktinformationen</span>
+      <h2 id="contact-status-title">Wir bereiten den Kontakt vor.</h2>
+      <p>Die verbindlichen Kontaktdaten werden ergänzt, sobald die zuständige Kontaktadresse feststeht. Wir zeigen hier bewusst keine erfundene E-Mail-Adresse und kein Formular, das Anfragen derzeit nicht zuverlässig übermitteln könnte.</p>
+      <p class="contact-status"><span aria-hidden="true">●</span> Kontaktkanal noch nicht freigeschaltet</p>
+    </section>
+    <section class="contact-card contact-secondary" aria-labelledby="doctor-contact-title">
+      <span class="eyebrow">Persönliche Unterstützung</span>
+      <h2 id="doctor-contact-title">Deine Frage betrifft Grow Doctor?</h2>
+      <p>Auf der eigenen Seite findest du Informationen zum Unterstützungsangebot in Bedburg und Umgebung. Ein direkter Kontakt wird freigeschaltet, sobald die Kontaktdaten geprüft sind.</p>
+      <a class="button" href="/grow-doctor/">Grow Doctor ansehen <span aria-hidden="true">→</span></a>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .contact-hero{padding-top:clamp(3.5rem,8vw,7rem);padding-bottom:clamp(2.5rem,5vw,4rem);background:radial-gradient(ellipse at 90% 10%,#dfe9c5 0,transparent 43%),#f1efdf}
+  .contact-hero p{max-width:680px}
+  .contact-main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;max-width:1100px;margin:0 auto;padding:0 clamp(1rem,6vw,6rem) 5rem}
+  .contact-card{padding:clamp(1.5rem,4vw,2.5rem);border:1px solid rgba(23,63,42,.15);border-radius:20px;background:rgba(255,255,255,.72)}
+  .contact-card h2{margin:.8rem 0 1rem;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.15}
+  .contact-card p{line-height:1.75}
+  .contact-status{display:inline-flex;align-items:center;gap:.55rem;margin-top:1rem;padding:.65rem .85rem;border-radius:999px;background:#f8ecc9;color:#5c470f;font-size:.9rem}
+  .contact-status span{font-size:.7rem}
+  .contact-secondary{background:#edf1e4}
+  @media(max-width:700px){.contact-main{grid-template-columns:1fr}.contact-card{border-radius:16px}}
+</style>
