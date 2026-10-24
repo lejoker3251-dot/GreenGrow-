@@ -238,3 +238,8 @@ Die Artikel sind als strukturierte Daten mit Einleitung, Abschnittsüberschrifte
 Am 2026-10-24 wurde eine eigenständige redaktionelle Vorlage für alle 19 Artikel erstellt: [wissen-redaktionelle-vorlage.md](./wissen-redaktionelle-vorlage.md). Sie enthält vollständig neu formulierte, vorsichtigere Textentwürfe, Quellenhinweise und ausdrücklich markierte Beleglücken. Die Datei dient der Vorlage zur Freigabe; sie wurde **nicht** in die Website-Artikel übernommen.
 
 **Wichtige Einschränkung:** Die Vorlage ist keine vollständige Freigabe aller Tatsachenbehauptungen. Einige bibliografische Angaben und DOI-Zuordnungen bleiben ausdrücklich offen und müssen vor Veröffentlichung gegen Originalquellen verifiziert werden. Insbesondere Ertrags- und Leistungsbehauptungen für konkrete Handels-Blütensorten benötigen sortenspezifische Daten. Die Website-Quelle `src/pages/wissen/[slug].astro` wurde in diesem Schritt nicht verändert.
+
+
+## Fachbelege und juristische Übergabe
+
+Die ergänzende Arbeitsunterlage [wissen-fachbelege-und-rechtspruefung.md](./wissen-fachbelege-und-rechtspruefung.md) bündelt überprüfte Originalquellen, Übertragbarkeitsgrenzen, die Prüfleitplanken für alle 19 Artikel sowie konkrete Fragen an die anwaltliche Prüfung. Sie dokumentiert ausdrücklich, welche Nachweise vor der Endfreigabe noch satzgenau zuzuordnen sind. Sie ist kein anwaltliches Gutachten und keine Veröffentlichungsfreigabe.
