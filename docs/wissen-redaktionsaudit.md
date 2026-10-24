@@ -70,3 +70,9 @@ Für die folgenden fünf Artikel wurden thematisch passendere Quellen ergänzt u
 - `f1-hybridsamen`: Allgemeine botanische/züchterische Fachquellen zu F1, Heterosis und Aufspaltung ergänzt. Diese Quellen erklären Pflanzenzüchtung allgemein und belegen nicht automatisch konkrete Leistungsversprechen einzelner Cannabisprodukte.
 
 Nächster Prüfschritt: jede Aussage gegen die jeweilige Quelle abgleichen, Daten/Publikationsstatus prüfen und danach erst den individuellen Artikelstatus aktualisieren.
+
+### Quellenabgleich – Zusatznotiz
+
+Bei einer ergänzenden Link- und Metadatenkontrolle wurden die DOI-/Publikationsdaten für die Cannabis-Saatgutlagerungsstudie von Small & Brookes (2012), die Hanfsaatgut-Lagerungsstudie von Cockson et al. (2025), die Autoflower1-Studie von Toth et al. (2022), die Studie zu photoperiod-unabhängiger Blüte von Dowling et al. (2024), die F1-Grundlagentexte von UC Master Gardeners und SDSU Extension sowie die Studie zu Cannabinoidprofilen (2023) überprüft. Der F1-Quelleneintrag wurde auf das tatsächliche Ursprungsjahr des UC-Master-Gardeners-Artikels korrigiert.
+
+Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genannten Quellen, aber nicht automatisch jede einzelne Textaussage. Die fünf Artikel bleiben deshalb im Register ungecheckt, bis der Satz-für-Satz-Abgleich und die dokumentierte fachliche Endkontrolle abgeschlossen sind.
