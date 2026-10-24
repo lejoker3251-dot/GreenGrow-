@@ -32,6 +32,8 @@ try {
 
   // Reduced-motion users should keep the static illustration without loading Three.js.
   await page.route('https://cdn.jsdelivr.net/**', route => route.abort());
+  // Corrupt local data must not break page startup or the visible list counter.
+  await page.addInitScript(() => localStorage.setItem('greengrow-list', '{invalid-json'));
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle' });
 
   const fallback = page.locator('[data-botanical-scene] .botanical-fallback');
@@ -50,12 +52,25 @@ try {
   assert.ok(before?.width > 0 && after?.width > 0, 'fallback remains laid out at desktop and mobile viewport sizes');
   assert.ok(after.width < before.width, 'fallback responds to the narrower mobile viewport');
 
-  // Dismiss the age confirmation first; it intentionally blocks page interaction.
+  // The age dialog should be labelled, modal, and keep keyboard focus inside.
   const ageGate = page.locator('#age-gate');
   if (await ageGate.isVisible()) {
-    await page.locator('#age-gate-yes').click();
+    assert.equal(await ageGate.getAttribute('aria-modal'), 'true', 'age dialog announces modal behavior');
+    assert.equal(await ageGate.getAttribute('aria-labelledby'), 'age-gate-title', 'age dialog has an accessible title');
+    const yesButton = page.locator('#age-gate-yes');
+    const noButton = page.locator('#age-gate-no');
+    await page.waitForFunction(() => document.activeElement?.id === 'age-gate-yes');
+    await page.keyboard.press('Shift+Tab');
+    assert.equal(await page.evaluate(() => document.activeElement?.id), 'age-gate-no',
+      'Shift+Tab wraps focus to the last age-dialog control');
+    await page.keyboard.press('Tab');
+    assert.equal(await page.evaluate(() => document.activeElement?.id), 'age-gate-yes',
+      'Tab wraps focus to the first age-dialog control');
+    await yesButton.click();
     await page.waitForFunction(() => !document.documentElement.classList.contains('age-gate-active'));
   }
+  assert.equal(await page.locator('#cart-count').textContent(), '0',
+    'invalid localStorage JSON does not break the page or list counter');
 
   // The mobile navigation must expose its state and close predictably with Escape.
   const menuButton = page.locator('.menu-toggle');
@@ -68,7 +83,7 @@ try {
 
   assert.deepEqual(pageErrors, [], 'fallback, responsive layout, and menu interaction produce no uncaught page errors');
 
-  console.log('Browser checks passed (8 assertions: reduced motion, fallback, responsive layout, and keyboard navigation).');
+  console.log('Browser checks passed: reduced motion, fallback, responsive layout, age-dialog keyboard focus, invalid localStorage, and mobile navigation.');
 } finally {
   await browser?.close();
   server.kill('SIGTERM');
