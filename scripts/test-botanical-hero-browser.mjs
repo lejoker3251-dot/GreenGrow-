@@ -170,9 +170,9 @@ try {
     'Outdoor shop rubric is visible');
   assert.equal(await page.getByRole('heading', { name: 'Für Anfänger', exact: true }).count(), 1,
     'beginner shop rubric is visible');
-  assert.equal(await page.locator('.shop-rubric-card .rubric-status').count(), 2,
+  assert.equal(await page.locator('.category-entry-card .rubric-status').count(), 2,
     'both new rubrics clearly indicate that product selection is still being prepared');
-  assert.equal(await page.locator('.shop-rubric-card a[href="#sortiment"]').count(), 2,
+  assert.equal(await page.locator('.category-entry-card a[href="#sortiment"]').count(), 2,
     'both rubrics link to the existing catalog without pretending to filter unverified products');
 
   const categoryFilter = page.locator('.filter-row button[data-filter="Autoflowering"]');
