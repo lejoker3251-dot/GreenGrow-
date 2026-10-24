@@ -10,7 +10,8 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const image = 'https://raw.githubusercontent.com/lejoker3251-dot/GreenGrow-/feature/premium-storefront-v1/images/White%201.png.JPG';
+const categoryImages = { 'Autoflowering': '/images/products/kategorie-autoflowering.svg', 'Feminisierte Samen': '/images/products/kategorie-feminisiert.svg', 'Reguläre Samen': '/images/products/kategorie-regulaer.svg' };
+const image = categoryImages[product.category] || '/images/products/platzhalter-saatgut.webp';
 const title = product.name + ' – SEED³X Sortimentsvorschau';
 ---
 <Layout title={title} description={'Entwurfsansicht für ' + product.name + '. Produktdaten werden noch geprüft; keine Bestellung möglich.'}>
@@ -21,7 +22,7 @@ const title = product.name + ' – SEED³X Sortimentsvorschau';
   </section>
   <section class="section product-detail seed-detail">
     <div class="seed-detail-image">
-      <img src={image} alt="Einheitliches Platzhalterbild für die Sortimentsvorschau; keine individuelle Produktabbildung" width="640" height="640" loading="eager" />
+      <img src={image} alt={`Botanische Kategorieillustration für ${product.category}; keine konkrete Sortenabbildung`} width="640" height="640" loading="eager" />
       <span class="product-tag">Sortimentsvorschau</span>
     </div>
     <div class="seed-detail-copy">
@@ -33,7 +34,7 @@ const title = product.name + ' – SEED³X Sortimentsvorschau';
         <div><dt>Prüfstatus</dt><dd><span class="draft-status">Entwurf · nicht freigegeben</span></dd></div>
       </dl>
       <div class="product-description-block"><h3>Produktbeschreibung</h3><p>{product.description || 'Für diesen Eintrag liegt noch keine individuelle Beschreibung vor.'}</p><p class="description-source-note">Quelle: bereitgestellter Produktkatalog. Die Angaben sind noch nicht unabhängig verifiziert.</p></div><p>Preise und Verfügbarkeit werden erst ergänzt, wenn sie geprüft und freigegeben wurden.</p>
-      <div class="notice">Diese Seite ist eine unverbindliche Katalogvorschau. Es gibt keine Kauf- oder Bestellfunktion.</div>
+      <div class="notice">Diese Seite ist eine unverbindliche Katalogvorschau. Die Illustration zeigt nur die Kategorie, nicht die konkrete Sorte. Produktbeschreibung und Sortenmerkmale sind noch zu prüfen. Es gibt keine Kauf- oder Bestellfunktion.</div>
       <div class="actions">
         <a class="button" href="/shop/">Zurück zum Sortiment ↗</a>
         <a class="button secondary" href="/shopping-cart/">Merkliste ansehen</a>
