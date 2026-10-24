@@ -81,9 +81,11 @@ const currentPath = Astro.url.pathname;
         if (menuLabel) menuLabel.textContent = open ? 'Schließen' : 'Menü';
         const menuIcon = menuButton?.querySelector('.menu-toggle-icon');
         if (menuIcon) menuIcon.textContent = open ? '×' : '☰';
-        const isMobileMenu = window.matchMedia('(max-width: 800px)').matches;
-        if (nav) nav.hidden = isMobileMenu && !open;
-        nav?.classList.toggle('is-open', isMobileMenu && open);
+        // The menu is intentionally collapsible at every viewport size.
+        // Keep the native hidden state and CSS class in sync so the button works
+        // on iPad/tablet and desktop as well as on phones.
+        if (nav) nav.hidden = !open;
+        nav?.classList.toggle('is-open', open);
         if (!open) {
           const submenu = nav?.querySelector('#shop-submenu');
           const submenuToggle = nav?.querySelector('.nav-group-toggle');
@@ -92,6 +94,10 @@ const currentPath = Astro.url.pathname;
           nav?.querySelector('[data-nav-group="shop"]')?.classList.remove('is-open');
         }
       };
+
+      // Start in a deterministic closed state, then let the same handler
+      // control both visibility and accessible state on all screen sizes.
+      setMenuOpen(false);
 
       menuButton?.addEventListener('click', () => {
         const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
