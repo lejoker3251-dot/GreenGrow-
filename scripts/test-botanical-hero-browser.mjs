@@ -145,18 +145,17 @@ try {
   assert.equal(await page.locator('main#main-content a[href="/shop/"]').count(), 1,
     'not-found page provides a direct route back to the shop');
 
-  // Product imagery uses the image path stored with each catalog entry, while
-  // clearly stating that the archived image has not been individually verified for the strain.
+  // Product detail uses the catalog's intentional shared universal image and labels it clearly.
   await page.goto(`${localOrigin}/product/seed-0001/`, { waitUntil: 'networkidle' });
   const detailImage = page.locator('.seed-detail-image img');
-  assert.equal(await detailImage.getAttribute('src'), '/images/products/seed-archive.png',
-    'product detail uses the locally served product image');
+  assert.match(await detailImage.getAttribute('src') || '', /White%201\.png\.JPG$/,
+    'product detail uses the universal image assigned in the catalog');
   assert.ok(await detailImage.evaluate(image => image.complete && image.naturalWidth > 0),
     'product detail image loads successfully and contains image data');
-  assert.match(await detailImage.getAttribute('alt') || '', /Bildarchiv/i,
-    'product detail image is described as coming from the image archive');
-  assert.match(await page.locator('.image-caption').textContent() || '', /noch nicht verifiziert/i,
-    'product detail discloses that image-to-strain assignment is not verified');
+  assert.match(await detailImage.getAttribute('alt') || '', /Universalbild/i,
+    'product detail image is described as the universal image');
+  assert.match(await page.locator('.image-caption').textContent() || '', /Universalbild.*alle Katalogeinträge/i,
+    'product detail discloses that the same universal image is used for catalog entries');
 
   // Catalog filters should be keyboard-operable and update the result list.
   await page.goto(`${localOrigin}/shop/`, { waitUntil: 'networkidle' });
