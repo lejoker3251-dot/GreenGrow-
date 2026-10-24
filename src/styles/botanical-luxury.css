@@ -231,3 +231,6 @@ body { color: var(--color-ink); background: var(--color-porcelain); }
 .brand-intro-tagline { color: var(--color-lavender); }
 .brand-intro-skip { border-color: #d8cbea80; }
 .brand-intro-skip:focus-visible { outline-color: var(--color-champagne-light); }
+
+/* Preserve the native hidden state used by the accessible mobile/desktop menu. */
+.site-header .main-nav[hidden] { display: none !important; }
