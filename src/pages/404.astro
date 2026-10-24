@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Seite nicht gefunden – SEED³X"
+  description="Diese Seite ist nicht verfügbar. Kehre zur SEED³X Startseite oder zur Sortimentsvorschau zurück."
+>
+  <section class="page-hero not-found-page" aria-labelledby="not-found-title">
+    <span class="eyebrow">SEED³X · 404</span>
+    <h1 id="not-found-title">Dieser Pfad wächst<br /><em>hier nicht weiter.</em></h1>
+    <p>Die gesuchte Seite wurde nicht gefunden oder ist nicht mehr verfügbar. Du kannst zurück zur Startseite oder den aktuellen Katalog ansehen.</p>
+    <div class="actions not-found-actions">
+      <a class="button" href="/shop/">Zum Shop ↗</a>
+      <a class="button secondary" href="/">Zur Startseite</a>
+    </div>
+  </section>
+  <style>
+    .not-found-page{min-height:52vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+    .not-found-page h1{max-width:14ch}
+    .not-found-page p{max-width:48rem}
+    .not-found-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.2rem}
+    @media(max-width:480px){.not-found-actions{width:100%}.not-found-actions .button{width:100%;text-align:center}}
+  </style>
+</Layout>
