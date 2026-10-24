@@ -51,6 +51,57 @@ const catalogCount = products.length;
       <button type="button" class="button" data-filter="Alle" data-category-entry="true" aria-pressed="false">Gesamtes Sortiment ansehen ↘</button>
     </div>
   </section>
+  <section class="section cali-editorial-section" aria-labelledby="cali-editorial-title">
+    <div class="section-heading">
+      <div><span class="eyebrow">Genetik · Herkunft · Auswahl</span><h2 id="cali-editorial-title">Besondere Genetiken.<br/><em>Bewusst ausgewählt.</em></h2><p>Ein redaktioneller Überblick zu Cali-Genetiken, Qualität und Orientierung – ohne ungeprüfte Herkunfts- oder Ernteversprechen.</p></div>
+      <span class="section-kicker">SEED³X · EDITION 02</span>
+    </div>
+    <div class="cali-editorial-grid">
+      <article class="cali-editorial-card">
+        <span class="category-entry-index">01 / GENETIK</span>
+        <h3>California Genetics</h3>
+        <p>Kalifornien hat die internationale Cannabis-Kultur mit bekannten Sortennamen wie Runtz, Zkittlez, Gelato, Lemon Cherry und OG Kush geprägt. Unter dem Begriff <em>Cali Strains</em> werden häufig Genetiken zusammengefasst, die für ausdrucksstarke Aromen, besondere Sortenprofile und eine starke Nachfrage bekannt sind.</p>
+      </article>
+      <article class="cali-editorial-card">
+        <span class="category-entry-index">02 / HERKUNFT</span>
+        <h3>Original Cali</h3>
+        <p>Authentische Cali-Genetiken genießen weltweit einen besonderen Ruf. Bei exklusiven Linien kommt es auf nachvollziehbare Herkunft, seriöse Züchter und sorgfältig ausgewählte Genetik an. Entscheidend ist nicht nur der Name, sondern die Qualität hinter der Sorte.</p>
+      </article>
+      <article class="cali-editorial-card">
+        <span class="category-entry-index">03 / PREIS-LEISTUNG</span>
+        <h3>Premium-Qualität, fairer Preis</h3>
+        <p>Entdecke ausgewählte Genetiken und besondere Sortenprofile zu fair kalkulierten Preisen. Hochwertige Auswahl muss nicht automatisch teuer sein.</p>
+      </article>
+      <article class="cali-editorial-card">
+        <span class="category-entry-index">04 / ORIENTIERUNG</span>
+        <h3>Für Einsteiger</h3>
+        <p>Der Einstieg soll übersichtlich und unkompliziert sein. Diese Auswahl stellt Sorten in den Mittelpunkt, die anhand verlässlicher Züchterinformationen als vergleichsweise robust beschrieben werden. So fällt die Orientierung leichter – ohne eine bestimmte Ernte oder ein bestimmtes Ergebnis zu versprechen.</p>
+      </article>
+    </div>
+  </section>
+  <section class="section shop-rubrics-section" aria-labelledby="shop-rubrics-title">
+    <div class="section-heading">
+      <div><span class="eyebrow">Weitere Einstiege</span><h2 id="shop-rubrics-title">Finde die passende Rubrik.</h2><p>Outdoor und Für Anfänger werden als eigene Shop-Rubriken vorbereitet. Produktzuordnungen ergänzen wir erst, wenn die jeweiligen Eigenschaften anhand verlässlicher Quellen geprüft sind.</p></div>
+      <span class="section-kicker">RUBRIKEN · 02</span>
+    </div>
+    <div class="shop-rubrics-grid">
+      <article class="shop-rubric-card">
+        <span class="category-entry-index">RUBRIK / 01</span>
+        <h3>Outdoor</h3>
+        <p>Eine eigene Übersicht für Sorten, deren Eignung für den Außenbereich anhand der jeweiligen Züchterangaben geprüft wurde.</p>
+        <span class="rubric-status">Auswahl in Vorbereitung</span>
+        <a class="text-link" href="#sortiment">Zum Katalog <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="shop-rubric-card">
+        <span class="category-entry-index">RUBRIK / 02</span>
+        <h3>Für Anfänger</h3>
+        <p>Eine kuratierte Orientierungshilfe mit Fokus auf nachvollziehbar dokumentierte, vergleichsweise robuste Sorteneigenschaften.</p>
+        <span class="rubric-status">Auswahl in Vorbereitung</span>
+        <a class="text-link" href="#sortiment">Zum Katalog <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+    <p class="rubric-disclaimer">Hinweis: Die Rubriken sind bereits sichtbar, aber noch nicht mit Produkten befüllt. Wir ordnen keine Sorten allein anhand des Namens oder unbestätigter Annahmen zu.</p>
+  </section>
   <section class="section shop-catalog" id="sortiment">
     <div class="section-heading"><div><span class="eyebrow">Finde deinen Favoriten</span><h2>Das gesamte Sortiment.</h2><p>Suche nach Namen, filtere nach Saatentyp und sortiere die vorhandenen Katalogeinträge. Produktdaten und Verkaufsfreigaben werden nicht vorweggenommen.</p></div><span class="section-kicker">DAS SORTIMENT · 01</span></div>
     <div class="catalog-tools">
@@ -165,6 +216,15 @@ const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-fi
   syncSavedButtons();
 </script>
 <style>
+  .cali-editorial-section,.shop-rubrics-section{padding-top:clamp(2.5rem,5vw,4.5rem);padding-bottom:clamp(2.5rem,5vw,4.5rem)}
+  .cali-editorial-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+  .cali-editorial-card,.shop-rubric-card{display:flex;flex-direction:column;min-width:0;padding:clamp(1.2rem,2.5vw,2rem);border:1px solid var(--line);border-radius:18px;background:#fffefa;box-shadow:0 10px 28px #20362a08}
+  .cali-editorial-card h3,.shop-rubric-card h3{margin:1rem 0 .65rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.5rem,2.5vw,2.15rem);font-weight:500;letter-spacing:-.04em;color:var(--green)}
+  .cali-editorial-card p,.shop-rubric-card p{flex:1;color:var(--muted);font-size:.93rem;line-height:1.8}
+  .shop-rubrics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+  .rubric-status{align-self:flex-start;margin:1rem 0;padding:.45rem .7rem;border-radius:999px;background:#f0eaf7;color:#59496f;font-size:.72rem;font-weight:750;letter-spacing:.02em}
+  .shop-rubric-card .text-link{align-self:flex-start}
+  .rubric-disclaimer{margin-top:1rem;color:var(--muted);font-size:.82rem;line-height:1.7}
   .category-entry-section{padding-top:clamp(2.5rem,5vw,4.5rem);padding-bottom:clamp(2.5rem,5vw,4.5rem)}
   .category-entry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
   .category-entry-card{display:flex;flex-direction:column;min-width:0;padding:clamp(1.15rem,2vw,1.7rem);border:1px solid var(--line);border-radius:18px;background:#fffdf8;box-shadow:0 10px 28px #20362a08}
@@ -206,6 +266,6 @@ const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-fi
   .shop-teaser-copy h2 em{color:var(--green-2);font-weight:450}
   .shop-teaser-copy p{max-width:600px;color:var(--muted);line-height:1.85}
   .shop-teaser-note{display:block;margin-top:1rem;color:#768271;font-size:.75rem}
-  @media(max-width:760px){.category-entry-grid{grid-template-columns:1fr}.category-entry-card{padding:1.2rem}.all-catalog-entry{align-items:stretch;flex-direction:column}.all-catalog-entry .button{width:100%}}
+  @media(max-width:760px){.cali-editorial-grid,.shop-rubrics-grid{grid-template-columns:1fr}.category-entry-grid{grid-template-columns:1fr}.category-entry-card{padding:1.2rem}.all-catalog-entry{align-items:stretch;flex-direction:column}.all-catalog-entry .button{width:100%}}
   @media(max-width:700px){.shop-teaser{grid-template-columns:1fr}.shop-teaser-art{min-height:220px}.shop-teaser-copy .button{width:100%}.shop-catalog .catalog-tools{padding:.9rem}.shop-hero-meta{font-size:.56rem}}
 </style>
