@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Seed Finder – Finde deine Richtung | SEED³X" description="Der SEED³X Seed Finder hilft dir, Saatgutmerkmale und Auswahlkriterien strukturiert einzuordnen. Er ist eine Orientierungshilfe, keine Sorten- oder Qualitätsgarantie.">
+  <section class="finder-hero">
+    <div class="finder-hero-copy">
+      <span class="eyebrow">SEED³X · DEIN AUSWAHLKOMPASS</span>
+      <h1>Finde deine Richtung.<br/><em>Schritt für Schritt.</em></h1>
+      <p>Du musst nicht den ganzen Katalog kennen. Beantworte ein paar kurze Fragen und erhalte einen klaren nächsten Schritt – ohne Ranglisten, übertriebene Versprechen oder ungeprüfte Sortenempfehlungen.</p>
+      <div class="finder-pills"><span>01 · Situation</span><span>02 · Saatguttyp</span><span>03 · Schwerpunkt</span><span>04 · Ergebnis</span></div>
+    </div>
+    <div class="finder-orbit" aria-hidden="true"><div class="orbit-ring orbit-ring-one"></div><div class="orbit-ring orbit-ring-two"></div><div class="orbit-core">SEED<span>³X</span></div><span class="orbit-dot orbit-dot-one"></span><span class="orbit-dot orbit-dot-two"></span></div>
+  </section>
+
+  <section class="finder-shell" aria-labelledby="finder-title">
+    <div class="finder-section-head"><div><span class="eyebrow">Dein Profil</span><h2 id="finder-title">Was möchtest du einordnen?</h2><p>Es gibt keine richtige oder falsche Antwort. Wähle einfach die Richtung, die deiner Frage am nächsten kommt.</p></div><span class="finder-step" id="finder-step">SCHRITT 1 VON 3</span></div>
+    <form id="seed-finder" class="finder-form">
+      <fieldset class="finder-fieldset"><legend>1. Wo stehst du gerade?</legend><div class="finder-options">
+        <label class="finder-option"><input type="radio" name="situation" value="start" checked/><span class="option-index">A</span><span><strong>Ich möchte Grundlagen verstehen</strong><small>Begriffe und Unterschiede erst einmal sortieren.</small></span></label>
+        <label class="finder-option"><input type="radio" name="situation" value="compare"/><span class="option-index">B</span><span><strong>Ich möchte Saatguttypen vergleichen</strong><small>Regulär, feminisiert und autoflowering unterscheiden.</small></span></label>
+        <label class="finder-option"><input type="radio" name="situation" value="genetics"/><span class="option-index">C</span><span><strong>Ich suche eine genetische Richtung</strong><small>Begriffe wie Hybrid, F1 oder Linien besser einordnen.</small></span></label>
+        <label class="finder-option"><input type="radio" name="situation" value="catalog"/><span class="option-index">D</span><span><strong>Ich möchte den Katalog erkunden</strong><small>Erst die vorhandenen Einträge überblicken.</small></span></label>
+      </div></fieldset>
+      <fieldset class="finder-fieldset"><legend>2. Welcher Themenbereich interessiert dich?</legend><div class="finder-select-wrap"><label for="seed-type">Saatgutmerkmal</label><select id="seed-type" name="seedType"><option value="unsure">Noch offen</option><option value="feminized">Feminisierte Samen</option><option value="regular">Reguläre Samen</option><option value="auto">Autoflowering</option><option value="f1">F1-Hybride und Züchtung</option></select></div><div class="finder-select-wrap"><label for="focus">Dein Schwerpunkt</label><select id="focus" name="focus"><option value="basics">Grundlagen und Begriffe</option><option value="storage">Samenqualität und Aufbewahrung</option><option value="genetics">Genetik und Züchtung</option><option value="legal">Rechtlicher Rahmen in Deutschland</option></select></div></fieldset>
+      <div class="finder-actions"><button class="button" type="submit">Mein Ergebnis anzeigen <span aria-hidden="true">↗</span></button><button class="button secondary" type="reset" id="finder-reset">Zurücksetzen</button></div>
+    </form>
+    <section class="finder-result" id="finder-result" aria-live="polite" hidden><span class="eyebrow">Dein nächster sinnvoller Schritt</span><h3 id="result-title">Deine Orientierung</h3><p id="result-copy"></p><div id="result-links" class="finder-result-links"></div><p class="finder-caveat">Hinweis: Das Ergebnis ist eine redaktionelle Orientierung, keine individuelle Sortenempfehlung. Es bewertet keine Produktqualität, Keimfähigkeit, Wirkung oder Ertragsleistung. Produktangaben und rechtliche Rahmenbedingungen müssen unabhängig geprüft werden.</p></section>
+  </section>
+
+  <section class="finder-guides section">
+    <div class="section-heading"><div><span class="eyebrow">Direkt einsteigen</span><h2>Manchmal ist ein guter Überblick der beste Start.</h2><p>Wenn du schon weißt, was dich interessiert, kannst du direkt zu den passenden Grundlagen wechseln.</p></div><span class="section-kicker">WEITERLESEN</span></div>
+    <div class="finder-guide-grid">
+      <a class="finder-guide-card" href="/wissen/cannabissamen-aufbewahren/"><span>01 / SAATGUT</span><h3>Samen aufbewahren</h3><p>Was Lagerbedingungen bedeuten – und warum sie keine Keimrate garantieren.</p><b>Artikel öffnen ↗</b></a>
+      <a class="finder-guide-card" href="/wissen/feminisierte-samen/"><span>02 / BEGRIFFE</span><h3>Feminisierte Samen</h3><p>Den Begriff verstehen und Erwartungen realistisch einordnen.</p><b>Artikel öffnen ↗</b></a>
+      <a class="finder-guide-card" href="/wissen/autoflowering-samen/"><span>03 / GENETIK</span><h3>Autoflowering</h3><p>Photoperiodisches Blühverhalten und Autoflowering unterscheiden.</p><b>Artikel öffnen ↗</b></a>
+      <a class="finder-guide-card" href="/wissen/samenarten-vergleich/"><span>04 / VERGLEICH</span><h3>Samenarten vergleichen</h3><p>Begriffe trennen, statt verschiedene Merkmale miteinander zu verwechseln.</p><b>Artikel öffnen ↗</b></a>
+    </div>
+  </section>
+  <style>
+    .finder-hero{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);align-items:center;gap:clamp(2rem,6vw,6rem);padding:clamp(3rem,8vw,7rem) clamp(1.2rem,7vw,7rem);background:linear-gradient(125deg,#f9fbf7 0%,#fff 48%,#f0f4ed 100%);border-bottom:1px solid rgba(30,74,47,.12)}.finder-hero-copy{max-width:760px}.finder-hero h1{font-size:clamp(2.7rem,6vw,5.7rem);line-height:.99;letter-spacing:-.055em;margin:.7rem 0 1.4rem;color:#193d2a}.finder-hero h1 em{font-style:normal;color:#8b7ba8}.finder-hero-copy>p{max-width:650px;color:#526258;font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.75}.finder-pills{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1.8rem}.finder-pills span{font-size:.72rem;letter-spacing:.08em;padding:.6rem .8rem;border:1px solid #d8e1d7;border-radius:999px;color:#365742;background:#ffffffb8}.finder-orbit{position:relative;aspect-ratio:1;width:min(100%,400px);justify-self:center;display:grid;place-items:center}.orbit-ring{position:absolute;border:1px solid rgba(57,103,70,.25);border-radius:50%;inset:5%}.orbit-ring-two{inset:18%;border-color:rgba(139,123,168,.4);transform:rotate(28deg) scaleX(.74)}.orbit-core{width:43%;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;background:linear-gradient(145deg,#fff,#e8eee4);box-shadow:0 20px 60px #244a301c;border:1px solid #dce6da;color:#254c33;font-size:clamp(1.2rem,2.5vw,2rem);font-weight:700;letter-spacing:-.06em}.orbit-core span{color:#9a8751}.orbit-dot{position:absolute;width:13px;height:13px;border-radius:50%;background:#b7a3d3;box-shadow:0 0 0 7px #b7a3d322}.orbit-dot-one{top:16%;right:19%}.orbit-dot-two{bottom:15%;left:17%;background:#c8b36f;box-shadow:0 0 0 7px #c8b36f22}.finder-shell{max-width:1100px;margin:clamp(2rem,6vw,5rem) auto;padding:0 clamp(1rem,4vw,2rem)}.finder-section-head,.section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem}.finder-section-head h2,.finder-guides h2{font-size:clamp(1.8rem,3.6vw,3rem);letter-spacing:-.04em;margin:.4rem 0}.finder-section-head p,.finder-guides .section-heading p{color:#667268;line-height:1.7;max-width:680px}.finder-step{font-size:.7rem;letter-spacing:.13em;color:#7e8e7f;white-space:nowrap;padding-bottom:.8rem}.finder-form{margin-top:2rem;border:1px solid #dce5db;border-radius:1.4rem;padding:clamp(1rem,4vw,2.5rem);background:linear-gradient(145deg,#fff,#fbfcfa);box-shadow:0 22px 65px #1f4c2d0a}.finder-fieldset{border:0;padding:0;margin:0 0 2.2rem}.finder-fieldset legend{font-size:1.2rem;font-weight:650;color:#234831;margin-bottom:1rem}.finder-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.finder-option{display:flex;align-items:flex-start;gap:.9rem;padding:1rem;border:1px solid #e0e7df;border-radius:1rem;cursor:pointer;transition:border-color .2s,background .2s}.finder-option:has(input:checked){border-color:#72937a;background:#f1f6ef}.finder-option input{accent-color:#2d6240;margin-top:.3rem;flex:0 0 auto}.option-index{font-size:.72rem;color:#9a8751;font-weight:700;padding-top:.15rem}.finder-option strong,.finder-option small{display:block}.finder-option strong{color:#263e2d;font-size:.94rem}.finder-option small{color:#69756b;line-height:1.5;margin-top:.3rem}.finder-select-wrap{display:grid;grid-template-columns:minmax(130px,.5fr) minmax(0,1fr);align-items:center;gap:1rem;margin:.7rem 0}.finder-select-wrap label{color:#536458}.finder-select-wrap select{width:100%;border:1px solid #dce5db;border-radius:.7rem;background:white;padding:.85rem;color:#273c2e;font:inherit}.finder-actions{display:flex;gap:.7rem;flex-wrap:wrap}.finder-actions .button{cursor:pointer}.finder-result{margin-top:1.2rem;border-radius:1.2rem;padding:clamp(1.3rem,4vw,2.3rem);background:#f0f5ed;border:1px solid #d4e0d1}.finder-result h3{font-size:clamp(1.5rem,3vw,2.3rem);margin:.5rem 0}.finder-result>p{line-height:1.7;color:#526257}.finder-result-links{display:flex;gap:.7rem;flex-wrap:wrap;margin:1.2rem 0}.finder-result-links a{padding:.75rem 1rem;border:1px solid #b9cbb9;border-radius:999px;color:#234831;text-decoration:none;background:#fff;font-weight:600}.finder-result .finder-caveat{font-size:.84rem;border-top:1px solid #d5e0d2;padding-top:1rem;margin-bottom:0}.finder-guides{padding-bottom:clamp(3rem,7vw,6rem)}.finder-guide-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:2rem}.finder-guide-card{display:flex;flex-direction:column;min-height:230px;padding:1.3rem;border:1px solid #dce5db;border-radius:1rem;text-decoration:none;background:#fff;transition:transform .2s,border-color .2s}.finder-guide-card:hover{transform:translateY(-3px);border-color:#91aa92}.finder-guide-card>span{font-size:.68rem;letter-spacing:.12em;color:#99834c}.finder-guide-card h3{font-size:1.25rem;color:#244831;margin:1rem 0 .5rem}.finder-guide-card p{color:#68756a;line-height:1.6;font-size:.92rem}.finder-guide-card b{margin-top:auto;color:#315d3d;font-size:.85rem}.finder-guides .section-kicker{font-size:.7rem;letter-spacing:.13em;color:#89958a;white-space:nowrap;padding-bottom:.8rem}@media(max-width:760px){.finder-hero{grid-template-columns:1fr;padding-top:3rem}.finder-orbit{width:min(66vw,260px);grid-row:1}.finder-hero-copy{grid-row:2}.finder-options{grid-template-columns:1fr}.finder-section-head,.section-heading{align-items:flex-start;flex-direction:column;gap:.5rem}.finder-step{padding:0}.finder-select-wrap{grid-template-columns:1fr;gap:.4rem}.finder-guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:440px){.finder-guide-grid{grid-template-columns:1fr}.finder-actions .button{width:100%}.finder-guide-card{min-height:190px}}
+  </style>
+  <script is:inline>
+    (() => {
+      const form = document.querySelector('#seed-finder');
+      const result = document.querySelector('#finder-result');
+      const title = document.querySelector('#result-title');
+      const copy = document.querySelector('#result-copy');
+      const links = document.querySelector('#result-links');
+      const step = document.querySelector('#finder-step');
+      if (!form || !result || !title || !copy || !links) return;
+      const destinations = {
+        basics: ['/wissen/', 'Wissen & Ratgeber'],
+        storage: ['/wissen/cannabissamen-aufbewahren/', 'Samen aufbewahren'],
+        genetics: ['/wissen/f1-hybridsamen/', 'F1 und Züchtung'],
+        legal: ['/wissen/cannabis-verantwortungsvoll-nutzen/', 'Verantwortung & Rechtsrahmen'],
+        feminized: ['/wissen/feminisierte-samen/', 'Feminisierte Samen'],
+        regular: ['/wissen/samenarten-vergleich/', 'Samenarten vergleichen'],
+        auto: ['/wissen/autoflowering-samen/', 'Autoflowering verstehen'],
+        f1: ['/wissen/f1-hybridsamen/', 'F1-Hybridsamen verstehen'],
+        catalog: ['/shop/', 'Katalog ansehen']
+      };
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const situation = data.get('situation');
+        const type = data.get('seedType');
+        const focus = data.get('focus');
+        let key = focus === 'basics' ? 'basics' : focus;
+        if (type !== 'unsure' && focus !== 'legal' && focus !== 'storage') key = type;
+        if (situation === 'catalog' && type === 'unsure' && focus === 'basics') key = 'catalog';
+        const copyByKey = {
+          basics: ['Mit den Grundlagen starten', 'Beginne mit den Begriffen und Unterschieden. So lassen sich Saatguttyp, Genetik und Produktangaben besser auseinanderhalten.'],
+          storage: ['Saatgutqualität realistisch einordnen', 'Die Lagerung kann die Lebensfähigkeit beeinflussen. Eine allgemeine Regel oder ein äußerer Eindruck garantiert jedoch keine bestimmte Keimfähigkeit.'],
+          genetics: ['Genetik und Züchtung verstehen', 'F1 bezeichnet die erste Filialgeneration einer Kreuzung. Aussagen zu Einheitlichkeit oder Leistung müssen für die konkrete Linie belegt werden.'],
+          legal: ['Rechtsrahmen gesondert prüfen', 'Rechtliche Vorgaben können sich ändern. Nutze offizielle deutsche Quellen und prüfe die aktuelle Fassung, bevor du Entscheidungen triffst.'],
+          feminized: ['Feminisierte Samen einordnen', 'Der Begriff beschreibt ein Zuchtziel für die Geschlechtsausprägung, ist aber keine absolute Garantie für jede einzelne Pflanze.'],
+          regular: ['Begriffe sauber trennen', 'Regulär und feminisiert betreffen vor allem die erwartete Geschlechtsausprägung; Autoflowering beschreibt dagegen das Blühverhalten.'],
+          auto: ['Autoflowering verstehen', 'Autoflowering-Sorten zeigen eine geringere Abhängigkeit von der Tageslänge. Entwicklungsverlauf und Eigenschaften bleiben genetisch und umweltbedingt unterschiedlich.'],
+          f1: ['F1-Hybride differenziert betrachten', 'F1 benennt eine Kreuzungsgeneration. Einheitlichkeit, Vitalität und Leistungsmerkmale lassen sich nicht pauschal für jedes als F1 bezeichnete Produkt versprechen.'],
+          catalog: ['Erst den Katalog überblicken', 'Die vorhandenen Katalogeinträge sind eine Bestandsübersicht. Angaben und Beschreibungen sind nicht automatisch fachlich verifiziert oder zur Veröffentlichung freigegeben.']
+        };
+        const selected = copyByKey[key] || copyByKey.basics;
+        title.textContent = selected[0];
+        copy.textContent = selected[1];
+        links.replaceChildren();
+        const target = destinations[key] || destinations.basics;
+        const link = document.createElement('a');
+        link.href = target[0];
+        link.textContent = target[1] + ' ↗';
+        links.append(link);
+        if (key !== 'catalog') {
+          const general = document.createElement('a');
+          general.href = '/wissen/';
+          general.textContent = 'Alle Wissensartikel ↗';
+          links.append(general);
+        }
+        result.hidden = false;
+        step.textContent = 'ERGEBNIS · DEIN NÄCHSTER SCHRITT';
+        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+      form.addEventListener('reset', () => {
+        result.hidden = true;
+        step.textContent = 'SCHRITT 1 VON 3';
+      });
+    })();
+  </script>
+</Layout>
