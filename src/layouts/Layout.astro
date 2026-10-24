@@ -57,6 +57,7 @@ const currentPath = Astro.url.pathname;
           </div>
         </div>
         <a href="/wissen/" aria-current={currentPath.startsWith('/wissen') ? 'page' : undefined}>Wissen & Ratgeber</a>
+        <a href="/grow-doctor/" aria-current={currentPath.startsWith('/grow-doctor') ? 'page' : undefined}>Grow Doctor</a>
         <a href="/#wachstumsreise">Unsere Idee</a>
         <a href="/#ueber-greengrow">Über uns</a>
         <a href="mailto:hallo@greengrow.example">Kontakt</a>
@@ -65,7 +66,7 @@ const currentPath = Astro.url.pathname;
     <main id="main-content" tabindex="-1"><slot /></main>
     <footer class="site-footer">
       <p>SEED³X – Saatgut und botanische Inspiration für neue Wachstumsräume.</p>
-      <div class="footer-links"><a href="/shop/">Shop</a><a href="/wissen/">Wissen</a><a href="/#wachstumsreise">Unsere Idee</a><a href="/#ueber-greengrow">Über uns</a><a href="mailto:hallo@greengrow.example">Kontakt (Platzhalter)</a><a href="/shopping-cart/">Merkliste</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
+      <div class="footer-links"><a href="/shop/">Shop</a><a href="/wissen/">Wissen</a><a href="/grow-doctor/">Grow Doctor</a><a href="/#wachstumsreise">Unsere Idee</a><a href="/#ueber-greengrow">Über uns</a><a href="mailto:hallo@greengrow.example">Kontakt (Platzhalter)</a><a href="/shopping-cart/">Merkliste</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
       <small>© {new Date().getFullYear()} SEED³X · Impressum und Datenschutz sind Entwürfe und müssen vor Veröffentlichung mit echten, geprüften Daten ergänzt werden.</small>
     </footer>
     <script is:inline>
