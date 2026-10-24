@@ -61,7 +61,7 @@ try {
   const before = await fallback.boundingBox();
   await page.setViewportSize({ width: 390, height: 844 });
   await page.waitForFunction(() => {
-    const image = document.querySelector('[data-botanical-scene] .botanical-fallback');
+    const image = document.querySelector('#hero-art img');
     return image && image.getBoundingClientRect().width > 0;
   });
   const after = await fallback.boundingBox();
