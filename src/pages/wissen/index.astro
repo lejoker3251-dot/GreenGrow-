@@ -34,7 +34,17 @@ const groups = [
         </article>)}
       </div>
     </section>)}
-    <aside class="knowledge-note"><strong>Hinweis zum aktuellen Stand</strong><p>Die verlinkten Beiträge bieten bereits erste Grundlagen und werden redaktionell weiterentwickelt. Fachliche Aussagen, mögliche Wirkungen und rechtliche Hinweise können sich ändern; prüfe aktuelle amtliche Informationen und nutze die Inhalte als allgemeine Orientierung, nicht als individuelle medizinische oder rechtliche Beratung.</p></aside>
+    <aside class="knowledge-note"><strong>Redaktioneller Hinweis</strong><p>Die Beiträge dienen der allgemeinen Orientierung. Die redaktionelle Prüfung erfolgt fortlaufend; nicht jede Einzelaussage ist bereits mit einer direkt zugeordneten Quelle versehen. Medizinische Aussagen ersetzen keine fachliche Beratung. Rechtliche Regelungen können sich ändern und sollten anhand amtlicher Quellen geprüft werden.</p></aside>
+    <section class="knowledge-sources" aria-labelledby="knowledge-sources-title">
+      <span class="eyebrow">QUELLEN & WEITERFÜHRENDE INFORMATIONEN</span>
+      <h2 id="knowledge-sources-title">Verlässliche Ausgangspunkte.</h2>
+      <p>Für Gesundheitsinformationen und rechtliche Rahmenbedingungen empfehlen wir zuerst offizielle, regelmäßig aktualisierte Stellen. Diese Links sind allgemeine Referenzen und nicht automatisch Beleg für jede Aussage in jedem Artikel.</p>
+      <ul>
+        <li><a href="https://www.bundesgesundheitsministerium.de/themen/cannabis/faq-cannabisgesetz" target="_blank" rel="noopener noreferrer">Bundesministerium für Gesundheit: Fragen und Antworten zum Cannabisgesetz ↗</a></li>
+        <li><a href="https://www.bundesgesundheitsministerium.de/service/gesetze-und-verordnungen/detail/cannabisgesetz" target="_blank" rel="noopener noreferrer">Bundesministerium für Gesundheit: Cannabisgesetz und Gesetzesinformationen ↗</a></li>
+        <li><a href="https://gesund.bund.de/" target="_blank" rel="noopener noreferrer">gesund.bund.de: Gesundheitsinformationen des Bundes ↗</a></li>
+      </ul>
+    </section>
   </div>
   <style>
     .knowledge-hero{padding-top:clamp(3.5rem,8vw,7rem);padding-bottom:clamp(3rem,6vw,5rem);background:radial-gradient(ellipse at 90% 10%,#dfe9c5 0,transparent 43%),#f1efdf}
@@ -54,7 +64,7 @@ const groups = [
     .knowledge-article h3{font-size:.98rem;line-height:1.4;margin:0;font-weight:700}.knowledge-article h3 a{color:var(--ink);text-decoration:none}.knowledge-article h3 a:hover{color:var(--green-2)}
     .article-status{font-size:.72rem;color:var(--muted);margin-top:.25rem}
     .knowledge-note{margin-top:2rem;padding:1.3rem 1.5rem;border-radius:14px;background:#edf1e4;color:var(--ink)}
-    .knowledge-note p{line-height:1.7;color:var(--muted);margin:.4rem 0 0}
+    .knowledge-note p{line-height:1.7;color:var(--muted);margin:.4rem 0 0}\n    .knowledge-sources{padding:2rem 0 0;max-width:860px}.knowledge-sources h2{font-family:Georgia,serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:500;letter-spacing:-.04em;margin:.6rem 0}.knowledge-sources p,.knowledge-sources li{color:var(--muted);line-height:1.75}.knowledge-sources ul{padding-left:1.25rem}.knowledge-sources a{color:var(--green);text-underline-offset:3px}
     @media(max-width:700px){.knowledge-group-head{grid-template-columns:42px 1fr;gap:.8rem}.knowledge-number{font-size:2rem}.knowledge-articles{grid-template-columns:1fr;margin-left:0}.knowledge-jump a{font-size:.76rem}}
   </style>
 </Layout>
