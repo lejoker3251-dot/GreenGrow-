@@ -39,3 +39,24 @@ Die 1.269 JSON-Einträge wurden gegen eine explizite Zuordnung der im Quelldetai
 Ergebnis des Daten-Snapshots: **423 Einträge je Zuordnung, keine Abweichungen**. Damit ist die Kategorie technisch konsistent mit dem importierten Typtext; die Kategorie ist dennoch eine normalisierte Zuordnung und kein wörtliches Originalfeld der PDF.
 
 Zusätzlich wurde `scripts/validate-catalog-categories-and-images.mjs` ergänzt und in CI eingebunden. Es prüft die Zuordnung pro Eintrag, kontrolliert Repository-interne Raw-GitHub-Bildpfade auf eine entsprechende Datei im Branch und warnt bei einer einzigen gemeinsam verwendeten Bildreferenz. Der aktuelle Katalog hat eine eindeutige Bildreferenz für alle 1.269 Einträge. Das bestätigt keine individuelle Bildzuordnung und ersetzt keine visuelle Inhalts-/Formatprüfung.
+
+
+## Ergänzende Prüfung: Binärsignaturen der Bilddateien
+
+Der neue CI-Schritt `scripts/validate-image-assets.mjs` hat die Signaturen der vorhandenen Bilddateien anhand ihrer Dateiinhalte geprüft. Die erkannten Formate stimmen mit der jeweils letzten Dateiendung überein; die ungewöhnlichen zusammengesetzten Dateinamen lösen jedoch bewusst Warnungen aus:
+
+| Datei | Erkanntes Format | Größe |
+|---|---:|---:|
+| `Mamba Test.png.WEBP` | WebP | 749.426 Byte |
+| `White 1.png.JPG` | JPEG | 63.622 Byte |
+| `seedx-background.png.JPG` | JPEG | 118.530 Byte |
+| `seedx-banner.png.PNG` | PNG | 574.704 Byte |
+| `seedx-logo.png.PNG` | PNG | 1.920.233 Byte |
+
+Die vom Katalog referenzierte Datei `Mamba Test.png.WEBP` ist vorhanden und nicht leer. Der Signaturcheck bestätigt das Dateiformat, aber nicht die visuelle Eignung oder die korrekte Zuordnung zu einem bestimmten Datensatz. Eine automatische Umbenennung wurde vermieden, damit keine Referenzen unbeabsichtigt brechen.
+
+## Aktueller CI-Nachweis
+
+Der Lauf [40070347449](https://github.com/lejoker3251-dot/GreenGrow-/actions/runs/40070347449) auf `feature/premium-storefront-v1` ist erfolgreich. Der Job führte Katalogvalidator, CSV/JSON-Abgleich, Kategorien-/Bildpfadprüfung, Bildsignaturprüfung, Astro-Prüfung, statischen Build und Browser-Regressionstests aus. Die Prüfungen protokollieren weiterhin manuelle Hinweise zur leeren CSV-Kategorie-/Bildspalte und zur gemeinsamen Bildreferenz.
+
+Es wurden keine Preise, Bestände oder Verfügbarkeiten ergänzt. Alle Einträge bleiben Entwürfe. Kein Merge, Deploy oder Live-Update.
