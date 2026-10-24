@@ -154,3 +154,12 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - SAMHSA-Übersicht wurde 2026 aktualisiert bzw. vor wenigen Monaten veröffentlicht und ist damit die frischere allgemeine Quelle; CDC nennt unter anderem Auswirkungen auf Aufmerksamkeit, Entscheidungsfähigkeit, Koordination und Reaktionszeit sowie Risiken bei hoch konzentrierten THC-Produkten.
 - Der Artikel behauptet keine universelle Rangliste und weist darauf hin, dass Laborwerte aus nachvollziehbaren Analysen stammen sollten. Quellen belegen Gesundheitsinformationen, nicht die Qualität einzelner Samenlinien oder die tatsächliche THC-Leistung einer konkreten Sorte.
 - Teilprüfung: Die sichtbaren vier Abschnitte wurden mit den genannten Gesundheitsquellen abgeglichen. Ein vollständiger Satz-für-Satz-Abgleich sämtlicher redaktioneller Details und aller 19 Artikel ist noch nicht abgeschlossen. Checkboxen bleiben deshalb unverändert.
+
+
+### Ertragreiche Sorten – Quellenabgleich (24. Oktober 2026)
+- Die allgemeinen Startseiten-Links wurden durch konkrete Studien und eine Messgrößen-Referenz ersetzt.
+- Tamang et al. (2025) verglichen 16 Körner- und Dual-Use-Industriehanfsorten und fanden Unterschiede bei Ertrag und Biomasse unter den getesteten Bedingungen in Missouri: https://doi.org/10.3389/fpls.2025.1632346
+- Eine Mehrstandortstudie von 2026 berichtet Sorten- und Standortunterschiede bei Industriehanf-Biomasse und Faserertrag: https://doi.org/10.3389/fagro.2026.1745927
+- USDA-ARS-Handbuch zu standardisierten Hanf-Ertragsmerkmalen: https://www.ars.usda.gov/northeast-area/geneva-ny/plant-genetic-resources-unit-pgru/docs/hemp-descriptors/
+- Grenze der Übertragbarkeit: Diese Quellen behandeln Industriehanf, nicht konkrete kommerzielle Cannabinoid-/Blütensorten. Sie stützen keine Rangliste von Cannabis-Samen für den Einzelhandel.
+- Teilprüfung der vier Abschnitte und Quellenzuordnung; keine vollständige Prüfung aller Wissensartikel. Checkboxen bleiben unverändert.
