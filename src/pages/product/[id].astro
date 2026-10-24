@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const image = product.image || '/images/products/platzhalter-saatgut.webp';
+const image = '/images/products/seed-archive.png';
 const sourceType = product.details?.replace(/^Typ laut PDF:\s*/i, '') || 'Noch nicht zugeordnet';
 const title = product.name + ' – SEED³X Sortimentsvorschau';
 const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten werden noch geprüft; keine Bestellung möglich.';
