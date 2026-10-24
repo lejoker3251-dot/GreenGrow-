@@ -838,3 +838,19 @@ body {
   }
 }
 
+/* Explicit high-contrast override for the homepage hero copy */
+.luxury-hero .luxury-hero-content,
+.luxury-hero .luxury-hero-content .eyebrow,
+.luxury-hero .luxury-hero-content .hero-overline,
+.luxury-hero .luxury-hero-content h1,
+.luxury-hero .luxury-hero-content h1 em,
+.luxury-hero .luxury-hero-content .hero-copy,
+.luxury-hero .luxury-hero-content .hero-proof,
+.luxury-hero .luxury-hero-content .hero-proof span {
+  color: #000 !important;
+}
+.luxury-hero .luxury-hero-content .button.secondary {
+  color: #000 !important;
+  border-color: #000;
+}
+
