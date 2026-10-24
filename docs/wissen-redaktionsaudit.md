@@ -76,3 +76,39 @@ Nächster Prüfschritt: jede Aussage gegen die jeweilige Quelle abgleichen, Date
 Bei einer ergänzenden Link- und Metadatenkontrolle wurden die DOI-/Publikationsdaten für die Cannabis-Saatgutlagerungsstudie von Small & Brookes (2012), die Hanfsaatgut-Lagerungsstudie von Cockson et al. (2025), die Autoflower1-Studie von Toth et al. (2022), die Studie zu photoperiod-unabhängiger Blüte von Dowling et al. (2024), die F1-Grundlagentexte von UC Master Gardeners und SDSU Extension sowie die Studie zu Cannabinoidprofilen (2023) überprüft. Der F1-Quelleneintrag wurde auf das tatsächliche Ursprungsjahr des UC-Master-Gardeners-Artikels korrigiert.
 
 Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genannten Quellen, aber nicht automatisch jede einzelne Textaussage. Die fünf Artikel bleiben deshalb im Register ungecheckt, bis der Satz-für-Satz-Abgleich und die dokumentierte fachliche Endkontrolle abgeschlossen sind.
+
+
+## Abschlussrunde der fünf Seed-Artikel – Abgleichsmatrix (24. Oktober 2026)
+
+**Status dieser Runde: fachliche Gegenprüfung und Risikohinweise dokumentiert; keine Vollfreigabe.** Die fünf Hauptartikel wurden in ihren Kernaussagen überarbeitet. Nicht jede allgemeine Aussage ist durch jede dort verlinkte Quelle direkt belegt; deshalb bleiben die Einzel-Checkboxen oben offen, bis die nachstehenden Restpunkte geklärt und Quellen bei den konkreten Aussagen sichtbar zugeordnet sind.
+
+### 01 · `cannabissamen-aufbewahren`
+- Small & Brookes (2012), DOI `10.1080/15440478.2012.737179`: kontrollierte Lagerung über 66 Monate; drei Industriehanf-Kultivare, eine medizinische Marihuana-Sorte und eine ruderal geprägte Form. Stützt den Zusammenhang von Temperatur, Samenfeuchte und Erhalt der Keimfähigkeit, aber keine universelle Haltbarkeitsfrist.
+- Cockson et al. (2025), DOI `10.1002/agg2.70129`: begrenzte Versuchsgrundlage mit einer Industriehanf-Genetik; nicht pauschal auf alle Sorten übertragbar.
+- Restpunkt: Die Empfehlung, eine kalte, verschlossene Verpackung vor dem Öffnen an die Umgebungstemperatur angleichen zu lassen, ist eine vorsichtige praktische Empfehlung; sie ist durch die beiden verlinkten Cannabis-Lagerstudien nicht direkt als eigener Versuch geprüft. Bei der Endredaktion entweder eine geeignete allgemeine Saatgut-/Kondensationsquelle ergänzen oder als allgemeine Vorsichtsmaßnahme kenntlich halten.
+
+### 02 · `feminisierte-samen`
+- Timoteo Junior & Oswald (2024), DOI `10.3389/fpls.2024.1384286): Review über Feminisierungsverfahren und Produktionsfragen bei High-THC-Cannabis-Kultivaren; beschreibt auch unerwünschte männliche Blüten bzw. Abweichungen. Ein dort berichteter Fall ist keine allgemeine Markt-Fehlerquote.
+- Toth et al. (2022), DOI `10.3389/fpls.2022.991680`: Quelle zur Unterscheidung von Blühzeit/Photoperiode, nicht Hauptbeleg für Feminisierungsverfahren.
+- Restpunkt: Die Aussage, Umweltstress könne die Geschlechtsausprägung beeinflussen, braucht einen direkt passenden Beleg oder muss im Artikel als allgemeine, nicht näher spezifizierte Aussage entfernt bzw. zurückhaltender formuliert werden.
+
+### 03 · `autoflowering-samen`
+- Toth et al. (2022), DOI `10.3389/fpls.2022.991680`: kartiert Autoflower1 und Early1 in untersuchten Cannabis-/Hanfpopulationen.
+- Dowling et al. (2024), DOI `10.1111/tpj.16769`: identifiziert Autoflower2 im Kontext der Hanfsorte FINOLA und zeigt zusammen mit Autoflower1 mehrere unabhängige Ursprünge photoperiodischer Unempfindlichkeit.
+- Steel et al. (2023), DOI `10.3389/fpls.2023.1227898`: ordnet Forschungsbefunde zu Blüteverhalten und Genetik ein; kein Beleg für identisches Verhalten jeder Handelssorte.
+- Restpunkt: Begriffe wie „deutlich vermindert oder fehlt“ müssen als allgemeine Beschreibung des Merkmals und nicht als Garantie für jedes Produkt verstanden werden; Produktangaben und genetische Befunde sind nicht gleichzusetzen.
+
+### 04 · `samenarten-vergleich`
+- Die Rubriken Regular, Feminisiert, Automatic, CBD-orientiert und F1 sind als **SEED³X-Katalogrubriken** dokumentiert, nicht als fünf gegenseitig ausschließende botanische Klassen.
+- Toth et al. (2022) stützt die Abgrenzung des Blühverhaltens; Timoteo Junior & Oswald (2024) stützt die Grundbeschreibung feminisierter Saatgutproduktion; die Studie zu Cannabinoidprofilen von 2023 stützt die Vorsicht bei pauschalen CBD-/THC-Aussagen.
+- Restpunkt: Für die Definition regulärer Samen und die generelle Umweltabhängigkeit von Cannabinoidprofilen sollten Quellen bei den jeweiligen Aussagen direkt zugeordnet werden. Die Quellenliste als Ganzes ersetzt diesen Zuordnungsnachweis nicht.
+
+### 05 · `f1-hybridsamen`
+- UC Master Gardeners of Placer County (Ursprungsartikel 2012) und South Dakota State University Extension (aktualisiert 2024) erklären F1/F2 und mögliche Aufspaltung allgemein.
+- Pflanzenforschung.de beschreibt Heterosis und Hybridzüchtung allgemein.
+- Restpunkt: Diese Quellen sind keine direkten Leistungsversuche an den konkreten SEED³X-Cannabisprodukten. Ertrags-, Potenz- oder Resistenzvorteile dürfen daraus nicht für einzelne Cannabis-F1-Sorten abgeleitet werden.
+
+### Quellen- und Freigabestatus
+- DOI-/Metadatenprüfung und thematische Passung sind keine automatische Bestätigung jeder einzelnen Textaussage.
+- Vor einer redaktionellen Freigabe sind die genannten Restpunkte zu erledigen, Quellen an konkreten Aussagen zuzuordnen und sichtbare Aktualitäts-/Prüfhinweise auf ihre tatsächliche Grundlage zu prüfen.
+- Technischer Build oder erfolgreiches Preview-Deployment ist kein redaktioneller Qualitätsnachweis.
