@@ -139,3 +139,11 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Naim-Feil et al. (2023), *The Cannabis Plant as a Complex System*, berichtet bei den untersuchten Genotypen sowohl relativ stabile qualitative Cannabinoidverhältnisse als auch variable absolute Mengen; die Ergebnisse sind nicht als universelle Regel für alle Genotypen oder Umgebungen zu lesen. Quelle: https://pmc.ncbi.nlm.nih.gov/articles/PMC9919051/
 - Der Artikel wurde präzisiert: Er unterscheidet ausdrücklich zwischen variierenden absoluten Mengen und nicht zwangsläufig gleichartig veränderten Cannabinoidverhältnissen. Die Quelle zu Sex-Markern wurde ergänzt.
 - Teilprüfung abgeschlossen; der Artikel bleibt ungeprüft, bis alle Aussagen, die konkrete Zuordnung jeder Quelle und der Aktualitätsstatus vollständig kontrolliert sind.
+
+
+### F1-Hybridsamen: Abgrenzung allgemeiner Züchtungsaussagen (24. Oktober 2026)
+- SDSU Extension (aktualisiert 16. September 2024) erklärt F1 als erste Generation aus zwei unterschiedlichen Inzuchtlinien und beschreibt die mögliche genetische Aufspaltung in F2. Die Quelle bezieht sich auf allgemeine Gartenbau-/Kulturpflanzenbeispiele, nicht auf konkrete Cannabis-F1-Produkte: https://extension.sdstate.edu/saving-seed-will-seed-produce-plants-similar-plant-it-was-collected
+- Der Bundesverband Deutscher Pflanzenzüchter beschreibt klassische Hybridzüchtung aus möglichst unterschiedlichen, weitgehend reinerbigen Elternlinien und den Heterosiseffekt. Das ist ein allgemeiner Züchtungsbeleg, kein Leistungstest für Cannabis-Handelslinien: https://www.bdp-online.de/de/Pflanzenzuechtung/Methoden/Hybridzuechtung/
+- UC ANR Master Gardeners (ursprünglich 2012; aktuelle Webfassung) bietet eine zweite verständliche F1-Definition: https://ucanr.edu/site/uc-master-gardeners-placer-county/article/what-does-f1-hybrid-mean
+- Der Artikel macht bereits kenntlich, dass die Bezeichnung F1 allein weder Elternlinien-Stabilität noch konkrete Gleichförmigkeit, Ertrag, Potenz oder Resistenz belegt. Die BDP-Quelle wurde ergänzend aufgenommen.
+- Teilcheck: Begriffsdefinition, Heterosis und F2-Grundprinzip mit allgemeinen Züchtungsquellen abgeglichen. Keine direkte Studie an den konkreten SEED³X-Cannabisprodukten gefunden bzw. herangezogen. Artikel bleibt deshalb im Register ungeprüft, bis alle Sätze und Aktualitätshinweise einzeln abgeschlossen sind.
