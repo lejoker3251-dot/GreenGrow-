@@ -231,3 +231,10 @@ Die Artikel sind als strukturierte Daten mit Einleitung, Abschnittsüberschrifte
 - Bei Kontaminationsquellen müssen Aussagen über menschliche Gesundheitsrisiken von Empfehlungen zur Pflanzenpflege und von rechtlichen Anwendungsvorgaben getrennt bleiben.
 
 **Weiterhin offen:** Die vollständige Satz-für-Satz-Prüfung sämtlicher 19 Artikel erfordert, jede Aussage im exakten Artikelwortlaut einer konkreten Originalpassage zuzuordnen. Die hier bestätigten bibliografischen Daten und thematischen Grenzen sind ein weiterer belegter Prüfschritt, aber keine Gesamtfreigabe.
+
+
+## Neue Arbeitsfassung zur redaktionellen Vorlage
+
+Am 2026-10-24 wurde eine eigenständige redaktionelle Vorlage für alle 19 Artikel erstellt: [wissen-redaktionelle-vorlage.md](./wissen-redaktionelle-vorlage.md). Sie enthält vollständig neu formulierte, vorsichtigere Textentwürfe, Quellenhinweise und ausdrücklich markierte Beleglücken. Die Datei dient der Vorlage zur Freigabe; sie wurde **nicht** in die Website-Artikel übernommen.
+
+**Wichtige Einschränkung:** Die Vorlage ist keine vollständige Freigabe aller Tatsachenbehauptungen. Einige bibliografische Angaben und DOI-Zuordnungen bleiben ausdrücklich offen und müssen vor Veröffentlichung gegen Originalquellen verifiziert werden. Insbesondere Ertrags- und Leistungsbehauptungen für konkrete Handels-Blütensorten benötigen sortenspezifische Daten. Die Website-Quelle `src/pages/wissen/[slug].astro` wurde in diesem Schritt nicht verändert.
