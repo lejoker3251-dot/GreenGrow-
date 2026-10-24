@@ -43,17 +43,20 @@ try {
     }
   });
 
-  // Reduced-motion users should keep the static illustration without loading Three.js.
+  // The current Botanical Luxury hero uses a full-bleed static photograph. Reduced-motion
+  // users must still see it, and the homepage must not load the legacy Three.js scene.
   await page.route('https://cdn.jsdelivr.net/**', route => route.abort());
   // Corrupt local data must not break page startup or the visible list counter.
   await page.addInitScript(() => localStorage.setItem('greengrow-list', '{invalid-json'));
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle' });
 
-  const fallback = page.locator('[data-botanical-scene] .botanical-fallback');
+  const fallback = page.locator('#hero-art img');
   await fallback.waitFor({ state: 'visible' });
-  assert.equal(await fallback.evaluate(element => getComputedStyle(element).opacity), '1',
-    'fallback remains fully visible when reduced motion is enabled');
-  assert.deepEqual(threeRequests, [], 'reduced-motion preference skips the external Three.js module');
+  assert.ok(await fallback.evaluate(element => element.getBoundingClientRect().width > 0),
+    'static hero photograph remains visible when reduced motion is enabled');
+  assert.equal(await fallback.evaluate(element => getComputedStyle(element).objectFit), 'cover',
+    'hero photograph fills its frame without distorting the image');
+  assert.deepEqual(threeRequests, [], 'static hero does not load the legacy Three.js module');
 
   const before = await fallback.boundingBox();
   await page.setViewportSize({ width: 390, height: 844 });
