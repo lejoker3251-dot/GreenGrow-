@@ -145,11 +145,11 @@ try {
   assert.equal(await page.locator('main#main-content a[href="/shop/"]').count(), 1,
     'not-found page provides a direct route back to the shop');
 
-  // Product detail imagery must be described as a shared placeholder, not a unique product photo.
+  // Product detail imagery must be described as a category illustration, not a unique product photo.
   await page.goto(`${localOrigin}/product/seed-0001/`, { waitUntil: 'networkidle' });
   const detailImage = page.locator('.seed-detail-image img');
-  assert.match(await detailImage.getAttribute('alt') || '', /Platzhalterbild.*keine individuelle Produktabbildung/i,
-    'product detail image explains that it is a generic placeholder');
+  assert.match(await detailImage.getAttribute('alt') || '', /Kategorieillustration.*keine konkrete Sortenabbildung/i,
+    'product detail image explains that it illustrates only the category');
   const detailAlt = await detailImage.getAttribute('alt') || '';
   const detailProductName = (await page.locator('.product-detail-hero h1').textContent() || '').trim();
   assert.ok(!detailAlt.includes(detailProductName),
