@@ -50,7 +50,7 @@ Neue Triebe, Blattfarbe, Standfestigkeit und mögliche Schädlinge können Hinwe
 
 **Kernaussage:** Gleichmäßige Bedingungen und sorgfältige Beobachtung sind hilfreicher als ungezielte Eingriffe.
 
-**Quellen:** [NC State Extension – Plant Propagation](https://content.ces.ncsu.edu/extension-gardener-handbook/13-propagation); [Royal Horticultural Society – Watering](https://www.rhs.org.uk/garden-jobs/watering). Die Quellen vermitteln allgemeine Pflanzenpflege und sind keine sortenspezifischen Leistungsnachweise.
+**Quellen:** [NC State Extension – Plant Propagation](https://content.ces.ncsu.edu/extension-gardener-handbook/13-propagation); [RHS – Watering](https://www.rhs.org.uk/garden-jobs/watering); [RHS – How to Feed Plants](https://www.rhs.org.uk/garden-jobs/nutrition-feeding-plants); [RHS – Nutrient Deficiencies](https://www.rhs.org.uk/prevention-protection/nutrient-deficiencies). Diese Quellen vermitteln allgemeine Pflanzenpflege und sind keine sortenspezifischen Leistungsnachweise.
 
 ## 03. Cannabis-Blütephase
 **Slug:** `cannabis-bluetephase`
