@@ -25,9 +25,22 @@ try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
   const pageErrors = [];
   const threeRequests = [];
+  const failedLocalRequests = [];
+  const badLocalResponses = [];
+  const localOrigin = `http://127.0.0.1:${port}`;
   page.on('pageerror', error => pageErrors.push(error.message));
   page.on('request', request => {
     if (request.url().includes('three.module.js')) threeRequests.push(request.url());
+  });
+  page.on('requestfailed', request => {
+    if (request.url().startsWith(localOrigin)) {
+      failedLocalRequests.push(`${request.method()} ${request.url()}: ${request.failure()?.errorText ?? 'unknown failure'}`);
+    }
+  });
+  page.on('response', response => {
+    if (response.url().startsWith(localOrigin) && response.status() >= 400) {
+      badLocalResponses.push(`${response.status()} ${response.url()}`);
+    }
   });
 
   // Reduced-motion users should keep the static illustration without loading Three.js.
@@ -86,6 +99,33 @@ try {
   assert.equal(await page.locator('#cart-count').textContent(), '0',
     'invalid localStorage JSON does not break the page or list counter');
 
+  // Basic performance/resource smoke checks: trigger lazy assets and catch broken local files.
+  await page.evaluate(async () => {
+    const step = Math.max(300, Math.floor(window.innerHeight * 0.8));
+    for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
+      window.scrollTo(0, y);
+      await new Promise(resolve => requestAnimationFrame(resolve));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForLoadState('networkidle');
+  const resourceAudit = await page.evaluate(() => ({
+    readyState: document.readyState,
+    resourceCount: performance.getEntriesByType('resource').length,
+    images: Array.from(document.images).map(image => ({
+      src: image.currentSrc || image.src,
+      complete: image.complete,
+      naturalWidth: image.naturalWidth,
+      loading: image.loading,
+    })),
+  }));
+  assert.equal(resourceAudit.readyState, 'complete', 'document finishes loading');
+  assert.ok(resourceAudit.resourceCount > 0, 'browser records resource timing entries');
+  const brokenImages = resourceAudit.images.filter(image => image.complete && image.naturalWidth === 0);
+  assert.deepEqual(brokenImages, [], 'completed image requests have valid image data');
+  assert.deepEqual(failedLocalRequests, [], 'no same-origin requests fail');
+  assert.deepEqual(badLocalResponses, [], 'no same-origin resource returns an HTTP error');
+
   // The mobile navigation must expose its state and close predictably with Escape.
   const menuButton = page.locator('.menu-toggle');
   await menuButton.click();
@@ -97,7 +137,7 @@ try {
 
   assert.deepEqual(pageErrors, [], 'fallback, responsive layout, and menu interaction produce no uncaught page errors');
 
-  console.log('Browser checks passed: reduced motion, fallback, five viewport widths, landmarks, age-dialog keyboard focus, invalid localStorage, and mobile navigation.');
+  console.log(`Browser checks passed: responsive widths, accessibility, storage resilience, navigation, and resource smoke audit (${resourceAudit.resourceCount} resources, ${resourceAudit.images.length} images).`);
 } finally {
   await browser?.close();
   server.kill('SIGTERM');
