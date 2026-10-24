@@ -873,3 +873,92 @@ body {
   .nav-submenu{position:static;min-width:0;margin:0 .5rem .5rem;padding:.35rem;border-radius:10px;box-shadow:none;background:#f3f4eb}
   .nav-submenu a{white-space:normal}
 }
+
+
+/* SEED³X homepage refinement · editorial hierarchy, accessible focus, iPad/mobile rhythm */
+:root {
+  --seedx-lilac: #8b79a8;
+  --seedx-lilac-wash: #f0ebf6;
+  --seedx-gold-soft: #c8a96a;
+}
+.botanical-title-hero {
+  align-items: center;
+  border-bottom: 1px solid rgba(23, 61, 43, .12);
+}
+.botanical-title-content .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .5rem .75rem;
+  border: 1px solid rgba(139, 121, 168, .28);
+  border-radius: 999px;
+  background: rgba(240, 235, 246, .72);
+  color: #65527f;
+  letter-spacing: .12em;
+}
+.botanical-title-content .hero-overline {
+  line-height: 1.6;
+}
+.botanical-title-content .actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .8rem;
+}
+.botanical-title-content .button {
+  min-height: 48px;
+}
+.botanical-title-content .button.secondary {
+  background: rgba(255,255,255,.42);
+  color: #243c2b;
+  border-color: rgba(23,61,43,.28);
+}
+.botanical-title-content .button.secondary:hover {
+  background: var(--seedx-lilac-wash);
+  border-color: var(--seedx-lilac);
+}
+.botanical-title-hero .hero-index {
+  color: #6c7767;
+}
+.growth-intro .growth-heading > p,
+.seed-category-visual-heading > p,
+.seed-finder-home-copy > p {
+  max-width: 62ch;
+  line-height: 1.8;
+}
+.seed-category-visual-footer a,
+.shop-teaser-copy a {
+  text-underline-offset: .22em;
+  text-decoration-thickness: 1px;
+}
+.grow-doctor-teaser {
+  border-top: 1px solid rgba(23,61,43,.12);
+  border-bottom: 1px solid rgba(23,61,43,.12);
+}
+.site-header a:focus-visible,
+.site-header button:focus-visible,
+.button:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--seedx-lilac);
+  outline-offset: 3px;
+}
+@media (min-width: 1200px) {
+  .botanical-title-hero { padding-inline: clamp(3rem, 7vw, 7.5rem); }
+}
+@media (max-width: 900px) {
+  .botanical-title-hero { gap: 1rem; }
+  .botanical-title-content { padding-inline: .15rem; }
+  .botanical-title-content .actions { gap: .65rem; }
+  .growth-intro, .seed-category-visual, .seed-finder-home, .shop-teaser { scroll-margin-top: 1rem; }
+}
+@media (max-width: 600px) {
+  .botanical-title-content .eyebrow { font-size: .62rem; letter-spacing: .09em; }
+  .botanical-title-content .actions { align-items: stretch; }
+  .botanical-title-content .actions .button { width: 100%; justify-content: center; }
+  .botanical-title-hero .hero-proof { margin-top: 1.5rem; line-height: 1.6; }
+  .growth-intro { padding-top: 3.5rem; }
+  .seed-category-visual-footer { gap: .75rem; align-items: flex-start; flex-direction: column; }
+}
