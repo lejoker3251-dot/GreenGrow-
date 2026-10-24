@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const image = '/images/products/seed-archive.png';
+const image = product.image || '/images/products/seed-archive.png';
 const sourceType = product.details?.replace(/^Typ laut PDF:\s*/i, '') || 'Noch nicht zugeordnet';
 const title = product.name + ' – SEED³X Sortimentsvorschau';
 const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten werden noch geprüft; keine Bestellung möglich.';
@@ -33,10 +33,10 @@ const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten wer
   <section class="section product-detail seed-detail" aria-labelledby="product-information-title">
     <div class="seed-detail-visual">
       <div class="seed-detail-image">
-        <img src={image} alt={`Produktfoto aus dem SEED³X Bildarchiv für ${product.name}`} width="640" height="640" loading="eager" />
-        <span class="product-tag">Bildarchiv · Vorschau</span>
+        <img src={image} alt={`SEED³X Universalbild für den Katalogeintrag ${product.name}`} width="640" height="640" loading="eager" />
+        <span class="product-tag">Universalbild · Vorschau</span>
       </div>
-      <p class="image-caption"><span aria-hidden="true">ⓘ</span> Foto aus dem SEED³X Bildarchiv. Die individuelle Zuordnung zur konkreten Sorte ist noch nicht verifiziert.</p>
+      <p class="image-caption"><span aria-hidden="true">ⓘ</span> Dieses Universalbild wird derzeit für alle Katalogeinträge verwendet. Es zeigt nicht zwingend die konkrete Sorte.</p>
       <div class="source-summary">
         <span class="source-summary-icon" aria-hidden="true">✳</span>
         <div><strong>Transparente Produktdaten</strong><p>Wir kennzeichnen, was aus dem Katalog stammt und was noch geprüft werden muss.</p></div>
@@ -69,7 +69,7 @@ const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten wer
         <a class="button" href="/shop/">← Zurück zum Sortiment</a>
         <a class="button secondary" href="/shopping-cart/">Merkliste ansehen</a>
       </div>
-      <p class="detail-footnote">Diese Vorschau ist kein Verkaufsangebot. Es werden keine Preise oder Lagerbestände behauptet; die individuelle Zuordnung des Bildes zur Sorte ist noch nicht verifiziert.</p>
+      <p class="detail-footnote">Diese Vorschau ist kein Verkaufsangebot. Es werden keine Preise oder Lagerbestände behauptet; das verwendete Bild ist ein Universalbild und zeigt nicht zwingend die konkrete Sorte.</p>
     </div>
   </section>
 </Layout>
