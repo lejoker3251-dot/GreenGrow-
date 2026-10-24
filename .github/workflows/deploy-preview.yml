@@ -37,6 +37,8 @@ jobs:
           test -s dist/template-preview/index.html
           test -s dist/shopping-cart/index.html
           test -s dist/product/seed-0001/index.html
+          grep -q "Reliable product navigation for touch devices" src/pages/shop.astro
+          grep -q "window.location.assign(destination)" src/pages/shop.astro
           test -s dist/products/hero-seedling.svg
           grep -q "Ein kleines Wunder" dist/index.html
           grep -q "grow-doctor" dist/index.html
