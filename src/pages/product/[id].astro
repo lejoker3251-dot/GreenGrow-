@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const image = '/images/products/platzhalter-saatgut.webp';
+const image = 'https://raw.githubusercontent.com/lejoker3251-dot/GreenGrow-/feature/premium-storefront-v1/images/White%201.png.JPG';
 const title = product.name + ' – SEED³X Sortimentsvorschau';
 ---
 <Layout title={title} description={'Entwurfsansicht für ' + product.name + '. Produktdaten werden noch geprüft; keine Bestellung möglich.'}>
@@ -21,8 +21,8 @@ const title = product.name + ' – SEED³X Sortimentsvorschau';
   </section>
   <section class="section product-detail seed-detail">
     <div class="seed-detail-image">
-      <img src={image} alt={'Universelles Platzhalterbild für ' + product.name} width="640" height="640" loading="eager" />
-      <span class="product-tag">Platzhalterbild</span>
+      <img src={image} alt={'Einheitliches Produktbild für ' + product.name} width="640" height="640" loading="eager" />
+      <span class="product-tag">Sortimentsvorschau</span>
     </div>
     <div class="seed-detail-copy">
       <span class="eyebrow">Produkt-ID · {product.id}</span>
