@@ -32,7 +32,7 @@ const title = product.name + ' – SEED³X Sortimentsvorschau';
         <div><dt>Quelltyp</dt><dd>{product.details}</dd></div>
         <div><dt>Prüfstatus</dt><dd><span class="draft-status">Entwurf · nicht freigegeben</span></dd></div>
       </dl>
-      <p>Weitere Produktinformationen, Preise und Verfügbarkeit werden erst ergänzt, wenn sie anhand verlässlicher Quellen geprüft wurden.</p>
+      <div class="product-description-block"><h3>Produktbeschreibung</h3><p>{product.description || 'Für diesen Eintrag liegt noch keine individuelle Beschreibung vor.'}</p><p class="description-source-note">Quelle: bereitgestellter Produktkatalog. Die Angaben sind noch nicht unabhängig verifiziert.</p></div><p>Preise und Verfügbarkeit werden erst ergänzt, wenn sie geprüft und freigegeben wurden.</p>
       <div class="notice">Diese Seite ist eine unverbindliche Katalogvorschau. Es gibt keine Kauf- oder Bestellfunktion.</div>
       <div class="actions">
         <a class="button" href="/shop/">Zurück zum Sortiment ↗</a>
@@ -47,6 +47,10 @@ const title = product.name + ' – SEED³X Sortimentsvorschau';
   .seed-detail-image img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
   .seed-detail-image .product-tag{position:absolute;top:1rem;left:1rem}
   .seed-detail-copy h2{margin:.6rem 0 1.3rem}
+  .product-description-block{margin:1.5rem 0;padding:1.25rem;border:1px solid #e0e3d7;border-radius:16px;background:#fffefa}
+  .product-description-block h3{margin:0 0 .65rem;font-size:1.15rem}
+  .product-description-block p{line-height:1.75}
+  .description-source-note{color:#687269;font-size:.82rem}
   .seed-facts{margin:1.5rem 0;border-top:1px solid #e3e6dc}
   .seed-facts div{display:grid;grid-template-columns:minmax(8rem,.8fr) minmax(0,1.2fr);gap:1rem;padding:.9rem 0;border-bottom:1px solid #e3e6dc}
   .seed-facts dt{color:#647363;font-size:.9rem}
