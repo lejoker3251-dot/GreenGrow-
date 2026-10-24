@@ -6,7 +6,7 @@ const products = seedProducts.map((product) => ({
   type: product.category,
   tag: 'Sortimentsvorschau',
   description: product.description || 'Eine individuelle Beschreibung liegt für diesen Katalogeintrag noch nicht vor.',
-  image: '/images/products/seed-archive.png',
+  image: product.image || '/images/products/seed-archive.png',
 }));
 const categoryDefinitions = [
   { name: 'Feminisierte Samen', title: 'Feminisierte Samen', description: 'Katalogeinträge, die in der Quelle als Feminized geführt werden.', kind: 'filter' },
