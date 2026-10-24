@@ -164,7 +164,7 @@ try {
   await page.locator('#cali-editorial-title').waitFor();
   assert.equal(await page.locator('.cali-editorial-card').count(), 4,
     'shop presents all four reviewed editorial text blocks');
-  for (const heading of ['California Genetics', 'Original Cali', 'Premium-Qualität, fairer Preis', 'Für Einsteiger']) {
+  for (const heading of ['California Genetics', 'Original Cali', 'Nachvollziehbare Auswahl', 'Für Einsteiger']) {
     assert.equal(await page.getByRole('heading', { name: heading }).count(), 1,
       `shop includes the ${heading} editorial heading`);
   }
@@ -190,6 +190,20 @@ try {
     'catalog search can filter to an empty result set');
   assert.equal(await page.locator('#no-results').isVisible(), true,
     'empty search results are announced with a visible empty state');
+
+  // Exercise the shop and product detail layouts at common mobile/tablet widths.
+  for (const width of [375, 390, 768]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto(`${localOrigin}/shop/`, { waitUntil: 'networkidle' });
+    const shopOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+    assert.equal(shopOverflow, false, `shop has no horizontal page overflow at ${width}px`);
+    assert.ok(await page.locator('.product-card').first().isVisible(), `shop product cards remain visible at ${width}px`);
+    await page.locator('.product-image-link').first().click();
+    await page.waitForURL(/\/product\/[^/]+\//);
+    const detailOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+    assert.equal(detailOverflow, false, `product detail has no horizontal page overflow at ${width}px`);
+    assert.ok(await page.locator('h1').first().isVisible(), `product title remains visible at ${width}px`);
+  }
 
   assert.deepEqual(pageErrors, [], 'fallback, responsive layout, navigation, product detail, catalog filters, and search produce no uncaught page errors');
 
