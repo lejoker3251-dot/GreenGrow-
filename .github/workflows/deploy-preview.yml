@@ -28,12 +28,16 @@ jobs:
         run: npx astro check
       - name: Build static site
         run: npm run build
-      - name: Verify build output
+      - name: Verify build output and page identity
         run: |
           test -s dist/index.html
           test -s dist/template-preview/index.html
           test -s dist/shopping-cart/index.html
           test -s dist/products/hero-seedling.svg
+          grep -q "Ein kleines Wunder" dist/index.html
+          grep -q "grow-doctor" dist/index.html
+          grep -q "/shop/" dist/index.html
+          echo "Build contains the expected SEED³X homepage markers."
       - name: Deploy isolated preview worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -46,8 +50,11 @@ jobs:
           test -n "$PREVIEW_URL" || (echo "Could not detect preview URL from Wrangler output" && exit 1)
           echo "Preview URL: $PREVIEW_URL"
           echo "PREVIEW_URL=$PREVIEW_URL" >> "$GITHUB_ENV"
-      - name: Verify deployed preview is reachable
+      - name: Verify deployed preview is reachable and correct
         run: |
           curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/" -o /tmp/preview.html
           test -s /tmp/preview.html
-          grep -qi "GreenGrow" /tmp/preview.html
+          grep -q "Ein kleines Wunder" /tmp/preview.html
+          grep -q "grow-doctor" /tmp/preview.html
+          grep -q "/shop/" /tmp/preview.html
+          echo "Preview is reachable and contains the expected homepage markers."
