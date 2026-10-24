@@ -423,8 +423,8 @@ html { scroll-padding-top: 7rem; }
 body { color: var(--ink); background: var(--cream); }
 ::selection { color: var(--paper); background: var(--green-2); }
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
-  outline: 3px solid var(--focus-ring);
-  outline-offset: 4px;
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
 }
 :where(button, input, select, textarea) { font: inherit; }
 :where(.section, .page-hero, .knowledge-group, .shop-catalog) { scroll-margin-top: 7rem; }
