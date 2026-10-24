@@ -147,7 +147,9 @@ try {
   const detailImage = page.locator('.seed-detail-image img');
   assert.match(await detailImage.getAttribute('alt') || '', /Platzhalterbild.*keine individuelle Produktabbildung/i,
     'product detail image explains that it is a generic placeholder');
-  assert.doesNotMatch(await detailImage.getAttribute('alt') || '', /für\s+.+$/i,
+  const detailAlt = await detailImage.getAttribute('alt') || '';
+  const detailProductName = (await page.locator('.product-detail-hero h1').textContent() || '').trim();
+  assert.ok(!detailAlt.includes(detailProductName),
     'product detail image does not imply a unique product image');
 
   // Catalog filters should be keyboard-operable and update the result list.
