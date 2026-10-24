@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const categoryImages = { 'Autoflowering': '/images/products/kategorie-autoflowering.svg', 'Feminisierte Samen': '/images/products/kategorie-feminisiert.svg', 'Reguläre Samen': '/images/products/kategorie-regulaer.svg' };
+const categoryImages: Record<string, string> = { 'Autoflowering': '/images/products/kategorie-autoflowering.svg', 'Feminisierte Samen': '/images/products/kategorie-feminisiert.svg', 'Reguläre Samen': '/images/products/kategorie-regulaer.svg' };
 const image = categoryImages[product.category] || '/images/products/platzhalter-saatgut.webp';
 const title = product.name + ' – SEED³X Sortimentsvorschau';
 ---
