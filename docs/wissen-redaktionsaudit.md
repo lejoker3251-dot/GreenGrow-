@@ -200,3 +200,16 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Watts et al. (2021) fanden keine klare genomeweite Trennung von Indica- und Sativa-gelabelten Proben, aber Zusammenhänge mit einzelnen Terpenen. Das rechtfertigt keine pauschale Aussage, die Labels seien vollständig bedeutungslos: https://doi.org/10.1038/s41477-021-01003-y
 - Der Artikeltext ist vorsichtig und grenzt Handelsbegriffe von Wirkung und medizinischer Eignung ab. Die neue systematische Übersicht ist besonders relevant, da sie am aktuellen Prüftag veröffentlicht wurde.
 - Quellenzuordnung dokumentiert; vollständige Satz-für-Satz-Redaktionsprüfung des gesamten Wissensbereichs bleibt offen. Audit-Checkboxen unverändert.
+
+
+### „Cannabis Indica vs. Sativa“ – aktuelle systematische Übersichtsarbeit ergänzt (24. Oktober 2026)
+- Zoobi et al. (2026) publizierten am Prüftag eine systematische Übersichtsarbeit mit 28 peer-reviewten Berichten. Die Evidenz unterstützt nicht, Indica-/Sativa-/Hybrid-Labels als verlässliche Leitlinien für Zusammensetzung oder therapeutische Wirkung zu verwenden. Terpenbefunde waren inkonsistent; menschliche Ergebnisdaten uneinheitlich und teils nicht ausreichend für THC-Gehalt adjustiert: https://doi.org/10.1186/s42238-026-00528-3
+- Smith et al. (2022) fanden, dass kommerzielle Indica/Hybrid/Sativa-Bezeichnungen chemische Profile nicht zuverlässig unterscheiden: https://doi.org/10.1371/journal.pone.0267498
+- Watts et al. (2021) fanden keine klare genomeweite Trennung, jedoch Zusammenhänge mit einzelnen Terpenen; die Aussage vermeidet deshalb, die Labels für völlig bedeutungslos zu erklären: https://doi.org/10.1038/s41477-021-01003-y
+- Quellenzuordnung dokumentiert; vollständige Satz-für-Satz-Prüfung des gesamten Wissensbereichs bleibt offen. Checkboxen unverändert.
+
+### „Endocannabinoid-System“ und „Geschmack und Wirkung“ – Quellenkonkretisierung (24. Oktober 2026)
+- Für das Endocannabinoid-System wurde die fachliche Übersicht von Health Canada ergänzt. Sie beschreibt Endocannabinoide, CB1-/CB2-Rezeptoren und Enzyme zur Bildung und zum Abbau der Signalstoffe: https://www.canada.ca/en/health-canada/services/drugs-medication/cannabis/information-medical-practitioners/information-health-care-professionals-cannabis-cannabinoids.html
+- Für den Leitfaden zu Geschmack und Wirkung wurden Smith et al. (2022) zur chemischen Vielfalt kommerzieller Cannabisproben sowie zwei Übersichtsarbeiten zum sogenannten Entourage-Effekt ergänzt. Die 2024er systematische Übersichtsarbeit kommt zu dem Schluss, dass additive oder synergistische Effekte von Terpenen und Cannabinoiden bislang nicht ausreichend klinisch belegt sind: https://doi.org/10.3390/ph17111543 ; https://pubmed.ncbi.nlm.nih.gov/37535820/
+- Der vorhandene Artikeltext stellt die klinische Evidenz als begrenzt oder uneinheitlich dar und behauptet nicht, dass Terpene keine biologischen Effekte haben. Er unterscheidet vielmehr zwischen plausiblen/präklinischen Hinweisen und belastbarer klinischer Vorhersage.
+- Quellenkonkretisierung und Teilabgleich durchgeführt; vollständige Satz-für-Satz-Prüfung noch offen. Audit-Checkboxen bleiben unverändert.
