@@ -147,3 +147,10 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - UC ANR Master Gardeners (ursprünglich 2012; aktuelle Webfassung) bietet eine zweite verständliche F1-Definition: https://ucanr.edu/site/uc-master-gardeners-placer-county/article/what-does-f1-hybrid-mean
 - Der Artikel macht bereits kenntlich, dass die Bezeichnung F1 allein weder Elternlinien-Stabilität noch konkrete Gleichförmigkeit, Ertrag, Potenz oder Resistenz belegt. Die BDP-Quelle wurde ergänzend aufgenommen.
 - Teilcheck: Begriffsdefinition, Heterosis und F2-Grundprinzip mit allgemeinen Züchtungsquellen abgeglichen. Keine direkte Studie an den konkreten SEED³X-Cannabisprodukten gefunden bzw. herangezogen. Artikel bleibt deshalb im Register ungeprüft, bis alle Sätze und Aktualitätshinweise einzeln abgeschlossen sind.
+
+
+### „Die stärksten Cannabissamen“: Aktualitäts- und Aussageabgleich (24. Oktober 2026)
+- Die Aussagen zu variablen Wirkungen, THC-Konzentration und möglichen akuten unerwünschten Effekten stimmen in ihrer vorsichtigen Form mit den öffentlichen Gesundheitsübersichten von SAMHSA und CDC überein: https://www.samhsa.gov/substance-use/learn/marijuana-cbd und https://www.cdc.gov/cannabis/health-effects/
+- SAMHSA-Übersicht wurde 2026 aktualisiert bzw. vor wenigen Monaten veröffentlicht und ist damit die frischere allgemeine Quelle; CDC nennt unter anderem Auswirkungen auf Aufmerksamkeit, Entscheidungsfähigkeit, Koordination und Reaktionszeit sowie Risiken bei hoch konzentrierten THC-Produkten.
+- Der Artikel behauptet keine universelle Rangliste und weist darauf hin, dass Laborwerte aus nachvollziehbaren Analysen stammen sollten. Quellen belegen Gesundheitsinformationen, nicht die Qualität einzelner Samenlinien oder die tatsächliche THC-Leistung einer konkreten Sorte.
+- Teilprüfung: Die sichtbaren vier Abschnitte wurden mit den genannten Gesundheitsquellen abgeglichen. Ein vollständiger Satz-für-Satz-Abgleich sämtlicher redaktioneller Details und aller 19 Artikel ist noch nicht abgeschlossen. Checkboxen bleiben deshalb unverändert.
