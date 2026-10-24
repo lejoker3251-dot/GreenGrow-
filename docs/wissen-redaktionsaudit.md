@@ -232,3 +232,9 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Ergänzt wurde der direkte amtliche Gesetzestext des Konsumcannabisgesetzes (KCanG) neben der BMG-FAQ. Der Artikel formuliert den Rechtsbezug allgemein und enthält keine konkreten Besitz- oder Anbaugrenzen; trotzdem muss die Aussage vor Freigabe gegen die aktuelle Fassung des Gesetzes geprüft werden: https://www.gesetze-im-internet.de/kcang/
 - Die Post-Harvest- und Pilz-/Mykotoxin-Reviews unterstützen die allgemeinen Aussagen zu Feuchtigkeit, Nachbehandlung und Schimmelrisiken. Sie ersetzen keine produktbezogene Laborprüfung.
 - Quellenkonkretisierung abgeschlossen; vollständige Rechtsstands- und Satz-für-Satz-Prüfung noch offen. Checkboxen unverändert.
+
+
+### „Wachstumsphase“ – URL und Quellenumfang geprüft (24. Oktober 2026)
+- Der Link zur Royal Horticultural Society wurde auf deren konkreten Bewässerungsleitfaden korrigiert: https://www.rhs.org.uk/garden-jobs/watering. Die Hinweise der RHS unterstützen allgemeine Aussagen, dass Bewässerungsbedarf je nach Pflanze, Gefäß, Boden und Entwicklungsstadium variiert; sie sind keine Cannabis-spezifische Studie.
+- NC State Extension dient als allgemeine Pflanzenvermehrungs-/Wachstumsgrundlage, nicht als spezifischer Nachweis für jede Cannabis-Kulturmaßnahme. Der Artikel enthält keine starren Dünge- oder Gießwerte.
+- Quellenlink und Umfang abgeglichen; vollständiger Satz-für-Satz-Audit und Prüfpunkte bleiben offen.
