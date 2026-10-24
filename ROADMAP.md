@@ -28,6 +28,18 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 | iPad Safari / Bedienbarkeit / visuelle Abnahme | Teilweise bestätigt | Nutzer bestätigt, dass die ganze Vorschauseite sichtbar ist und Suche, Kategorienfilter, Sortierung, Merkliste sowie eine Produktdetailseite im Preview bestanden haben. Der GitHub-Actions-Lauf für Commit `df436d666359bcd7fb3142ef3265656041f890c1` ist erfolgreich abgeschlossen; iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. |
 | Produktionsfreigabe | Gesperrt | Nicht deployen oder mergen ohne ausdrückliche Freigabe. |
 
+## Projektphase 3 – Startseite und Informationsbereiche (24.10.2026)
+
+**Status:** Umsetzung begonnen auf `feature/premium-storefront-v1`.
+
+- [x] Startseite um drei datenbasierte Saatentyp-Einstiege ergänzen (Autoflowering, Feminisierte Samen, Reguläre Samen).
+- [x] Kategorieanzahlen aus `src/data/seed-products.json` berechnen; klar als Katalogeinträge und nicht als Bestand kennzeichnen.
+- [x] Kategorien-Links mit dem Shop verbinden; der Shop übernimmt den gewählten Typ aus dem URL-Parameter `typ`.
+- [x] Den Startseiten-Katalogzähler aus der Datenquelle statt aus einer fest codierten Zahl ableiten.
+- [x] Bestehende Ratgeber-, Marken- und Über-uns-Inhalte weiterverwenden; keine unbelegten Serien, Bestseller oder neuen Produktangaben erfinden.
+- [ ] Build, Routen-/Asset-Checks und tatsächliche Browser-/iPad-Prüfung für den integrierten Stand bestätigen.
+- [ ] Preview-Deployment für genau diesen Stand bestätigen. Keine Produktionsfreigabe implizieren.
+
 ## Startseite und Shop-Trennung (23.10.2026)
 - [x] Vollständigen Produktkatalog von der Startseite auf die eigenständige Route `/shop/` verschieben.
 - [x] Shop-Link in die Hauptnavigation und den Footer aufnehmen; Startseite zeigt stattdessen einen kuratierten Sortiments-Teaser.
