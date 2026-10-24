@@ -15,7 +15,7 @@ const groups = [
   <section class="page-hero knowledge-hero">
     <span class="eyebrow">SEED³X · WISSENSWELT</span>
     <h1>Wissen, das<br/><em>mitwächst.</em></h1>
-    <p>Vier Wissensbereiche führen dich Schritt für Schritt durch Grundlagen, Samenarten, Sortenmerkmale und Cannabis-Bildung. Die Themenübersicht wächst nach und nach zu ausführlichen Artikeln.</p>
+    <p>Vier Wissensbereiche führen dich durch Grundlagen, Samenarten, Sortenmerkmale und Cannabis-Bildung. Öffne die einzelnen Beiträge für vertiefende Informationen; wir prüfen und aktualisieren die Inhalte fortlaufend, damit Hinweise verständlich bleiben und Unsicherheiten klar benannt werden.</p>
     <div class="knowledge-jump">
       {groups.map((group) => <a href={'#' + group.id}>{group.number} / {group.title} ↘</a>)}
     </div>
@@ -34,7 +34,7 @@ const groups = [
         </article>)}
       </div>
     </section>)}
-    <aside class="knowledge-note"><strong>Hinweis zum aktuellen Stand</strong><p>Diese Seite ist die neue Struktur der Wissensrubrik. Die Themen sind bereits eingeordnet; die ausführlichen Einzelartikel werden redaktionell ergänzt und vor Veröffentlichung auf Aktualität, sachliche Richtigkeit und geltende rechtliche Rahmenbedingungen geprüft.</p></aside>
+    <aside class="knowledge-note"><strong>Hinweis zum aktuellen Stand</strong><p>Die verlinkten Beiträge bieten bereits erste Grundlagen und werden redaktionell weiterentwickelt. Fachliche Aussagen, mögliche Wirkungen und rechtliche Hinweise können sich ändern; prüfe aktuelle amtliche Informationen und nutze die Inhalte als allgemeine Orientierung, nicht als individuelle medizinische oder rechtliche Beratung.</p></aside>
   </div>
   <style>
     .knowledge-hero{padding-top:clamp(3.5rem,8vw,7rem);padding-bottom:clamp(3rem,6vw,5rem);background:radial-gradient(ellipse at 90% 10%,#dfe9c5 0,transparent 43%),#f1efdf}
