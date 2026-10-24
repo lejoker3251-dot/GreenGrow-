@@ -58,3 +58,15 @@ Alle untenstehenden Artikel sind **noch einzeln zu prüfen**. Bereits vorhandene
 ## Freigaberegel
 
 Der Wissensbereich darf erst dann als „redaktionell geprüft“ bezeichnet werden, wenn alle 19 Einzelprüfungen abgeschlossen sind, die Quellen direkt am jeweiligen Artikel nachvollziehbar sind und Datums-/Rechtsstandshinweise die tatsächliche Prüfung widerspiegeln. Die technische Bereitstellung oder ein erfolgreicher Build ist kein redaktioneller Qualitätsnachweis.
+
+## Arbeitsstand Seed-Artikel (24. Oktober 2026)
+
+Für die folgenden fünf Artikel wurden thematisch passendere Quellen ergänzt und die Aussagen in den Texten nochmals auf überzogene Versprechen geprüft. Das ist ein Zwischenschritt, keine Freigabe als vollständig redaktionell geprüft: Die Checklisten oben bleiben offen, bis jede Einzelaussage mit passendem Beleg, Aktualitätsprüfung und Prüfnachweis abgeschlossen ist.
+
+- `cannabissamen-aufbewahren`: Cannabis-Saatgut-Studie von Small & Brookes (2012) und Hanfsaatgut-Studie von 2025 ergänzt. Die Studie von 2025 betrifft Industriehanf und eine begrenzte Versuchsgrundlage; sie wird ausdrücklich nicht pauschal auf alle Genetiken übertragen.
+- `feminisierte-samen`: Fachartikel zu Verfahren der feminisierten Saatgutproduktion (Frontiers in Plant Science, 2024) ergänzt; die Formulierungen vermeiden eine absolute Garantie.
+- `autoflowering-samen`: Primärforschung zu genetischen Loci und photoperiod-unabhängiger Blüte (2022, 2024) sowie ein genomischer Überblick (2023) ergänzt.
+- `samenarten-vergleich`: Quellen zu Blühverhalten und Saatgutproduktion ergänzt; der KCanG-Link bleibt als Rechtsquelle klar von botanischen Belegen getrennt.
+- `f1-hybridsamen`: Allgemeine botanische/züchterische Fachquellen zu F1, Heterosis und Aufspaltung ergänzt. Diese Quellen erklären Pflanzenzüchtung allgemein und belegen nicht automatisch konkrete Leistungsversprechen einzelner Cannabisprodukte.
+
+Nächster Prüfschritt: jede Aussage gegen die jeweilige Quelle abgleichen, Daten/Publikationsstatus prüfen und danach erst den individuellen Artikelstatus aktualisieren.
