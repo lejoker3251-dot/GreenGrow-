@@ -177,3 +177,11 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Watts et al. (Nature Plants, 2021) fanden in über 100 Proben keine klare genomeweite Trennung zwischen Sativa- und Indica-bezeichneten Proben, zugleich aber Zusammenhänge zwischen Etiketten und einigen Terpenen: https://doi.org/10.1038/s41477-021-01003-y
 - Der Artikel vermeidet die pauschale Formel „Indica = entspannend“ und behauptet nicht, dass Labels keinerlei Information enthalten. Die Quellen stützen die Einschränkung von Wirkungsprognosen, nicht individuelle Vorhersagen.
 - Teilprüfung der vier Abschnitte und Quellenzuordnung. Gesamt-Audit offen; Checkboxen bleiben unverändert.
+
+
+### Lila-Sorten – Quellenabgleich zu Anthocyanen und Temperatur (24. Oktober 2026)
+- Kim et al. (2025) untersuchten eine spezifische, tagneutrale Inzuchtpopulation mit gleichmäßiger violetter Pigmentierung unter kontrollierten Temperaturbedingungen. Anthocyaninwerte reagierten auf Temperatur; CBD-Gehalt und Blütentrockenmasse zeigten andere Zusammenhänge mit Temperatur und Reife. Ergebnisse dieser Population sind keine universelle Anleitung für alle Sorten: https://doi.org/10.1186/s42238-025-00311-w
+- Bassolino et al. (2023) untersuchten Anthocyanin-Biosynthese und identifizierten Keracyanin als wichtiges Anthocyanin in Cannabis: https://doi.org/10.3390/antiox12071393
+- Die 2024er Untersuchung mehrerer unterschiedlich pigmentierter Sorten ergänzt Hinweise zu genetischer Vielfalt der Pigmentbildung: https://pubmed.ncbi.nlm.nih.gov/39600728/
+- Die vorhandenen Aussagen sind vorsichtig formuliert: Anthocyane können mit violetter Färbung zusammenhängen; Genetik und Umwelt beeinflussen die Ausprägung. Farbe allein belegt weder THC-Gehalt noch Aroma oder Qualität. Keine pauschale Temperaturregel in den Artikel aufgenommen.
+- Quellenbezug teilweise geprüft; vollständige Satz-für-Satz-Prüfung noch offen. Audit-Checkboxen unverändert.
