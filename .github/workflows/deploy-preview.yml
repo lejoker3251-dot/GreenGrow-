@@ -36,10 +36,13 @@ jobs:
           test -s dist/index.html
           test -s dist/template-preview/index.html
           test -s dist/shopping-cart/index.html
+          test -s dist/product/seed-0001/index.html
           test -s dist/products/hero-seedling.svg
           grep -q "Ein kleines Wunder" dist/index.html
           grep -q "grow-doctor" dist/index.html
           grep -q "/shop/" dist/index.html
+          grep -q '/product/seed-0001/' dist/shop/index.html
+          grep -q "KATALOG-ID" dist/product/seed-0001/index.html
           echo "Build contains the expected SEED³X homepage markers."
       - name: Deploy isolated preview worker
         env:
@@ -60,4 +63,9 @@ jobs:
           grep -q "Ein kleines Wunder" /tmp/preview.html
           grep -q "grow-doctor" /tmp/preview.html
           grep -q "/shop/" /tmp/preview.html
-          echo "Preview is reachable and contains the expected homepage markers."
+          curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/shop/" -o /tmp/preview-shop.html
+          grep -q '/product/seed-0001/' /tmp/preview-shop.html
+          curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/product/seed-0001/" -o /tmp/preview-product.html
+          test -s /tmp/preview-product.html
+          grep -q "KATALOG-ID" /tmp/preview-product.html
+          echo "Preview homepage, shop product link, and product detail route are reachable."
