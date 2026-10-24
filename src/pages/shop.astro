@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import seedProducts from '../data/seed-products.json';
-const sharedProductImage = '/images/products/platzhalter-saatgut.webp';
+const sharedProductImage = 'https://raw.githubusercontent.com/lejoker3251-dot/GreenGrow-/feature/premium-storefront-v1/images/White%201.png.JPG';
 const products = seedProducts.map((product) => ({
   ...product,
   type: product.category,
@@ -61,7 +61,7 @@ const catalogCount = products.length;
     <p class="results-count" id="results-count" aria-live="polite">{catalogCount.toLocaleString('de-DE')} Katalogeinträge · Entwürfe</p>
     <div class="product-grid" id="product-grid">{products.map((product) => <article class="product-card" data-category={product.type} data-id={product.id} data-name={product.name} data-type={product.type} data-image={product.image} data-status={product.status}><div class="product-image"><span class="product-tag">{product.tag}</span><img src={product.image} alt="" loading="lazy" decoding="async" width="280" height="280"/></div><div class="product-info"><span class="product-type">{product.type} · Entwurf</span><h3><a class="product-title-link" href={'/product/' + product.id + '/'}>{product.name}</a></h3><p>{product.description}</p><div class="product-actions"><span class="product-note">Produktdetails folgen</span><button class="save-button" type="button" data-save={product.id} aria-pressed="false">+ Merken</button></div></div></article>)}</div>
     <p class="empty-state" id="no-results" hidden>Keine passenden Produkte gefunden. Versuche einen anderen Suchbegriff oder eine andere Kategorie.</p>
-    <div class="notice">Katalogvorschau: Namen und Kategorie stammen aus der bereitgestellten Liste. Das Mamba-Bild ist ein universelles Platzhalterbild. Preise, Lagerbestand, geprüfte Sortenangaben und Bestellfunktionen sind nicht eingerichtet; alle Produkte bleiben Entwürfe.</div>
+    <div class="notice">Katalogvorschau: Namen und Kategorie stammen aus der bereitgestellten Liste. Das Bild „White 1“ wird einheitlich für alle Katalogeinträge verwendet. Preise, Lagerbestand, geprüfte Sortenangaben und Bestellfunktionen sind nicht eingerichtet; alle Produkte bleiben Entwürfe.</div>
   </section>
 </Layout>
 <script>
