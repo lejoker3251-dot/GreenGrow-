@@ -1,0 +1,56 @@
+name: Branch Build and Tests
+
+on:
+  push:
+    branches:
+      - feature/premium-storefront-v1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout working branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/premium-storefront-v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install --no-package-lock
+      - name: Astro type and diagnostics check
+        run: npx astro check
+      - name: Build static site (no deployment)
+        run: npm run build
+      - name: Botanical hero regression checks
+        run: node scripts/test-botanical-hero-scene.mjs
+      - name: Verify catalog build output
+        run: |
+          test -s dist/shop/index.html
+          node --input-type=module <<'NODE'
+          import { readFileSync, readdirSync, statSync } from 'node:fs';
+          import assert from 'node:assert/strict';
+          const catalog = JSON.parse(readFileSync('src/data/seed-products.json', 'utf8'));
+          assert.equal(catalog.length, 1269, 'catalog should contain 1269 entries');
+          assert.ok(catalog.every(item => typeof item.description === 'string' && item.description.trim()), 'every catalog entry should have a description');
+          const counts = Object.groupBy(catalog, item => item.category);
+          for (const category of ['Autoflowering', 'Feminisierte Samen', 'Reguläre Samen']) {
+            assert.equal(counts[category]?.length, 423, category + ' should contain 423 entries');
+          }
+          const shop = readFileSync('dist/shop/index.html', 'utf8');
+          assert.match(shop, /Beschreibung aus dem bereitgestellten Katalog/, 'shop cards should show the source note');
+          assert.match(shop, /Produktbeschreibung|product-card/, 'shop output should include product card markup');
+          const detailRoot = 'dist/product';
+          assert.ok(statSync(detailRoot).isDirectory(), 'product detail output directory should exist');
+          const ids = readdirSync(detailRoot).filter(id => statSync(detailRoot + '/' + id).isDirectory());
+          assert.ok(ids.length >= 1, 'at least one static product detail page should be built');
+          const detail = readFileSync(detailRoot + '/' + ids[0] + '/index.html', 'utf8');
+          assert.match(detail, /Produktbeschreibung/, 'product detail output should include description section');
+          assert.match(detail, /bereitgestellten Produktkatalog/, 'product detail output should include source note');
+          console.log('Catalog/output checks passed:', catalog.length, 'entries;', ids.length, 'product detail pages.');
+          NODE
