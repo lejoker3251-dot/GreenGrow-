@@ -163,3 +163,10 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - USDA-ARS-Handbuch zu standardisierten Hanf-Ertragsmerkmalen: https://www.ars.usda.gov/northeast-area/geneva-ny/plant-genetic-resources-unit-pgru/docs/hemp-descriptors/
 - Grenze der Übertragbarkeit: Diese Quellen behandeln Industriehanf, nicht konkrete kommerzielle Cannabinoid-/Blütensorten. Sie stützen keine Rangliste von Cannabis-Samen für den Einzelhandel.
 - Teilprüfung der vier Abschnitte und Quellenzuordnung; keine vollständige Prüfung aller Wissensartikel. Checkboxen bleiben unverändert.
+
+
+### „Sativa-Sorten“: Prüfung der Handelslabels (24. Oktober 2026)
+- Watts et al. (Nature Plants, 2021) untersuchten über 100 Proben; Sativa-/Indica-Etiketten trennten die Proben nicht klar auf genomweiter Ebene und bildeten die Gesamtvariation der Genetik und Chemie nur begrenzt ab. Einige Terpene korrelierten mit den Labels, daher wäre die Aussage „Labels bedeuten gar nichts“ ebenfalls zu pauschal: https://doi.org/10.1038/s41477-021-01003-y
+- Smith et al. (PLOS ONE, 2022) fanden unterschiedliche Chemotypen in kommerziellen Proben, aber die üblichen Handelslabels entsprachen der beobachteten chemischen Vielfalt nicht konsistent: https://doi.org/10.1371/journal.pone.0267498
+- Der Artikel formuliert vorsichtig: Sativa/Indica-Kategorien sind keine verlässliche Wirkungsprognose; Inhaltsstoffanalysen und nachvollziehbare genetische Angaben liefern spezifischere Informationen. Quellen stützen die Einschränkung pauschaler Label-Versprechen, nicht Aussagen über jede einzelne Sorte.
+- Teilprüfung der vier Abschnitte und Quellenzuordnung. Kein vollständiger Abschluss des Gesamt-Audits; Checkboxen bleiben unverändert.
