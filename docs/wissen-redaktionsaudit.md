@@ -112,3 +112,9 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - DOI-/Metadatenprüfung und thematische Passung sind keine automatische Bestätigung jeder einzelnen Textaussage.
 - Vor einer redaktionellen Freigabe sind die genannten Restpunkte zu erledigen, Quellen an konkreten Aussagen zuzuordnen und sichtbare Aktualitäts-/Prüfhinweise auf ihre tatsächliche Grundlage zu prüfen.
 - Technischer Build oder erfolgreiches Preview-Deployment ist kein redaktioneller Qualitätsnachweis.
+
+
+### Nachtrag zur Kondensationsfrage – `cannabissamen-aufbewahren` (24. Oktober 2026)
+- Ergänzt wurden zwei direkt passende allgemeine Saatgutquellen: FAO, *A Guide to Forest Seed Handling* (Behälterwahl und Kondensation bei kaltem Lagergut) sowie Florabank Guidelines, Modul 9 (verschlossene, kalte Verpackungen vor dem Öffnen an die Arbeitstemperatur angleichen lassen).
+- Der Artikeltext nennt nun ausdrücklich, dass Saatgut vor luftdichtem Verpacken ausreichend trocken sein muss und dass diese Hinweise aus allgemeiner Saatgutlagerung stammen, nicht aus einem Versuch an jeder Cannabis-Genetik.
+- Damit ist die konkrete Kondensations-Beleglücke besser abgesichert; der Artikel bleibt insgesamt ungeprüft, bis alle übrigen Einzelaussagen, Quellenzuordnungen und Aktualitätshinweise abgeschlossen sind.
