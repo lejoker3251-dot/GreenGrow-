@@ -3,25 +3,71 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Deine Merkliste – GreenGrow Seeds" description="Deine vorgemerkten Saatgut-Ideen bei GreenGrow Seeds.">
   <section class="page-hero"><span class="eyebrow">Für später gespeichert</span><h1>Deine Merkliste.</h1><p>Hier findest du die Saatgut-Ideen, die du dir vorgemerkt hast. Dies ist eine lokale Vorschau-Merkliste und kein Warenkorb für echte Bestellungen.</p></section>
-  <section class="section"><div id="saved-list" class="saved-list"><div class="empty-state"><h2>Deine Liste wird geladen …</h2><p>Moment bitte.</p></div></div><div class="notice">Noch kein Checkout: Es werden keine Bestellungen ausgelöst und keine Zahlungsdaten verarbeitet.</div><a class="button" href="/shop/#sortiment">Weiter entdecken ↗</a></section>
+  <section class="section"><div id="saved-list" class="saved-list" role="status" aria-live="polite" aria-atomic="true"><div class="empty-state"><h2>Deine Liste wird geladen …</h2><p>Moment bitte.</p></div></div><div class="notice">Noch kein Checkout: Es werden keine Bestellungen ausgelöst und keine Zahlungsdaten verarbeitet.</div><a class="button" href="/shop/#sortiment">Weiter entdecken ↗</a></section>
 </Layout>
 <script>
+  type SavedProduct = { id: string; name: string; type: string; image: string };
   const root = document.querySelector<HTMLElement>('#saved-list');
-  function renderList() {
+
+  function readSavedProducts(): SavedProduct[] {
+    try {
+      const value: unknown = JSON.parse(localStorage.getItem('greengrow-list') || '[]');
+      if (!Array.isArray(value)) return [];
+      return value.filter((item): item is SavedProduct =>
+        item !== null &&
+        typeof item === 'object' &&
+        typeof item.id === 'string' &&
+        typeof item.name === 'string' &&
+        typeof item.type === 'string' &&
+        typeof item.image === 'string'
+      );
+    } catch {
+      return [];
+    }
+  }
+
+  function escapeHtml(value: string): string {
+    return value.replace(/[&<>"']/g, (char) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[char] || char);
+  }
+
+  function renderList(message = '') {
     if (!root) return;
-    let items: {id:string;name:string;type:string;image:string}[] = [];
-    try { items = JSON.parse(localStorage.getItem('greengrow-list') || '[]'); } catch {}
+    const items = readSavedProducts();
     const count = document.querySelector('#cart-count');
     if (count) count.textContent = String(items.length);
-    if (!items.length) { root.innerHTML = '<div class="empty-state"><h2>Noch nichts vorgemerkt</h2><p>Entdecke das Sortiment und speichere deine Favoriten für später.</p></div>'; return; }
-    const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char] || char);
-    root.innerHTML = items.map((item) => `<article class="saved-item"><img src="${escapeHtml(item.image)}" alt="" width="70" height="70"><div><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.type)} · Beispielprodukt</p></div><button class="remove-button" type="button" data-remove="${escapeHtml(item.id)}">Entfernen</button></article>`).join('');
+
+    if (!items.length) {
+      root.innerHTML = '<div class="empty-state"><h2>Noch nichts vorgemerkt</h2><p>Entdecke das Sortiment und speichere deine Favoriten für später.</p></div>';
+    } else {
+      root.innerHTML = items.map((item) => `<article class="saved-item"><img src="${escapeHtml(item.image)}" alt="" width="70" height="70"><div><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.type)} · Katalogentwurf</p></div><button class="remove-button" type="button" data-remove="${escapeHtml(item.id)}" aria-label="${escapeHtml(item.name)} aus der Merkliste entfernen">Entfernen</button></article>`).join('');
+    }
+
+    if (message) {
+      const notice = document.createElement('p');
+      notice.className = 'notice';
+      notice.setAttribute('role', 'alert');
+      notice.textContent = message;
+      root.append(notice);
+    }
+
     root.querySelectorAll<HTMLButtonElement>('[data-remove]').forEach((button) => button.addEventListener('click', () => {
       const id = button.dataset.remove;
-      items = items.filter((item) => item.id !== id);
-      localStorage.setItem('greengrow-list', JSON.stringify(items));
-      renderList();
+      if (!id) return;
+      const next = readSavedProducts().filter((item) => item.id !== id);
+      try {
+        localStorage.setItem('greengrow-list', JSON.stringify(next));
+        renderList();
+      } catch {
+        renderList('Die Änderung konnte auf diesem Gerät nicht gespeichert werden. Bitte prüfe die Browser-Speichereinstellungen und versuche es erneut.');
+      }
     }));
   }
+
   renderList();
 </script>
