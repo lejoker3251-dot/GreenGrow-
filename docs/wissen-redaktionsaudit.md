@@ -118,3 +118,10 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Ergänzt wurden zwei direkt passende allgemeine Saatgutquellen: FAO, *A Guide to Forest Seed Handling* (Behälterwahl und Kondensation bei kaltem Lagergut) sowie Florabank Guidelines, Modul 9 (verschlossene, kalte Verpackungen vor dem Öffnen an die Arbeitstemperatur angleichen lassen).
 - Der Artikeltext nennt nun ausdrücklich, dass Saatgut vor luftdichtem Verpacken ausreichend trocken sein muss und dass diese Hinweise aus allgemeiner Saatgutlagerung stammen, nicht aus einem Versuch an jeder Cannabis-Genetik.
 - Damit ist die konkrete Kondensations-Beleglücke besser abgesichert; der Artikel bleibt insgesamt ungeprüft, bis alle übrigen Einzelaussagen, Quellenzuordnungen und Aktualitätshinweise abgeschlossen sind.
+
+
+### Feminized seeds: environmental factors (24 October 2026)
+- Added Punja & Holmes (2020), DOI `10.3389/fpls.2020.00718`, on hermaphroditic expression in cannabis. The paper discusses possible stress links while noting that mechanisms require further study.
+- Added Richards et al. (2026), DOI `10.3390/plants15111643`, a review describing interactions among genotype, hormonal and developmental factors, and environment.
+- Article wording now describes possible influence rather than a deterministic cause. Neither source establishes a universal failure rate for commercial feminized seeds.
+- This article remains unchecked pending the complete sentence-level editorial review.
