@@ -10,6 +10,12 @@ jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
+      - name: Protect production and enforce preview branch
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/feature/premium-storefront-v1" ]; then
+            echo "::error::Preview deployment is restricted to feature/premium-storefront-v1. No deployment was attempted."
+            exit 1
+          fi
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Set up Node.js
