@@ -39,6 +39,7 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 - [x] Reduced-motion-Regeln und responsive Regeln beibehalten bzw. ergänzt.
 - [x] Keine Änderungen an `main`, produktiven Cloudflare-Seiten, Worker oder zusätzlichen Projekten vorgenommen.
 - [x] Statische Quellenprüfung: Stylesheet-Import vorhanden, vier Markenfarben in Tokens vorhanden, CSS-Klammern ausgeglichen.
+- [x] Bei der Quelltextprüfung wurde der Konflikt zwischen `.main-nav { display: flex; }` und dem nativen `hidden`-Attribut erkannt und mit `.site-header .main-nav[hidden] { display: none !important; }` behoben.
 - [ ] `npm run check`, `npm run build` und vorhandene CI-/Browserprüfungen für den neuen Commit frisch ausführen und Ergebnisse bestätigen.
 - [ ] Visuelle Abnahme auf iPad Safari; tatsächliche Scroll-/3D-Performance, Navigation und Kontrast prüfen.
 - [ ] Preview-Deployment für genau diesen Commit separat bestätigen. Keine Produktionsfreigabe.
