@@ -43,5 +43,5 @@
   /* Keyboard focus */
   --focus-ring-color: #9a783d;
   --focus-ring-width: 3px;
-  --focus-ring-offset: 3px;
+  --focus-ring-offset: 4px;
 }
