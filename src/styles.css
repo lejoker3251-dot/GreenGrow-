@@ -962,3 +962,99 @@ select:focus-visible {
   .growth-intro { padding-top: 3.5rem; }
   .seed-category-visual-footer { gap: .75rem; align-items: flex-start; flex-direction: column; }
 }
+
+
+/* SEED³X cross-page identity: botanical green, warm gold and restrained lilac */
+:root {
+  --seedx-green: #173f2a;
+  --seedx-gold: #c8a96a;
+  --seedx-lilac: #8b79a8;
+  --seedx-lilac-wash: #f0ebf6;
+  --seedx-cream: #fbfaf5;
+}
+.shop-page-hero .eyebrow,
+.category-entry-section .eyebrow,
+.cali-editorial-section .eyebrow,
+.shop-catalog .eyebrow {
+  color: #65527f;
+}
+.shop-page-hero .eyebrow,
+.category-entry-index,
+.section-kicker {
+  letter-spacing: .12em;
+}
+.shop-page-hero {
+  border-bottom: 1px solid rgba(139,121,168,.22);
+}
+.shop-page-hero .shop-hero-meta span {
+  border-color: rgba(139,121,168,.28);
+}
+.category-entry-card,
+.cali-editorial-card {
+  border-color: rgba(23,63,42,.13);
+  background: #fffefa;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.category-entry-card:hover,
+.cali-editorial-card:hover {
+  border-color: rgba(139,121,168,.55);
+  box-shadow: 0 12px 30px rgba(42,35,55,.06);
+}
+.category-entry-index {
+  color: #76628f;
+}
+.category-entry-link,
+.product-detail-actions .button.secondary {
+  border-color: rgba(139,121,168,.5);
+}
+.category-entry-link:focus-visible,
+.filter-button:focus-visible,
+.save-button:focus-visible,
+.product-actions a:focus-visible,
+.product-title-link:focus-visible {
+  outline: 3px solid var(--seedx-lilac);
+  outline-offset: 3px;
+}
+.filter-button[aria-pressed=true],
+.filter-button:hover {
+  background: var(--seedx-green);
+  border-color: var(--seedx-green);
+  box-shadow: inset 0 0 0 1px rgba(200,169,106,.45);
+}
+.product-card {
+  border-color: rgba(23,63,42,.14);
+}
+.product-tag {
+  border: 1px solid rgba(139,121,168,.28);
+  background: #f8f5fb;
+  color: #65527f;
+}
+.product-image {
+  background: linear-gradient(145deg, #f7f4fa, #f1efdf);
+}
+.notice,
+.rubric-disclaimer {
+  border-color: rgba(139,121,168,.38);
+}
+.draft-status,
+.inline-draft {
+  border-color: rgba(139,121,168,.3);
+  background: var(--seedx-lilac-wash);
+  color: #5d4b75;
+}
+@media (max-width: 800px) {
+  .shop-page-hero,
+  .category-entry-section,
+  .cali-editorial-section,
+  .shop-catalog {
+    padding-inline: 1rem;
+  }
+  .category-entry-grid,
+  .cali-editorial-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .shop-hero-meta {
+    flex-wrap: wrap;
+    gap: .65rem;
+  }
+}
