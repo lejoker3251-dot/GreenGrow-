@@ -135,7 +135,14 @@ try {
   assert.equal(await page.evaluate(() => document.activeElement?.classList.contains('menu-toggle')), true,
     'closing with Escape returns keyboard focus to the menu button');
 
-  assert.deepEqual(pageErrors, [], 'fallback, responsive layout, and menu interaction produce no uncaught page errors');
+  // Unknown product URLs should use the branded not-found page instead of a blank or misleading product view.
+  const missingPageResponse = await page.goto(`${localOrigin}/product/does-not-exist/`, { waitUntil: 'networkidle' });
+  assert.equal(missingPageResponse?.status(), 404, 'unknown product URL returns HTTP 404');
+  await page.locator('h1#not-found-title').waitFor();
+  assert.equal(await page.locator('a[href="/shop/"]').count(), 1,
+    'not-found page provides a direct route back to the shop');
+
+  assert.deepEqual(pageErrors, [], 'fallback, responsive layout, navigation, and not-found page produce no uncaught page errors');
 
   console.log(`Browser checks passed: responsive widths, accessibility, storage resilience, navigation, and resource smoke audit (${resourceAudit.resourceCount} resources, ${resourceAudit.images.length} images).`);
 } finally {
