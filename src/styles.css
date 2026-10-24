@@ -854,3 +854,22 @@ body {
   border-color: #000;
 }
 
+
+/* Phase 1: navigation hierarchy; existing SEED³X visual tokens remain unchanged. */
+.nav-group{position:relative;display:flex;align-items:center}
+.nav-group-toggle{display:inline-flex;align-items:center;gap:.45rem;border:0;background:transparent;padding:.55rem .15rem;color:var(--ink);font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
+.nav-group-toggle:hover,.nav-group-toggle[aria-current="page"]{color:var(--green-2)}
+.nav-chevron{display:inline-block;transition:transform .18s ease}
+.nav-group.is-open .nav-chevron{transform:rotate(180deg)}
+.nav-submenu{position:absolute;top:calc(100% + .7rem);left:-.8rem;z-index:30;display:grid;gap:.2rem;min-width:220px;padding:.55rem;background:#fbfaf5;border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 36px #173f2a16}
+.nav-submenu[hidden]{display:none}
+.nav-submenu a{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.75rem .85rem;border-radius:9px;white-space:nowrap}
+.nav-submenu a:hover,.nav-submenu a[aria-current="page"]{background:#eef2e4;color:var(--green)}
+.nav-group-toggle:focus-visible,.nav-submenu a:focus-visible{outline:3px solid #8ba96b;outline-offset:3px}
+@media(max-width:950px){.nav-submenu{left:0}}
+@media(max-width:680px){
+  .nav-group{display:block;width:100%}
+  .nav-group-toggle{display:flex;width:100%;justify-content:space-between;padding:.85rem}
+  .nav-submenu{position:static;min-width:0;margin:0 .5rem .5rem;padding:.35rem;border-radius:10px;box-shadow:none;background:#f3f4eb}
+  .nav-submenu a{white-space:normal}
+}
