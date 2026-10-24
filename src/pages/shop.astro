@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import seedProducts from '../data/seed-products.json';
-const categoryImages = { 'Autoflowering': '/images/products/kategorie-autoflowering.svg', 'Feminisierte Samen': '/images/products/kategorie-feminisiert.svg', 'Reguläre Samen': '/images/products/kategorie-regulaer.svg' };
+const categoryImages: Record<string, string> = { 'Autoflowering': '/images/products/kategorie-autoflowering.svg', 'Feminisierte Samen': '/images/products/kategorie-feminisiert.svg', 'Reguläre Samen': '/images/products/kategorie-regulaer.svg' };
 const products = seedProducts.map((product) => ({
   ...product,
   type: product.category,
