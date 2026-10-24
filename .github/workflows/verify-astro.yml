@@ -24,6 +24,8 @@ jobs:
         run: npm install --no-package-lock
       - name: Validate imported seed catalog
         run: node scripts/validate-seed-products.mjs
+      - name: Audit catalog name variants without rewriting source data
+        run: node scripts/audit-catalog-name-variants.mjs
       - name: Check CSV/JSON catalog consistency
         run: node scripts/validate-catalog-consistency.mjs
       - name: Validate category mapping and image paths
