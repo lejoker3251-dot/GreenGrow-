@@ -149,8 +149,10 @@ try {
   // clearly stating that the archived image has not been individually verified for the strain.
   await page.goto(`${localOrigin}/product/seed-0001/`, { waitUntil: 'networkidle' });
   const detailImage = page.locator('.seed-detail-image img');
-  assert.match(await detailImage.getAttribute('src') || '', /White%201\.png\.JPG|White 1\.png\.JPG/i,
-    'product detail uses the archived White 1 image');
+  assert.equal(await detailImage.getAttribute('src'), '/images/products/seed-archive.png',
+    'product detail uses the locally served product image');
+  assert.ok(await detailImage.evaluate(image => image.complete && image.naturalWidth > 0),
+    'product detail image loads successfully and contains image data');
   assert.match(await detailImage.getAttribute('alt') || '', /Bildarchiv/i,
     'product detail image is described as coming from the image archive');
   assert.match(await page.locator('.image-caption').textContent() || '', /noch nicht verifiziert/i,
