@@ -243,3 +243,8 @@ Am 2026-10-24 wurde eine eigenständige redaktionelle Vorlage für alle 19 Artik
 ## Fachbelege und juristische Übergabe
 
 Die ergänzende Arbeitsunterlage [wissen-fachbelege-und-rechtspruefung.md](./wissen-fachbelege-und-rechtspruefung.md) bündelt überprüfte Originalquellen, Übertragbarkeitsgrenzen, die Prüfleitplanken für alle 19 Artikel sowie konkrete Fragen an die anwaltliche Prüfung. Sie dokumentiert ausdrücklich, welche Nachweise vor der Endfreigabe noch satzgenau zuzuordnen sind. Sie ist kein anwaltliches Gutachten und keine Veröffentlichungsfreigabe.
+
+
+## Claim-Nachweisregister für die Endabnahme
+
+Ergänzend wurde [wissen-claim-nachweisregister.md](./wissen-claim-nachweisregister.md) erstellt. Es ordnet die wesentlichen Tatsachen- und Risikobehauptungen aller 19 Entwürfe jeweils einem Quellenanker zu und dokumentiert ausdrücklich, wo eine Quelle nur den allgemeinen Zusammenhang stützt oder keine produkt-/sortenspezifische Aussage belegt. Das Register ist damit ein belastbarer Prüf- und Übergabestand, aber keine fingierte Bestätigung, dass jede Originalpassage bereits wortgenau dokumentiert wurde.
