@@ -280,3 +280,12 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 ### Technische Abgrenzung
 
 Diese Dokumentation betrifft ausschließlich den redaktionellen Inhalt. Ein erfolgreicher Build oder Preview-Deploy ist kein Beleg für die fachliche Freigabe. Die Prüfung und Dokumentation erfolgte auf `feature/premium-storefront-v1`; `main` und Produktion wurden nicht geändert.
+
+
+### Nachprüfung vor Veröffentlichungsfreigabe – `letzte-bluete-wochen` (24. Oktober 2026)
+
+- Die vorherige Quellenliste enthielt einen Review zu Saatgutproduktion/Feminisierung, der die Aussagen zu Trichom- und Blütenreife nicht direkt stützte. Dieser Eintrag wurde aus der Quellenliste dieses Artikels entfernt.
+- Stattdessen ergänzt: Livingston et al. (2020; online 2019), *Cannabis glandular trichomes alter morphology and metabolite content during flower maturation*, DOI `10.1111/tpj.14516`, zu Entwicklungsveränderungen von Trichomen und Metaboliten.
+- Ergänzt wurde außerdem Lee et al. (2026), DOI `10.1016/j.indcrop.2026.123953`, zur gemeinsamen Bewertung von Trichommerkmale und CBDA-Akkumulation in einer spezifischen CBDA-dominanten medizinischen Cannabis-Genetik. Die Studie ist ausdrücklich kein universeller Erntekalender und nicht automatisch auf andere Chemotypen übertragbar.
+- Die Review-Quelle zu Pilz-/Mykotoxin-Kontamination bleibt auf den Gesundheitsschutz-/Kontaminationsaussagen beschränkt.
+- Dieser Quellenwechsel verbessert die thematische Passung, ersetzt aber nicht die noch ausstehende Einzelzuordnung jeder Aussage. Artikel bleibt bis zum vollständigen Nachweis ungeprüft.
