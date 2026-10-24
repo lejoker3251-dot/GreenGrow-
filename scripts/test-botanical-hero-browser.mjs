@@ -154,6 +154,23 @@ try {
 
   // Catalog filters should be keyboard-operable and update the result list.
   await page.goto(`${localOrigin}/shop/`, { waitUntil: 'networkidle' });
+  // Shop editorial copy and the two requested rubrics should be present without implying verified product assignments.
+  await page.locator('#cali-editorial-title').waitFor();
+  assert.equal(await page.locator('.cali-editorial-card').count(), 4,
+    'shop presents all four reviewed editorial text blocks');
+  for (const heading of ['California Genetics', 'Original Cali', 'Premium-Qualität, fairer Preis', 'Für Einsteiger']) {
+    assert.equal(await page.getByRole('heading', { name: heading }).count(), 1,
+      `shop includes the ${heading} editorial heading`);
+  }
+  assert.equal(await page.getByRole('heading', { name: 'Outdoor', exact: true }).count(), 1,
+    'Outdoor shop rubric is visible');
+  assert.equal(await page.getByRole('heading', { name: 'Für Anfänger', exact: true }).count(), 1,
+    'beginner shop rubric is visible');
+  assert.equal(await page.locator('.shop-rubric-card .rubric-status').count(), 2,
+    'both new rubrics clearly indicate that product selection is still being prepared');
+  assert.equal(await page.locator('.shop-rubric-card a[href="#sortiment"]').count(), 2,
+    'both rubrics link to the existing catalog without pretending to filter unverified products');
+
   const categoryFilter = page.locator('.filter-row button[data-filter="Autoflowering"]');
   await categoryFilter.focus();
   await page.keyboard.press('Enter');
