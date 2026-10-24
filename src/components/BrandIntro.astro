@@ -1,0 +1,97 @@
+<div class="brand-intro" id="brand-intro" aria-hidden="true">
+  <div class="brand-intro-light" aria-hidden="true"></div>
+  <svg class="brand-intro-botanical" viewBox="0 0 440 500" fill="none" aria-hidden="true">
+    <path d="M220 454C222 370 212 297 225 224C235 169 265 121 313 78" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M222 347C169 324 128 279 112 225C165 231 207 273 222 347Z" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M222 347C169 324 128 279 112 225C165 231 207 273 222 347Z" fill="currentColor" fill-opacity=".07"/>
+    <path d="M226 273C270 262 311 228 329 183C281 185 242 219 226 273Z" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M226 273C270 262 311 228 329 183C281 185 242 219 226 273Z" fill="currentColor" fill-opacity=".07"/>
+    <path d="M235 205C204 174 192 133 202 91C235 117 248 160 235 205Z" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M235 205C204 174 192 133 202 91C235 117 248 160 235 205Z" fill="currentColor" fill-opacity=".07"/>
+    <path d="M222 399C183 386 153 358 138 326M228 314C263 302 286 281 304 253M235 183C259 157 279 130 289 105" stroke="currentColor" stroke-opacity=".6"/>
+    <circle cx="220" cy="454" r="3" fill="currentColor"/>
+  </svg>
+  <div class="brand-intro-copy">
+    <span class="brand-intro-kicker">BOTANICAL OBJECTS · NATURALLY CONSIDERED</span>
+    <p class="brand-intro-logo">SEED<span>³</span>X</p>
+    <span class="brand-intro-tagline">GROWING, REIMAGINED</span>
+  </div>
+  <button class="brand-intro-skip" id="brand-intro-skip" type="button">Intro überspringen <span aria-hidden="true">↗</span></button>
+  <span class="brand-intro-index" aria-hidden="true">A STUDY IN GROWTH · 001</span>
+</div>
+
+<style>
+  .brand-intro{position:fixed;inset:0;z-index:900;display:grid;place-items:center;overflow:hidden;background:#10271b;color:#f5f1e5;opacity:0;visibility:hidden;pointer-events:none}
+  .brand-intro.is-active{opacity:1;visibility:visible;pointer-events:auto}
+  .brand-intro.is-leaving{opacity:0;visibility:hidden;transition:opacity .7s cubic-bezier(.2,.72,.2,1),visibility .7s}
+  .brand-intro-light{position:absolute;inset:-20%;background:radial-gradient(ellipse at 50% 45%,rgba(190,214,142,.2),transparent 38%),radial-gradient(ellipse at 50% 100%,rgba(79,128,76,.16),transparent 52%);opacity:0}
+  .brand-intro-botanical{position:absolute;width:min(58vw,500px);height:min(68vh,560px);color:#c5d49e;opacity:0;filter:drop-shadow(0 0 20px rgba(176,205,131,.12));transform:translateY(20px) scale(.94)}
+  .brand-intro-copy{position:relative;z-index:1;display:flex;align-items:center;flex-direction:column;text-align:center;padding:2rem;opacity:0;transform:translateY(12px)}
+  .brand-intro-kicker{font:500 .62rem/1.5 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.2em;text-transform:uppercase;color:#c5d49e}
+  .brand-intro-logo{margin:1.1rem 0 .65rem;font:500 clamp(3.6rem,10vw,7rem)/.95 var(--font-display,Georgia,serif);letter-spacing:.045em;color:#f8f5eb}
+  .brand-intro-logo span{font-size:.46em;vertical-align:super;letter-spacing:0}
+  .brand-intro-tagline{font:500 .72rem/1.5 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.32em;color:#d6dfc0}
+  .brand-intro-skip{position:absolute;right:max(1.25rem,env(safe-area-inset-right));bottom:max(1.25rem,env(safe-area-inset-bottom));z-index:2;border:1px solid rgba(245,241,229,.42);border-radius:999px;background:rgba(16,39,27,.35);padding:.75rem 1rem;color:#fff;font:500 .8rem/1.2 var(--font-body,Inter,system-ui,sans-serif);cursor:pointer}
+  .brand-intro-skip span{margin-left:.4rem}
+  .brand-intro-index{position:absolute;left:max(1.25rem,env(safe-area-inset-left));bottom:max(1.6rem,env(safe-area-inset-bottom));font:500 .58rem/1.4 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.15em;color:rgba(245,241,229,.62)}
+  .brand-intro.is-active .brand-intro-light{animation:intro-light 3.6s ease both}
+  .brand-intro.is-active .brand-intro-botanical{animation:intro-botanical 3.6s cubic-bezier(.2,.72,.2,1) both}
+  .brand-intro.is-active .brand-intro-copy{animation:intro-copy 3.6s cubic-bezier(.2,.72,.2,1) both}
+  .brand-intro-skip:focus-visible{outline:3px solid #d6ed9a;outline-offset:4px}
+  @keyframes intro-light{0%{opacity:0;transform:scale(.82)}22%{opacity:1}78%{opacity:.9}100%{opacity:.2;transform:scale(1.14)}}
+  @keyframes intro-botanical{0%{opacity:0;transform:translateY(22px) scale(.94)}22%{opacity:.45}48%{opacity:.8;transform:translateY(0) scale(1)}82%{opacity:.65}100%{opacity:0;transform:translateY(-8px) scale(1.03)}}
+  @keyframes intro-copy{0%,13%{opacity:0;transform:translateY(12px);filter:blur(5px)}34%{opacity:1;transform:translateY(0);filter:blur(0)}76%{opacity:1;transform:translateY(0);filter:blur(0)}100%{opacity:0;transform:translateY(-5px);filter:blur(2px)}}
+  @media(max-width:600px){.brand-intro-botanical{width:86vw;height:58vh;opacity:.8}.brand-intro-kicker{max-width:28ch;font-size:.53rem;letter-spacing:.13em}.brand-intro-logo{font-size:clamp(3.5rem,17vw,5.5rem)}.brand-intro-tagline{font-size:.62rem;letter-spacing:.22em}.brand-intro-index{font-size:.48rem;max-width:18ch;line-height:1.7}}
+  @media(prefers-reduced-motion:reduce){.brand-intro{display:none!important}.brand-intro *{animation:none!important;transition:none!important}}
+</style>
+
+<script is:inline>
+  (() => {
+    const intro = document.getElementById('brand-intro');
+    const skip = document.getElementById('brand-intro-skip');
+    if (!intro || !skip) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const sessionKey = 'seedx-intro-shown-session';
+    let started = false;
+    let finishTimer;
+
+    const finish = () => {
+      if (!started) return;
+      window.clearTimeout(finishTimer);
+      intro.classList.add('is-leaving');
+      intro.classList.remove('is-active');
+      document.body.classList.remove('brand-intro-playing');
+      window.setTimeout(() => {
+        intro.hidden = true;
+      }, 720);
+    };
+
+    const start = () => {
+      if (started || reducedMotion) return;
+      try {
+        if (sessionStorage.getItem(sessionKey) === 'true') return;
+        sessionStorage.setItem(sessionKey, 'true');
+      } catch {}
+      started = true;
+      intro.hidden = false;
+      intro.classList.add('is-active');
+      document.body.classList.add('brand-intro-playing');
+      finishTimer = window.setTimeout(finish, 3600);
+    };
+
+    skip.addEventListener('click', finish);
+
+    if (document.documentElement.classList.contains('age-gate-active')) {
+      const observer = new MutationObserver(() => {
+        if (!document.documentElement.classList.contains('age-gate-active')) {
+          observer.disconnect();
+          start();
+        }
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    } else {
+      start();
+    }
+  })();
+</script>
