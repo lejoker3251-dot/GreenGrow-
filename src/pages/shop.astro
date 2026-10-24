@@ -1,13 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import seedProducts from '../data/seed-products.json';
-const categoryImages: Record<string, string> = { 'Autoflowering': '/images/products/kategorie-autoflowering.svg', 'Feminisierte Samen': '/images/products/kategorie-feminisiert.svg', 'Reguläre Samen': '/images/products/kategorie-regulaer.svg' };
 const products = seedProducts.map((product) => ({
   ...product,
   type: product.category,
   tag: 'Sortimentsvorschau',
   description: product.description || 'Eine individuelle Beschreibung liegt für diesen Katalogeintrag noch nicht vor.',
-  image: categoryImages[product.category] || '/images/products/platzhalter-saatgut.webp',
+  image: product.image || '/images/products/platzhalter-saatgut.webp',
 }));
 const categoryDefinitions = [
   { name: 'Feminisierte Samen', title: 'Feminisierte Samen', description: 'Katalogeinträge, die in der Quelle als Feminized geführt werden.', kind: 'filter' },
@@ -99,7 +98,7 @@ const catalogCount = products.length;
       <div class="catalog-sort"><label for="product-sort">Sortieren</label><select id="product-sort" aria-label="Produkte sortieren"><option value="source">Originale Listenreihenfolge</option><option value="name-asc">Name: A–Z</option><option value="name-desc">Name: Z–A</option><option value="category">Kategorie</option></select></div>
     </div>
     <p class="results-count" id="results-count" aria-live="polite">{catalogCount.toLocaleString('de-DE')} Katalogeinträge · Entwürfe</p>
-    <div class="product-grid" id="product-grid">{products.map((product) => <article class="product-card" data-category={product.type} data-id={product.id} data-name={product.name} data-type={product.type} data-image={product.image} data-status={product.status}><div class="product-image"><span class="product-tag">{product.tag}</span><img src={product.image} alt={`Botanische Kategorieillustration: ${product.type}; keine konkrete Sortenabbildung`} loading="lazy" decoding="async" width="280" height="280"/></div><div class="product-info"><span class="product-type">{product.type} · Entwurf</span><h3><a class="product-title-link" href={'/product/' + product.id + '/'}>{product.name}</a></h3><p>{product.description}</p><span class="product-note">Beschreibung aus dem bereitgestellten Katalog · noch nicht verifiziert</span><div class="product-actions"><a class="text-link product-detail-link" href={'/product/' + product.id + '/'}>Details ansehen ↗</a><button class="save-button" type="button" data-save={product.id} aria-pressed="false">+ Merken</button></div></div></article>)}</div>
+    <div class="product-grid" id="product-grid">{products.map((product) => <article class="product-card" data-category={product.type} data-id={product.id} data-name={product.name} data-type={product.type} data-image={product.image} data-status={product.status}><div class="product-image"><span class="product-tag">{product.tag}</span><img src={product.image} alt={`Produktfoto aus dem SEED³X Bildarchiv für ${product.name}`} loading="lazy" decoding="async" width="280" height="280"/></div><div class="product-info"><span class="product-type">{product.type} · Entwurf</span><h3><a class="product-title-link" href={'/product/' + product.id + '/'}>{product.name}</a></h3><p>{product.description}</p><span class="product-note">Beschreibung aus dem bereitgestellten Katalog · noch nicht verifiziert</span><div class="product-actions"><a class="text-link product-detail-link" href={'/product/' + product.id + '/'}>Details ansehen ↗</a><button class="save-button" type="button" data-save={product.id} aria-pressed="false">+ Merken</button></div></div></article>)}</div>
     <p class="empty-state" id="no-results" hidden>Keine passenden Produkte gefunden. Versuche einen anderen Suchbegriff oder eine andere Kategorie.</p>
     <div class="notice">Katalogvorschau: Namen und Kategorie stammen aus der bereitgestellten Liste. Die botanischen Illustrationen unterscheiden die Kategorien, zeigen aber nicht die konkrete Sorte. Preise, Lagerbestand, geprüfte Sortenangaben und Bestellfunktionen sind nicht eingerichtet; alle Produkte bleiben Entwürfe.</div>
   </section>
