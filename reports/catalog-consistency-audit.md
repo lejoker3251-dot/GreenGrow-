@@ -26,3 +26,16 @@ Der bestehende Katalogvalidator bleibt erhalten. Der neue Abgleich wurde in den 
 - Die Bilddatei unter `images/Mamba Test.png.WEBP` ist im Repository vorhanden, aber ihr tatsächlicher Inhalt, ihr Bildformat und ihre Eignung als allgemeine Referenz wurden hier nicht visuell verifiziert.
 - Die vier Namensvarianten bleiben manuelle Prüfpunkte.
 - Keine Änderungen an Produkttexten, Preisen, Bestand, Verfügbarkeit oder Freigabestatus; kein Merge, Deploy oder Live-Update.
+
+
+## Ergänzende Prüfung: Kategorien und Bildpfade
+
+Die 1.269 JSON-Einträge wurden gegen eine explizite Zuordnung der im Quelldetail dokumentierten Typen geprüft:
+
+- `Typ laut PDF: Automatic Flowering` → `Autoflowering`
+- `Typ laut PDF: Feminized` → `Feminisierte Samen`
+- `Typ laut PDF: Regular` → `Reguläre Samen`
+
+Ergebnis des Daten-Snapshots: **423 Einträge je Zuordnung, keine Abweichungen**. Damit ist die Kategorie technisch konsistent mit dem importierten Typtext; die Kategorie ist dennoch eine normalisierte Zuordnung und kein wörtliches Originalfeld der PDF.
+
+Zusätzlich wurde `scripts/validate-catalog-categories-and-images.mjs` ergänzt und in CI eingebunden. Es prüft die Zuordnung pro Eintrag, kontrolliert Repository-interne Raw-GitHub-Bildpfade auf eine entsprechende Datei im Branch und warnt bei einer einzigen gemeinsam verwendeten Bildreferenz. Der aktuelle Katalog hat eine eindeutige Bildreferenz für alle 1.269 Einträge. Das bestätigt keine individuelle Bildzuordnung und ersetzt keine visuelle Inhalts-/Formatprüfung.
