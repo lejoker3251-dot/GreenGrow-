@@ -10,52 +10,113 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const categoryImages: Record<string, string> = { 'Autoflowering': '/images/products/kategorie-autoflowering.svg', 'Feminisierte Samen': '/images/products/kategorie-feminisiert.svg', 'Reguläre Samen': '/images/products/kategorie-regulaer.svg' };
+const categoryImages: Record<string, string> = {
+  'Autoflowering': '/images/products/kategorie-autoflowering.svg',
+  'Feminisierte Samen': '/images/products/kategorie-feminisiert.svg',
+  'Reguläre Samen': '/images/products/kategorie-regulaer.svg',
+};
 const image = categoryImages[product.category] || '/images/products/platzhalter-saatgut.webp';
+const sourceType = product.details?.replace(/^Typ laut PDF:\s*/i, '') || 'Noch nicht zugeordnet';
 const title = product.name + ' – SEED³X Sortimentsvorschau';
+const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten werden noch geprüft; keine Bestellung möglich.';
 ---
-<Layout title={title} description={'Entwurfsansicht für ' + product.name + '. Produktdaten werden noch geprüft; keine Bestellung möglich.'}>
-  <section class="page-hero product-detail-hero">
-    <span class="eyebrow">SEED³X · SORTIMENTSVORSCHAU</span>
-    <h1>{product.name}</h1>
-    <p>Ein Eintrag aus dem importierten Sortimentskatalog. Die Angaben auf dieser Seite sind noch in Prüfung und stellen kein kaufbares Angebot dar.</p>
-  </section>
-  <section class="section product-detail seed-detail">
-    <div class="seed-detail-image">
-      <img src={image} alt={`Botanische Kategorieillustration für ${product.category}; keine konkrete Sortenabbildung`} width="640" height="640" loading="eager" />
-      <span class="product-tag">Sortimentsvorschau</span>
+<Layout title={title} description={description}>
+  <section class="product-detail-top">
+    <nav class="product-breadcrumbs" aria-label="Brotkrumennavigation">
+      <a href="/">Startseite</a><span aria-hidden="true">/</span><a href="/shop/">Shop</a><span aria-hidden="true">/</span><span aria-current="page">{product.name}</span>
+    </nav>
+    <div class="product-detail-heading">
+      <div>
+        <span class="eyebrow">SEED³X · SORTIMENTSVORSCHAU</span>
+        <h1>{product.name}</h1>
+        <p>Ein Katalogeintrag in Prüfung – transparent dokumentiert, noch nicht zum Kauf freigegeben.</p>
+      </div>
+      <span class="draft-status"><span aria-hidden="true">●</span> Entwurf · nicht freigegeben</span>
     </div>
+  </section>
+
+  <section class="section product-detail seed-detail" aria-labelledby="product-information-title">
+    <div class="seed-detail-visual">
+      <div class="seed-detail-image">
+        <img src={image} alt={`Botanische Kategorieillustration für ${product.category}; keine konkrete Sortenabbildung`} width="640" height="640" loading="eager" />
+        <span class="product-tag">Kategorieillustration</span>
+      </div>
+      <p class="image-caption"><span aria-hidden="true">ⓘ</span> Symbolische Illustration der Kategorie – kein Foto dieser konkreten Sorte.</p>
+      <div class="source-summary">
+        <span class="source-summary-icon" aria-hidden="true">✳</span>
+        <div><strong>Transparente Produktdaten</strong><p>Wir kennzeichnen, was aus dem Katalog stammt und was noch geprüft werden muss.</p></div>
+      </div>
+    </div>
+
     <div class="seed-detail-copy">
-      <span class="eyebrow">Produkt-ID · {product.id}</span>
-      <h2>{product.name}</h2>
+      <span class="eyebrow">KATALOG-ID · {product.id}</span>
+      <h2 id="product-information-title">Auf einen Blick.</h2>
       <dl class="seed-facts">
-        <div><dt>Katalogkategorie</dt><dd>{product.category}</dd></div>
-        <div><dt>Quelltyp</dt><dd>{product.details}</dd></div>
-        <div><dt>Prüfstatus</dt><dd><span class="draft-status">Entwurf · nicht freigegeben</span></dd></div>
+        <div><dt>Kategorie</dt><dd>{product.category}</dd></div>
+        <div><dt>Quelltyp</dt><dd>{sourceType}</dd></div>
+        <div><dt>Datenstatus</dt><dd><span class="inline-draft">Noch in Prüfung</span></dd></div>
       </dl>
-      <div class="product-description-block"><h3>Produktbeschreibung</h3><p>{product.description || 'Für diesen Eintrag liegt noch keine individuelle Beschreibung vor.'}</p><p class="description-source-note">Quelle: bereitgestellter Produktkatalog. Die Angaben sind noch nicht unabhängig verifiziert.</p></div><p>Preise und Verfügbarkeit werden erst ergänzt, wenn sie geprüft und freigegeben wurden.</p>
-      <div class="notice">Diese Seite ist eine unverbindliche Katalogvorschau. Die Illustration zeigt nur die Kategorie, nicht die konkrete Sorte. Produktbeschreibung und Sortenmerkmale sind noch zu prüfen. Es gibt keine Kauf- oder Bestellfunktion.</div>
-      <div class="actions">
-        <a class="button" href="/shop/">Zurück zum Sortiment ↗</a>
+
+      <section class="product-description-block" aria-labelledby="product-description-title">
+        <span class="eyebrow">Katalogangabe</span>
+        <h3 id="product-description-title">Produktbeschreibung</h3>
+        <p>{product.description || 'Für diesen Eintrag liegt noch keine individuelle Beschreibung vor.'}</p>
+        <p class="description-source-note">Quelle: bereitgestellter Produktkatalog. Inhalt und Sortenmerkmale sind noch nicht unabhängig verifiziert.</p>
+      </section>
+
+      <div class="review-notice" role="note">
+        <strong>Warum ist dieser Eintrag noch ein Entwurf?</strong>
+        <p>Herkunft, Sortenmerkmale, Beschreibung, Preis und Verfügbarkeit werden erst ergänzt, wenn die jeweiligen Angaben geprüft und freigegeben sind. Eine Bestellung ist derzeit nicht möglich.</p>
+      </div>
+
+      <div class="product-detail-actions">
+        <a class="button" href="/shop/">← Zurück zum Sortiment</a>
         <a class="button secondary" href="/shopping-cart/">Merkliste ansehen</a>
       </div>
+      <p class="detail-footnote">Diese Vorschau ist kein Verkaufsangebot. Es werden keine Preise, Lagerbestände oder individuellen Sortenbilder behauptet.</p>
     </div>
   </section>
 </Layout>
+
 <style>
-  .seed-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:start}
+  .product-detail-top{padding:1.2rem clamp(1rem,6vw,6rem) 0;background:#fbfaf5}
+  .product-breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;color:#718071;font-size:.82rem;line-height:1.6}
+  .product-breadcrumbs a{color:#315a3d;text-decoration:none;text-underline-offset:3px}
+  .product-breadcrumbs a:hover{text-decoration:underline}
+  .product-breadcrumbs [aria-current="page"]{color:#354339;overflow-wrap:anywhere}
+  .product-detail-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;padding:clamp(2rem,5vw,4rem) 0 1.6rem}
+  .product-detail-heading h1{max-width:900px;margin:.8rem 0 .7rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,5.8vw,5rem);font-weight:450;line-height:1.03;letter-spacing:-.055em;overflow-wrap:anywhere}
+  .product-detail-heading p{max-width:680px;margin:0;color:#637064;line-height:1.75}
+  .draft-status{display:inline-flex;flex-shrink:0;align-items:center;gap:.45rem;padding:.6rem .85rem;border:1px solid #e5d8b7;border-radius:999px;background:#f8f1df;color:#674f1e;font-size:.78rem;font-weight:750}
+  .draft-status span{font-size:.55rem}
+  .seed-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:start;padding-top:1.5rem}
+  .seed-detail-visual{min-width:0}
   .seed-detail-image{position:relative;overflow:hidden;border:1px solid #e0e3d7;border-radius:24px;background:linear-gradient(145deg,#f4f3e9,#e9eddf)}
-  .seed-detail-image img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+  .seed-detail-image img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply}
   .seed-detail-image .product-tag{position:absolute;top:1rem;left:1rem}
-  .seed-detail-copy h2{margin:.6rem 0 1.3rem}
-  .product-description-block{margin:1.5rem 0;padding:1.25rem;border:1px solid #e0e3d7;border-radius:16px;background:#fffefa}
-  .product-description-block h3{margin:0 0 .65rem;font-size:1.15rem}
-  .product-description-block p{line-height:1.75}
-  .description-source-note{color:#687269;font-size:.82rem}
-  .seed-facts{margin:1.5rem 0;border-top:1px solid #e3e6dc}
-  .seed-facts div{display:grid;grid-template-columns:minmax(8rem,.8fr) minmax(0,1.2fr);gap:1rem;padding:.9rem 0;border-bottom:1px solid #e3e6dc}
-  .seed-facts dt{color:#647363;font-size:.9rem}
-  .seed-facts dd{margin:0;font-weight:600;overflow-wrap:anywhere}
-  .draft-status{display:inline-block;padding:.25rem .55rem;border-radius:999px;background:#f1e8cf;color:#624d1d;font-size:.8rem}
-  @media(max-width:760px){.seed-detail{grid-template-columns:1fr}.seed-detail-image{max-width:560px}.seed-facts div{grid-template-columns:1fr;gap:.25rem}}
+  .image-caption{display:flex;align-items:flex-start;gap:.5rem;margin:.75rem .15rem 1.25rem;color:#687469;font-size:.8rem;line-height:1.6}
+  .image-caption span{color:#7b875c}
+  .source-summary{display:flex;align-items:flex-start;gap:.9rem;padding:1.1rem 1.2rem;border:1px solid #e0e5d9;border-radius:16px;background:#fffefa}
+  .source-summary-icon{display:grid;place-items:center;flex:0 0 36px;height:36px;border-radius:50%;background:#edf1e2;color:#315a3d}
+  .source-summary strong{display:block;margin:.05rem 0 .3rem;color:#254530;font-size:.9rem}
+  .source-summary p{margin:0;color:#687469;font-size:.84rem;line-height:1.65}
+  .seed-detail-copy{min-width:0}
+  .seed-detail-copy h2{margin:.7rem 0 1rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,3.2vw,3rem);font-weight:450;letter-spacing:-.045em;line-height:1.1}
+  .seed-facts{margin:0 0 1.4rem;border-top:1px solid #e3e6dc}
+  .seed-facts div{display:grid;grid-template-columns:minmax(7.5rem,.8fr) minmax(0,1.2fr);gap:1rem;padding:1rem 0;border-bottom:1px solid #e3e6dc}
+  .seed-facts dt{color:#647363;font-size:.88rem;line-height:1.55}
+  .seed-facts dd{margin:0;color:#273b2d;font-size:.93rem;font-weight:650;line-height:1.55;overflow-wrap:anywhere}
+  .inline-draft{display:inline-block;padding:.25rem .55rem;border-radius:8px;background:#f1e8cf;color:#624d1d;font-size:.8rem}
+  .product-description-block{margin:1.4rem 0;padding:clamp(1.1rem,2.5vw,1.5rem);border:1px solid #e0e3d7;border-radius:18px;background:#fffefa}
+  .product-description-block h3{margin:.65rem 0;font-family:Georgia,"Times New Roman",serif;font-size:1.45rem;font-weight:500;letter-spacing:-.025em}
+  .product-description-block p{margin:.5rem 0;line-height:1.8;overflow-wrap:anywhere}
+  .description-source-note{color:#687269;font-size:.8rem}
+  .review-notice{padding:1.1rem 1.2rem;border-left:3px solid #b6a16b;border-radius:0 12px 12px 0;background:#f6f2e7}
+  .review-notice strong{display:block;color:#4b472f;font-size:.9rem;line-height:1.55}
+  .review-notice p{margin:.45rem 0 0;color:#666550;font-size:.86rem;line-height:1.75}
+  .product-detail-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+  .product-detail-actions .button{min-height:46px}
+  .detail-footnote{margin:1rem 0 0;color:#788176;font-size:.76rem;line-height:1.65}
+  @media(max-width:800px){.product-detail-heading{align-items:flex-start;flex-direction:column;gap:1rem}.seed-detail{grid-template-columns:1fr;gap:1.8rem;padding-top:1rem}.seed-detail-visual{width:100%;max-width:640px}.seed-detail-copy h2{font-size:2.15rem}}
+  @media(max-width:520px){.product-detail-top{padding-top:.85rem}.product-breadcrumbs{font-size:.76rem;gap:.4rem}.product-detail-heading{padding:1.8rem 0 1.2rem}.product-detail-heading h1{font-size:clamp(2rem,10vw,3rem)}.draft-status{font-size:.74rem}.seed-detail{gap:1.4rem}.seed-detail-image{border-radius:18px}.seed-facts div{grid-template-columns:1fr;gap:.25rem;padding:.8rem 0}.product-detail-actions{flex-direction:column}.product-detail-actions .button{width:100%}}
 </style>
