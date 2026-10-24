@@ -125,3 +125,10 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Added Richards et al. (2026), DOI `10.3390/plants15111643`, a review describing interactions among genotype, hormonal and developmental factors, and environment.
 - Article wording now describes possible influence rather than a deterministic cause. Neither source establishes a universal failure rate for commercial feminized seeds.
 - This article remains unchecked pending the complete sentence-level editorial review.
+
+
+### Autoflowering: Abgleich der genetischen Aussagen (24. Oktober 2026)
+- Toth et al. (2022), *Identification and mapping of major-effect flowering time loci Autoflower1 and Early1 in Cannabis sativa L.*, untersucht konkrete Hanf-/Cannabis-Populationen und kartiert Autoflower1; die Studie beschreibt photoperiodische Unempfindlichkeit, nicht ein universelles Verhalten sämtlicher kommerzieller Sorten. Quelle: https://doi.org/10.3389/fpls.2022.991680
+- Dowling et al. (2024), *A FLOWERING LOCUS T ortholog is associated with photoperiod-insensitive flowering in hemp*, identifiziert Autoflower2 im Zusammenhang mit FINOLA und beschreibt Autoflower1 und Autoflower2 als unterschiedliche Loci. Die Autoren berichten außerdem, dass die Korrelation von CsFT1-Allelen und Photoperiodenreaktion nicht perfekt ist. Quelle: https://doi.org/10.1111/tpj.16769
+- Der aktuelle Artikeltext bleibt entsprechend vorsichtig: mehrere genetische Bereiche, keine Gleichsetzung einzelner Forschungspopulationen mit jeder Handelslinie und keine garantierten Aussagen zu Ertrag, Potenz oder Robustheit. Die Quellen tragen die genetische Einordnung, nicht die Leistung eines konkreten Produkts.
+- Status: Quelleninhalt und Übertragungsgrenzen wurden anhand der Verlags-/Fachartikel-Seiten geprüft. Dies ist ein gezielter Teilcheck, keine vollständige Satz-für-Satz-Freigabe des Artikels; Checkbox bleibt deshalb offen.
