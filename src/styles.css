@@ -793,3 +793,48 @@ body {
     font-size: clamp(1.9rem, 8vw, 2.5rem);
   }
 }
+
+/* Hero readability correction — calm light surface with deep-green typography */
+.luxury-hero {
+  background:
+    radial-gradient(ellipse at 78% 38%, rgb(220 231 197 / 78%) 0, transparent 42%),
+    linear-gradient(135deg, #f7f6ed 0%, #eeefdf 100%);
+  color: #20362a;
+}
+.luxury-hero .eyebrow {
+  color: #365b3f;
+}
+.luxury-hero .hero-overline {
+  color: #365b3f;
+}
+.luxury-hero h1 {
+  color: #20362a;
+}
+.luxury-hero h1 em {
+  color: #315f3c;
+}
+.luxury-hero .hero-copy {
+  color: #34483a;
+}
+.luxury-hero .hero-proof {
+  color: #405b45;
+}
+.luxury-hero .button.secondary {
+  color: #20362a;
+  border-color: #66816a;
+}
+.luxury-hero .button.secondary:hover {
+  background: rgb(32 54 42 / 7%);
+}
+.luxury-hero:before {
+  opacity: .09;
+}
+@media (prefers-contrast: more) {
+  .luxury-hero .eyebrow,
+  .luxury-hero .hero-overline,
+  .luxury-hero .hero-copy,
+  .luxury-hero .hero-proof {
+    color: #20362a;
+  }
+}
+
