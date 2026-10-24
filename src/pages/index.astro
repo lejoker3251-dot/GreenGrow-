@@ -76,6 +76,18 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
 
   <div class="trust-row luxury-trust-row" aria-label="SEED³X Grundsätze"><div class="trust-item"><span class="trust-icon">✳</span><span>Sorgfältig ausgewählt</span></div><div class="trust-item"><span class="trust-icon">◌</span><span>Für deinen Lieblingsort</span></div><div class="trust-item"><span class="trust-icon">↗</span><span>Schritt für Schritt wachsen</span></div></div>
 
+  <section class="section seed-category-visual" aria-labelledby="seed-category-visual-title">
+    <div class="seed-category-visual-heading">
+      <span class="eyebrow">Botanical selection</span>
+      <h2 id="seed-category-visual-title">Entdecke die <em>Vielfalt.</em></h2>
+      <p>Ein erster visueller Überblick über unsere Kategorien – ruhig kuratiert und im Stil von SEED³X.</p>
+    </div>
+    <div class="seed-category-visual-art">
+      <img src="https://raw.githubusercontent.com/lejoker3251-dot/GreenGrow-/feature/premium-storefront-v1/images/Back%202%20Seed.png.jpg" alt="Botanisches Kategorienmotiv für die SEED³X Homepage" width="1600" height="1000" loading="lazy" decoding="async" />
+    </div>
+    <div class="seed-category-visual-footer"><span>THE BOTANICAL EDIT</span><a href="/shop/">Alle Kategorien im Shop entdecken <span aria-hidden="true">↗</span></a></div>
+  </section>
+
   <section class="section shop-teaser" aria-labelledby="shop-teaser-title">
     <div class="shop-teaser-art"><img src="/images/seedx-banner.png.PNG" alt="SEED³X – The Botanical Edit" width="1011" height="335" loading="lazy" decoding="async" /></div>
     <div class="shop-teaser-copy"><span class="eyebrow">The collection</span><h2 id="shop-teaser-title">Das Sortiment.<br/><em>In Ruhe entdecken.</em></h2><p>Unser vollständiger Katalog liegt bewusst auf einer eigenen Shop-Seite. Dort kannst du gezielt suchen, nach Samenkategorie filtern, sortieren und Favoriten merken – ohne dass die Startseite überladen wirkt.</p><a class="button luxury-button" href="/shop/">Zum gesamten Sortiment <span aria-hidden="true">↗</span></a><span class="shop-teaser-note">{seedProducts.length.toLocaleString('de-DE')} Katalogeinträge · Vorschau, noch keine Bestellfunktion</span></div>
@@ -183,6 +195,20 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
     .botanical-title-hero .actions .button{justify-content:center;text-align:center}
     .botanical-title-hero .hero-index{left:1.1rem;right:1.1rem;bottom:.9rem}
   }
+
+  /* Second uploaded image: visual category overview, matching the photographic hero. */
+  .seed-category-visual{padding:clamp(3rem,7vw,6rem) clamp(1.1rem,5vw,4.5rem);color:#203b2a}
+  .seed-category-visual-heading{max-width:760px;margin:0 auto 2rem;text-align:center}
+  .seed-category-visual-heading h2{margin:.55rem 0 .75rem;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,5.5vw,4.7rem);font-weight:500;line-height:1.03;letter-spacing:-.055em}
+  .seed-category-visual-heading h2 em{color:#78618d;font-weight:500}
+  .seed-category-visual-heading p{max-width:620px;margin:0 auto;color:#58665a;line-height:1.8}
+  .seed-category-visual-art{position:relative;overflow:hidden;width:min(100%,1440px);margin:0 auto;border:1px solid #d9d1bd;border-radius:clamp(16px,2vw,28px);background:#f6f3eb;box-shadow:0 24px 70px #20362a12}
+  .seed-category-visual-art img{display:block;width:100%;height:auto;max-height:760px;object-fit:cover;object-position:center}
+  .seed-category-visual-footer{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:min(100%,1440px);margin:1rem auto 0;padding:.8rem .15rem;color:#74613b;font-size:.72rem;font-weight:800;letter-spacing:.13em}
+  .seed-category-visual-footer a{color:#244a31;font-size:.85rem;letter-spacing:normal;text-decoration:none}
+  .seed-category-visual-footer a:hover{color:#78618d}
+  .seed-category-visual-footer a:focus-visible{outline:3px solid #8ba96b;outline-offset:4px}
+  @media(max-width:640px){.seed-category-visual{padding:2.7rem 1rem}.seed-category-visual-art{border-radius:14px}.seed-category-visual-footer{align-items:flex-start;flex-direction:column}.seed-category-visual-heading h2{font-size:clamp(2.4rem,11vw,3.5rem)}}
 
   /* Grow Doctor: separate service section, matching Botanical Luxury palette. */
   .grow-doctor-section{padding-top:clamp(3.5rem,7vw,6.5rem);padding-bottom:clamp(3.5rem,7vw,6.5rem);color:#203b2a}
