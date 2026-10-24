@@ -176,8 +176,31 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
   .botanical-title-hero .hero-index{left:clamp(1.5rem,8vw,8rem);right:clamp(1.5rem,8vw,8rem);bottom:1.1rem;color:#f0e6cb;border-color:#d7c58b66}
   .botanical-title-hero .button.secondary{color:#fffdf7;border-color:#e6dec8aa;background:#ffffff0d}
   .botanical-title-hero .button.secondary:hover{background:#ffffff20;border-color:#d8c49a}
+  /* Keep the uploaded photograph full-bleed and enforce readable ivory typography. */
+  .premium-hero.luxury-hero.botanical-title-hero{
+    display:flex!important;grid-template-columns:none!important;align-items:center!important;
+    min-height:clamp(700px,82vw,900px)!important;height:auto!important;
+    padding:clamp(4rem,7vw,6.5rem) clamp(1.25rem,7vw,7rem) 5rem!important;
+    background:#102b1d!important;color:#fffdf7!important;
+  }
+  .premium-hero.luxury-hero.botanical-title-hero .hero-art.botanical-title-art{
+    position:absolute!important;inset:0!important;display:block!important;
+    width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;margin:0!important;
+  }
+  .premium-hero.luxury-hero.botanical-title-hero .hero-art.botanical-title-art img{
+    position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;
+    max-height:none!important;object-fit:cover!important;object-position:center 45%!important;
+  }
+  .premium-hero.luxury-hero.botanical-title-hero .botanical-title-content{width:min(72%,760px)!important;max-width:760px!important;color:#fffdf7!important}
+  .premium-hero.luxury-hero.botanical-title-hero .eyebrow,
+  .premium-hero.luxury-hero.botanical-title-hero .hero-overline,
+  .premium-hero.luxury-hero.botanical-title-hero .hero-proof{color:#f0e6cb!important}
+  .premium-hero.luxury-hero.botanical-title-hero h1{color:#fffdf7!important;text-shadow:0 3px 28px #06190fcc!important}
+  .premium-hero.luxury-hero.botanical-title-hero h1 em{color:#d8cbea!important}
+  .premium-hero.luxury-hero.botanical-title-hero .hero-copy{color:#fffdf7!important;text-shadow:0 2px 16px #06190fcc!important}
+  .premium-hero.luxury-hero.botanical-title-hero .hero-index{color:#f0e6cb!important;border-color:#d7c58b88!important}
   @media(max-width:900px){
-    .premium-hero.luxury-hero.botanical-title-hero{min-height:760px;padding:4rem 2rem 5rem}
+    .premium-hero.luxury-hero.botanical-title-hero{min-height:760px!important;padding:4rem 2rem 5rem!important}
     .botanical-title-hero:before{background:linear-gradient(90deg,rgba(8,29,19,.8),rgba(8,29,19,.34)),linear-gradient(0deg,rgba(8,29,19,.5),transparent 55%)}
     .botanical-title-hero .botanical-title-content{width:min(82%,680px)}
     .botanical-title-hero .botanical-title-art img{object-position:58% center}
