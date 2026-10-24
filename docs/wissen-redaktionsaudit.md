@@ -185,3 +185,10 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Die 2024er Untersuchung mehrerer unterschiedlich pigmentierter Sorten ergänzt Hinweise zu genetischer Vielfalt der Pigmentbildung: https://pubmed.ncbi.nlm.nih.gov/39600728/
 - Die vorhandenen Aussagen sind vorsichtig formuliert: Anthocyane können mit violetter Färbung zusammenhängen; Genetik und Umwelt beeinflussen die Ausprägung. Farbe allein belegt weder THC-Gehalt noch Aroma oder Qualität. Keine pauschale Temperaturregel in den Artikel aufgenommen.
 - Quellenbezug teilweise geprüft; vollständige Satz-für-Satz-Prüfung noch offen. Audit-Checkboxen unverändert.
+
+
+### „Cannabis verantwortungsvoll nutzen“ – Quellen- und Aktualitätsabgleich (24. Oktober 2026)
+- Die CDC-Seite zu Cannabis und Fahrtüchtigkeit benennt mögliche Beeinträchtigungen von Reaktionszeit, Entscheidungsfähigkeit, Koordination und Wahrnehmung und rät, nach Konsum nicht zu fahren: https://www.cdc.gov/cannabis/health-effects/driving.html
+- Für deutsche Verkehrsregeln wurden die aktuelle BMG-FAQ und § 24a StVG ergänzt. Der gesetzliche THC-Grenzwert von 3,5 ng/ml Blutserum gilt als Ordnungswidrigkeitstatbestand; daneben bestehen Sonderregeln für Fahranfänger und unter 21-Jährige sowie ein Verbot des Mischkonsums mit Alkohol am Steuer. Die gesetzlichen Details sollten bei späteren Rechtsänderungen erneut geprüft werden: https://www.bundesgesundheitsministerium.de/themen/cannabis/faq-cannabisgesetz ; https://www.gesetze-im-internet.de/stvg/BJNR004370909.html
+- Die allgemeine Warnung, dass subjektives Nüchternheitsgefühl keine zuverlässige Fahrtüchtigkeitsprüfung ist, ist vorsichtig formuliert. Keine konkreten Wartezeiten oder individuellen medizinischen Ratschläge ergänzt.
+- CDC-Übersicht dient als allgemeine Gesundheitsquelle; sie ersetzt keine deutsche medizinische oder rechtliche Beratung. Inhaltliche Teilprüfung und Quellenzuordnung dokumentiert; vollständige Satz-für-Satz-Prüfung noch offen. Audit-Checkboxen unverändert.
