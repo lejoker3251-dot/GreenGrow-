@@ -145,15 +145,16 @@ try {
   assert.equal(await page.locator('main#main-content a[href="/shop/"]').count(), 1,
     'not-found page provides a direct route back to the shop');
 
-  // Product detail imagery must be described as a category illustration, not a unique product photo.
+  // Product imagery uses the image path stored with each catalog entry, while
+  // clearly stating that the archived image has not been individually verified for the strain.
   await page.goto(`${localOrigin}/product/seed-0001/`, { waitUntil: 'networkidle' });
   const detailImage = page.locator('.seed-detail-image img');
-  assert.match(await detailImage.getAttribute('alt') || '', /Kategorieillustration.*keine konkrete Sortenabbildung/i,
-    'product detail image explains that it illustrates only the category');
-  const detailAlt = await detailImage.getAttribute('alt') || '';
-  const detailProductName = (await page.locator('.product-detail-hero h1').textContent() || '').trim();
-  assert.ok(!detailAlt.includes(detailProductName),
-    'product detail image does not imply a unique product image');
+  assert.match(await detailImage.getAttribute('src') || '', /White%201\.png\.JPG|White 1\.png\.JPG/i,
+    'product detail uses the archived White 1 image');
+  assert.match(await detailImage.getAttribute('alt') || '', /Bildarchiv/i,
+    'product detail image is described as coming from the image archive');
+  assert.match(await page.locator('.image-caption').textContent() || '', /noch nicht verifiziert/i,
+    'product detail discloses that image-to-strain assignment is not verified');
 
   // Catalog filters should be keyboard-operable and update the result list.
   await page.goto(`${localOrigin}/shop/`, { waitUntil: 'networkidle' });
