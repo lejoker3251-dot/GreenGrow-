@@ -120,7 +120,7 @@ const articles = [
 export function getStaticPaths() { return ['cannabissamen-keimen','wachstumsphase','cannabis-bluetephase','letzte-bluete-wochen','cannabis-ernten','cannabissamen-aufbewahren','feminisierte-samen','autoflowering-samen','samenarten-vergleich','f1-hybridsamen','staerkste-cannabissamen','ertragreiche-cannabissorten','sativa-sorten','indica-sorten','lila-cannabissorten','cannabis-verantwortungsvoll-nutzen','indica-vs-sativa','endocannabinoid-system','cannabis-geschmack-wirkung'].map((slug) => ({ params: { slug } })); }
 const article = articles.find((entry) => entry.slug === Astro.params.slug);
 if (!article) throw new Error('Knowledge article not found');
-const sources = article.sources ?? [{label:'Konsumcannabisgesetz (KCanG) – amtliche Rechtsquelle',url:'https://www.gesetze-im-internet.de/kcang/'},{label:'FAQ des Bundesgesundheitsministeriums zum Cannabisgesetz',url:'https://www.bundesgesundheitsministerium.de/themen/cannabis/faq-cannabisgesetz/seite'}];
+const sources = article.sources ?? [];
 ---
 <Layout title={article.title + ' – SEED³X Wissen'} description={article.intro}>
   <section class="page-hero article-hero">
@@ -128,13 +128,14 @@ const sources = article.sources ?? [{label:'Konsumcannabisgesetz (KCanG) – amt
     <span class="eyebrow">{article.category} · ARTIKEL {article.number}</span>
     <h1>{article.title}</h1>
     <p>{article.intro}</p>
-    <span class="article-label">Redaktioneller Grundlagenartikel · Version 1.0</span>
+    <span class="article-label">Grundlagenartikel · redaktionelle Einzelprüfung noch nicht abgeschlossen</span>
   </section>
   <article class="article-body">
     <p class="article-lead">{article.takeaway}</p>
     {article.sections.map(([heading, body]) => <section><h2>{heading}</h2><p>{body}</p></section>)}
-    <aside class="source-note"><strong>Fach- und Rechtsprüfung</strong><p>Dieser Beitrag dient der allgemeinen Information und ersetzt keine individuelle fachliche Beratung. Aussagen zu Anbau und Pflanzenentwicklung können je nach Genetik und Bedingungen variieren. Rechtliche Hinweise müssen vor Veröffentlichung anhand amtlicher Quellen aktualisiert werden.</p>
-    <p><strong>Quellen und weiterführende Literatur</strong></p><ul>{sources.map((source) => <li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul><p>Rechtsstand und Quellen wurden für die Entwicklung recherchiert; vor öffentlicher Veröffentlichung bitte erneut prüfen. Zuletzt fachlich gegengeprüft: 23. Oktober 2026.</p></aside>
+    <aside class="source-note"><strong>Redaktioneller Status</strong><p>Dieser Beitrag ist noch nicht als redaktionell geprüft freigegeben. Die Einzelaussagen und ihre Quellen werden derzeit themenbezogen überprüft. Dieser Hinweis ist kein Nachweis einer abgeschlossenen Fach- oder Rechtsprüfung.</p>
+    {sources.length > 0 ? <><p><strong>Vorhandene Quellen zur weiteren Prüfung</strong></p><ul>{sources.map((source) => <li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></> : <p><strong>Quellenstatus:</strong> Für diesen Beitrag sind noch keine individuell zugeordneten Quellen hinterlegt.</p>}
+    <p><strong>Aktualität:</strong> Rechts- und Gesundheitshinweise können sich ändern. Vor einer Freigabe müssen Quellen, Veröffentlichungs- bzw. Aktualisierungsdatum und die jeweils gestützten Aussagen dokumentiert werden.</p></aside>
     <a class="button secondary" href="/wissen/">Alle Wissensthemen ansehen</a>
   </article>
   <style>
