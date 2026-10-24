@@ -1058,3 +1058,146 @@ select:focus-visible {
     gap: .65rem;
   }
 }
+
+
+/* SEED³X hero refinement · premium botanical editorial, responsive without new assets */
+.botanical-title-hero {
+  position: relative;
+  isolation: isolate;
+  grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+  gap: clamp(2rem, 4.5vw, 5rem);
+  padding-block: clamp(3.25rem, 6.2vw, 6.25rem) clamp(3.5rem, 6vw, 5.5rem);
+  background:
+    radial-gradient(ellipse at 82% 22%, rgba(216,203,234,.42), transparent 34%),
+    radial-gradient(ellipse at 16% 88%, rgba(200,169,106,.15), transparent 36%),
+    linear-gradient(125deg, #fbfaf5 0%, #f4f3eb 56%, #f1edf6 100%);
+}
+.botanical-title-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 1.2rem;
+  border: 1px solid rgba(200,169,106,.23);
+  border-radius: 1.6rem;
+  pointer-events: none;
+}
+.botanical-title-art {
+  min-width: 0;
+  min-height: clamp(360px, 42vw, 610px);
+  overflow: hidden;
+  border: 1px solid rgba(200,169,106,.42);
+  border-radius: 48% 48% 1.4rem 1.4rem;
+  background:
+    radial-gradient(ellipse at 52% 40%, rgba(216,203,234,.48), transparent 45%),
+    linear-gradient(145deg, #e9eddf, #f8f5ed 52%, #e9e0f0);
+  box-shadow: 0 24px 70px rgba(23,63,42,.11), 0 3px 0 rgba(255,255,255,.8) inset;
+}
+.botanical-title-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.92) contrast(1.02);
+  transform: scale(1.015);
+}
+.botanical-title-content {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  padding: clamp(.25rem, 1.4vw, 1.25rem) 0;
+}
+.botanical-title-content .eyebrow {
+  max-width: 100%;
+  font-size: clamp(.62rem, .7vw, .76rem);
+  letter-spacing: .1em;
+  line-height: 1.5;
+}
+.botanical-title-content .hero-overline {
+  margin-top: 1.6rem;
+  color: #75618d;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+.botanical-title-content h1 {
+  margin: 1rem 0 1.2rem;
+  color: #173f2a;
+  font-size: clamp(3.35rem, 5.4vw, 6.25rem);
+  line-height: .99;
+  letter-spacing: -.06em;
+}
+.botanical-title-content h1 em {
+  color: #76638f;
+  font-style: italic;
+}
+.botanical-title-content .hero-copy {
+  max-width: 52ch;
+  color: #4d5b50;
+  font-size: clamp(1rem, 1.1vw, 1.12rem);
+  line-height: 1.78;
+}
+.botanical-title-content .actions { margin-top: 1.8rem; gap: .75rem; }
+.botanical-title-content .luxury-button {
+  box-shadow: 0 8px 22px rgba(200,169,106,.22);
+}
+.botanical-title-content .hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem 1.25rem;
+  margin-top: 2rem;
+  color: #69756a;
+  font-size: .64rem;
+  letter-spacing: .09em;
+}
+.botanical-title-hero .hero-index {
+  color: #65527f;
+  border-color: rgba(139,121,168,.35);
+}
+@media (min-width: 801px) and (max-width: 1100px) {
+  .botanical-title-hero {
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+    gap: 1.8rem;
+    padding-inline: clamp(1.4rem, 3vw, 2.5rem);
+  }
+  .botanical-title-art { min-height: 400px; }
+  .botanical-title-content h1 { font-size: clamp(3rem, 5.3vw, 4.5rem); }
+  .botanical-title-content .actions .button { padding-inline: 1rem; }
+}
+@media (max-width: 800px) {
+  .botanical-title-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.4rem;
+    padding: 2rem 1.15rem 4rem;
+  }
+  .botanical-title-hero::after { inset: .5rem; border-radius: 1.2rem; }
+  .botanical-title-art {
+    grid-row: 1;
+    min-height: 0;
+    height: clamp(250px, 62vw, 430px);
+    border-radius: 44% 44% 1rem 1rem;
+  }
+  .botanical-title-art img { min-height: 0; height: 100%; }
+  .botanical-title-content { padding: .5rem .25rem 0; }
+  .botanical-title-content .hero-overline { margin-top: 1rem; }
+  .botanical-title-content h1 {
+    max-width: 12ch;
+    font-size: clamp(3rem, 10vw, 5rem);
+    line-height: 1.02;
+  }
+  .botanical-title-content .hero-proof { margin-top: 1.4rem; }
+}
+@media (max-width: 480px) {
+  .botanical-title-hero { padding-inline: 1rem; }
+  .botanical-title-art { height: 260px; }
+  .botanical-title-content .eyebrow { font-size: .58rem; letter-spacing: .065em; }
+  .botanical-title-content h1 { font-size: clamp(2.65rem, 11vw, 3.5rem); letter-spacing: -.05em; }
+  .botanical-title-content .actions { align-items: stretch; }
+  .botanical-title-content .actions .button { width: 100%; min-height: 50px; }
+  .botanical-title-content .hero-proof { font-size: .58rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .botanical-title-art img { transform: none; }
+}
