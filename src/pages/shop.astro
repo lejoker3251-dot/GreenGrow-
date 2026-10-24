@@ -73,7 +73,8 @@ const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-fi
   const sortSelect = document.querySelector<HTMLSelectElement>('#product-sort');
   const grid = document.querySelector<HTMLElement>('#product-grid');
   const originalOrder = new Map(cards.map((card, index) => [card.dataset.id || String(index), index]));
-  let activeFilter = 'Alle';
+  const requestedFilter = new URLSearchParams(window.location.search).get('typ');
+  let activeFilter = filterButtons.some((button) => button.dataset.filter === requestedFilter) ? (requestedFilter || 'Alle') : 'Alle';
   function sortProducts() {
     if (!grid || !sortSelect) return;
     const mode = sortSelect.value;
@@ -134,6 +135,8 @@ const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-fi
   search?.addEventListener('input', updateProducts);
   sortSelect?.addEventListener('change', sortProducts);
   sortProducts();
+  filterButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter)));
+  updateProducts();
   document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => button.addEventListener('click', () => {
     const card = button.closest<HTMLElement>('.product-card');
     if (!card) return;
