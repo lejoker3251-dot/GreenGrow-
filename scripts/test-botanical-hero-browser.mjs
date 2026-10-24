@@ -52,6 +52,20 @@ try {
   assert.ok(before?.width > 0 && after?.width > 0, 'fallback remains laid out at desktop and mobile viewport sizes');
   assert.ok(after.width < before.width, 'fallback responds to the narrower mobile viewport');
 
+  // Sweep common narrow, tablet, and desktop widths to catch scene overflow.
+  for (const width of [320, 360, 390, 768, 1280]) {
+    await page.setViewportSize({ width, height: 844 });
+    const bounds = await fallback.boundingBox();
+    assert.ok(bounds && bounds.width > 0, `fallback stays visible at ${width}px viewport width`);
+    assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= width + 1,
+      `fallback stays within the viewport at ${width}px width`);
+  }
+  assert.equal(await page.locator('main#main-content').count(), 1, 'page exposes one main landmark');
+  assert.equal(await page.locator('nav[aria-label="Hauptnavigation"]').count(), 1,
+    'primary navigation has an accessible name');
+  assert.equal(await page.locator('a.skip-link[href="#main-content"]').count(), 1,
+    'keyboard users have a skip-to-content link');
+
   // The age dialog should be labelled, modal, and keep keyboard focus inside.
   const ageGate = page.locator('#age-gate');
   if (await ageGate.isVisible()) {
@@ -83,7 +97,7 @@ try {
 
   assert.deepEqual(pageErrors, [], 'fallback, responsive layout, and menu interaction produce no uncaught page errors');
 
-  console.log('Browser checks passed: reduced motion, fallback, responsive layout, age-dialog keyboard focus, invalid localStorage, and mobile navigation.');
+  console.log('Browser checks passed: reduced motion, fallback, five viewport widths, landmarks, age-dialog keyboard focus, invalid localStorage, and mobile navigation.');
 } finally {
   await browser?.close();
   server.kill('SIGTERM');
