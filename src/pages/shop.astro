@@ -114,6 +114,22 @@ const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-fi
   const originalOrder = new Map(cards.map((card, index) => [card.dataset.id || String(index), index]));
   const requestedFilter = new URLSearchParams(window.location.search).get('typ');
   let activeFilter = filterButtons.some((button) => button.dataset.filter === requestedFilter) ? (requestedFilter || 'Alle') : 'Alle';
+  // Reliable product navigation for touch devices: handle taps on the card grid
+  // explicitly instead of relying only on the browser's default anchor activation.
+  // The save button remains independent and never triggers navigation.
+  grid?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const card = target.closest<HTMLElement>('.product-card');
+    if (!card) return;
+    if (target.closest('button, input, select, textarea')) return;
+    const link = target.closest<HTMLAnchorElement>('a[href]');
+    const destination = link?.href || card.querySelector<HTMLAnchorElement>('.product-detail-link')?.href;
+    if (!destination) return;
+    event.preventDefault();
+    window.location.assign(destination);
+  }, true);
+
   function sortProducts() {
     if (!grid || !sortSelect) return;
     const mode = sortSelect.value;
