@@ -145,7 +145,7 @@ Genetik spielt eine wichtige Rolle; Entwicklungs- und Umweltfaktoren können ebe
 
 **Kernaussage:** Feminisierte Samen zielen auf überwiegend weibliche Pflanzen ab, sind aber keine absolute Erfolgsgarantie.
 
-**Quellen:** [Timoteo Junior & Oswald (2024)](https://doi.org/10.1093/...) – vor Veröffentlichung DOI und vollständige bibliografische Angaben verifizieren; [Punja & Holmes (2020)](https://doi.org/10.1007/s10681-020-02609-9); [Richards et al. (2026)](https://doi.org/10.3390/plants15111643); [Toth et al. (2022)](https://doi.org/10.1094/PHYTO-03-22-0089-R). **Quellenhinweis:** Die genaue bibliografische Zuordnung einzelner Links ist vor Veröffentlichung erneut zu prüfen; nicht alle Quellen stützen jede Aussage dieses Artikels unmittelbar.
+**Quellen:** [Timoteo Junior & Oswald (2024)](https://doi.org/10.3389/fpls.2024.1384286) – vor Veröffentlichung DOI und vollständige bibliografische Angaben verifizieren; [Punja & Holmes (2020)](https://doi.org/10.1007/s10681-020-02609-9); [Richards et al. (2026)](https://doi.org/10.3390/plants15111643); [Toth et al. (2022)](https://doi.org/10.1094/PHYTO-03-22-0089-R). **Quellenhinweis:** Die genaue bibliografische Zuordnung einzelner Links ist vor Veröffentlichung erneut zu prüfen; nicht alle Quellen stützen jede Aussage dieses Artikels unmittelbar.
 
 ## 08. Was sind autoflowering Samen?
 **Slug:** `autoflowering-samen`
@@ -191,7 +191,7 @@ Vergleiche Geschlechtsausprägung, Blühverhalten, Generation und beworbenes Can
 
 **Kernaussage:** Regular, feminisiert, Automatic, CBD und F1 beschreiben unterschiedliche Dimensionen und können sich überschneiden.
 
-**Quellen:** [Toth et al. (2022)](https://doi.org/10.1094/PHYTO-03-22-0089-R); [Timoteo Junior & Oswald (2024)](https://doi.org/10.1093/...) – bibliografische Angaben vor Veröffentlichung prüfen; [The Cannabis Plant as a Complex System (2023)](https://doi.org/10.3390/plants12071422); [Toth et al. (2020)](https://doi.org/10.1002/ps.5682). Quelle-zu-Aussage-Zuordnung noch abschließend verifizieren.
+**Quellen:** [Toth et al. (2022)](https://doi.org/10.1094/PHYTO-03-22-0089-R); [Timoteo Junior & Oswald (2024)](https://doi.org/10.3389/fpls.2024.1384286) – bibliografische Angaben vor Veröffentlichung prüfen; [The Cannabis Plant as a Complex System (2023)](https://doi.org/10.3390/plants12071422); [Toth et al. (2020)](https://doi.org/10.1002/ps.5682). Quelle-zu-Aussage-Zuordnung noch abschließend verifizieren.
 
 ## 10. Was sind F1-Hybridsamen?
 **Slug:** `f1-hybridsamen`
@@ -305,7 +305,7 @@ Beleuchtung, Kameraeinstellungen und Bildbearbeitung können Farben deutlich ver
 
 **Kernaussage:** Violette Pigmente sind ein sichtbares Merkmal, aber kein verlässlicher Hinweis auf Potenz, Aroma oder Qualität.
 
-**Quellen:** [Bassolino et al. (2023), When Cannabis sativa L. Turns Purple](https://doi.org/10.3390/antiox12030657); [Kim et al. (2025), Anthocyanin accumulation and temperature optima](https://doi.org/10.1186/s42238-025-00261-5) – exakte bibliografische Zuordnung vor Veröffentlichung prüfen; [Leaf pigmentation in Cannabis sativa (2024)](https://doi.org/10.3390/plants13070968) – DOI-Titel-Zuordnung vor Veröffentlichung verifizieren.
+**Quellen:** [Bassolino et al. (2023), When Cannabis sativa L. Turns Purple](https://doi.org/10.3390/antiox12071393); [Kim et al. (2025), Anthocyanin accumulation and temperature optima](https://doi.org/10.1186/s42238-025-00261-5) – exakte bibliografische Zuordnung vor Veröffentlichung prüfen; [Leaf pigmentation in Cannabis sativa (2024)](https://doi.org/10.3390/plants13070968) – DOI-Titel-Zuordnung vor Veröffentlichung verifizieren.
 
 ## 16. Cannabis verantwortungsvoll nutzen
 **Slug:** `cannabis-verantwortungsvoll-nutzen`
@@ -384,7 +384,7 @@ Das Erleben kann von Dosis, Konsumform, individueller Empfindlichkeit, Erwartung
 
 **Kernaussage:** Aroma kann sensorisch beschrieben werden, sagt aber allein weder eine bestimmte Wirkung noch medizinische Eignung voraus.
 
-**Quellen:** [Smith et al. (2022), The phytochemical diversity of commercial Cannabis](https://doi.org/10.1371/journal.pone.0267498); [The Entourage Effect in Cannabis Medicinal Products: A Comprehensive Review (2024)](https://doi.org/10.3390/ph17081066); [Does the “Entourage Effect” in Cannabinoids Exist? (2023)](https://doi.org/10.3389/fphar.2023.1086479); [National Academies](https://nap.nationalacademies.org/catalog/24625/the-health-effects-of-cannabis-and-cannabinoids-the-current-state).
+**Quellen:** [Smith et al. (2022), The phytochemical diversity of commercial Cannabis](https://doi.org/10.1371/journal.pone.0267498); [The Entourage Effect in Cannabis Medicinal Products: A Comprehensive Review (2024)](https://doi.org/10.3390/ph17111543); [Does the “Entourage Effect” in Cannabinoids Exist? (2023)](https://doi.org/10.3389/fphar.2023.1086479); [National Academies](https://nap.nationalacademies.org/catalog/24625/the-health-effects-of-cannabis-and-cannabinoids-the-current-state).
 
 ---
 
