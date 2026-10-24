@@ -142,7 +142,31 @@ try {
   assert.equal(await page.locator('main#main-content a[href="/shop/"]').count(), 1,
     'not-found page provides a direct route back to the shop');
 
-  assert.deepEqual(pageErrors, [], 'fallback, responsive layout, navigation, and not-found page produce no uncaught page errors');
+  // Product detail imagery must be described as a shared placeholder, not a unique product photo.
+  await page.goto(`${localOrigin}/product/seed-0001/`, { waitUntil: 'networkidle' });
+  const detailImage = page.locator('.seed-detail-image img');
+  assert.match(await detailImage.getAttribute('alt') || '', /Platzhalterbild.*keine individuelle Produktabbildung/i,
+    'product detail image explains that it is a generic placeholder');
+  assert.doesNotMatch(await detailImage.getAttribute('alt') || '', /für\s+.+$/i,
+    'product detail image does not imply a unique product image');
+
+  // Catalog filters should be keyboard-operable and update the result list.
+  await page.goto(`${localOrigin}/shop/`, { waitUntil: 'networkidle' });
+  const categoryFilter = page.locator('.filter-row button[data-filter="Autoflowering"]');
+  await categoryFilter.focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await categoryFilter.getAttribute('aria-pressed'), 'true',
+    'category filter supports keyboard activation and exposes its selected state');
+  assert.ok(await page.locator('.product-card:not([hidden])').count() > 0,
+    'keyboard-activated category filter leaves matching products visible');
+  const searchInput = page.locator('#product-search');
+  await searchInput.fill('seed-phrase-that-should-not-exist');
+  assert.equal(await page.locator('.product-card:not([hidden])').count(), 0,
+    'catalog search can filter to an empty result set');
+  assert.equal(await page.locator('#no-results').isVisible(), true,
+    'empty search results are announced with a visible empty state');
+
+  assert.deepEqual(pageErrors, [], 'fallback, responsive layout, navigation, product detail, catalog filters, and search produce no uncaught page errors');
 
   console.log(`Browser checks passed: responsive widths, accessibility, storage resilience, navigation, and resource smoke audit (${resourceAudit.resourceCount} resources, ${resourceAudit.images.length} images).`);
 } finally {
