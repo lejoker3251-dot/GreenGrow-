@@ -170,3 +170,10 @@ Diese Prüfung bestätigt die Erreichbarkeit und thematische Relevanz der genann
 - Smith et al. (PLOS ONE, 2022) fanden unterschiedliche Chemotypen in kommerziellen Proben, aber die üblichen Handelslabels entsprachen der beobachteten chemischen Vielfalt nicht konsistent: https://doi.org/10.1371/journal.pone.0267498
 - Der Artikel formuliert vorsichtig: Sativa/Indica-Kategorien sind keine verlässliche Wirkungsprognose; Inhaltsstoffanalysen und nachvollziehbare genetische Angaben liefern spezifischere Informationen. Quellen stützen die Einschränkung pauschaler Label-Versprechen, nicht Aussagen über jede einzelne Sorte.
 - Teilprüfung der vier Abschnitte und Quellenzuordnung. Kein vollständiger Abschluss des Gesamt-Audits; Checkboxen bleiben unverändert.
+
+
+### Indica-Sorten – Quellenabgleich (24. Oktober 2026)
+- Smith et al. (PLOS ONE, 2022) untersuchten 89.923 kommerzielle Blütenproben aus sechs US-Bundesstaaten. Indica/Hybrid/Sativa-Labels waren schlecht oder inkonsistent mit den chemischen Profilen verbunden: https://doi.org/10.1371/journal.pone.0267498
+- Watts et al. (Nature Plants, 2021) fanden in über 100 Proben keine klare genomeweite Trennung zwischen Sativa- und Indica-bezeichneten Proben, zugleich aber Zusammenhänge zwischen Etiketten und einigen Terpenen: https://doi.org/10.1038/s41477-021-01003-y
+- Der Artikel vermeidet die pauschale Formel „Indica = entspannend“ und behauptet nicht, dass Labels keinerlei Information enthalten. Die Quellen stützen die Einschränkung von Wirkungsprognosen, nicht individuelle Vorhersagen.
+- Teilprüfung der vier Abschnitte und Quellenzuordnung. Gesamt-Audit offen; Checkboxen bleiben unverändert.
