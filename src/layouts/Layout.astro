@@ -45,7 +45,7 @@ const currentPath = Astro.url.pathname;
     <header class="site-header">
       <a class="brand brand-seedx" href="/" aria-label="SEED³X Startseite"><img class="brand-banner" src="/images/seedx-banner.png.PNG" alt="SEED³X – Grow with intention" width="760" height="220" /></a>
       <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav"><span class="menu-toggle-label">Menü</span><span class="menu-toggle-icon" aria-hidden="true">☰</span></button>
-      <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation" hidden>
+      <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
         <a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Startseite</a>
         <div class="nav-group" data-nav-group="shop">
           <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="shop-submenu" aria-current={currentPath.startsWith('/shop') || currentPath.startsWith('/product/') || currentPath.startsWith('/shopping-cart') ? 'location' : undefined}>
@@ -79,8 +79,9 @@ const currentPath = Astro.url.pathname;
         if (menuLabel) menuLabel.textContent = open ? 'Schließen' : 'Menü';
         const menuIcon = menuButton?.querySelector('.menu-toggle-icon');
         if (menuIcon) menuIcon.textContent = open ? '×' : '☰';
-        if (nav) nav.hidden = !open;
-        nav?.classList.toggle('is-open', open);
+        const isMobileMenu = window.matchMedia('(max-width: 800px)').matches;
+        if (nav) nav.hidden = isMobileMenu && !open;
+        nav?.classList.toggle('is-open', isMobileMenu && open);
         if (!open) {
           const submenu = nav?.querySelector('#shop-submenu');
           const submenuToggle = nav?.querySelector('.nav-group-toggle');
@@ -96,7 +97,9 @@ const currentPath = Astro.url.pathname;
       });
 
       nav?.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => setMenuOpen(false));
+        link.addEventListener('click', () => {
+          if (window.matchMedia('(max-width: 800px)').matches) setMenuOpen(false);
+        });
       });
 
       const shopGroup = nav?.querySelector('[data-nav-group="shop"]');
