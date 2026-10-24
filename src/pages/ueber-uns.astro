@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Über uns – SEED³X | GreenGrow Seeds" description="Lerne GreenGrow Seeds und die Idee hinter SEED³X kennen: botanische Inspiration, klare Informationen und ein regional verwurzeltes Projekt aus Bedburg.">
+  <section class="page-hero about-page-hero">
+    <span class="eyebrow">SEED³X · GREEN GROWING, CONSIDERED</span>
+    <h1>Verwurzelt in der Region.<br/><em>Offen für Wachstum.</em></h1>
+    <p>Hinter SEED³X und GreenGrow Seeds entsteht ein Projekt, das botanische Inspiration, verständliche Informationen und eine sorgfältig gestaltete Saatgutwelt miteinander verbinden möchte.</p>
+    <div class="about-meta"><span>BEDBURG · 50181</span><span>NORDRHEIN-WESTFALEN</span></div>
+  </section>
+
+  <section class="about-story section" aria-labelledby="about-story-title">
+    <div class="about-story-art">
+      <img src="/products/hero-seedling.svg" alt="Illustration eines jungen Keimlings als Symbol für Wachstum" width="440" height="360" loading="lazy" />
+      <span class="about-location">ROOTED LOCALLY<br/>GROWING THOUGHTFULLY</span>
+    </div>
+    <div class="about-story-copy">
+      <span class="eyebrow">Unsere Idee</span>
+      <h2 id="about-story-title">Kleine Anfänge verdienen <em>klare Orientierung.</em></h2>
+      <p>GreenGrow Seeds ist ein regional verwurzeltes Projekt aus Bedburg im Erftkreis. Mit SEED³X entwickeln wir eine digitale Umgebung, in der Besucher Saatgut-Kategorien, botanische Inspiration und Wissensinhalte übersichtlich entdecken können.</p>
+      <p>Uns ist wichtig, Informationen verständlich darzustellen und klar zwischen redaktionellen Inhalten, Katalogentwürfen und tatsächlich freigegebenen Angeboten zu unterscheiden.</p>
+    </div>
+  </section>
+
+  <section class="about-principles section" aria-labelledby="about-principles-title">
+    <div class="about-principles-heading">
+      <span class="eyebrow">Wofür wir stehen</span>
+      <h2 id="about-principles-title">Mit Sorgfalt. <em>Schritt für Schritt.</em></h2>
+    </div>
+    <div class="about-principles-grid">
+      <article><span>01 / SORGFALT</span><h3>Bewusst gestalten</h3><p>Eine klare Struktur, verständliche Texte und ein ruhiges Erscheinungsbild sollen das Entdecken einfach machen.</p></article>
+      <article><span>02 / TRANSPARENZ</span><h3>Offen kommunizieren</h3><p>Katalogeinträge in der Vorschau sind keine Bestätigung von Verfügbarkeit, Qualität oder Verkaufsfreigabe.</p></article>
+      <article><span>03 / REGIONALITÄT</span><h3>In der Region verwurzelt</h3><p>Das Projekt ist in Bedburg (50181), Nordrhein-Westfalen, verortet und entwickelt sich Schritt für Schritt weiter.</p></article>
+    </div>
+  </section>
+
+  <section class="about-next-step">
+    <span class="eyebrow">SEED³X · IN ENTWICKLUNG</span>
+    <h2>Entdecke, was bereits entsteht.</h2>
+    <p>Die Website wird weiter aufgebaut. Der Katalog ist derzeit eine Vorschau; Bestell- und Zahlungsfunktionen sind noch nicht freigeschaltet.</p>
+    <div class="about-actions"><a class="button luxury-button" href="/shop/">Katalog ansehen ↗</a><a class="button secondary" href="/wissen/">Wissen entdecken ↗</a></div>
+  </section>
+</Layout>
+
+<style>
+  .about-page-hero{padding:clamp(3.5rem,8vw,7rem) clamp(1.2rem,6vw,6rem) clamp(2.5rem,5vw,4rem)}
+  .about-page-hero h1{max-width:1000px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.8rem,7vw,6.3rem);font-weight:500;line-height:.98;letter-spacing:-.06em}
+  .about-page-hero p{max-width:720px;line-height:1.85}
+  .about-meta{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-top:2rem;color:#796849;font-size:.72rem;font-weight:800;letter-spacing:.15em}
+  .about-story{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,6vw,6rem);align-items:center;max-width:1320px;margin:auto;padding:clamp(3rem,7vw,6rem) clamp(1.2rem,6vw,6rem)}
+  .about-story-art{position:relative;overflow:hidden;min-height:300px;display:grid;place-items:center;border:1px solid #d8d0bd;border-radius:24px;background:linear-gradient(145deg,#f0eee4,#e9e2f1)}
+  .about-story-art img{display:block;width:min(78%,420px);height:auto}
+  .about-story-art .about-location{position:absolute;left:1rem;bottom:1rem;padding:.75rem .9rem;border:1px solid #d8cbea;border-radius:12px;background:#fffefae8;color:#52614f;font-size:.68rem;font-weight:800;letter-spacing:.12em;line-height:1.6}
+  .about-story-copy h2,.about-principles h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,4.8vw,4rem);font-weight:500;line-height:1.05;letter-spacing:-.05em;color:#203b2a}
+  .about-story-copy h2 em,.about-principles h2 em{color:#78618d}
+  .about-story-copy p{max-width:680px;color:#566458;line-height:1.9}
+  .about-principles{padding:clamp(3rem,7vw,6rem) clamp(1.2rem,6vw,6rem);background:#f0eee4}
+  .about-principles-heading{max-width:900px;margin:0 auto 2rem}
+  .about-principles-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;max-width:1200px;margin:auto}
+  .about-principles-grid article{padding:clamp(1.3rem,3vw,2rem);border:1px solid #dcd5c7;border-radius:18px;background:#fffefa}
+  .about-principles-grid article>span{color:#7c6a49;font-size:.7rem;font-weight:800;letter-spacing:.13em}
+  .about-principles-grid h3{margin:.9rem 0 .6rem;color:#203b2a;font-size:1.3rem}
+  .about-principles-grid p{margin:0;color:#566458;line-height:1.8}
+  .about-next-step{padding:clamp(3rem,7vw,5rem) 1.2rem;text-align:center;background:linear-gradient(120deg,#203b2a,#173d2b);color:#f8f7f2}
+  .about-next-step .eyebrow{color:#e1d1a6}
+  .about-next-step h2{margin:.8rem auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:500;letter-spacing:-.05em}
+  .about-next-step p{max-width:650px;margin:0 auto 1.4rem;color:#e0e5dc;line-height:1.8}
+  .about-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem}
+  .about-actions .secondary{border-color:#b8c5b5;color:#fff}
+  @media(max-width:760px){.about-story{grid-template-columns:1fr}.about-story-art{min-height:240px}.about-principles-grid{grid-template-columns:1fr}.about-meta{gap:.7rem 1rem}}
+</style>
