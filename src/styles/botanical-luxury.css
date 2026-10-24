@@ -234,3 +234,27 @@ body { color: var(--color-ink); background: var(--color-porcelain); }
 
 /* Preserve the native hidden state used by the accessible mobile/desktop menu. */
 .site-header .main-nav[hidden] { display: none !important; }
+
+
+/* Responsive growth-story image: preserve its proportions instead of stretching. */
+.growth-image-bridge {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto 3rem;
+  overflow: hidden;
+  border: 1px solid #d7d2c5;
+  border-radius: clamp(16px, 2vw, 28px);
+  background: #f0eee4;
+}
+.growth-image-bridge img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 800px) {
+  .growth-image-bridge { margin-bottom: 2rem; border-radius: 16px; }
+  .growth-image-bridge img { aspect-ratio: 4 / 3; }
+}
