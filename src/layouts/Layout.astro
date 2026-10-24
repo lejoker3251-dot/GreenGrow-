@@ -46,12 +46,19 @@ const currentPath = Astro.url.pathname;
       <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav"><span class="menu-toggle-label">Menü</span><span class="menu-toggle-icon" aria-hidden="true">☰</span></button>
       <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation" hidden>
         <a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Startseite</a>
-        <a href="/shop/" aria-current={currentPath.startsWith('/shop') ? 'page' : undefined}>Sortiment</a>
-        <a href="/wissen/" aria-current={currentPath.startsWith('/wissen') ? 'page' : undefined}>Wissenswertes</a>
+        <div class="nav-group" data-nav-group="shop">
+          <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="shop-submenu" aria-current={currentPath.startsWith('/shop') || currentPath.startsWith('/product/') || currentPath.startsWith('/shopping-cart') ? 'page' : undefined}>
+            Shop <span class="nav-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div id="shop-submenu" class="nav-submenu" hidden>
+            <a href="/shop/" aria-current={currentPath.startsWith('/shop') || currentPath.startsWith('/product/') ? 'page' : undefined}>Gesamtes Sortiment</a>
+            <a href="/shopping-cart/" aria-current={currentPath.startsWith('/shopping-cart') ? 'page' : undefined}>Merkliste <span id="cart-count" class="cart-count">0</span></a>
+          </div>
+        </div>
+        <a href="/wissen/" aria-current={currentPath.startsWith('/wissen') ? 'page' : undefined}>Wissen & Ratgeber</a>
         <a href="/#wachstumsreise">Unsere Idee</a>
         <a href="/#ueber-greengrow">Über uns</a>
         <a href="mailto:hallo@greengrow.example">Kontakt</a>
-        <a class="menu-wishlist" href="/shopping-cart/" aria-label="Merkliste öffnen">Merkliste <span id="cart-count" class="cart-count">0</span></a>
       </nav>
     </header>
     <main id="main-content" tabindex="-1"><slot /></main>
@@ -82,6 +89,34 @@ const currentPath = Astro.url.pathname;
 
       nav?.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => setMenuOpen(false));
+      });
+
+      const shopGroup = nav?.querySelector('[data-nav-group="shop"]');
+      const shopToggle = shopGroup?.querySelector('.nav-group-toggle');
+      const shopSubmenu = shopGroup?.querySelector('#shop-submenu');
+      const setShopSubmenuOpen = (open) => {
+        shopToggle?.setAttribute('aria-expanded', String(open));
+        if (shopSubmenu) shopSubmenu.hidden = !open;
+        shopGroup?.classList.toggle('is-open', open);
+      };
+
+      shopToggle?.addEventListener('click', () => {
+        const isOpen = shopToggle.getAttribute('aria-expanded') === 'true';
+        setShopSubmenuOpen(!isOpen);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && shopToggle?.getAttribute('aria-expanded') === 'true') {
+          setShopSubmenuOpen(false);
+          shopToggle.focus();
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        if (shopToggle?.getAttribute('aria-expanded') !== 'true') return;
+        if (event.target instanceof Node && !shopGroup?.contains(event.target)) {
+          setShopSubmenuOpen(false);
+        }
       });
 
       document.addEventListener('click', (event) => {
