@@ -29,9 +29,10 @@ jobs:
         run: npm run build
       - name: Botanical hero regression checks
         run: node scripts/test-botanical-hero-scene.mjs
-      - name: Verify catalog build output
+      - name: Verify catalog and Grow Doctor build output
         run: |
           test -s dist/shop/index.html
+          test -s dist/grow-doctor/index.html
           node --input-type=module <<'NODE'
           import { readFileSync, readdirSync, statSync } from 'node:fs';
           import assert from 'node:assert/strict';
@@ -45,6 +46,10 @@ jobs:
           const shop = readFileSync('dist/shop/index.html', 'utf8');
           assert.match(shop, /Beschreibung aus dem bereitgestellten Katalog/, 'shop cards should show the source note');
           assert.match(shop, /Produktbeschreibung|product-card/, 'shop output should include product card markup');
+          const doctor = readFileSync('dist/grow-doctor/index.html', 'utf8');
+          assert.match(doctor, /Grow Doctor/, 'dedicated Grow Doctor route should render its title/content');
+          assert.match(doctor, /Bedburg und Umgebung/, 'Grow Doctor page should retain the local service area');
+          assert.match(doctor, /href="\/kontakt\//, 'Grow Doctor page should link to the contact route');
           const detailRoot = 'dist/product';
           assert.ok(statSync(detailRoot).isDirectory(), 'product detail output directory should exist');
           const ids = readdirSync(detailRoot).filter(id => statSync(detailRoot + '/' + id).isDirectory());
@@ -52,5 +57,5 @@ jobs:
           const detail = readFileSync(detailRoot + '/' + ids[0] + '/index.html', 'utf8');
           assert.match(detail, /Produktbeschreibung/, 'product detail output should include description section');
           assert.match(detail, /bereitgestellter Produktkatalog/, 'product detail output should include source note');
-          console.log('Catalog/output checks passed:', catalog.length, 'entries;', ids.length, 'product detail pages.');
+          console.log('Catalog/output checks passed:', catalog.length, 'entries;', ids.length, 'product detail pages; Grow Doctor route.');
           NODE
