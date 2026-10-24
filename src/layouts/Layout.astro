@@ -47,11 +47,11 @@ const currentPath = Astro.url.pathname;
       <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation" hidden>
         <a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Startseite</a>
         <div class="nav-group" data-nav-group="shop">
-          <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="shop-submenu" aria-current={currentPath.startsWith('/shop') || currentPath.startsWith('/product/') || currentPath.startsWith('/shopping-cart') ? 'page' : undefined}>
+          <button class="nav-group-toggle" type="button" aria-expanded="false" aria-controls="shop-submenu" aria-current={currentPath.startsWith('/shop') || currentPath.startsWith('/product/') || currentPath.startsWith('/shopping-cart') ? 'location' : undefined}>
             Shop <span class="nav-chevron" aria-hidden="true">⌄</span>
           </button>
           <div id="shop-submenu" class="nav-submenu" hidden>
-            <a href="/shop/" aria-current={currentPath.startsWith('/shop') || currentPath.startsWith('/product/') ? 'page' : undefined}>Gesamtes Sortiment</a>
+            <a href="/shop/" aria-current={currentPath.startsWith('/shop') ? 'page' : undefined}>Gesamtes Sortiment</a>
             <a href="/shopping-cart/" aria-current={currentPath.startsWith('/shopping-cart') ? 'page' : undefined}>Merkliste <span id="cart-count" class="cart-count">0</span></a>
           </div>
         </div>
