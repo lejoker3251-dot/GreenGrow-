@@ -139,7 +139,7 @@ try {
   const missingPageResponse = await page.goto(`${localOrigin}/product/does-not-exist/`, { waitUntil: 'networkidle' });
   assert.equal(missingPageResponse?.status(), 404, 'unknown product URL returns HTTP 404');
   await page.locator('h1#not-found-title').waitFor();
-  assert.equal(await page.locator('a[href="/shop/"]').count(), 1,
+  assert.equal(await page.locator('main#main-content a[href="/shop/"]').count(), 1,
     'not-found page provides a direct route back to the shop');
 
   assert.deepEqual(pageErrors, [], 'fallback, responsive layout, navigation, and not-found page produce no uncaught page errors');
