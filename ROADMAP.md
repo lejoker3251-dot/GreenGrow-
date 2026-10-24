@@ -28,6 +28,21 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 | iPad Safari / Bedienbarkeit / visuelle Abnahme | Teilweise bestätigt | Nutzer bestätigt, dass die ganze Vorschauseite sichtbar ist und Suche, Kategorienfilter, Sortierung, Merkliste sowie eine Produktdetailseite im Preview bestanden haben. Der GitHub-Actions-Lauf für Commit `df436d666359bcd7fb3142ef3265656041f890c1` ist erfolgreich abgeschlossen; iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. iPad-Safari-spezifische Tastatur-/Screenreader-Prüfung, Kontrast und Performance bleiben offen. |
 | Produktionsfreigabe | Gesperrt | Nicht deployen oder mergen ohne ausdrückliche Freigabe. |
 
+## Redesign Schritt 1 – Botanical Luxury Designsystem (24.10.2026)
+
+**Status:** Designsystem und globale Stilregeln auf `feature/premium-storefront-v1` integriert; Build-/Browser-QA noch ausstehend.
+
+- [x] Zentrale Design-Tokens für Porzellanweiß, tiefes Botanischgrün, Champagnergold und Lavendel definiert.
+- [x] Neue globale Stylesheet-Schicht erstellt und im gemeinsamen Layout geladen, damit Homepage, Shop, Produktdetailseiten, Wissensbereich, Merkliste und rechtliche Seiten eine gemeinsame visuelle Basis erhalten.
+- [x] Navigation, Shop-Untermenü, Buttons, Filter, Produktkarten, Content-Karten, Hinweiszustände, Footer und Altersbestätigung visuell vereinheitlicht.
+- [x] Bestehende botanische Hero-Szene und Scroll-Animation weiterverwendet; keine neue Animationsbibliothek und keine kostenpflichtigen Dienste hinzugefügt.
+- [x] Reduced-motion-Regeln und responsive Regeln beibehalten bzw. ergänzt.
+- [x] Keine Änderungen an `main`, produktiven Cloudflare-Seiten, Worker oder zusätzlichen Projekten vorgenommen.
+- [x] Statische Quellenprüfung: Stylesheet-Import vorhanden, vier Markenfarben in Tokens vorhanden, CSS-Klammern ausgeglichen.
+- [ ] `npm run check`, `npm run build` und vorhandene CI-/Browserprüfungen für den neuen Commit frisch ausführen und Ergebnisse bestätigen.
+- [ ] Visuelle Abnahme auf iPad Safari; tatsächliche Scroll-/3D-Performance, Navigation und Kontrast prüfen.
+- [ ] Preview-Deployment für genau diesen Commit separat bestätigen. Keine Produktionsfreigabe.
+
 ## Projektphase 3 – Startseite und Informationsbereiche (24.10.2026)
 
 **Status:** Umsetzung begonnen auf `feature/premium-storefront-v1`.
