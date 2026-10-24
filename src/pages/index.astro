@@ -17,7 +17,7 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
   <BrandIntro />
   <section class="hero luxury-hero premium-hero botanical-title-hero" aria-labelledby="hero-title">
     <div class="hero-art luxury-hero-art botanical-title-art" id="hero-art" aria-hidden="true">
-      <img src="/images/seedx-botanical-title.svg" alt="" width="900" height="1100" fetchpriority="high" decoding="async" />
+      <img src="https://raw.githubusercontent.com/lejoker3251-dot/GreenGrow-/feature/premium-storefront-v1/images/Back1.png.JPG" alt="" width="1600" height="1200" fetchpriority="high" decoding="async" />
     </div>
     <div class="hero-content luxury-hero-content botanical-title-content">
       <span class="eyebrow">Botanical objects · Naturally considered</span>
@@ -141,39 +141,42 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
   .home-category-footer a:focus-visible{outline:3px solid #8ba96b;outline-offset:3px}
   @media(max-width:760px){.home-category-grid{grid-template-columns:1fr}.home-category-card{padding:1.2rem}}
 
-  /* Botanical title hero: integrated image motif, refined for tablet and mobile. */
+  /* Full-bleed photographic botanical hero: the plant is the main visual, with typography layered above it. */
   .premium-hero.luxury-hero.botanical-title-hero{
-    position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr);
-    align-items:center;min-height:clamp(620px,76vw,790px);overflow:hidden;
-    padding:clamp(3rem,7vw,6.5rem) clamp(1.25rem,6vw,6rem);
-    background:radial-gradient(ellipse at 8% 10%,#e6dced55 0,transparent 34%),linear-gradient(115deg,#fffdf7 0%,#f6f3e9 58%,#f0eee5 100%);
-    color:var(--color-ink);border-bottom:1px solid #d8d0be;
+    position:relative;isolation:isolate;display:flex;align-items:center;min-height:clamp(680px,78vw,900px);
+    overflow:hidden;padding:clamp(4rem,8vw,7rem) clamp(1.5rem,8vw,8rem);
+    background:#102b1d;color:#fffdf7;border-bottom:1px solid #c5ad76;
   }
-  .botanical-title-hero:before{opacity:.08;pointer-events:none}
-  .botanical-title-hero .botanical-title-content{position:relative;z-index:2;width:min(55%,650px);max-width:650px;padding:1rem 0}
-  .botanical-title-hero .eyebrow{color:#74613b}
-  .botanical-title-hero .hero-overline{color:#38513e;letter-spacing:.16em;font-size:.72rem;font-weight:800}
-  .botanical-title-hero h1{max-width:690px;margin:.75rem 0 1.25rem;color:#173c2a;font-size:clamp(3.3rem,6.3vw,6.5rem);line-height:.96;letter-spacing:-.067em}
-  .botanical-title-hero h1 em{color:#76638f}
-  .botanical-title-hero .hero-copy{max-width:34rem;color:#45564a;font-size:clamp(1rem,1.25vw,1.13rem);line-height:1.8}
-  .botanical-title-hero .hero-art.botanical-title-art{position:absolute;z-index:1;top:0;right:0;bottom:0;width:62%;min-height:0;overflow:visible;border:0;border-radius:0;background:transparent;box-shadow:none;pointer-events:none}
+  .botanical-title-hero:before{
+    content:"";position:absolute;z-index:1;inset:0;pointer-events:none;
+    background:linear-gradient(90deg,rgba(8,29,19,.88) 0%,rgba(8,29,19,.66) 38%,rgba(8,29,19,.22) 70%,rgba(8,29,19,.12) 100%),
+      linear-gradient(0deg,rgba(8,29,19,.42) 0%,transparent 30%,rgba(8,29,19,.12) 100%);
+  }
+  .botanical-title-hero .botanical-title-content{position:relative;z-index:2;width:min(68%,760px);max-width:760px;padding:2rem 0}
+  .botanical-title-hero .eyebrow{color:#e2cf9c}
+  .botanical-title-hero .hero-overline{color:#e4d4a7;letter-spacing:.18em;font-size:.72rem;font-weight:800}
+  .botanical-title-hero h1{max-width:780px;margin:.9rem 0 1.35rem;color:#fffdf7;font-size:clamp(3.5rem,7.2vw,7.2rem);line-height:.93;letter-spacing:-.067em;text-shadow:0 3px 28px #06190f66}
+  .botanical-title-hero h1 em{color:#d6c5e9;font-weight:500}
+  .botanical-title-hero .hero-copy{max-width:36rem;color:#f0f0e6;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.8;text-shadow:0 2px 14px #06190f88}
+  .botanical-title-hero .hero-art.botanical-title-art{position:absolute;z-index:0;inset:0;width:100%;height:100%;min-height:0;overflow:hidden;border:0;border-radius:0;background:#102b1d;box-shadow:none;pointer-events:none}
   .botanical-title-hero .botanical-title-art:after{display:none}
-  .botanical-title-hero .botanical-title-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:center right;filter:drop-shadow(0 24px 35px #173c2a12)}
-  .botanical-title-hero .hero-index{left:clamp(1.25rem,6vw,6rem);right:clamp(1.25rem,6vw,6rem);bottom:1rem;color:#6a7469;border-color:#d8d0be}
-  .botanical-title-hero .button.secondary{color:#254431;border-color:#9eaa9b}
-  .botanical-title-hero .button.secondary:hover{background:#e9e3f2;border-color:#b7a6cf}
+  .botanical-title-hero .botanical-title-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(1.08) contrast(1.04)}
+  .botanical-title-hero .hero-index{left:clamp(1.5rem,8vw,8rem);right:clamp(1.5rem,8vw,8rem);bottom:1.1rem;color:#f0e6cb;border-color:#d7c58b66}
+  .botanical-title-hero .button.secondary{color:#fffdf7;border-color:#e6dec8aa;background:#ffffff0d}
+  .botanical-title-hero .button.secondary:hover{background:#ffffff20;border-color:#d8c49a}
   @media(max-width:900px){
-    .premium-hero.luxury-hero.botanical-title-hero{min-height:680px;padding:3rem 1.5rem 4.5rem}
-    .botanical-title-hero .botanical-title-content{width:min(64%,600px)}
-    .botanical-title-hero .hero-art.botanical-title-art{width:70%;right:-5%;opacity:.92}
-    .botanical-title-hero h1{font-size:clamp(3.2rem,7.5vw,5.2rem)}
+    .premium-hero.luxury-hero.botanical-title-hero{min-height:760px;padding:4rem 2rem 5rem}
+    .botanical-title-hero:before{background:linear-gradient(90deg,rgba(8,29,19,.8),rgba(8,29,19,.34)),linear-gradient(0deg,rgba(8,29,19,.5),transparent 55%)}
+    .botanical-title-hero .botanical-title-content{width:min(82%,680px)}
+    .botanical-title-hero .botanical-title-art img{object-position:58% center}
+    .botanical-title-hero h1{font-size:clamp(3.4rem,8.5vw,6rem)}
   }
   @media(max-width:640px){
-    .premium-hero.luxury-hero.botanical-title-hero{min-height:0;padding:1.5rem 1.1rem 4.5rem;align-items:start}
-    .botanical-title-hero .hero-art.botanical-title-art{top:0;right:-12%;width:100%;height:390px;opacity:.43}
-    .botanical-title-hero .botanical-title-art img{object-position:70% center}
-    .botanical-title-hero .botanical-title-content{width:100%;max-width:100%;padding:290px 0 1rem}
-    .botanical-title-hero h1{max-width:520px;font-size:clamp(3rem,12vw,4.6rem);line-height:.98}
+    .premium-hero.luxury-hero.botanical-title-hero{min-height:780px;padding:3rem 1.25rem 4.5rem;align-items:flex-end}
+    .botanical-title-hero:before{background:linear-gradient(0deg,rgba(7,27,18,.94) 0%,rgba(7,27,18,.76) 38%,rgba(7,27,18,.12) 100%),linear-gradient(90deg,rgba(7,27,18,.22),transparent)}
+    .botanical-title-hero .botanical-title-art img{object-position:58% top}
+    .botanical-title-hero .botanical-title-content{width:100%;max-width:100%;padding:270px 0 1rem}
+    .botanical-title-hero h1{max-width:520px;font-size:clamp(3.1rem,12.5vw,4.6rem);line-height:.96}
     .botanical-title-hero .hero-copy{max-width:34rem;font-size:1rem}
     .botanical-title-hero .hero-proof{display:none}
     .botanical-title-hero .actions{align-items:stretch;flex-direction:column;max-width:360px}
