@@ -289,3 +289,7 @@ Diese Dokumentation betrifft ausschließlich den redaktionellen Inhalt. Ein erfo
 - Ergänzt wurde außerdem Lee et al. (2026), DOI `10.1016/j.indcrop.2026.123953`, zur gemeinsamen Bewertung von Trichommerkmale und CBDA-Akkumulation in einer spezifischen CBDA-dominanten medizinischen Cannabis-Genetik. Die Studie ist ausdrücklich kein universeller Erntekalender und nicht automatisch auf andere Chemotypen übertragbar.
 - Die Review-Quelle zu Pilz-/Mykotoxin-Kontamination bleibt auf den Gesundheitsschutz-/Kontaminationsaussagen beschränkt.
 - Dieser Quellenwechsel verbessert die thematische Passung, ersetzt aber nicht die noch ausstehende Einzelzuordnung jeder Aussage. Artikel bleibt bis zum vollständigen Nachweis ungeprüft.
+
+## Erweiterter Satz-für-Satz-Abgleich (24. Oktober 2026)
+
+Ein neuer artikelübergreifender Arbeitsbericht wurde angelegt: [`docs/wissen-satz-fuer-satz-abgleich.md`](./wissen-satz-fuer-satz-abgleich.md). Er enthält eine erste artikel- und abschnittsbezogene Quellenzuordnung für alle 19 Artikel, dokumentiert Grenzen der Übertragbarkeit und listet konkrete Beleglücken. **Die 19 Freigabe-Checkboxen bleiben bewusst offen**, bis Originalquellen und jede einzelne Aussage mit konkreten Belegstellen abschließend abgeglichen wurden. Die Matrix ist eine Arbeitsgrundlage, keine Freigabe.
