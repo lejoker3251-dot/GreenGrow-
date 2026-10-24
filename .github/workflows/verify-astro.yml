@@ -28,6 +28,8 @@ jobs:
         run: node scripts/validate-catalog-consistency.mjs
       - name: Validate category mapping and image paths
         run: node scripts/validate-catalog-categories-and-images.mjs
+      - name: Audit image asset signatures and references
+        run: node scripts/validate-image-assets.mjs
       - name: Test botanical hero scene lifecycle
         run: node scripts/test-botanical-hero-scene.mjs
       - name: Check Astro project
