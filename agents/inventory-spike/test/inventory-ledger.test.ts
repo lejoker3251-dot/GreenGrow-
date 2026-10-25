@@ -85,7 +85,7 @@ describe("isolated SQLite inventory reservation", () => {
     expect(replacement.status).toBe(200);
   });
 
-  it("rejects invalid quantities and hides the test seed route outside test mode", async () => {
+  it("rejects invalid quantities and responds to the local health check", async () => {
     const invalid = await post("/reserve", { idempotencyKey: key(), lines: [line("invalid", 1, 0)] });
     expect(invalid.status).toBe(400);
     const health = await stub().fetch("https://inventory.test/health");
