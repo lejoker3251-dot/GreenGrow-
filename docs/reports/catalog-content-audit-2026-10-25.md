@@ -3,7 +3,7 @@
 Stand: 25.10.2026  
 Geprüfter Stand: `feature/premium-storefront-v1`  
 Datenquelle: `src/data/seed-products.json`, `src/data/pack-price-drafts.json`, `src/data/shop-pricing-config.json`  
-Umfang: vollständige maschinelle Auswertung aller 1.269 Katalogeinträge; keine Produktdaten geändert.
+Umfang: vollständige maschinelle Auswertung aller 1.269 Katalogeinträge plus sequenzieller Abgleich der Namen und Saatentypen gegen die Originaldatei `Seed List Full .pdf` aus der ChatGPT-Bibliothek; keine Produktdaten geändert.
 
 ## Kurzfazit
 
@@ -81,7 +81,7 @@ Diese Zusatzobjekte sind nicht einheitlich ausgefüllt. Für `seed-0119` und `se
 | Power Plant | `seed-0886` bis `seed-0888` | `Power plant` / `Power Plant` |
 | Top 44 | `seed-1198` bis `seed-1200` | `Top 44` / `Top-44` |
 
-Die Einträge wurden nicht als Duplikate entfernt, weil die drei Quelltypen unterschiedliche Produkteigenschaften bezeichnen können. Die Schreibweise darf erst nach Abgleich mit der Originalquelle oder einem verlässlichen Lieferanten vereinheitlicht werden.
+**Quellenabgleich abgeschlossen:** Die Originaldatei `Seed List Full .pdf` wurde in der ChatGPT-Bibliothek gefunden. Alle 1.269 Einträge wurden in Reihenfolge mit der PDF abgeglichen. Ergebnis: **1.269 von 1.269 Namen und Saatentypen stimmen nach Normalisierung überein; 0 Abweichungen.** Die vier erkannten Schreibvarianten sind in der Original-PDF ebenfalls enthalten. Sie sind damit keine Abweichung zwischen PDF und Shopkatalog. Ob die Originalquelle selbst die sachlich korrekte Lieferantenbezeichnung wiedergibt, ist damit nicht unabhängig bestätigt. Es wurden keine Namen verändert und keine Einträge zusammengeführt.
 
 ## 4. Beschreibungen, Belege und Bilder
 
@@ -100,7 +100,7 @@ Alle 1.269 Einträge verwenden dasselbe Bild (`images/White 1.png.JPG`). Es ist 
 
 Die Beschreibungen sind zwar pro Datensatz unterschiedlich, folgen aber wiederkehrenden Textmustern. Sie enthalten Aussagen zu Aroma/Terpenen, Wirkung/Entspannung und Wachstums- bzw. Blüteeigenschaften. Solche Aussagen sind durch die bloße Existenz des internen HTML-Katalogs nicht unabhängig belegt. Die HTML-Datei enthält ähnliche Beschreibungen und ist damit ein interner Textbeleg, aber kein unabhängiger Lieferanten- oder Züchternachweis. Vor Veröffentlichung müssen diese Aussagen gegen belastbare Hersteller-/Züchterquellen geprüft oder entfernt bzw. neutralisiert werden.
 
-Der erwartete Original-PDF-Pfad `data/katalog/Seed List Full .pdf` war auf dem geprüften Branch unter genau diesem Pfad nicht abrufbar. Deshalb konnte dieser Lauf die Produktnamen und Beschreibungen **nicht direkt gegen die Original-PDF** abgleichen. Die Schreibvariantenprüfung bleibt ein Kandidaten-Audit, keine Bestätigung der Produktidentität.
+Die Original-PDF liegt in der ChatGPT-Bibliothek vor, war aber nicht unter dem erwarteten Pfad `data/katalog/Seed List Full .pdf` im geprüften Branch abrufbar. Die Namen und Saatentypen wurden direkt mit der Bibliotheksdatei abgeglichen. Die PDF enthält Namen und Saatentypen, jedoch keine Beschreibungs-, Preis-, Bild- oder Bestandsbelege. Der Quellenabgleich bestätigt daher die Übereinstimmung des Katalogs mit dieser PDF, nicht die unabhängige Richtigkeit der Angaben oder die Lieferantenidentität.
 
 ## 5. Freigabestatus und Verkaufsschutz
 
@@ -115,12 +115,11 @@ Diese Sperren müssen bestehen bleiben, bis die Produktdaten einzeln fachlich ge
 
 ## 6. Ergebnis und priorisierte nächste Schritte
 
-1. **Originalquelle wieder verfügbar machen:** Original-PDF bzw. Lieferantenliste auf dem Branch auffindbar ablegen und die 1.269 Namen/Typen direkt dagegen prüfen.
-2. **Produktbeschreibungen verifizieren:** Aussagen zu Aroma, Wirkung, Genetik und Wachstum pro Produkt mit Hersteller-/Züchterquellen belegen; nicht belegte Aussagen nicht veröffentlichen.
-3. **Vier Schreibvarianten prüfen:** `seed-0001–0003`, `seed-0598–0600`, `seed-0886–0888`, `seed-1198–1200`; keine automatische Zusammenführung.
-4. **Preise je Produkt verifizieren:** Die vier pauschalen Staffel-Muster gegen tatsächliche Lieferantenangebote, Packungsgrößen und Einkaufskosten prüfen. Die fünf `priceDraft`-Sonderfälle gesondert nacharbeiten.
-5. **Bilder und Verfügbarkeit:** Individuelle Produktbilder nur mit korrekter Zuordnung ergänzen; Bestand erst nach tatsächlicher Bestandsaufnahme als bestätigt führen.
-6. **Freigabe- und Rechtsprüfung:** Erst nach Produktprüfung die redaktionelle, rechtliche und kommerzielle Freigabe vornehmen.
+1. **Produktbeschreibungen verifizieren:** Aussagen zu Aroma, Wirkung, Genetik und Wachstum pro Produkt mit Hersteller-/Züchterquellen belegen; nicht belegte Aussagen nicht veröffentlichen.
+2. **Preise je Produkt verifizieren:** Die vier pauschalen Staffel-Muster gegen tatsächliche Lieferantenangebote, Packungsgrößen und Einkaufskosten prüfen. Die fünf `priceDraft`-Sonderfälle gesondert nacharbeiten.
+3. **Lieferanten- und Sortenidentität bestätigen:** Die PDF-Übereinstimmung ist bestätigt, aber die PDF selbst enthält keine Lieferantenkennung oder Sortenbelege.
+4. **Bilder und Verfügbarkeit:** Individuelle Produktbilder nur mit korrekter Zuordnung ergänzen; Bestand erst nach tatsächlicher Bestandsaufnahme als bestätigt führen.
+5. **Freigabe- und Rechtsprüfung:** Erst nach Produktprüfung die redaktionelle, rechtliche und kommerzielle Freigabe vornehmen.
 
 ## Grenzen dieses Audits
 
