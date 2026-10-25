@@ -1287,3 +1287,37 @@ select:focus-visible {
     line-height: 1.3;
   }
 }
+
+
+/* Shop catalogue card polish: keep product links in the brand palette, not browser-default blue. */
+.product-title-link {
+  color: var(--seedx-green, #173f2a);
+  text-decoration: none;
+  text-decoration-thickness: .08em;
+  text-underline-offset: .16em;
+  overflow-wrap: anywhere;
+}
+.product-title-link:hover {
+  color: #65527f;
+  text-decoration: underline;
+}
+.product-title-link:focus-visible {
+  outline: 3px solid var(--seedx-lilac, #c9b7df);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.cali-editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin-top: 1rem;
+  color: var(--seedx-green, #173f2a);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(23,63,42,.35);
+  padding-bottom: .2rem;
+}
+.cali-editorial-link:hover {
+  color: #65527f;
+  border-color: currentColor;
+}
