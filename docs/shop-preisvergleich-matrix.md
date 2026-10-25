@@ -309,3 +309,21 @@ Die folgenden Treffer wurden anhand der geöffneten Händleransichten geprüft. 
 - **Blue Dream Regular** bleibt bei 30,00 € für 10 Samen bei Genetiken.de als Kategoriepreis ohne bestätigten Lagerstatus und 31,03 € bei Hanfjack als ausdrücklich nicht vorrätiger Direktpreis dokumentiert.
 - **Blue Cheese Regular** bleibt offen: feminisierte oder Auto-Angebote sind kein zulässiger Ersatz.
 - Nur öffentliche Händlerpreise; keine Einkaufskosten, Margen oder SEED³X-Preisempfehlungen. Produktkatalog, Preise im Katalog, Bestand, Freigabestatus, Checkout, `main` und Deployment bleiben unverändert.
+
+
+### 4.11 Nachprüfung der Blue-Cheese- und Blue-Dream-Lücken – 25.10.2026
+
+| Katalogfamilie / Händlerprodukt | Typ | Packung / Preis | Prüfergebnis | Quelle |
+|---|---|---|---|---|
+| Blue Cheese – Tanie Sianie Seeds | Nicht eindeutig ausgewiesen | 1/3/5/10/25/50/100; z. B. 5 Stück 16,45 €, 10 Stück 31,16 € (Angebotsansicht) | Die Seite führt zusätzlich eine separate „Blue Cheese Auto“-Variante, weist beim hier genannten Eintrag aber keinen eindeutig belegten regulären Samentyp aus. Daher nicht als Regular-Preisanker übernehmen. | https://www.taniesianie.de/sorten/cheese |
+| Blue Cheese – Barney’s Farm / Königlich Bayrische Samenbank | Feminisiert | 1–25; variable Preisspanne 13,00–182,52 € | Produktseite kennzeichnet die Sorte ausdrücklich als feminisiert. Ausgeschlossen aus dem Regular-Vergleich. | https://kb-samenbank.bayern/samen/barneys-farm-blue-cheese-1-25-samen-fem/ |
+| Blue Cheese – Expert Seeds / Zamnesia | Feminisiert | 3 Stück 29,00 €; 5 Stück 45,00 € | Produktseite kennzeichnet den Typ ausdrücklich als feminisiert und nennt beide Packgrößen. Nicht auf Regular übertragbar. | https://www.zamnesia.de/3006-expert-seeds-blue-cheese-feminisiert.html |
+| Blue Cheese – Blimburn Seeds | Feminisiert | 1/3/6/9 sowie 25; variable Preise | Direkte Seite weist den Typ als feminisiert aus. Trotz aktueller Preis- und Aktionsdarstellung kein Regular-Beleg. | https://blimburnseeds.de/blue-cheese/ |
+| Blue Dream Regular – Nirvana Seeds / Genetiken.de | Regulär | 10 Samen; 30,00 € | Erneute Kategorieprüfung: Filter zeigen Regular und 10 Seeds; Produktkarte zeigt „Weiterlesen“, nicht „In den Warenkorb“. Aktuelle Lieferbarkeit bleibt unbestätigt. | https://genetiken.de/produktkategorie/breeder/nirvana-seeds/?filter_packungsgroesse=10-seeds |
+| Blue Dream Regular – Nirvana Seeds / Hanfjack | Regulär | 10 Samen; 31,03 € | Direkte Produktseite bestätigt regulären Typ und 10 Stück, kennzeichnet das Angebot aber als „Nicht vorrätig“. | https://hanfjack.de/produkt/nirvana-seeds-blue-dream-regulaer/ |
+
+#### Ergebnis dieser Prüfrunde
+
+- **Blue Cheese Regular:** Noch kein belastbarer 5er-/10er-Direktbeleg. Es gibt Seiten mit passender Sorte und Packgrößen, doch die geprüften Seiten kennzeichnen die Angebote als feminisiert oder weisen den Regular-Typ nicht eindeutig aus. Diese Preise werden deshalb nicht in den Regular-Vergleich eingerechnet.
+- **Blue Dream Regular:** Der 10er-Preis von 30,00 € bei Genetiken.de bleibt ein Kategoriepreis mit ungeklärtem Lagerstatus. Der direkte Hanfjack-Preis von 31,03 € ist explizit nicht verfügbar. Es gibt damit weiterhin keinen bestätigten, sicher lieferbaren Direktpreis in dieser Runde.
+- Recherche dient nur dem öffentlichen Wettbewerbsvergleich. Keine Produktpreise oder Packvarianten im SEED³X-Katalog verändert; keine Bestände, Freigaben, Checkout-Funktionen, `main` oder Deployments geändert.
