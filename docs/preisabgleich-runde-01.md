@@ -40,3 +40,14 @@ Der erneute Abgleich der Datei `src/data/seed-products.json` ergibt **1.269 Eint
 4. Ergebnisse in einer strukturierten Prüfliste mit Quellen-URL, Abrufdatum, Packgröße, Packpreis, effektivem €/Samen, Bestand/Versand und Vertrauensstufe fortführen.
 
 **Status nach Runde 01:** 10 Namensgruppen initial recherchiert; noch keine Preise in den Produktkatalog importiert oder freigegeben.
+
+
+## Live-Prüfung ausgewählter Produktseiten (25.10.2026)
+
+Die drei Seiten unten wurden direkt abgerufen; diese Angaben sind stärker als reine Suchtreffer:
+
+- **Acapulco Gold – Barney’s Farm, feminisiert:** Produktseite nennt 1 Samen €6,50 (regulär €14,00), 3 €17,00 (regulär €37,00), 5 €23,41 (regulär €52,50), 10 €42,00 (regulär €91,00), 25 €126,00. Daraus ergeben sich effektive Angebotspreise von €6,50 / €5,67 / €4,68 / €4,20 / €5,04 pro Samen. Auffällig: Der 25er-Pack ist pro Samen teurer als der 10er-Pack; daher nicht blind einen linearen Rabatt annehmen. Die Seite bestätigt **Feminized**, nicht Auto oder Regular. Quelle: [Barney’s Farm – Acapulco Gold](https://www.barneysfarm.com/acapulco-gold-26).
+- **Original Auto Afghan Kush – Fast Buds, Autoflower:** House of Seeds zeigt €6,96 statt €9,95; Produktseite bestätigt „Autoflower“ und „Breeder & Cross: 420 Fast Buds – Afghan Auto“. Die Seite bietet auswählbare Größen (u. a. 1, 2, 3, 5); aus dem extrahierten Text lässt sich kein separater Preis für jede Größe belegen. Daher nur der sichtbare aktuelle Produktpreis €6,96, keine vollständige Preisstaffel. Versandkosten werden beim Checkout berechnet, kostenlos ab €50. Quelle: [House of Seeds – Original Auto Afghan Kush](https://house-of-seeds.de/en/products/original-auto-afghan-kush-420-fast-buds).
+- **ACDC – WeedSeedsExpress, feminisiert/photoperiodisch:** 3 Samen €34,00; 5 + 1 gratis €54,00 (6 effektiv = €9,00/Samen); 10 + 2 gratis €79,00 (12 effektiv = €6,58/Samen). Seite nennt Versand aus den Niederlanden und kostenlosen Versand. Die Angebotsstufen zeigen, weshalb Gratis-Samen bei €/Samen einzurechnen sind. Quelle: [WeedSeedsExpress – ACDC](https://weedseedsexpress.com/product/acdc-seeds).
+
+Diese Live-Prüfung bestätigt nur die genannten konkreten Produktvarianten. Sie berechtigt nicht dazu, die Preise auf gleichnamige Auto-/Regular-Varianten oder auf den SEED³X-Katalog ohne Breeder-Zuordnung zu übertragen.
