@@ -1,7 +1,14 @@
 import { env } from "cloudflare:workers";
 import { describe, it, expect } from "vitest";
 
-const stub = () => env.INVENTORY_LEDGER.get(env.INVENTORY_LEDGER.idFromName("inventory-spike-tests"));
+type TestEnv = {
+  INVENTORY_LEDGER: {
+    idFromName(name: string): string;
+    get(id: string): { fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> };
+  };
+};
+const testEnv = env as unknown as TestEnv;
+const stub = () => testEnv.INVENTORY_LEDGER.get(testEnv.INVENTORY_LEDGER.idFromName("inventory-spike-tests"));
 const post = (path: string, body: unknown) => stub().fetch(`https://inventory.test${path}`, {
   method: "POST",
   headers: { "content-type": "application/json" },
@@ -43,8 +50,8 @@ describe("isolated SQLite inventory reservation", () => {
     const responses = await Promise.all(Array.from({ length: 20 }, () =>
       post("/reserve", { idempotencyKey: key(), lines: [line(productId, 1, 1)] })
     ));
-    expect(responses.filter((response) => response.status === 200)).toHaveLength(10);
-    expect(responses.filter((response) => response.status === 409)).toHaveLength(10);
+    expect(responses.filter((response: Response) => response.status === 200)).toHaveLength(10);
+    expect(responses.filter((response: Response) => response.status === 409)).toHaveLength(10);
   });
 
   it("replays the same reservation for an identical idempotency key", async () => {
