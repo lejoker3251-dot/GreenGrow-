@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Dein Warenkorb – SEED³X" description="Prüfe Sorten, Packungsgrößen und Summen in deinem lokalen SEED³X Warenkorb.">
+  <section class="page-hero cart-hero">
+    <span class="eyebrow">SEED³X · DEINE AUSWAHL</span>
+    <h1>Dein Warenkorb.</h1>
+    <p>Prüfe deine gewählten Sorten, Packungsgrößen und Mengen. Der Warenkorb wird lokal in diesem Browser gespeichert.</p>
+  </section>
+  <section class="section cart-section">
+    <div id="shopping-cart-items" class="shopping-cart-items" aria-live="polite" aria-atomic="true"><div class="empty-state"><h2>Warenkorb wird geladen …</h2><p>Einen Moment bitte.</p></div></div>
+    <aside id="shopping-cart-summary" class="shopping-cart-summary" hidden>
+      <div><span>Zwischensumme</span><strong id="shopping-cart-total">0,00 €</strong></div>
+      <p>Dies ist eine unverbindliche Vorschau. Versandkosten und Verfügbarkeit sind nicht berechnet bzw. bestätigt.</p>
+      <button type="button" class="button" disabled aria-disabled="true">Bestellung derzeit nicht verfügbar</button>
+      <small>Checkout und Zahlungen sind deaktiviert. Es wird keine Bestellung ausgelöst.</small>
+    </aside>
+    <div class="cart-actions"><a class="button secondary" href="/shop/#sortiment">Weiter im Shop stöbern</a><a class="cart-favorites-link" href="/shopping-cart/">Zur Merkliste</a></div>
+    <p id="cart-message" class="cart-message" role="status" aria-live="polite"></p>
+  </section>
+</Layout>
+<script>
+  type CartItem = { key: string; id: string; name: string; image: string; packSize: number; quantity: number; unitPrice: number };
+  const root = document.querySelector<HTMLElement>('#shopping-cart-items');
+  const summary = document.querySelector<HTMLElement>('#shopping-cart-summary');
+  const totalNode = document.querySelector<HTMLElement>('#shopping-cart-total');
+  const messageNode = document.querySelector<HTMLElement>('#cart-message');
+  const money = (amount: number) => amount.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+
+  function readCart(): CartItem[] {
+    try {
+      const value: unknown = JSON.parse(localStorage.getItem('seedx-cart') || '[]');
+      if (!Array.isArray(value)) return [];
+      return value.filter((item): item is CartItem =>
+        item !== null && typeof item === 'object' &&
+        typeof item.key === 'string' && typeof item.id === 'string' &&
+        typeof item.name === 'string' && typeof item.image === 'string' &&
+        [1, 3, 5, 10].includes(item.packSize) &&
+        Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 99 &&
+        Number.isFinite(item.unitPrice) && item.unitPrice > 0
+      );
+    } catch { return []; }
+  }
+
+  function escapeHtml(value: string): string {
+    return value.replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char] || char);
+  }
+
+  function renderCart(message = '') {
+    if (!root) return;
+    const items = readCart();
+    const count = document.querySelector<HTMLElement>('#cart-count');
+    if (count) count.textContent = String(items.reduce((sum, item) => sum + item.quantity, 0));
+    if (!items.length) {
+      root.innerHTML = '<div class="empty-state"><h2>Dein Warenkorb ist noch leer</h2><p>Öffne eine Produktseite, wähle eine Packungsgröße und füge die Variante hinzu.</p><a class="button" href="/shop/">Zum Shop</a></div>';
+      if (summary) summary.hidden = true;
+    } else {
+      root.innerHTML = items.map((item) => `<article class="cart-item">
+        <img src="${escapeHtml(item.image)}" alt="" width="96" height="96" loading="lazy">
+        <div class="cart-item-details"><span class="cart-item-id">${escapeHtml(item.id)}</span><h2>${escapeHtml(item.name)}</h2><p>${item.packSize} ${item.packSize === 1 ? 'Seed' : 'Seeds'} · ${money(item.unitPrice)} pro Packung</p>
+          <div class="cart-item-controls"><label for="qty-${escapeHtml(item.key)}">Anzahl Packungen</label><input id="qty-${escapeHtml(item.key)}" type="number" min="1" max="99" value="${item.quantity}" data-quantity="${escapeHtml(item.key)}"><button type="button" class="cart-remove" data-remove="${escapeHtml(item.key)}">Entfernen</button></div>
+        </div><strong class="cart-item-subtotal">${money(item.unitPrice * item.quantity)}</strong>
+      </article>`).join('');
+      if (summary) summary.hidden = false;
+      if (totalNode) totalNode.textContent = money(items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0));
+    }
+    if (messageNode) messageNode.textContent = message;
+    root.querySelectorAll<HTMLInputElement>('[data-quantity]').forEach((input) => input.addEventListener('change', () => {
+      const key = input.dataset.quantity;
+      const quantity = Number(input.value);
+      if (!key || !Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
+        input.value = String(readCart().find((item) => item.key === key)?.quantity || 1);
+        if (messageNode) messageNode.textContent = 'Bitte wähle eine Anzahl zwischen 1 und 99 Packungen.';
+        return;
+      }
+      try {
+        const next = readCart().map((item) => item.key === key ? { ...item, quantity } : item);
+        localStorage.setItem('seedx-cart', JSON.stringify(next));
+        renderCart('Warenkorb aktualisiert.');
+      } catch { renderCart('Die Änderung konnte nicht gespeichert werden. Bitte prüfe die Browser-Speichereinstellungen.'); }
+    }));
+    root.querySelectorAll<HTMLButtonElement>('[data-remove]').forEach((button) => button.addEventListener('click', () => {
+      const key = button.dataset.remove;
+      if (!key) return;
+      try {
+        localStorage.setItem('seedx-cart', JSON.stringify(readCart().filter((item) => item.key !== key)));
+        renderCart('Artikel aus dem Warenkorb entfernt.');
+      } catch { renderCart('Der Artikel konnte nicht entfernt werden. Bitte prüfe die Browser-Speichereinstellungen.'); }
+    }));
+  }
+  renderCart();
+  window.addEventListener('storage', (event) => { if (event.key === 'seedx-cart') renderCart(); });
+</script>
+<style>
+  .cart-hero{background:linear-gradient(120deg,#f4f1e5,#e9eddd)}.cart-hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:450;letter-spacing:-.06em;font-size:clamp(2.8rem,6vw,5rem);line-height:1.02}.cart-hero p{max-width:680px;line-height:1.8;color:var(--muted)}
+  .cart-section{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.8fr);gap:1.2rem;align-items:start}.shopping-cart-items{min-width:0}.cart-item{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:1rem;align-items:start;padding:1.1rem 0;border-bottom:1px solid var(--line)}.cart-item img{width:96px;height:96px;object-fit:contain;border-radius:12px;background:#f0f0e7}.cart-item-details{min-width:0}.cart-item-id{color:var(--muted);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}.cart-item h2{margin:.25rem 0;font-family:Georgia,serif;font-size:1.45rem;font-weight:500;overflow-wrap:anywhere}.cart-item p{margin:.25rem 0 .8rem;color:var(--muted);font-size:.9rem}.cart-item-subtotal{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--green)}.cart-item-controls{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}.cart-item-controls label{font-size:.8rem;color:var(--muted)}.cart-item-controls input{width:76px;min-height:42px;padding:.45rem;border:1px solid var(--line);border-radius:8px;font:inherit}.cart-remove{border:0;background:transparent;color:#75513c;text-decoration:underline;text-underline-offset:3px;font:inherit;font-size:.82rem;cursor:pointer}.shopping-cart-summary{position:sticky;top:1rem;padding:1.2rem;border:1px solid var(--line);border-radius:16px;background:#fffdf8}.shopping-cart-summary>div{display:flex;justify-content:space-between;gap:.8rem;align-items:center}.shopping-cart-summary>div span{color:var(--muted)}.shopping-cart-summary>div strong{font-size:1.4rem;color:var(--green);white-space:nowrap}.shopping-cart-summary p,.shopping-cart-summary small{display:block;color:var(--muted);font-size:.8rem;line-height:1.7}.shopping-cart-summary .button{width:100%;margin:.5rem 0}.shopping-cart-summary .button:disabled{opacity:.55;cursor:not-allowed}.cart-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem}.cart-favorites-link{align-self:center;color:var(--green);font-weight:700}.cart-message{min-height:1.4rem;color:var(--green);font-size:.85rem}.cart-section .empty-state{padding:2rem;border:1px dashed var(--line);border-radius:16px;background:#fffdf8}.cart-section .empty-state h2{font-family:Georgia,serif;font-weight:500}.cart-section .empty-state p{line-height:1.7;color:var(--muted)}
+  @media(max-width:800px){.cart-section{grid-template-columns:1fr}.shopping-cart-summary{position:static;order:2}.cart-actions{order:3}}@media(max-width:520px){.cart-item{grid-template-columns:70px minmax(0,1fr);gap:.75rem}.cart-item img{width:70px;height:70px}.cart-item-subtotal{grid-column:2;justify-self:start}.cart-item h2{font-size:1.25rem}.cart-item-controls{align-items:flex-start}.cart-item-controls label{width:100%}}
+</style>
