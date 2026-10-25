@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "greengrow-inventory-spike-local-tests-only",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-23",
+  "workers_dev": false,
+  "vars": {
+    "SPIKE_TEST_MODE": "true"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "INVENTORY_LEDGER",
+        "class_name": "InventoryLedger"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "InventoryLedger"
+      ]
+    }
+  ]
+}
