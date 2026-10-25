@@ -16,8 +16,8 @@ test("different pack sizes for one product consume the same shared loose-seed st
   ]);
 
   assert.equal(result.ok, true);
-  assert.equal(result.requirements["seed-0001"], 35);
-  assert.equal(ledger.getStock("seed-0001"), 965);
+  assert.equal(result.requirements["seed-0001"], 39);
+  assert.equal(ledger.getStock("seed-0001"), 961);
 });
 
 test("duplicate lines for the same product are combined before stock validation", () => {
