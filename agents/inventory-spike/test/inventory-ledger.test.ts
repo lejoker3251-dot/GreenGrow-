@@ -92,6 +92,31 @@ describe("isolated SQLite inventory reservation", () => {
     expect(replacement.status).toBe(200);
   });
 
+  it("expires reservations once, restores stock, and survives repeat requests", async () => {
+    const productId = `expiry_${crypto.randomUUID().slice(0, 8)}`;
+    await seed([{ productId, quantity: 5 }]);
+    const idempotencyKey = key();
+    const created = await post("/reserve", { idempotencyKey, lines: [line(productId, 1, 5)] });
+    expect(created.status).toBe(200);
+    const { reservationId } = await created.json() as { reservationId: string };
+
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+
+    const replacement = await post("/reserve", { idempotencyKey: key(), lines: [line(productId, 1, 5)] });
+    expect(replacement.status).toBe(200);
+
+    const replayExpired = await post("/reserve", { idempotencyKey, lines: [line(productId, 1, 5)] });
+    expect(replayExpired.status).toBe(409);
+    expect((await replayExpired.json() as { status: string }).status).toBe("expired");
+
+    const releaseExpired = await post("/release", { reservationId });
+    expect(releaseExpired.status).toBe(409);
+    expect((await releaseExpired.json() as { status: string }).status).toBe("expired");
+
+    const noExtraStock = await post("/reserve", { idempotencyKey: key(), lines: [line(productId, 1, 1)] });
+    expect(noExtraStock.status).toBe(409);
+  });
+
   it("rejects invalid quantities and responds to the local health check", async () => {
     const invalid = await post("/reserve", { idempotencyKey: key(), lines: [line("invalid", 1, 0)] });
     expect(invalid.status).toBe(400);
