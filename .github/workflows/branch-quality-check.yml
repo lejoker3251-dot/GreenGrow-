@@ -60,6 +60,6 @@ jobs:
           assert.ok(ids.length >= 1, 'at least one static product detail page should be built');
           const detail = readFileSync(detailRoot + '/' + ids[0] + '/index.html', 'utf8');
           assert.match(detail, /Produktbeschreibung/, 'product detail output should include description section');
-          assert.match(detail, /bereitgestellter Produktkatalog/, 'product detail output should include source note');
+          assert.match(detail, /Beschreibung aus dem eingebundenen SEED³X-Produktkatalog\./, 'product detail output should include the current embedded-catalog source note');
           console.log('Catalog/output checks passed:', catalog.length, 'entries;', ids.length, 'product detail pages; Grow Doctor route.');
           NODE
