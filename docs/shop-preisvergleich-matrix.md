@@ -164,3 +164,26 @@ Steuern und gesetzliche Preisangaben sind anschließend entsprechend der bestät
 ## 8. Technische Schutzregeln
 
 Die bestehende Konfiguration in `src/data/shop-pricing-config.json` bleibt maßgeblich. Dieses Dokument ändert weder Produktpreise noch Freigabestatus, Varianten, Lagerbestand, Checkout oder Zahlungsfunktionen. Die Datenprüfung `npm run test:shop-data` muss nach Änderungen weiterhin erfolgreich sein; Build und Laufzeitdarstellung sind separat zu prüfen. Es wird durch dieses Dokument kein Deploy ausgelöst.
+
+
+### 4.4 Weitere Live-Preisfunde – 25.10.2026
+
+Diese Ergänzung erfasst nur öffentlich sichtbare Händlerpreise. Vergleichsprodukte anderer Züchter sind Preisanker für dieselbe Sortenfamilie, aber kein Beleg identischer Genetik. Preise und Verfügbarkeit können sich ändern; Versandkosten sind nicht eingerechnet, sofern nicht ausdrücklich genannt.
+
+| Katalogfamilie / Vergleichsprodukt | Typ | Händler / Züchter | Packung | Sichtbarer Preis | Preis je Samen | Einordnung / Quelle |
+|---|---|---|---:|---:|---:|---|
+| Blue Cheese Auto | Autoflower | Royal Queen Seeds / RQS | 3 | 18,27 € Angebot; 21,50 € vorher | 6,09 € Angebot; 7,17 € vorher | Direkte Produktseite; Seite zeigt Hinweis „benachrichtigen, wenn wieder auf Lager“, daher Preis nicht mit verfügbarer Ware gleichsetzen. https://www.royalqueenseeds.de/autoflowering-hanfsamen/312-blue-cheese-automatic.html |
+| Blue Dream Auto | Autoflower | Sanaleo / Chillhouse | 3 | 19,95 € | 6,65 € | Direkte Produktseite, 3 Stück; Autoflower/feminisiert angegeben. Andere Züchterversion als Katalogeintrag. https://www.chillhouse.de/grow/cannabis-samen/sanaleo-blue-dream-auto |
+| Blue Dream Auto | Autoflower | 00 Seeds / Genetiken.de | 3 oder 5 | 14,50–19,50 € Preisspanne | Nicht belastbar aus der Spanne ableitbar | Direkte Produktseite zeigt Auswahl mehrerer Packungen, aber Preis je ausgewählter Packungsgröße im Suchsnapshot nicht eindeutig zugeordnet; daher kein Packpreis in die Rangfolge übernehmen. https://genetiken.de/produkt/blue-dream-auto-autoflower-00-seeds/ |
+| White Widow Automatic | Autoflower | White Label / Sensi Seeds | 3+1 Gratis | 23,50 € | 5,88 € je enthaltenem Samen (4 Samen) | Packung enthält 4 Samen einschließlich Gratis-Samen; nicht als reiner 3er-Pack vergleichbar. Seite markiert „Nicht auf Lager“. https://sensiseeds.com/de/feminisierte-samen/whitelabel/white-widow-automatic |
+| White Widow Automatic | Autoflower | Blow-Up-Your-Mind-UG / Samenshop24 | 3 | 22,50 € | 7,50 € | Produktseite nennt 3 Korn und sofort verfügbar; Züchter/Genetik separat vom Katalogeintrag bestätigen. https://www.samenshop24.de/white-widow-cannabis |
+| Blue Dream | feminisiert, photoperiodisch | Cali Genetics / Weed Discount | 3 | 9,95 € Angebot; 15,95 € UVP | 3,32 € Angebot; 5,32 € UVP | Aktuelle Händlerübersicht; nicht Auto und nicht regulär. Direkte Produktdetailseite vor einer endgültigen Freigabe zusätzlich prüfen. https://www.weeddiscount.de/produktkategorie/cannabis-samen-hanfsamen/cannabis-samen-feminisiert/ |
+| Blue Cheese | feminisiert, photoperiodisch | Royal Queen Seeds / greenease | 3 | 15,99 € | 5,33 € | Produktseite mit 3er-Auswahl und Preisangabe; anderer Händlerpreis als bestehende RQS-Angebote. https://greenease.de/seeds/feminized-blue-cheese |
+| Blue Cheese | feminisiert, photoperiodisch | Royal Queen Seeds / Gea Seeds | 3 | 21,33 € | 7,11 € | Produktseite zeigt Staffelpreise für 1/3/5/10; Preis für 3 Einheiten ausgewiesen. https://geaseeds.com/de/royal-queen-seeds/98-blue-cheese.html |
+
+#### Offene Punkte aus dieser Runde
+
+- Für die Katalogvarianten **Blue Cheese Regular, Blue Dream Regular, Amnesia Regular und Critical Regular** wurde in dieser Runde kein belastbarer, direkt zuordenbarer 3er-Packpreis bestätigt. Reguläre Angebote aus 5er-/10er-/größeren Packungen dürfen separat erfasst werden, aber nicht als 3er-Preis ausgegeben werden.
+- Bei **Blue Dream Auto** ist der Packpreis bei 00 Seeds in der abgerufenen Darstellung nicht eindeutig einer Variante zugeordnet; bis zur Sichtprüfung mit ausgewählter Packungsgröße bleibt der Eintrag ein Recherchehinweis, kein bestätigter Preisanker.
+- Ein Angebotspreis ist kein Listenpreis. Preis je Samen wurde nur berechnet, wenn Packungsgröße und Packpreis eindeutig waren.
+- Für Händlervergleiche gleicher Sortenfamilien bleibt der Züchter ein eigenes Merkmal: gleiche Sortenbezeichnung bedeutet nicht automatisch identische Genetik.
