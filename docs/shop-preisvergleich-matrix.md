@@ -72,6 +72,29 @@ Die Sortenfamilie wird durch normalisierte Namen gebildet. Schreibweisen und Gro
 | Regulär | Passion #1 – Dutch Passion | 10 reguläre Samen | 44,95 € | Offizielle Produktseite; reguläre Variante eindeutig ausgewiesen, Packung nicht gleich 3 |
 | Regulär | Shaman – Dutch Passion | 10 reguläre Samen | 29,95 € | Offizielle Produktseite; reguläre Variante eindeutig ausgewiesen, Packung nicht gleich 3 |
 
+### 4.3 Weitere exakte Sortenfunde aus dem Katalog – 25.10.2026
+
+Die folgenden Treffer wurden mit Sortennamen aus `src/data/seed-products.json` abgeglichen. Preise stammen aus öffentlich sichtbaren Händlerseiten bzw. Suchtreffern am Recherchetag. Ein Treffer belegt nur den jeweiligen Händlerpreis; er belegt weder identische Genetik noch Verfügbarkeit bei SEED³X.
+
+| SEED³X-Katalogfamilie / Typ | Vergleichsprodukt und Händler | Packung | Preis-Snapshot | Preis je Samen | Abgleich / Qualität |
+|---|---|---:|---:|---:|---|
+| Blue Cheese – feminisiert | Blue Cheese, Royal Queen Seeds bei Weed Nursery | 3 | 21,50 € | 7,17 € | Exakter Sortenname und Typ auf Händlerseite bestätigt |
+| Blue Cheese – feminisiert | Blue Cheese, Royal Queen Seeds bei Bloomtech | 3 | 21,50 € | 7,17 € | Exakter Sortenname und Typ in Händlerkategorie bestätigt |
+| Blue Cheese – feminisiert | Blue Cheese, Barney’s Farm bei Bloomtech | 3 | 26,32 € Angebot; 32,90 € vorheriger Preis | 8,77 € Angebot; 10,97 € vorheriger Preis | Exakter Sortenname, aber anderer Breeder; nicht als gleiche Genetik behandeln |
+| Blue Cheese – feminisiert | Blue Cheese, Expert Seeds bei Zamnesia | 3 | 29,00 € | 9,67 € | Exakter Sortenname, feminisiert und ausgewählte 3er-Variante auf Produktseite |
+| Blue Dream – feminisiert | Blue Dream, Barney’s Farm bei Bloomtech | 3 | 26,32 € Angebot; 32,90 € vorheriger Preis | 8,77 € Angebot; 10,97 € vorheriger Preis | Exakter Sortenname und Typ in Händlerkategorie bestätigt; anderer Breeder |
+| Amnesia – feminisiert | Amnesia feminisiert bei Weed Discount | 3 | 9,95 € Angebot; 15,95 € UVP | 3,32 € Angebot; 5,32 € UVP | Exakter Katalogname und 3er-Pack im Händlerlisting |
+| Critical – feminisiert | Critical feminisiert bei Royal Queen Seeds | 3 | 23,00 € (Preis-Snapshot aus RQS-PDF) | 7,67 € | Exakter Name und 3er-Preis im Preisblatt; Quelle älter, daher nur historischer Vergleichsanker, nicht als aktueller Livepreis werten |
+| Blue Cheese – autoflowering | Blue Cheese Auto, Royal Queen Seeds | 3 | 21,50 € Listenpreis; 18,27 € Angebots-Snapshot | 7,17 € Listenpreis; 6,09 € Angebot | Exakter Auto-Sortenname aus früherem Snapshot; vor Aktualisierung live gegenprüfen |
+| Reguläre Samen – Sortenfamilie | Kein neuer, sicher bestätigter 3er-Treffer in dieser Runde | — | — | — | Nicht durch feminisierte Preise ersetzen; 10er-Regular-Angebote bleiben separate Größenreferenz |
+
+**Quellen für diese Runde:**
+- Weed Nursery, Blue Cheese RQS 3er-Pack: https://www.weed-nursery.de/royal-queen-seeds/blue-cheese-royal-queen-seeds
+- Bloomtech, Produktübersicht mit Blue Cheese (RQS und Barney’s Farm) und Blue Dream (Barney’s Farm): https://bloomtech.de/cannabis-samen
+- Weed Discount, feminisierte Kategorie mit Amnesia 3 Stück: https://www.weeddiscount.de/produktkategorie/cannabis-samen-hanfsamen/cannabis-samen-feminisiert/
+- Zamnesia, Blue Cheese (Expert Seeds), 3er-Variante: https://www.zamnesia.de/3006-expert-seeds-blue-cheese-feminisiert.html
+- Royal Queen Seeds, Preisblatt (PDF; nicht als aktueller Livepreis behandeln): https://www.royalqueenseeds.de/upload/Zig_Zag_2024_digital.pdf
+
 ### 4.3 Ergänzende Web-Preisfunde – geprüft am 25.10.2026
 
 Diese ergänzenden Treffer erweitern die Händler-Stichprobe. Es handelt sich um öffentlich angezeigte Preise; vor einer späteren Verwendung als belastbarer Vergleich sind Produktvariante, Packungsgröße und Preis direkt beim Händler erneut zu kontrollieren.
@@ -96,7 +119,7 @@ Diese ergänzenden Treffer erweitern die Händler-Stichprobe. Es handelt sich um
 - Dutch Passion, reguläre Samen Kategorie: https://dutch-passion.com/de/regulare-cannabissamen
 - Bloomtech, Royal Queen Seeds Produktübersicht (u. a. Blue Cheese feminisiert 3er-Pack, Green Gelato Auto 3er-Pack): https://bloomtech.de/Royal-Queen-Seeds
 
-**Grenze der Erhebung:** Für reguläre Samen ist weiterhin kein verlässlich belegter, exakt passender 3er-Packpreis dokumentiert. Die neuen Händlerfunde ergänzen vor allem feminisierte 3er-Packungen; Kategorie- und „ab“-Preise bleiben ausdrücklich vorläufig. Die 10er-Packungen sind ausdrücklich als abweichende Vergleichsgröße markiert und dürfen nicht als gleichwertiger 3er-Packvergleich behandelt werden. Auch die gleichen Sortennamen beweisen nicht automatisch identische Breeder-Genetik; das SEED³X-Katalogmodell enthält derzeit kein Breeder-Feld.
+**Grenze der Erhebung:** Für reguläre Samen ist weiterhin kein verlässlich belegter, exakt passender 3er-Packpreis dokumentiert. Die systematische Abgleichrunde hat zusätzliche exakte Sortennamen für feminisierte Produkte bestätigt; für Auto- und reguläre Varianten bleibt eine separate, direkte Prüfung nötig. Die neuen Händlerfunde ergänzen vor allem feminisierte 3er-Packungen; Kategorie- und „ab“-Preise bleiben ausdrücklich vorläufig. Die 10er-Packungen sind ausdrücklich als abweichende Vergleichsgröße markiert und dürfen nicht als gleichwertiger 3er-Packvergleich behandelt werden. Auch die gleichen Sortennamen beweisen nicht automatisch identische Breeder-Genetik; das SEED³X-Katalogmodell enthält derzeit kein Breeder-Feld.
 
 ## 5. Verbindliches Datenschema für die vollständige Vergleichsmatrix
 
