@@ -1,3 +1,5 @@
+import { DurableObject } from "cloudflare:workers";
+
 type PackLine = { productId: string; seedsPerPack: number; packCount: number };
 type Requirement = { productId: string; seedsRequired: number };
 type Env = { INVENTORY_LEDGER: DurableObjectNamespace<InventoryLedger>; SPIKE_TEST_MODE?: string };
@@ -33,11 +35,12 @@ function parseLines(value: unknown): { ok: true; requirements: Requirement[] } |
   return { ok: true, requirements: [...totals].map(([productId, seedsRequired]) => ({ productId, seedsRequired })) };
 }
 
-export class InventoryLedger {
+export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }> {
   private readonly sql: SqlStorage;
 
-  constructor(private readonly ctx: DurableObjectState, private readonly env: { SPIKE_TEST_MODE?: string }) {
-    this.sql = ctx.storage.sql;
+  constructor(ctx: DurableObjectState, env: { SPIKE_TEST_MODE?: string }) {
+    super(ctx, env);
+    this.sql = this.ctx.storage.sql;
     this.sql.exec(`CREATE TABLE IF NOT EXISTS inventory (
       product_id TEXT PRIMARY KEY,
       on_hand_seeds INTEGER NOT NULL CHECK(on_hand_seeds >= 0),
