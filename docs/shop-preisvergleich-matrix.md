@@ -72,6 +72,19 @@ Die Sortenfamilie wird durch normalisierte Namen gebildet. Schreibweisen und Gro
 | Regulär | Passion #1 – Dutch Passion | 10 reguläre Samen | 44,95 € | Offizielle Produktseite; reguläre Variante eindeutig ausgewiesen, Packung nicht gleich 3 |
 | Regulär | Shaman – Dutch Passion | 10 reguläre Samen | 29,95 € | Offizielle Produktseite; reguläre Variante eindeutig ausgewiesen, Packung nicht gleich 3 |
 
+### 4.3 Ergänzende Web-Preisfunde – geprüft am 25.10.2026
+
+Diese ergänzenden Treffer erweitern die Händler-Stichprobe. Es handelt sich um öffentlich angezeigte Preise; vor einer späteren Verwendung als belastbarer Vergleich sind Produktvariante, Packungsgröße und Preis direkt beim Händler erneut zu kontrollieren.
+
+| Katalogfamilie / Typ | Vergleichsprodukt | Händler | Packung | Preis-Snapshot | Preis je Samen | Vergleichsqualität |
+|---|---|---|---:|---:|---:|---|
+| Blue Cheese – feminisiert | Blue Cheese, feminisiert | Weed Nursery | 3 | 21,50 € | 7,17 € | Produktseite nennt RQS, feminisiert und 3 Stück; Versand zusätzlich |
+| Blue Cheese – feminisiert | Blue Cheese feminisiert | Weed Discount | 3 | 9,95 € Aktions-/Angebotspreis; UVP 15,95 € | 3,32 € Angebot; 5,32 € UVP | Kategorieeintrag nennt feminisiert und 3 Stück; direkter Produktseiten-Check vor endgültigem Vergleich empfohlen |
+| Blue Cheese – autoflowering | Blue Cheese Automatic | Seeds2Go | Packungsvariante im Suchauszug nicht eindeutig ausgewählt | 29,25 € Angebot / 32,50 € Vergleichspreis | Nicht berechnet | Suchauszug zeigt Artikelnummer mit 5er-Hinweis; nicht als 3er-Packvergleich verwenden |
+| Diverse feminisierte Sorten | z. B. Alaskan Thunderfuck, Alien OG, Amnesia, Big Bud | Weed Discount | 3 | meist 9,95 € Angebot; UVP 15,95 € | 3,32 € Angebot; 5,32 € UVP | Händlerkategorie mit vielen Sorten; nicht auf andere Sorten übertragen, wenn sie nicht ausdrücklich gelistet sind |
+| Diverse Typen | Mango Smile Auto, Purple Amnesia Auto, Strawberry Guava feminisiert u. a. | Kannoba / Holy Hemp | 3 | 19,90 € | 6,63 € | Händlerkategorie nennt 3 Stück; nur für exakt passende Sorten als Vergleich verwenden |
+| Diverse Typen | Royal Queen Seeds Einzelprodukte mit mehreren Packungsgrößen | Bushplanet | ab-Preise je Produkt/Variante | z. B. Special Queen #1 ab 7,88 €, White Widow feminisiert ab 15,00 €, Blue Cheese Auto ab 16,12 € | Nicht berechnet, da „ab“-Preis und Packungsgröße nicht festgelegt | Nicht als exakter 3er-Preis übernehmen; Variantenwahl erforderlich |
+
 ### 4.3 Quellen der Preis-Snapshots
 
 - CannaVergleich, Marktvergleich mit getrennter Packungsgröße und Preis je Samen: https://cannavergleich.com/
@@ -83,7 +96,7 @@ Die Sortenfamilie wird durch normalisierte Namen gebildet. Schreibweisen und Gro
 - Dutch Passion, reguläre Samen Kategorie: https://dutch-passion.com/de/regulare-cannabissamen
 - Bloomtech, Royal Queen Seeds Produktübersicht (u. a. Blue Cheese feminisiert 3er-Pack, Green Gelato Auto 3er-Pack): https://bloomtech.de/Royal-Queen-Seeds
 
-**Grenze der Erhebung:** Für reguläre Samen ist in dieser Runde noch kein verlässlich belegter, exakt passender 3er-Packpreis dokumentiert. Die 10er-Packungen sind ausdrücklich als abweichende Vergleichsgröße markiert und dürfen nicht als gleichwertiger 3er-Packvergleich behandelt werden. Auch die gleichen Sortennamen beweisen nicht automatisch identische Breeder-Genetik; das SEED³X-Katalogmodell enthält derzeit kein Breeder-Feld.
+**Grenze der Erhebung:** Für reguläre Samen ist weiterhin kein verlässlich belegter, exakt passender 3er-Packpreis dokumentiert. Die neuen Händlerfunde ergänzen vor allem feminisierte 3er-Packungen; Kategorie- und „ab“-Preise bleiben ausdrücklich vorläufig. Die 10er-Packungen sind ausdrücklich als abweichende Vergleichsgröße markiert und dürfen nicht als gleichwertiger 3er-Packvergleich behandelt werden. Auch die gleichen Sortennamen beweisen nicht automatisch identische Breeder-Genetik; das SEED³X-Katalogmodell enthält derzeit kein Breeder-Feld.
 
 ## 5. Verbindliches Datenschema für die vollständige Vergleichsmatrix
 
@@ -101,8 +114,8 @@ Für jede konkrete Vergleichsposition sind folgende Spalten zu erfassen:
 | Angebotspreis EUR | Separat erfassen; nicht als Listenpreis ausgeben |
 | Preis je Samen EUR | Rechnerisch Packungspreis geteilt durch Samenanzahl |
 | Premium-Beleg | Quelle oder dokumentierte Entscheidung; andernfalls „nicht festgelegt“ |
-| Einkaufskosten SEED³X | Nur aus bestätigtem Lieferanten-/Einkaufsbeleg |
-| Zielmarge / Zielpreis | Erst nach Bestätigung der Kosten und Freigabe der Kalkulationsregeln |
+| Einkaufskosten SEED³X | Für die aktuelle Marktpreis-Recherche nicht erforderlich; später nur aus bestätigtem Lieferanten-/Einkaufsbeleg |
+| Zielmarge / Zielpreis | Nicht Teil dieses Recherche-Schritts; erst nach gesonderter Freigabe |
 | Prüfdatum | Datum der tatsächlichen Sichtprüfung |
 | Prüfergebnis | Bestätigt / unklar / nicht vergleichbar |
 
@@ -122,8 +135,8 @@ Steuern und gesetzliche Preisangaben sind anschließend entsprechend der bestät
 2. Für alle Vergleichsseiten am selben Prüftag Listen- und Angebotspreis, Packungsgröße und URL erfassen.
 3. Sortenidentität und Produkttyp gegen die Katalogquelle prüfen; bloß ähnliche Namen gelten nicht als identische Genetik.
 4. Breeder-/Premium-Angaben belegen oder als „nicht festgelegt“ belassen.
-5. Einkaufskosten und Kosten je Packung aus echten Belegen ergänzen.
-6. Kalkulation intern prüfen; erst danach einzelne SEED³X-Preise zur Freigabe vorlegen.
+5. Für diese Recherchephase werden ausschließlich öffentliche Händlerpreise erfasst; Einkaufskosten und SEED³X-Margen bleiben bewusst außen vor.
+6. Erst nach separater Freigabe können die recherchierten Marktpreise für eine spätere interne Kalkulation herangezogen werden.
 
 ## 8. Technische Schutzregeln
 
