@@ -63,17 +63,17 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
     <div class="shop-teaser-copy"><span class="eyebrow">The collection</span><h2 id="shop-teaser-title">Das Sortiment.<br/><em>In Ruhe entdecken.</em></h2><p>Unser vollständiger Katalog liegt bewusst auf einer eigenen Shop-Seite. Dort kannst du gezielt suchen, nach Samenkategorie filtern, sortieren und Favoriten merken – ohne dass die Startseite überladen wirkt.</p><a class="button luxury-button" href="/shop/">Zum gesamten Sortiment <span aria-hidden="true">↗</span></a><span class="shop-teaser-note">{seedProducts.length.toLocaleString('de-DE')} Katalogeinträge · Vorschau, noch keine Bestellfunktion</span></div>
   </section><section class="section home-category-section" aria-labelledby="home-category-title">
     <div class="section-heading">
-      <div><span class="eyebrow">Dein Einstieg ins Sortiment</span><h2 id="home-category-title">Finde deinen Saatentyp.</h2><p>Die Kategorien orientieren sich an den vorhandenen Katalogdaten. Die Anzahl zeigt Einträge in der Vorschau – keine geprüfte Verfügbarkeit oder Verkaufsfreigabe.</p></div>
+      <div><span class="eyebrow">Dein Einstieg ins Sortiment</span><h2 id="home-category-title">Finde die passende Samenkategorie.</h2><p>Die Kategorien orientieren sich an den Angaben im vorhandenen Katalog. Die angezeigten Zahlen beziehen sich auf Einträge in der Vorschau – sie bestätigen weder die aktuelle Verfügbarkeit noch eine Verkaufsfreigabe.</p></div>
       <a class="text-link" href="/shop/">Alle Katalogeinträge ansehen ↗</a>
     </div>
     <div class="home-category-grid">
       {homepageCategories.map((category, index) => (
         <article class="home-category-card">
-          <span class="home-category-number">0{index + 1} / SAATENTYP</span>
+          <span class="home-category-number">0{index + 1} / SAMENKATEGORIE</span>
           <h3>{category.title}</h3>
           <p>{category.description}</p>
           <div class="home-category-footer">
-            <span>{homepageCategoryCounts[category.name].toLocaleString('de-DE')} Katalogeinträge</span>
+            <span>{homepageCategoryCounts[category.name].toLocaleString('de-DE')} Einträge · Vorschau</span>
             <a href={'/shop/?typ=' + encodeURIComponent(category.name) + '#sortiment'}>Kategorie ansehen <span aria-hidden="true">↗</span></a>
           </div>
         </article>
