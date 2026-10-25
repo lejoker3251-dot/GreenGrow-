@@ -1,0 +1,21 @@
+{
+  "currency": "EUR",
+  "pricingModel": "per-pack",
+  "packSizes": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "unitPriceDisplay": "optional-derived",
+  "defaultAvailability": "not-confirmed",
+  "defaultReleaseStatus": "Entwurf",
+  "checkoutEnabled": false,
+  "paymentsEnabled": false,
+  "notes": [
+    "Pack sizes are planned options, not a statement of stock availability.",
+    "Prices remain unset until approved product-specific prices are supplied.",
+    "Products remain drafts until catalog, legal and payment-provider review is complete.",
+    "Do not accept orders or payments while checkoutEnabled and paymentsEnabled are false."
+  ]
+}
