@@ -55,7 +55,9 @@ const description = product.name + ' im SEED³X Katalog mit Preisen für 1, 3, 5
         <div><dt>Datenstatus</dt><dd><span class="inline-draft">Noch in Prüfung</span></dd></div>
       </dl>
 
-      {product.packVariants?.length > 0 && <section class="draft-pack-prices" aria-labelledby="draft-pack-prices-title"><span class="eyebrow">Preise je Packungsgröße</span><h2 id="draft-pack-prices-title">Packungsgröße wählen</h2><p>Wähle eine Packungsgröße, um den zugehörigen Preis zu sehen. Preise können im Rahmen der Katalogpflege angepasst werden.</p><label class="pack-size-label" for="pack-size-select">Deine Packungsgröße</label><select id="pack-size-select" class="pack-size-select" aria-describedby="selected-pack-price-note"><option value="">Packungsgröße auswählen</option>{product.packVariants.map((variant) => <option value={variant.quantity} data-price={variant.priceEUR}>{variant.quantity} {variant.quantity === 1 ? 'Samen' : 'Samen'} · {variant.priceEUR.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</option>)}</select><div class="selected-pack-price" aria-live="polite" aria-atomic="true"><span id="selected-pack-price-label">Bitte Packungsgröße auswählen</span><strong id="selected-pack-price-value">—</strong></div><small id="selected-pack-price-note" class="selected-pack-price-note">Preisangabe · Bestellungen derzeit deaktiviert</small></section>}
+      {product.packVariants?.length > 0 && <section class="draft-pack-prices" aria-labelledby="draft-pack-prices-title"><span class="eyebrow">Preise je Packungsgröße</span><h2 id="draft-pack-prices-title">Packungsgröße wählen</h2><p>Wähle eine Packungsgröße, um den zugehörigen Preis zu sehen. Preise können im Rahmen der Katalogpflege angepasst werden.</p><label class="pack-size-label" for="pack-size-select">Deine Packungsgröße</label><select id="pack-size-select" class="pack-size-select" aria-describedby="selected-pack-price-note"><option value="">Packungsgröße auswählen</option>{product.packVariants.map((variant) => <option value={variant.quantity} data-price={variant.priceEUR}>{variant.quantity} {variant.quantity === 1 ? 'Samen' : 'Samen'} · {variant.priceEUR.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</option>)}</select><div class="selected-pack-price" aria-live="polite" aria-atomic="true"><span id="selected-pack-price-label">Bitte Packungsgröße auswählen</span><strong id="selected-pack-price-value">—</strong></div><small id="selected-pack-price-note" class="selected-pack-price-note">Preisangabe · Bestellungen derzeit deaktiviert</small>
+      <button type="button" class="button add-to-cart-button" id="add-to-cart" data-cart-add disabled>In den Warenkorb</button>
+      <p id="cart-add-feedback" class="cart-add-feedback" role="status" aria-live="polite"></p></section>}
 
       <section class="product-description-block" aria-labelledby="product-description-title">
         <span class="eyebrow">Katalogangabe</span>
@@ -95,10 +97,47 @@ const description = product.name + ' im SEED³X Katalog mit Preisen für 1, 3, 5
     selectedPackLabel.textContent = quantity + (quantity === '1' ? ' Samen ausgewählt' : ' Samen ausgewählt');
     selectedPackValue.textContent = Number(price).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
   });
+
+  const addToCartButton = document.querySelector<HTMLButtonElement>('#add-to-cart');
+  const cartFeedback = document.querySelector<HTMLElement>('#cart-add-feedback');
+  const productData = {
+    id: "PRODUCT_ID_PLACEHOLDER",
+    name: "PRODUCT_NAME_PLACEHOLDER",
+    image: "PRODUCT_IMAGE_PLACEHOLDER"
+  };
+  // Values are emitted from this page's static product record, not user input.
+  productData.id = document.querySelector('.seed-detail-copy .eyebrow')?.textContent?.match(/seed-\d+/)?.[0] || '';
+  productData.name = document.querySelector('.product-detail-heading h1')?.textContent?.trim() || '';
+  productData.image = document.querySelector('.seed-detail-image img')?.getAttribute('src') || '';
+
+  addToCartButton?.addEventListener('click', () => {
+    const option = packSizeSelect?.selectedOptions[0];
+    const quantity = Number(option?.value);
+    const unitPrice = Number(option?.dataset.price);
+    if (!productData.id || !productData.name || ![1, 3, 5, 10].includes(quantity) || !Number.isFinite(unitPrice) || unitPrice <= 0) {
+      if (cartFeedback) cartFeedback.textContent = 'Bitte wähle zuerst eine gültige Packungsgröße aus.';
+      return;
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem('seedx-cart') || '[]');
+      const items = Array.isArray(saved) ? saved.filter((item) => item && typeof item.id === 'string' && Number.isInteger(item.packSize) && Number.isInteger(item.quantity) && Number.isFinite(item.unitPrice)) : [];
+      const key = productData.id + ':' + quantity;
+      const existing = items.find((item) => item.key === key);
+      if (existing) existing.quantity += 1;
+      else items.push({ key, id: productData.id, name: productData.name, image: productData.image, packSize: quantity, quantity: 1, unitPrice });
+      localStorage.setItem('seedx-cart', JSON.stringify(items));
+      const count = document.querySelector<HTMLElement>('#cart-count');
+      if (count) count.textContent = String(items.reduce((sum, item) => sum + item.quantity, 0));
+      if (cartFeedback) cartFeedback.textContent = productData.name + ' · ' + quantity + ' Seeds wurde dem Warenkorb hinzugefügt.';
+      addToCartButton.textContent = '✓ Im Warenkorb · Weiter einkaufen';
+    } catch {
+      if (cartFeedback) cartFeedback.textContent = 'Der Warenkorb konnte auf diesem Gerät nicht gespeichert werden. Bitte prüfe die Browser-Speichereinstellungen.';
+    }
+  });
 </script>
 
 <style>
-  .draft-pack-prices{margin:1.4rem 0;padding:1.1rem;border:1px solid var(--line);border-radius:16px;background:#fffdf8}.draft-pack-prices h2{margin:.4rem 0;font-size:1.5rem}.draft-pack-prices>p{color:var(--muted);font-size:.9rem;line-height:1.6}.pack-size-label{display:block;margin:1rem 0 .45rem;color:#344b38;font-size:.85rem;font-weight:750}.pack-size-select{display:block;width:100%;min-height:50px;padding:.75rem 2.5rem .75rem .85rem;border:1px solid #bdc8b7;border-radius:10px;background:#fffefa;color:#263b2b;font:inherit;font-size:.95rem}.pack-size-select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.selected-pack-price{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.85rem;padding:1rem;border-radius:10px;background:#f3f0e7}.selected-pack-price span{color:#526351;font-size:.88rem;line-height:1.5}.selected-pack-price strong{color:var(--green);font-size:1.55rem;font-variant-numeric:tabular-nums;white-space:nowrap}.selected-pack-price-note{display:block;margin-top:.65rem;color:#8a641b;font-size:.75rem;line-height:1.5}
+  .draft-pack-prices{margin:1.4rem 0;padding:1.1rem;border:1px solid var(--line);border-radius:16px;background:#fffdf8}.draft-pack-prices h2{margin:.4rem 0;font-size:1.5rem}.draft-pack-prices>p{color:var(--muted);font-size:.9rem;line-height:1.6}.pack-size-label{display:block;margin:1rem 0 .45rem;color:#344b38;font-size:.85rem;font-weight:750}.pack-size-select{display:block;width:100%;min-height:50px;padding:.75rem 2.5rem .75rem .85rem;border:1px solid #bdc8b7;border-radius:10px;background:#fffefa;color:#263b2b;font:inherit;font-size:.95rem}.pack-size-select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.selected-pack-price{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.85rem;padding:1rem;border-radius:10px;background:#f3f0e7}.selected-pack-price span{color:#526351;font-size:.88rem;line-height:1.5}.selected-pack-price strong{color:var(--green);font-size:1.55rem;font-variant-numeric:tabular-nums;white-space:nowrap}.add-to-cart-button{width:100%;margin-top:.9rem;min-height:50px}.add-to-cart-button:disabled{opacity:.48;cursor:not-allowed}.cart-add-feedback{min-height:1.5rem;margin:.45rem 0;color:var(--green);font-size:.85rem;line-height:1.5}.selected-pack-price-note{display:block;margin-top:.65rem;color:#8a641b;font-size:.75rem;line-height:1.5}
   .product-detail-top{padding:1.2rem clamp(1rem,6vw,6rem) 0;background:#fbfaf5}
   .product-breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;color:#718071;font-size:.82rem;line-height:1.6}
   .product-breadcrumbs a{color:#315a3d;text-decoration:none;text-underline-offset:3px}
