@@ -9,7 +9,8 @@
     "preview": "astro preview --host 0.0.0.0",
     "check": "astro check",
     "deploy:preview": "npm run build && npx wrangler deploy --config wrangler.preview.jsonc",
-    "test:shop-data": "node scripts/check-shop-data.mjs"
+    "test:shop-data": "node scripts/check-shop-data.mjs",
+    "test:catalog-pricing": "node --test tests/catalog-pricing.test.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
