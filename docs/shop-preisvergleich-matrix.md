@@ -271,3 +271,22 @@ Die Produktseiten wurden nach dem ersten Suchtreffer erneut geöffnet. Wo Preis 
 - Für **Blue Cheese Regular** konnte weiterhin kein belastbarer direkter 5er-/10er-Preis bestätigt werden. Treffer mit Variantenpreisen waren nicht eindeutig als regulär ausgewiesen; diese Preise wurden deshalb nicht übernommen.
 - Für **Blue Dream Regular** bleiben die zuvor dokumentierten 10er-Anker bestehen: Hanfjack 31,03 € (nicht vorrätig) und Genetiken.de 30,00 € (Detailseite/Bestand noch offen). Sie werden nicht gemittelt.
 - Marktpreise sind externe Vergleichswerte und keine SEED³X-Preise. Keine Einkaufskosten, Margen oder Verkaufspreise berechnet; Produktkatalog, Bestand, Freigabestatus, Checkout, `main` und Deployment bleiben unverändert.
+
+
+### 4.9 Direktprüfung der regulären Varianten – weitere Quellen, 25.10.2026
+
+Die folgenden Treffer wurden anhand der geöffneten Händleransichten geprüft. Ein Kategorietreffer ist weiterhin schwächer als eine vollständig ausgewählte Produktdetailseite; unklare Verfügbarkeit wird nicht als „lieferbar“ interpretiert.
+
+| Katalogfamilie / Händlerprodukt | Typ | Händler / Züchter | Packung | Sichtbarer Preis | Preis je Samen | Prüfergebnis / Verfügbarkeit | Quelle |
+|---|---|---|---:|---:|---:|---|---|
+| Critical Regular | Regulär | Royal Queen Seeds (RQS) | 10 | 60,00 € | 6,00 € | Offizielle Produktseite zeigt die 10er-Variante für 60,00 €. Gleichzeitig erscheint „Benachrichtige mich, wenn das Produkt wieder auf Lager ist“ und an anderer Stelle „letzte verfügbare Teile“. Wegen dieser widersprüchlichen Statushinweise nicht als sicher verfügbar einstufen. Die 25er-Variante kostet 120,00 € und ist kein 10er-Vergleich. | https://www.royalqueenseeds.de/regulaere-cannabissamen/545-critical-regular.html |
+| Blue Dream Regular – Nirvana Seeds | Regulär | Genetiken.de / Nirvana Seeds | 10 | 30,00 € | 3,00 € | Die aktuelle Kategorieansicht führt „Blue Dream Regular Seeds – 10“ für 30,00 € unter den Filtern „Regular“ und „10 Seeds“. Der Artikel zeigt „Weiterlesen“ statt einer direkten Warenkorb-Aktion; der aktuelle Lagerstatus ist damit nicht sicher belegt. Als bestätigter Kategorie-Preis, nicht als sicher lieferbar, führen. | https://genetiken.de/produktkategorie/breeder/nirvana-seeds/?filter_packungsgroesse=10-seeds |
+| Blue Dream Regular – Nirvana Seeds | Regulär | Hanfjack / Nirvana Seeds | 10 | 31,03 € | 3,10 € | Produktdetailseite nennt 10 Stück und regulären Typ, aber ausdrücklich „Nicht vorrätig“. Daher nur nicht verfügbarer Preisindikator. | https://hanfjack.de/produkt/nirvana-seeds-blue-dream-regulaer/ |
+| Blue Cheese Regular | Regulär | — | 5 oder 10 | Kein bestätigter Preis | — | Die gezielte Suche ergab keinen belastbaren Direktbeleg für eine Blue-Cheese-Variante mit ausgewiesenem Regular-Typ und 5er-/10er-Pack. Die gefundenen Blue-Cheese-Seiten waren feminisiert oder Auto; sie wurden nicht übernommen. | Recherche ohne bestätigten Direktbeleg |
+
+#### Konsequenz für die Matrix
+
+- Für **Critical Regular** gibt es nun einen konkret ausgewiesenen 10er-Preis von 60,00 € bei RQS, aber die Verfügbarkeit bleibt widersprüchlich. Die Seite wird deshalb als Preisreferenz mit Verfügbarkeitsvorbehalt geführt.
+- Für **Blue Dream Regular** bestätigt die aktuelle Genetiken.de-Kategorie den 10er-Pack für 30,00 €. Der Lagerstatus bleibt offen; Hanfjack bestätigt denselben Packumfang bei 31,03 €, markiert das Produkt jedoch als nicht vorrätig. Die Preise werden nicht gemittelt.
+- Für **Blue Cheese Regular** bleibt die Lücke offen. Preise aus feminisierten oder selbstblühenden Varianten sind keine zulässigen Ersatzwerte.
+- Es wurden nur öffentliche Händlerpreise ergänzt. Keine Einkaufskosten, Margen oder SEED³X-Verkaufspreise berechnet; keine Produktdaten, Lagerbestände, Freigaben, Checkout-Funktionen, `main` oder Deployments verändert.
