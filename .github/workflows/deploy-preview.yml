@@ -45,7 +45,7 @@ jobs:
           grep -q "/shop/" dist/index.html
           grep -q 'catalog-data' dist/shop/index.html
           grep -q 'catalog-load-more' dist/shop/index.html
-          grep -q "KATALOG-ID" dist/product/seed-0001/index.html
+          grep -q "Produktdaten in Prüfung" dist/product/seed-0001/index.html
           echo "Build contains expected SEED³X homepage and progressive catalog markers."
       - name: Deploy isolated preview worker
         env:
@@ -71,5 +71,5 @@ jobs:
           grep -q 'catalog-load-more' /tmp/preview-shop.html
           curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/product/seed-0001/" -o /tmp/preview-product.html
           test -s /tmp/preview-product.html
-          grep -q "KATALOG-ID" /tmp/preview-product.html
+          grep -q "Produktdaten in Prüfung" /tmp/preview-product.html
           echo "Preview homepage, progressive catalog markers, and product detail route are reachable."
