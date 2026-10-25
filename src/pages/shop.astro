@@ -1,13 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import seedProducts from '../data/seed-products.json';
-const products = seedProducts.map((product) => ({
-  ...product,
-  type: product.category,
-  tag: 'Sortimentsvorschau',
-  description: product.description || 'Eine individuelle Beschreibung liegt für diesen Katalogeintrag noch nicht vor.',
-  image: product.image || '/images/products/seed-archive.png',
-}));
+import packPriceDrafts from '../data/pack-price-drafts.json';
+const packSizes = [1, 3, 5, 10];
+const products = seedProducts.map((sourceProduct) => {
+  const product = {
+    ...sourceProduct,
+    packVariants: (packPriceDrafts[sourceProduct.id] || []).map((priceEUR, index) => ({
+      quantity: packSizes[index],
+      priceEUR,
+      releaseStatus: 'Entwurf',
+      priceType: 'proposed-retail-price',
+      currency: 'EUR',
+      note: sourceProduct.packVariants?.length === 4
+        ? 'Individueller Preisentwurf – nicht freigegeben.'
+        : 'Typbasierter Preisanker; Breeder-/Sortenpreis nicht bestätigt. Nicht freigegeben.',
+    })),
+    type: sourceProduct.category,
+    tag: 'Sortimentsvorschau',
+    description: sourceProduct.description || 'Eine individuelle Beschreibung liegt für diesen Katalogeintrag noch nicht vor.',
+    image: sourceProduct.image || '/images/products/seed-archive.png',
+  };
+  return product;
+});
 const categoryDefinitions = [
   { name: 'Feminisierte Samen', title: 'Feminisierte Samen', description: 'Katalogeinträge, die in der Quelle als Feminized geführt werden.', kind: 'filter' },
   { name: 'Reguläre Samen', title: 'Reguläre Samen', description: 'Katalogeinträge, die in der Quelle als Regular geführt werden.', kind: 'filter' },
@@ -81,7 +96,7 @@ const catalogCount = products.length;
       <article class="cali-editorial-card">
         <span class="category-entry-index">03 / TRANSPARENZ</span>
         <h3>Nachvollziehbare Auswahl</h3>
-        <p>Ein Sortenname allein ist kein Qualitätsnachweis. Deshalb sollen Herkunft, Züchterangaben und konkrete Produktmerkmale erst dann dargestellt werden, wenn sie anhand verlässlicher Quellen geprüft wurden. Preise werden erst ergänzt, wenn sie verbindlich feststehen.</p>
+        <p>Ein Sortenname allein ist kein Qualitätsnachweis. Deshalb sollen Herkunft, Züchterangaben und konkrete Produktmerkmale erst dann dargestellt werden, wenn sie anhand verlässlicher Quellen geprüft wurden. Vorläufige Preisvorschläge werden transparent angezeigt, bleiben aber bis zur Einzelprüfung und Freigabe unverbindlich.</p>
       </article>
       <article class="cali-editorial-card">
         <span class="category-entry-index">04 / ORIENTIERUNG</span>
@@ -100,7 +115,7 @@ const catalogCount = products.length;
     <p class="results-count" id="results-count" aria-live="polite">{catalogCount.toLocaleString('de-DE')} Katalogeinträge · Entwürfe</p>
     <div class="product-grid" id="product-grid">{products.map((product) => <article class="product-card" data-category={product.type} data-id={product.id} data-name={product.name} data-type={product.type} data-image={product.image} data-status={product.status}><a class="product-image product-image-link" href={'/product/' + product.id + '/'} aria-label={`Details zu ${product.name} öffnen`}><span class="product-tag">{product.tag}</span><img src={product.image} alt={`Produktfoto aus dem SEED³X Bildarchiv für ${product.name}`} loading="lazy" decoding="async" width="280" height="280"/></a><div class="product-info"><span class="product-type">{product.type} · Entwurf</span><h3><a class="product-title-link" href={'/product/' + product.id + '/'}>{product.name}</a></h3><p>Individuelle Sortenangaben werden vor einer Veröffentlichung anhand verlässlicher Züchter- oder Herstellerquellen geprüft.</p>{product.packVariants?.length > 0 && <div class="pack-price-preview" aria-label="Preisvorschau je Packungsgröße"><span class="pack-price-heading">Preisvorschau · nicht freigegeben</span><div class="pack-price-grid">{product.packVariants.map((variant) => <div class="pack-price-option"><span>{variant.quantity} {variant.quantity === 1 ? 'Samen' : 'Samen'}</span><strong>{variant.priceEUR.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</strong></div>)}</div></div>}<span class="product-note">Katalogname und Kategorie · Sortenmerkmale noch nicht verifiziert</span><div class="product-actions"><a class="text-link product-detail-link" href={'/product/' + product.id + '/'}>Details ansehen ↗</a><button class="save-button" type="button" data-save={product.id} aria-pressed="false">+ Merken</button></div></div></article>)}</div>
     <p class="empty-state" id="no-results" hidden>Keine passenden Produkte gefunden. Versuche einen anderen Suchbegriff oder eine andere Kategorie.</p>
-    <div class="notice">Katalogvorschau: Namen und Kategorie stammen aus der bereitgestellten Liste. Die botanischen Illustrationen unterscheiden die Kategorien, zeigen aber nicht die konkrete Sorte. Preise, Lagerbestand, geprüfte Sortenangaben und Bestellfunktionen sind nicht eingerichtet; alle Produkte bleiben Entwürfe.</div>
+    <div class="notice">Katalogvorschau: Namen und Kategorien stammen aus der bereitgestellten Liste. Alle 1.269 Einträge zeigen vorläufige Preisentwürfe für 1, 3, 5 und 10 Samen. Typbasierte Preisanker sind nicht als sortenspezifische Marktpreise bestätigt. Preise, Lagerbestand und Sortenangaben sind nicht freigegeben; Bestellungen und Zahlungen bleiben deaktiviert.</div>
   </section>
 </Layout>
 <script>
