@@ -425,13 +425,46 @@
     "description": "Afghanica in der Variante Feminized überzeugt mit komplexen, würzig-süßen Terpenaromen. Die Genetik sorgt für eine ausgewogene Wirkung auf Körper und Geist. Feminonisierte Samen für eine verlässliche Ernte harzreicher weiblicher Blüten.",
     "descriptionSource": "docs/produktbeschreibungen/produktkatalog_full.html",
     "priceEUR": null,
-    "packVariants": [],
+    "packVariants": [
+      {
+        "quantity": 1,
+        "priceEUR": 10.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 3,
+        "priceEUR": 29.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 5,
+        "priceEUR": 44.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 10,
+        "priceEUR": 79.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      }
+    ],
     "releaseStatus": "Entwurf",
     "priceDraft": {
       "proposedPriceEUR": 29.9,
       "proposedPackQuantity": 3,
-      "status": "Prüfung",
-      "basis": "Vorläufige Preis-Hypothese auf Basis eines beobachteten Markenangebots; kein freigegebener SEED³X-Verkaufspreis.",
+      "status": "Entwurf",
+      "basis": "Anesia feminisiert 3er-Pack 26,32 €; vorgeschlagener SEED³X-3er 29,90 €.",
       "referenceOffers": [
         {
           "merchant": "Bloomtech",
@@ -445,12 +478,14 @@
       ],
       "purchaseCostEUR": null,
       "targetMarginPercent": null,
-      "marginCheckStatus": "Offen",
-      "packSizeCheckStatus": "Offen",
+      "marginCheckStatus": "Nicht Bestandteil dieser Runde",
+      "packSizeCheckStatus": "Packungsstufen 1, 3, 5 und 10 als Entwurf hinterlegt",
       "notes": [
-        "Preis erst nach Prüfung von tatsächlichem Einkaufspreis, Nebenkosten, Zielmarge und tatsächlich angebotener Packungsgröße freigeben.",
-        "Das Katalogprodukt nennt derzeit keinen konkreten Züchter; das Anesia-Angebot ist daher nur ein Marktvergleich und kein identisches Produkt."
-      ]
+        "Preisstufen sind Entwürfe und können vor Freigabe geändert werden.",
+        "Keine Einkaufskosten oder Margenangaben erfasst.",
+        "Produkt bleibt unveröffentlicht und nicht zum Kauf freigegeben."
+      ],
+      "pricingScope": "SEED³X eigener Verkaufspreis – Preisentwurf für interne Prüfung"
     }
   },
   {
@@ -827,8 +862,57 @@
     "description": "Amnesia in der Variante Feminized überzeugt mit komplexen, würzig-süßen Terpenaromen. Die Genetik sorgt für eine ausgewogene Wirkung auf Körper und Geist. Feminonisierte Samen für eine verlässliche Ernte harzreicher weiblicher Blüten.",
     "descriptionSource": "docs/produktbeschreibungen/produktkatalog_full.html",
     "priceEUR": null,
-    "packVariants": [],
-    "releaseStatus": "Entwurf"
+    "packVariants": [
+      {
+        "quantity": 1,
+        "priceEUR": 5.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 3,
+        "priceEUR": 16.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 5,
+        "priceEUR": 26.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 10,
+        "priceEUR": 49.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      }
+    ],
+    "releaseStatus": "Entwurf",
+    "priceDraft": {
+      "proposedPriceEUR": 16.9,
+      "proposedPackQuantity": 3,
+      "status": "Entwurf",
+      "basis": "Criminal Seeds feminisiert 3er-Pack 14,99 €; SEED³X-Preisstufen vorläufige eigene Preisentscheidung.",
+      "pricingScope": "SEED³X eigener Verkaufspreis – Preisentwurf für interne Prüfung",
+      "purchaseCostEUR": null,
+      "targetMarginPercent": null,
+      "marginCheckStatus": "Nicht Bestandteil dieser Runde",
+      "packSizeCheckStatus": "Packungsstufen 1, 3, 5 und 10 als Entwurf hinterlegt",
+      "notes": [
+        "Preisstufen sind Entwürfe und können vor Freigabe geändert werden.",
+        "Keine Einkaufskosten oder Margenangaben erfasst.",
+        "Produkt bleibt unveröffentlicht und nicht zum Kauf freigegeben."
+      ]
+    }
   },
   {
     "id": "seed-0063",
@@ -866,13 +950,46 @@
     "description": "Amnesia Haze in der Variante Feminized überzeugt mit spritzigen Zitrus- und Weihraucharomen. Die Genetik sorgt für ein belebendes, klares Kopf-High. Feminonisierte Samen für eine verlässliche Ernte harzreicher weiblicher Blüten.",
     "descriptionSource": "docs/produktbeschreibungen/produktkatalog_full.html",
     "priceEUR": null,
-    "packVariants": [],
+    "packVariants": [
+      {
+        "quantity": 1,
+        "priceEUR": 10.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 3,
+        "priceEUR": 29.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 5,
+        "priceEUR": 44.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 10,
+        "priceEUR": 79.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      }
+    ],
     "releaseStatus": "Entwurf",
     "priceDraft": {
       "proposedPriceEUR": 29.9,
       "proposedPackQuantity": 3,
-      "status": "Prüfung",
-      "basis": "Vorläufige Preis-Hypothese nahe dem beobachteten Marken-3er-Pack; kein freigegebener SEED³X-Verkaufspreis.",
+      "status": "Entwurf",
+      "basis": "Barney’s Farm feminisiert 3er-Pack 27,19 €; vorgeschlagener SEED³X-3er 29,90 €.",
       "referenceOffers": [
         {
           "merchant": "Bloomtech",
@@ -906,12 +1023,14 @@
       ],
       "purchaseCostEUR": null,
       "targetMarginPercent": null,
-      "marginCheckStatus": "Offen",
-      "packSizeCheckStatus": "Offen",
+      "marginCheckStatus": "Nicht Bestandteil dieser Runde",
+      "packSizeCheckStatus": "Packungsstufen 1, 3, 5 und 10 als Entwurf hinterlegt",
       "notes": [
-        "Preis erst nach Prüfung von tatsächlichem Einkaufspreis, Nebenkosten, Zielmarge und tatsächlich angebotener Packungsgröße freigeben.",
-        "Das Katalogprodukt nennt derzeit keinen konkreten Züchter; die Markenangebote sind Marktvergleiche und kein Nachweis für ein identisches Produkt."
-      ]
+        "Preisstufen sind Entwürfe und können vor Freigabe geändert werden.",
+        "Keine Einkaufskosten oder Margenangaben erfasst.",
+        "Produkt bleibt unveröffentlicht und nicht zum Kauf freigegeben."
+      ],
+      "pricingScope": "SEED³X eigener Verkaufspreis – Preisentwurf für interne Prüfung"
     }
   },
   {
@@ -1613,8 +1732,57 @@
     "description": "Black Domina in der Variante Feminized überzeugt mit komplexen, würzig-süßen Terpenaromen. Die Genetik sorgt für eine ausgewogene Wirkung auf Körper und Geist. Feminonisierte Samen für eine verlässliche Ernte harzreicher weiblicher Blüten.",
     "descriptionSource": "docs/produktbeschreibungen/produktkatalog_full.html",
     "priceEUR": null,
-    "packVariants": [],
-    "releaseStatus": "Entwurf"
+    "packVariants": [
+      {
+        "quantity": 1,
+        "priceEUR": 10.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 3,
+        "priceEUR": 29.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 5,
+        "priceEUR": 44.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 10,
+        "priceEUR": 79.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      }
+    ],
+    "releaseStatus": "Entwurf",
+    "priceDraft": {
+      "proposedPriceEUR": 29.9,
+      "proposedPackQuantity": 3,
+      "status": "Entwurf",
+      "basis": "Noch kein konkreter Vergleichsbeleg in Runde 03; Preisstufen sind reine Arbeitsentwürfe zur Prüfung.",
+      "pricingScope": "SEED³X eigener Verkaufspreis – Preisentwurf für interne Prüfung",
+      "purchaseCostEUR": null,
+      "targetMarginPercent": null,
+      "marginCheckStatus": "Nicht Bestandteil dieser Runde",
+      "packSizeCheckStatus": "Packungsstufen 1, 3, 5 und 10 als Entwurf hinterlegt",
+      "notes": [
+        "Preisstufen sind Entwürfe und können vor Freigabe geändert werden.",
+        "Keine Einkaufskosten oder Margenangaben erfasst.",
+        "Produkt bleibt unveröffentlicht und nicht zum Kauf freigegeben."
+      ]
+    }
   },
   {
     "id": "seed-0120",
@@ -1925,8 +2093,57 @@
     "description": "Blue Dream in der Variante Feminized überzeugt mit intensiven fruchtigen Nuancen. Die Genetik sorgt für stimmungsaufhellende Frische. Feminonisierte Samen für eine verlässliche Ernte harzreicher weiblicher Blüten.",
     "descriptionSource": "docs/produktbeschreibungen/produktkatalog_full.html",
     "priceEUR": null,
-    "packVariants": [],
-    "releaseStatus": "Entwurf"
+    "packVariants": [
+      {
+        "quantity": 1,
+        "priceEUR": 10.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 3,
+        "priceEUR": 29.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 5,
+        "priceEUR": 44.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      },
+      {
+        "quantity": 10,
+        "priceEUR": 79.9,
+        "releaseStatus": "Entwurf",
+        "priceType": "proposed-retail-price",
+        "currency": "EUR",
+        "note": "Vorläufiger Preisentwurf – nicht freigegeben."
+      }
+    ],
+    "releaseStatus": "Entwurf",
+    "priceDraft": {
+      "proposedPriceEUR": 29.9,
+      "proposedPackQuantity": 3,
+      "status": "Entwurf",
+      "basis": "Noch kein konkreter Vergleichsbeleg in Runde 03; Preisstufen sind reine Arbeitsentwürfe zur Prüfung.",
+      "pricingScope": "SEED³X eigener Verkaufspreis – Preisentwurf für interne Prüfung",
+      "purchaseCostEUR": null,
+      "targetMarginPercent": null,
+      "marginCheckStatus": "Nicht Bestandteil dieser Runde",
+      "packSizeCheckStatus": "Packungsstufen 1, 3, 5 und 10 als Entwurf hinterlegt",
+      "notes": [
+        "Preisstufen sind Entwürfe und können vor Freigabe geändert werden.",
+        "Keine Einkaufskosten oder Margenangaben erfasst.",
+        "Produkt bleibt unveröffentlicht und nicht zum Kauf freigegeben."
+      ]
+    }
   },
   {
     "id": "seed-0144",
