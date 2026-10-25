@@ -52,6 +52,24 @@ test("draft catalog product is rejected even when price fields exist", () => {
   assert.equal(result.code, "PRODUCT_NOT_RELEASED");
 });
 
+
+test("missing release metadata fails closed", () => {
+  const missingStatus = { ...releasedProduct };
+  delete missingStatus.status;
+  assert.equal(validateCartLine({ id: missingStatus.id, packSize: 1, quantity: 1, unitPrice: 8.49 }, [missingStatus]).code, "PRODUCT_NOT_RELEASED");
+
+  const missingReleaseStatus = { ...releasedProduct };
+  delete missingReleaseStatus.releaseStatus;
+  assert.equal(validateCartLine({ id: missingReleaseStatus.id, packSize: 1, quantity: 1, unitPrice: 8.49 }, [missingReleaseStatus]).code, "PRODUCT_NOT_RELEASED");
+});
+
+test("conflicting release metadata fails closed", () => {
+  const conflict = { ...releasedProduct, status: "Freigegeben", releaseStatus: "Entwurf" };
+  const result = validateCartLine({ id: conflict.id, packSize: 1, quantity: 1, unitPrice: 8.49 }, [conflict]);
+  assert.equal(result.ok, false);
+  assert.equal(result.code, "PRODUCT_NOT_RELEASED");
+});
+
 test("cart subtotal is integer cents and any invalid line rejects the cart", () => {
   const result = validateCart([
     { id: "seed-0001", packSize: 1, quantity: 2, unitPrice: 8.49 },
