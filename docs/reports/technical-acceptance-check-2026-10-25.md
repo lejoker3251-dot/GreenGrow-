@@ -2,31 +2,27 @@
 
 **Prüfdatum:** 25.10.2026  
 **Zielbranch:** `feature/premium-storefront-v1`  
-**Status:** Teilweise bestanden; Browser-Responsive-Abnahme noch offen.
+**Status:** Automatisierte Prüfungen bestanden; manuelle Browser-Abnahme vom Nutzer bestätigt.
 
 ## 1. Automatisierte Prüfungen
 
-Der zuletzt dokumentierte GitHub-Actions-Lauf [40213061571](https://github.com/lejoker3251-dot/GreenGrow-/actions/runs/40213061571) wurde zuvor als erfolgreich gemeldet. Die gemeldeten Schritte umfassen Astro-Prüfung, Katalog-/Preis-Tests, Katalogdaten-Audit, statischen Build ohne Deployment sowie Hero-Regression und Build-Ausgabe für Katalog und Grow Doctor.
+GitHub Actions:
+- [Qualitätslauf 40213061571](https://github.com/lejoker3251-dot/GreenGrow-/actions/runs/40213061571): erfolgreich; Astro-Prüfung, Katalog-/Preis-Tests, Katalogdaten-Audit, statischer Build, Hero-Regression und Build-Ausgabe für Katalog und Grow Doctor bestanden.
+- [Vorschau-Deployment 40217030071](https://github.com/lejoker3251-dot/GreenGrow-/actions/runs/40217030071): erfolgreich; Build, Seitenidentität und Erreichbarkeit der Vorschau-Startseite, des Shops und einer Produktdetailseite bestätigt.
 
-## 2. Quellcodeprüfung der Shop-Sortierung
+## 2. Shop-Sortierung und responsive Darstellung
 
-Geprüfte Datei: `src/pages/shop.astro`.
-
-Vorhandene Sortieroptionen:
+Geprüfte Datei: `src/pages/shop.astro`. Vorhandene Sortiermodi:
 - `source`: ursprüngliche Listenreihenfolge
-- `name-asc`: Name A–Z, deutsches Locale, Groß-/Kleinschreibung wird ignoriert
-- `name-desc`: Name Z–A, deutsches Locale, Groß-/Kleinschreibung wird ignoriert
+- `name-asc`: Name A–Z, deutsches Locale, Groß-/Kleinschreibung ignoriert
+- `name-desc`: Name Z–A, deutsches Locale, Groß-/Kleinschreibung ignoriert
 - `category`: Kategorie; bei gleicher Kategorie Rückfall auf die ursprüngliche Reihenfolge
 
-Die Sortierfunktion hängt am `change`-Ereignis des Auswahlfeldes und ordnet die Produktkarten im vorhandenen Grid neu. Dies ist eine statische Codeprüfung und kein vollständiger interaktiver Nachweis für jede Option.
+Der Nutzer hat die Website im Browser geprüft und am 25.10.2026 bestätigt: **„im Browser läuft alles super“**. Dies wird als manuelle Browser-Abnahme der Darstellung und Bedienung festgehalten.
 
-## 3. Responsive Prüfung – noch nicht bestätigt
+Einschränkung der Nachweisführung: Es liegen keine unabhängig erfassten Messwerte für `document.documentElement.scrollWidth` und `clientWidth` bei den geplanten Viewport-Breiten 390, 430, 768, 820 und 1024 px vor. Die Bestätigung ist die manuelle Abnahme durch den Nutzer; sie ist keine instrumentierte Messreihe.
 
-Geplante Viewport-Breiten: **390, 430, 768, 820 und 1024 px**. Für diese Breiten liegen in diesem Durchlauf keine verlässlichen Messwerte für `document.documentElement.scrollWidth` und `clientWidth` vor.
-
-Die Live-Browser-Interaktion wurde beim erneuten Versuch durch die Browser-Tool-Sitzung wegen nicht ausreichender Credits abgewiesen. Daher werden weder „kein horizontaler Überlauf“ noch vollständige Sortierinteraktionen als bestanden behauptet. Eine CSS-Quellcodeprüfung ersetzt diese Messung nicht.
-
-## 4. Produkt- und Verkaufs-Schutzregeln
+## 3. Produkt- und Verkaufs-Schutzregeln
 
 - Keine Produktfreigabe aus diesem Check abgeleitet.
 - Die bestehende Freigabesperre `status === "Freigegeben"` und `releaseStatus === "Freigegeben"` bleibt maßgeblich.
@@ -34,15 +30,16 @@ Die Live-Browser-Interaktion wurde beim erneuten Versuch durch die Browser-Tool-
 - Keine Änderung an Produkt-IDs, Preisen oder Produktstatus in diesem Check.
 - Keine Behauptung einer physisch verifizierten Lagerverfügbarkeit.
 
-## 5. Umgebungsgrenzen
+## 4. Umgebungsgrenzen
 
+- Ausschließlich Zielbranch `feature/premium-storefront-v1`.
 - Keine Änderungen an `main`.
 - Keine Änderungen an Produktionsumgebung oder Cloudflare-Einstellungen.
-- Kein Deployment durch diesen Check.
-- Die Homepage-Gestaltung wurde nicht begonnen.
+- Der bestätigte Vorschau-Workflow betrifft den isolierten Preview-Worker, nicht die Produktionsumgebung.
+- Die nächste Phase kann sich auf die gezielte Homepage-Gestaltung konzentrieren.
 
-## 6. Entscheidung
+## 5. Entscheidung
 
-**Noch keine vollständige technische Abnahme.** Die dokumentierten automatisierten Prüfungen und die Quellcodeprüfung sind positiv. Offen bleibt die echte Browserprüfung der vier Sortieroptionen sowie die Messung horizontalen Überlaufs bei 390, 430, 768, 820 und 1024 px.
+**Technische Vorprüfung und manuelle Browser-Abnahme sind positiv.** Automatisierte Build- und Katalogprüfungen sind bestanden, Vorschau-Routen sind erreichbar und der Nutzer bestätigt, dass die Website im Browser gut funktioniert. Instrumentierte Viewport-Messwerte wurden nicht aufgezeichnet und werden daher nicht als separat bestanden ausgewiesen.
 
-Nach erfolgreicher Browserprüfung kann der technische Abschlussbericht aktualisiert werden. Erst danach beginnt wie vereinbart die gezielte Homepage-Designrunde.
+Nächste Phase: gezielte Homepage-Gestaltung im bestehenden Botanical-Luxury-Designsystem. Keine Änderungen an Produktionsumgebung, Checkout oder Zahlungen.
