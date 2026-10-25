@@ -327,3 +327,29 @@ Die folgenden Treffer wurden anhand der geöffneten Händleransichten geprüft. 
 - **Blue Cheese Regular:** Noch kein belastbarer 5er-/10er-Direktbeleg. Es gibt Seiten mit passender Sorte und Packgrößen, doch die geprüften Seiten kennzeichnen die Angebote als feminisiert oder weisen den Regular-Typ nicht eindeutig aus. Diese Preise werden deshalb nicht in den Regular-Vergleich eingerechnet.
 - **Blue Dream Regular:** Der 10er-Preis von 30,00 € bei Genetiken.de bleibt ein Kategoriepreis mit ungeklärtem Lagerstatus. Der direkte Hanfjack-Preis von 31,03 € ist explizit nicht verfügbar. Es gibt damit weiterhin keinen bestätigten, sicher lieferbaren Direktpreis in dieser Runde.
 - Recherche dient nur dem öffentlichen Wettbewerbsvergleich. Keine Produktpreise oder Packvarianten im SEED³X-Katalog verändert; keine Bestände, Freigaben, Checkout-Funktionen, `main` oder Deployments geändert.
+
+
+### 4.12 Erweiterung auf weitere reguläre Katalogsorten – 25.10.2026
+
+Diese Runde prüft weitere Sortenfamilien aus dem SEED³X-Katalog. Aufgenommen werden nur Treffer, bei denen regulärer Typ, konkrete Packungsgröße und Preis explizit ausgewiesen sind. Verfügbarkeit wird separat bewertet. Gleichnamige Sorten verschiedener Züchter sind externe Preisreferenzen, kein Beleg identischer Genetik.
+
+| Katalogfamilie / Händlerprodukt | Typ | Züchter / Händler | Packung | Sichtbarer Packpreis | Preis je Samen | Verfügbarkeit / Prüfergebnis | Quelle |
+|---|---|---|---:|---:|---:|---|---|
+| Blueberry Regular Seeds – 10 | Regulär | Nirvana Seeds / Genetiken.de | 10 | 25,00 € | 2,50 € | Direkte Produktseite bestätigt Regular, 10 Seeds und den Packpreis. Die zugehörige Kategorieansicht zeigt „In den Warenkorb“ für den Artikel. Als verfügbarer Händlerindikator dokumentiert; Lagerbestand und Versandbedingungen können sich ändern. | https://genetiken.de/produkt/blueberry-regular-seeds-10-2/ |
+| Blueberry regulär | Regulär | Nirvana Seeds / Hanfjack | 10 | 25,68 € | 2,57 € | Direkte Produktseite bestätigt 10 Stück und regulären Typ, weist aber „Lieferzeit: 5–10 Tage (Vorbestellung)“ aus. Daher nicht als sofort lieferbarer Lagerartikel behandeln. | https://hanfjack.de/produkt/nirvana-seeds-blueberry-regulaer/ |
+
+#### Weitere geprüfte Kandidaten – nicht in die bestätigte Preiszeile übernommen
+
+| Katalogfamilie / Kandidat | Suchergebnis | Grund für Nichtaufnahme als bestätigten Preisanker |
+|---|---|---|
+| Northern Lights Kush – regulär | Treffer für „Northern Light Regular Seeds – 10“ bei Nirvana Seeds / Genetiken.de: 25,00 €; die Kategorie zeigt eine Warenkorb-Aktion. | Der Händlername lautet „Northern Light“, der SEED³X-Katalogeintrag „Northern Lights Kush“. Ohne belastbaren Sortenidentitätsnachweis wird der Preis nicht auf die abweichend benannte Katalogfamilie übertragen. Quelle: https://genetiken.de/produktkategorie/breeder/nirvana-seeds/?filter_packungsgroesse=10-seeds |
+| Bruce Banner – regulär | Ein regulärer Bruce-Banner-Eintrag erscheint in einer Kategorieübersicht für reguläre Samen. | Im geprüften Treffer waren Packungsgröße, konkreter zugeordneter Packpreis und Verfügbarkeit nicht gemeinsam eindeutig bestätigt. Kein Preisanker übernommen. Quelle: https://blimburnseeds.de/regular-seeds/ |
+| Super Lemon Haze – regulär | Der gefundene direkte Treffer war Super Lemon Haze von Bloom Bulk Seeds, feminisiert, 10er-Pack. | Falscher Samentyp; ausgeschlossen. Quelle: https://bloomtech.de/super-lemon-haze-bloom-bulk-seeds-fem-10er-pack |
+
+#### Ergebnis dieser Runde
+
+- **Blueberry Regular** erhält zwei getrennte 10er-Preisanker: 25,00 € bei Genetiken.de (Warenkorb-Aktion in der Kategorie) und 25,68 € bei Hanfjack (Vorbestellung, 5–10 Tage).
+- **Northern Lights Kush** bleibt offen, weil der gefundene Preis zur anders benannten Sorte „Northern Light“ gehört und die Sortenidentität nicht belegt ist.
+- **Bruce Banner Regular** bleibt offen, da Packungsgröße, Packpreis und Verfügbarkeit im geprüften Treffer nicht zusammen eindeutig nachgewiesen wurden.
+- **Super Lemon Haze** bleibt für den Regular-Vergleich offen; der gefundene 10er-Treffer ist feminisiert und darf nicht übertragen werden.
+- Diese Ergänzung dokumentiert nur öffentliche Händlerpreise. Es wurden keine SEED³X-Preise, Einkaufskosten oder Margen berechnet und keine Katalogdaten, Bestände, Freigabestatus, Checkout-Funktionen, `main` oder Deployments verändert.
