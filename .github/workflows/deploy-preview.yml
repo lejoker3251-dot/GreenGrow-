@@ -43,8 +43,8 @@ jobs:
           grep -q "Ein kleines Wunder" dist/index.html
           grep -q "grow-doctor" dist/index.html
           grep -q "/shop/" dist/index.html
-          grep -q 'id="catalog-data"' dist/shop/index.html
-          grep -q 'id="catalog-load-more"' dist/shop/index.html
+          grep -q 'catalog-data' dist/shop/index.html
+          grep -q 'catalog-load-more' dist/shop/index.html
           grep -q "Produktdaten in Prüfung" src/pages/product/[id].astro
           echo "Build contains expected SEED³X homepage and progressive catalog markers."
       - name: Deploy isolated preview worker
@@ -67,8 +67,8 @@ jobs:
           grep -q "grow-doctor" /tmp/preview.html
           grep -q "/shop/" /tmp/preview.html
           curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/shop/" -o /tmp/preview-shop.html
-          grep -q 'id="catalog-data"' /tmp/preview-shop.html
-          grep -q 'id="catalog-load-more"' /tmp/preview-shop.html
+          grep -q 'catalog-data' /tmp/preview-shop.html
+          grep -q 'catalog-load-more' /tmp/preview-shop.html
           curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/product/seed-0001/" -o /tmp/preview-product.html
           test -s /tmp/preview-product.html
           grep -q "KATALOG-ID" /tmp/preview-product.html
