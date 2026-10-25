@@ -265,6 +265,8 @@ const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-fi
   .shop-catalog .search-box{max-width:none}
   .shop-catalog .filter-row{margin:.5rem 0}
   .shop-catalog .product-grid{gap:1rem}
+  /* Keep the large catalog responsive while scrolling: defer off-screen card layout/paint. */
+  .shop-catalog .product-card{content-visibility:auto;contain-intrinsic-size:auto 680px}
   .pack-price-preview{margin:1rem 0;padding:.85rem;border:1px solid var(--line);border-radius:12px;background:#fffdf8}.pack-price-heading{display:block;margin-bottom:.6rem;color:#8a641b;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.pack-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}.pack-price-option{display:flex;align-items:center;justify-content:space-between;gap:.4rem;padding:.55rem .6rem;border-radius:8px;background:#f4f1e8;font-size:.8rem}.pack-price-option strong{color:var(--green);font-variant-numeric:tabular-nums;white-space:nowrap}
   .shop-catalog .product-image-link{display:block;color:inherit;text-decoration:none;cursor:pointer}\n  .shop-catalog .product-image-link:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:12px}\n  .shop-catalog .product-card{box-shadow:0 6px 20px #20362a06}
   .shop-catalog .product-card:hover{box-shadow:0 18px 42px #20362a12}
