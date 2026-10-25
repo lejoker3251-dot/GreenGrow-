@@ -167,8 +167,7 @@ const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-fi
       button.setAttribute('aria-pressed', String(isSaved));
       button.textContent = isSaved ? '✓ Gemerkt' : '+ Merken';
     });
-    const savedCount = document.querySelector('#cart-count');
-    if (savedCount) savedCount.textContent = String(savedIds.size);
+    /* The header count belongs to the shopping cart, not the separate favorites list. */
   }
   function updateProducts() {
     const query = (search?.value || '').trim().toLocaleLowerCase('de');
