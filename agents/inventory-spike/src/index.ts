@@ -6,6 +6,7 @@ declare global {
   interface Env {
     INVENTORY_LEDGER: DurableObjectNamespace<InventoryLedger>;
     SPIKE_TEST_MODE?: string;
+    RESERVATION_TTL_SECONDS?: string;
   }
 }
 
@@ -40,7 +41,7 @@ function parseLines(value: unknown): { ok: true; requirements: Requirement[] } |
   return { ok: true, requirements: [...totals].map(([productId, seedsRequired]) => ({ productId, seedsRequired })) };
 }
 
-export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }> {
+export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string; RESERVATION_TTL_SECONDS?: string }> {
   private readonly sql: SqlStorage;
 
   constructor(ctx: DurableObjectState, env: { SPIKE_TEST_MODE?: string }) {
