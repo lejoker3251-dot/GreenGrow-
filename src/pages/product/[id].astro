@@ -52,7 +52,7 @@ const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten wer
         <div><dt>Datenstatus</dt><dd><span class="inline-draft">Noch in Prüfung</span></dd></div>
       </dl>
 
-      {product.packVariants?.length > 0 && <section class="draft-pack-prices" aria-labelledby="draft-pack-prices-title"><span class="eyebrow">Preisstruktur · Entwurf</span><h2 id="draft-pack-prices-title">Packungsgrößen</h2><p>Die folgenden Preise sind interne Preisentwürfe und noch nicht zum Kauf freigegeben.</p><div class="draft-pack-price-grid">{product.packVariants.map((variant) => <div class="draft-pack-price"><span>{variant.quantity} {variant.quantity === 1 ? 'Samen' : 'Samen'}</span><strong>{variant.priceEUR.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</strong><small>Entwurf · nicht freigegeben</small></div>)}</div></section>}
+      {product.packVariants?.length > 0 && <section class="draft-pack-prices" aria-labelledby="draft-pack-prices-title"><span class="eyebrow">Preisstruktur · Entwurf</span><h2 id="draft-pack-prices-title">Packungsgröße wählen</h2><p>Wähle eine Packungsgröße im Menü, um den dazugehörigen vorläufigen Preis zu sehen. Alle Preise sind Entwürfe und noch nicht zum Kauf freigegeben.</p><label class="pack-size-label" for="pack-size-select">Deine Packungsgröße</label><select id="pack-size-select" class="pack-size-select" aria-describedby="selected-pack-price-note"><option value="">Packungsgröße auswählen</option>{product.packVariants.map((variant) => <option value={variant.quantity} data-price={variant.priceEUR}>{variant.quantity} {variant.quantity === 1 ? 'Samen' : 'Samen'} · {variant.priceEUR.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</option>)}</select><div class="selected-pack-price" aria-live="polite" aria-atomic="true"><span id="selected-pack-price-label">Bitte Packungsgröße auswählen</span><strong id="selected-pack-price-value">—</strong></div><small id="selected-pack-price-note" class="selected-pack-price-note">Preisvorschau · nicht freigegeben · keine Bestellung möglich</small></section>}
 
       <section class="product-description-block" aria-labelledby="product-description-title">
         <span class="eyebrow">Katalogangabe</span>
@@ -76,8 +76,26 @@ const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten wer
   </section>
 </Layout>
 
+<script>
+  const packSizeSelect = document.querySelector<HTMLSelectElement>('#pack-size-select');
+  const selectedPackLabel = document.querySelector<HTMLElement>('#selected-pack-price-label');
+  const selectedPackValue = document.querySelector<HTMLElement>('#selected-pack-price-value');
+  packSizeSelect?.addEventListener('change', () => {
+    const option = packSizeSelect.selectedOptions[0];
+    const quantity = option?.value;
+    const price = option?.dataset.price;
+    if (!quantity || !price || !selectedPackLabel || !selectedPackValue) {
+      if (selectedPackLabel) selectedPackLabel.textContent = 'Bitte Packungsgröße auswählen';
+      if (selectedPackValue) selectedPackValue.textContent = '—';
+      return;
+    }
+    selectedPackLabel.textContent = quantity + (quantity === '1' ? ' Samen ausgewählt' : ' Samen ausgewählt');
+    selectedPackValue.textContent = Number(price).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+  });
+</script>
+
 <style>
-  .draft-pack-prices{margin:1.4rem 0;padding:1.1rem;border:1px solid var(--line);border-radius:16px;background:#fffdf8}.draft-pack-prices h2{margin:.4rem 0;font-size:1.5rem}.draft-pack-prices>p{color:var(--muted);font-size:.9rem;line-height:1.6}.draft-pack-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.draft-pack-price{display:flex;flex-direction:column;gap:.35rem;padding:.8rem;border-radius:10px;background:#f3f0e7}.draft-pack-price strong{font-size:1.25rem;color:var(--green);font-variant-numeric:tabular-nums}.draft-pack-price small{color:#8a641b;font-size:.68rem}
+  .draft-pack-prices{margin:1.4rem 0;padding:1.1rem;border:1px solid var(--line);border-radius:16px;background:#fffdf8}.draft-pack-prices h2{margin:.4rem 0;font-size:1.5rem}.draft-pack-prices>p{color:var(--muted);font-size:.9rem;line-height:1.6}.pack-size-label{display:block;margin:1rem 0 .45rem;color:#344b38;font-size:.85rem;font-weight:750}.pack-size-select{display:block;width:100%;min-height:50px;padding:.75rem 2.5rem .75rem .85rem;border:1px solid #bdc8b7;border-radius:10px;background:#fffefa;color:#263b2b;font:inherit;font-size:.95rem}.pack-size-select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.selected-pack-price{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.85rem;padding:1rem;border-radius:10px;background:#f3f0e7}.selected-pack-price span{color:#526351;font-size:.88rem;line-height:1.5}.selected-pack-price strong{color:var(--green);font-size:1.55rem;font-variant-numeric:tabular-nums;white-space:nowrap}.selected-pack-price-note{display:block;margin-top:.65rem;color:#8a641b;font-size:.75rem;line-height:1.5}
   .product-detail-top{padding:1.2rem clamp(1rem,6vw,6rem) 0;background:#fbfaf5}
   .product-breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;color:#718071;font-size:.82rem;line-height:1.6}
   .product-breadcrumbs a{color:#315a3d;text-decoration:none;text-underline-offset:3px}
