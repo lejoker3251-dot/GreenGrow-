@@ -43,8 +43,9 @@ jobs:
           grep -q "Ein kleines Wunder" dist/index.html
           grep -q "grow-doctor" dist/index.html
           grep -q "/shop/" dist/index.html
-          grep -q 'catalog-data' dist/shop/index.html
-          grep -q 'catalog-load-more' dist/shop/index.html
+          echo "Checking progressive catalog output:"
+          if grep -q 'catalog-data' dist/shop/index.html; then echo "catalog-data marker: present"; else echo "catalog-data marker: MISSING"; grep -n -m 3 'catalog' dist/shop/index.html || true; exit 1; fi
+          if grep -q 'catalog-load-more' dist/shop/index.html; then echo "catalog-load-more marker: present"; else echo "catalog-load-more marker: MISSING"; grep -n -m 3 'Mehr anzeigen\|load-more\|catalog' dist/shop/index.html || true; exit 1; fi
           echo "Build contains expected SEED³X homepage and progressive catalog markers."
       - name: Deploy isolated preview worker
         env:
