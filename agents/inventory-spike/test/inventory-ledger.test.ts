@@ -117,6 +117,26 @@ describe("isolated SQLite inventory reservation", () => {
     expect(noExtraStock.status).toBe(409);
   });
 
+  it("persists reserved stock across separate requests and restores it after expiry", async () => {
+    const productId = `expiry_${crypto.randomUUID().slice(0, 8)}`;
+    await seed([{ productId, quantity: 4 }]);
+    const created = await post("/reserve", { idempotencyKey: key(), lines: [line(productId, 1, 4)] });
+    expect(created.status).toBe(200);
+    const { reservationId } = await created.json() as { reservationId: string };
+
+    // A separate stub/request observes the same persistent Durable Object storage.
+    const blocked = await post("/reserve", { idempotencyKey: key(), lines: [line(productId, 1, 1)] });
+    expect(blocked.status).toBe(409);
+
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    const afterExpiry = await post("/reserve", { idempotencyKey: key(), lines: [line(productId, 1, 4)] });
+    expect(afterExpiry.status).toBe(200);
+
+    const replayOld = await post("/release", { reservationId });
+    expect(replayOld.status).toBe(409);
+    expect((await replayOld.json() as { status: string }).status).toBe("expired");
+  });
+
   it("rejects invalid quantities and responds to the local health check", async () => {
     const invalid = await post("/reserve", { idempotencyKey: key(), lines: [line("invalid", 1, 0)] });
     expect(invalid.status).toBe(400);
