@@ -1,4 +1,4 @@
-import { env } from "cloudflare:test";
+import { env } from "cloudflare:workers";
 import { describe, it, expect } from "vitest";
 
 const stub = () => env.INVENTORY_LEDGER.get(env.INVENTORY_LEDGER.idFromName("inventory-spike-tests"));
