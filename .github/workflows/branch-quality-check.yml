@@ -27,6 +27,8 @@ jobs:
         run: npx astro check
       - name: Catalog pricing and cart validation tests
         run: npm run test:catalog-pricing
+      - name: Catalog data and price anomaly audit
+        run: node scripts/check-shop-data.mjs
       - name: Build static site (no deployment)
         run: npm run build
       - name: Botanical hero regression checks
