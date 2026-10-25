@@ -52,6 +52,8 @@ const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten wer
         <div><dt>Datenstatus</dt><dd><span class="inline-draft">Noch in Prüfung</span></dd></div>
       </dl>
 
+      {product.packVariants?.length > 0 && <section class="draft-pack-prices" aria-labelledby="draft-pack-prices-title"><span class="eyebrow">Preisstruktur · Entwurf</span><h2 id="draft-pack-prices-title">Packungsgrößen</h2><p>Die folgenden Preise sind interne Preisentwürfe und noch nicht zum Kauf freigegeben.</p><div class="draft-pack-price-grid">{product.packVariants.map((variant) => <div class="draft-pack-price"><span>{variant.quantity} {variant.quantity === 1 ? 'Samen' : 'Samen'}</span><strong>{variant.priceEUR.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</strong><small>Entwurf · nicht freigegeben</small></div>)}</div></section>}
+
       <section class="product-description-block" aria-labelledby="product-description-title">
         <span class="eyebrow">Katalogangabe</span>
         <h3 id="product-description-title">Produktbeschreibung</h3>
@@ -75,6 +77,7 @@ const description = 'Entwurfsansicht für ' + product.name + '. Produktdaten wer
 </Layout>
 
 <style>
+  .draft-pack-prices{margin:1.4rem 0;padding:1.1rem;border:1px solid var(--line);border-radius:16px;background:#fffdf8}.draft-pack-prices h2{margin:.4rem 0;font-size:1.5rem}.draft-pack-prices>p{color:var(--muted);font-size:.9rem;line-height:1.6}.draft-pack-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.draft-pack-price{display:flex;flex-direction:column;gap:.35rem;padding:.8rem;border-radius:10px;background:#f3f0e7}.draft-pack-price strong{font-size:1.25rem;color:var(--green);font-variant-numeric:tabular-nums}.draft-pack-price small{color:#8a641b;font-size:.68rem}
   .product-detail-top{padding:1.2rem clamp(1rem,6vw,6rem) 0;background:#fbfaf5}
   .product-breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;color:#718071;font-size:.82rem;line-height:1.6}
   .product-breadcrumbs a{color:#315a3d;text-decoration:none;text-underline-offset:3px}
