@@ -63,14 +63,13 @@ const description = product.name + ' im SEED³X Katalog mit Preisen für 1, 3, 5
       <section class="product-description-block" aria-labelledby="product-description-title">
         <span class="eyebrow">Katalogangabe</span>
         <h3 id="product-description-title">Produktbeschreibung</h3>
-        <p>Dieser Katalogeintrag ist unter dem Namen <strong>{product.name}</strong> und der Kategorie <strong>{product.category}</strong> erfasst. Eine individuelle Sortenbeschreibung wird erst veröffentlicht, wenn sie anhand verlässlicher Züchter- oder Herstellerangaben geprüft wurde.</p>
-        <p>Derzeit sind Aromaprofil, Wirkung, Ertrag, Blütezeit und weitere sortenspezifische Eigenschaften nicht unabhängig bestätigt. Deshalb werden diese Angaben hier nicht als Tatsachen dargestellt.</p>
-        <p class="description-source-note">Quelle: bereitgestellter Produktkatalog. Inhalt und Sortenmerkmale sind noch nicht unabhängig verifiziert.</p>
+        {product.description ? <p class="product-description-text">{product.description}</p> : <p>Für diesen Katalogeintrag ist derzeit keine Beschreibung hinterlegt.</p>}
+        <p class="description-source-note">Beschreibung aus dem eingebundenen SEED³X-Produktkatalog.</p>
       </section>
 
       <div class="review-notice" role="note">
         <strong>Produktinformationen werden noch geprüft</strong>
-        <p>Herkunft, Sortenmerkmale, Beschreibung und Verfügbarkeit werden separat geprüft. Die angezeigten Preise sind hinterlegt; eine Bestellung ist derzeit noch nicht möglich.</p>
+        <p>Herkunft, Sortenmerkmale, Freigabestatus und Verfügbarkeit werden separat geprüft. Die angezeigten Preise sind hinterlegt; eine Bestellung ist derzeit noch nicht möglich.</p>
       </div>
 
       <div class="product-detail-actions">
