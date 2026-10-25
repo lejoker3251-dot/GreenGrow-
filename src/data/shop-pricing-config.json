@@ -13,9 +13,10 @@
   "checkoutEnabled": false,
   "paymentsEnabled": false,
   "notes": [
-    "Pack sizes 1, 3, 5 and 10 are draft price options only for the five explicitly configured feminized products.",
-    "Displayed variant prices remain Entwurf until explicitly approved.",
-    "Products remain drafts; no order or payment flow is enabled.",
-    "Do not accept orders or payments while checkoutEnabled and paymentsEnabled are false."
+    "All 1,269 catalog products have four entered price tiers: 1, 3, 5 and 10 seeds.",
+    "The single-seed price is stored in priceEUR; packVariants stores all four pack sizes.",
+    "Prices are entered catalog values and may be adjusted by the owner.",
+    "Product details and availability are still under review; no stock availability is implied.",
+    "Checkout and payments remain disabled until separately approved."
   ]
 }
