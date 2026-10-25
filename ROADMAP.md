@@ -1,6 +1,6 @@
 # SEED³X / GreenGrow Seeds – Entwicklungsroadmap
 
-Stand: 25.10.2026 – nach Katalog-/Preis-Audit und CI-Abgleich  
+Stand: 25.10.2026 – nach vollständigem PDF-Namens-/Typabgleich und Katalog-/Preis-Audit  
 Arbeitsbranch: `feature/premium-storefront-v1`  
 Sicherheitsgrenze: Änderungen und Vorschauen ausschließlich auf dem Entwicklungsbranch. `main`, produktive Cloudflare Pages und der bestehende Worker `greengrow` bleiben unverändert, bis eine ausdrückliche Freigabe vorliegt.
 
@@ -21,7 +21,7 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 | Produktdetailseiten | Manuell bestanden (gültige Produktseite) | Nutzer hat eine Produktdetailseite im Preview als bestanden bestätigt. Unbekannte IDs/404 und Tastaturbedienung sind noch nicht separat getestet. |
 | Neuheiten und Bestseller | Offen | Benötigen belegte Sortiments-/Verkaufsdaten; nichts als Bestseller markieren, solange keine Daten vorliegen. |
 | Produktdaten und Preise | Teilweise geprüft; Freigabe offen | Für alle 1.269 Einträge sind Preisstufen für 1/3/5/10 Samen hinterlegt. Struktur-/Preis-Audit: 0 fehlende/null/negative Preise, 0 nicht streng steigende Packungspreise, 0 Stückpreis-Anomalien. Markt-/Lieferantenbestätigung, Sortenmerkmale und tatsächlicher Lagerbestand bleiben ungeprüft; alle Produkte bleiben Entwürfe. Bericht: `docs/reports/catalog-price-audit-2026-10-25.md`. |
-| Namensvarianten-Audit | Erste Prüfung abgeschlossen | 1.269 Einträge geprüft: 423 normalisierte Namensgruppen, jeweils genau ein Datensatz je Kategorie; 4 Gruppen mit Schreibvarianten zur manuellen Prüfung dokumentiert in `reports/seed-name-variant-audit.md`. Keine Namen geändert oder Datensätze zusammengeführt. |
+| Namensvarianten- und Original-PDF-Abgleich | Namen/Typen abgeglichen; finale Datenfreigabe offen | Alle 1.269 Katalogeinträge wurden in Reihenfolge mit `Seed List Full .pdf` aus der ChatGPT-Bibliothek verglichen: 1.269/1.269 Übereinstimmungen nach Normalisierung, 0 Abweichungen. Die vier Schreibvarianten-Gruppen sind bereits in der PDF vorhanden. Keine Namen geändert oder Datensätze zusammengeführt. PDF belegt keine Beschreibungen, Preise, Bilder oder Bestände. Bericht: `docs/reports/catalog-content-audit-2026-10-25.md`. |
 | Ratgeber-Navigation | Teilweise umgesetzt | Wissensübersicht vorhanden; tatsächliche Vollständigkeit und fachliche/rechtliche Prüfung der Artikel bleibt offen. |
 | Impressum, Datenschutz, Kontakt und Shop-Recht | Offen | Platzhalter und Angaben vor einer öffentlichen Verkaufsfreigabe überprüfen. |
 | Backend, Bestellungen und Zahlung | Nicht umgesetzt | Absichtlich nicht Teil der Vorschau. Erfordert Architektur- und Sicherheitsentscheidungen. |
@@ -85,9 +85,10 @@ Premium-Storefront im Stil „Botanical Luxury“, responsiv und auf iPad Safari
 - [ ] Unbekannte IDs/404 und Rücknavigation separat prüfen.
 
 ### Stufe 3 – Datenqualität und redaktionelle Freigabe
-- [ ] Produktdaten aus verlässlichen Quellen ergänzen, Quellen und Prüfstatus erfassen; der Preis-Audit bestätigt nur Struktur/Konsistenz, nicht Lieferantenpreise oder Produktwahrheit.
+- [ ] Produktbeschreibungen und Sortenmerkmale aus unabhängigen Hersteller-/Züchterquellen prüfen, Quellen und Prüfstatus erfassen; der PDF-Abgleich bestätigt nur Namen/Saatentypen, der Preis-Audit nur Struktur/Konsistenz.
 - [x] Namensvarianten-Audit für alle 1.269 Einträge erstellt; 4 Kandidatengruppen dokumentiert, ohne automatische Zusammenführung.
-- [ ] Vier Schreibvarianten anhand Original-PDF/Lieferantenquelle prüfen und erst nach Freigabe vereinheitlichen.
+- [x] Alle 1.269 Namen und Saatentypen gegen `Seed List Full .pdf` abgeglichen: 1.269 Übereinstimmungen, 0 Abweichungen nach Normalisierung; vier Schreibvarianten sind in der Original-PDF ebenfalls vorhanden.
+- [ ] Ob die Original-PDF die aktuelle Lieferantenbezeichnung wiedergibt, unabhängig bestätigen; keine automatische Namensvereinheitlichung.
 - [ ] Schreibvarianten vergleichen, aber nicht ohne menschliche Freigabe zusammenführen.
 - [x] Automatische Prüfung auf 1.269 Einträge, lückenlose IDs, Kategorien, Preisfelder und Preisstaffeln ergänzt; GitHub-Actions-Lauf `40210045210` erfolgreich. 0 Preisauffälligkeiten; Bericht in `docs/reports/catalog-price-audit-2026-10-25.md`.
 - [ ] Neuheiten/Bestseller erst anzeigen, wenn entsprechende Fakten vorhanden sind.
