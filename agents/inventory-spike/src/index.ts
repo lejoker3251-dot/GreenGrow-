@@ -83,6 +83,10 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string; R
       if (this.env.SPIKE_TEST_MODE !== "true") return json({ error: "NOT_FOUND" }, 404);
       return this.seedForTest(request);
     }
+    if (request.method === "GET" && url.pathname === "/__test/inventory") {
+      if (this.env.SPIKE_TEST_MODE !== "true") return json({ error: "NOT_FOUND" }, 404);
+      return json({ items: this.sql.exec("SELECT product_id AS productId, on_hand_seeds AS onHand, reserved_seeds AS reserved FROM inventory ORDER BY product_id").toArray() });
+    }
     if (request.method === "POST" && url.pathname === "/reserve") return this.reserve(request);
     if (request.method === "POST" && url.pathname === "/release") return this.release(request);
     return json({ error: "NOT_FOUND" }, 404);
@@ -112,6 +116,23 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string; R
       }
     });
     return json({ ok: true, seededProducts: normalized.length });
+  }
+
+  async alarm(): Promise<void> {
+    const now = new Date().toISOString();
+    this.ctx.storage.transactionSync(() => this.expireDueReservations(now));
+    await this.scheduleNextExpiry();
+  }
+
+  private async scheduleNextExpiry(): Promise<void> {
+    const next = this.sql.exec<{ expires_at: string }>(
+      "SELECT MIN(expires_at) AS expires_at FROM reservations WHERE status='reserved' AND expires_at IS NOT NULL"
+    ).toArray()[0]?.expires_at;
+    if (!next) {
+      await this.ctx.storage.deleteAlarm();
+      return;
+    }
+    await this.ctx.storage.setAlarm(Math.max(Date.now() + 50, new Date(next).getTime()));
   }
 
   private async reserve(request: Request): Promise<Response> {
@@ -172,6 +193,7 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string; R
       return { kind: "created" as const, reservationId };
     });
 
+    await this.scheduleNextExpiry();
     if (outcome.kind === "conflict") return json({ error: "IDEMPOTENCY_KEY_REUSED_WITH_DIFFERENT_REQUEST" }, 409);
     if (outcome.kind === "unknown-product") return json({ error: "UNKNOWN_PRODUCT", productId: outcome.productId }, 404);
     if (outcome.kind === "insufficient") return json({ error: "INSUFFICIENT_STOCK", ...outcome }, 409);
@@ -225,6 +247,7 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string; R
       this.sql.exec("UPDATE reservations SET status='released', updated_at=? WHERE reservation_id=?", now, body.reservationId as string);
       return { kind: "released" as const };
     });
+    await this.scheduleNextExpiry();
     if (result.kind === "missing") return json({ error: "RESERVATION_NOT_FOUND" }, 404);
     if (result.kind === "already-expired") return json({ ok: true, status: "expired", replay: true }, 409);
     return json({ ok: true, status: "released", replay: result.kind === "already-released" });
