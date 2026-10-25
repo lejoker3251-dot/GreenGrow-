@@ -128,7 +128,12 @@ describe("isolated SQLite inventory reservation", () => {
     const blocked = await post("/reserve", { idempotencyKey: key(), lines: [line(productId, 1, 1)] });
     expect(blocked.status).toBe(409);
 
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    await new Promise((resolve) => setTimeout(resolve, 1400));
+    const inventoryResponse = await stub().fetch("https://inventory.test/__test/inventory");
+    expect(inventoryResponse.status).toBe(200);
+    const inventoryState = await inventoryResponse.json() as { items: Array<{ productId: string; reserved: number }> };
+    expect(inventoryState.items.find((item) => item.productId === productId)?.reserved).toBe(0);
+
     const afterExpiry = await post("/reserve", { idempotencyKey: key(), lines: [line(productId, 1, 4)] });
     expect(afterExpiry.status).toBe(200);
 
