@@ -8,13 +8,13 @@
 
 Der geprüfte Katalog enthält 1.269 Produktdatensätze mit eindeutigen IDs `seed-0001` bis `seed-1269`. Die drei Kategorien enthalten jeweils 423 Datensätze: Autoflowering, Feminisierte Samen und Reguläre Samen.
 
-Auf Anweisung des Eigentümers erhält jedes Produkt einen **Gesamtbestand von 1.000 einzelnen Samen**. Das ergibt rechnerisch 1.269.000 Packungseinheiten über den gesamten Katalog. Die Menge ist je Produkt gemeint, nicht 1.000 je Packungsgröße. Es gibt keine fertig konfektionierten Packungsvarianten im physischen Bestand.
+Auf Anweisung des Eigentümers erhält jedes Produkt einen **Gesamtbestand von 1.000 einzelnen Samen**. Das ergibt rechnerisch 1.269.000 einzelne Samen über den gesamten Katalog. Die Menge ist je Produkt gemeint, nicht 1.000 je Packungsgröße. Es gibt keine fertig konfektionierten Packungsvarianten im physischen Bestand.
 
-Der Bestand ist in `src/data/product-inventory.json` als **vom Eigentümer deklarierter, noch nicht physisch geprüfter Anfangsbestand** erfasst. Es handelt sich nicht um eine unabhängige Lagerzählung. `stockQuantity` zählt Einzelhandels-Packungen, nicht die Anzahl der Samen innerhalb der Packungen.
+Der Bestand ist in `src/data/product-inventory.json` als **vom Eigentümer deklarierter, noch nicht physisch geprüfter Anfangsbestand** erfasst. Es handelt sich nicht um eine unabhängige Lagerzählung. `stockQuantity` zählt einzelne Samen je Produkt, nicht fertige Packungen.
 
 ## 2. Variantenmodell
 
-Bestehende `productId`-Werte bleiben unverändert. Das bereits vorbereitete Variantenmodell erzeugt für jede Produktkategorie und Packungsgröße eine stabile `variantId` mit den Packungsgrößen 1, 3, 5 und 10. Der Katalog umfasst damit 5.076 Packvarianten.
+Bestehende `productId`-Werte bleiben unverändert. Das bereits vorbereitete Variantenmodell erzeugt für jede Produktkategorie und Packungsgröße eine stabile `variantId` mit den Packungsgrößen 1, 3, 5 und 10. Der Katalog umfasst damit 5.076 bestellbare Packungsoptionen. Diese Optionen sind keine getrennten physischen Lagerbestände; sie greifen auf den gemeinsamen Bestand einzelner Samen des jeweiligen Produkts zu.
 
 **Bestandsgrenze:** Der vorgegebene Bestand von 1.000 gilt je Produkt als gemeinsamer Bestand einzelner Samen. Packungsgrößen 1, 3, 5 und 10 sind Bestelloptionen, keine getrennten Lagerbestände. Bei einer Bestellung wird die tatsächlich benötigte Samenanzahl vom gemeinsamen Produktbestand abgezogen: z. B. eine 3er-Packung = 3 Samen; zwei 5er-Packungen = 10 Samen. Eine spätere Bestands-/Checkout-Implementierung muss diese Multiplikation und atomare Bestandsabzüge serverseitig durchsetzen, damit parallele Bestellungen keinen negativen Bestand verursachen.
 
