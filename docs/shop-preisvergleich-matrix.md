@@ -460,3 +460,31 @@ Die im Katalog vorgesehenen Packungen 1/3/5/10 sind eine Zielstruktur, keine Bes
 - Die bisher recherchierten konkreten Sortenpreise aus den Abschnitten 4.1–4.15 bleiben Einzelbelege; gemischte Durchschnittswerte werden nicht auf sie übertragen.
 - Die **komplette individuelle Referenzliste für alle 1.269 Produkte ist noch nicht fertig**. Sie erfordert einen systematischen Abgleich pro Sortenfamilie und Samentyp sowie anschließend die Zuordnung zu tatsächlich verfügbaren Packungsgrößen.
 - Keine SEED³X-Preise angepasst oder freigegeben. `src/data/seed-products.json`, `src/data/shop-pricing-config.json`, Lagerbestand, Packvarianten, Freigabestatus, Checkout/Zahlungen, `main` und Deployments bleiben unverändert.
+
+### 4.17 Vollständige vorläufige Preisvorschlagsliste für 1.269 Katalogeinträge – 25.10.2026
+
+Der Nutzer hat ausdrücklich darum gebeten, auf Basis öffentlicher Händlerpreise Verkaufspreise vorzuschlagen. Daher wurde eine vollständige separate CSV-Liste erstellt: `docs/shop-preisvorschlag-alle-produkte.csv`. Sie enthält alle 1.269 Katalog-IDs mit Sortenname, Typ und Preisvorschlägen für 1, 3, 5 und 10 Samen.
+
+**Marktbezug:** Die aktuelle öffentlich sichtbare Vergleichsübersicht von Ganja Seed Index nennt einen Median von 7,10 € pro Samen über 4.003 Sorten und 13 Shops; die Daten umfassen unterschiedliche Typen und Packungsgrößen. CannaVergleich führt getrennte Filter für feminisiert, Autoflower und Regular. Als konkrete Packungsanker sind unter anderem Easy Bud Automatic von Zamnesia mit 1/3/5/10 Samen für 7,00/17,50/27,00/50,00 € sowie Azarius-Sorten mit häufig sichtbarem Einstiegspreis von 8,49 € zu finden. Diese Belege unterstützen die grobe Preispositionierung, sind aber kein belastbarer Sortenmittelwert für jede Katalogzeile.
+
+Quellen, abgerufen am 25.10.2026:
+- Ganja Seed Index, Marktübersicht und Median: https://ganjaseedindex.com/
+- CannaVergleich, Typ- und Packungsfilter: https://cannavergleich.com/samen/guenstig/
+- Zamnesia, Easy Bud Automatic mit expliziten Packgrößen: https://www.zamnesia.de/117-royal-queen-seeds-easy-bud-autoflowering.html
+- Azarius, Autoflower-Kategorie und Packgrößen 1/3/5/10: https://www.azariusshop.de/cannabis-samen/autoflowering
+
+#### In der CSV verwendete vorläufige Verkaufspreise
+
+| Katalogtyp | 1 Samen | 3 Samen | 5 Samen | 10 Samen | Einordnung |
+|---|---:|---:|---:|---:|---|
+| Feminisierte Samen | 8,49 € | 19,90 € | 29,90 € | 49,90 € | Vorläufiger Standardanker aus sichtbaren Einzel- und Mehrfachpackpreisen; keine individuelle Breeder-Prüfung. |
+| Autoflowering | 8,49 € | 19,90 € | 29,90 € | 49,90 € | Vorläufiger Standardanker aus sichtbaren Einzel- und Mehrfachpackpreisen; keine individuelle Breeder-Prüfung. |
+| Reguläre Samen | 6,49 € | 16,90 € | 25,90 € | 44,90 € | Vorläufiger konservativer Typanker; die konkrete Regulär-Genetik und ihr Breeder sind im Katalog nicht ausgewiesen. |
+
+Diese Preise sind **runde, marktorientierte Vorschläge**, keine mathematisch errechneten sortenspezifischen Mittelwerte. Die Katalogdaten enthalten kein Breeder-Feld und keine Produktidentifikation, die eine exakte Preisaggregation je Sorte ermöglicht. Die CSV kennzeichnet deshalb jeden Eintrag als „Vorschlag – nicht freigegeben“. Die vorgeschlagenen Packungsgrößen sind Kalkulationsvarianten; sie bestätigen weder konkrete Verfügbarkeit noch tatsächliche Bestandsaufteilung.
+
+#### Verbindliche Abgrenzung
+
+- Es wurden **keine Preise in `src/data/seed-products.json` eingetragen** und keine Katalogeinträge freigegeben. Die CSV ist die vollständige, separat prüfbare Preisliste, damit die Vorschläge nicht versehentlich live gehen.
+- Die vom Nutzer genannte Lagerhaltung und der Versand aus Deutschland wurden als interne Rahmenbedingung berücksichtigt; dadurch entfallen nicht automatisch Verpackungs-, Versand-, Steuer-, Retouren- oder Betriebskosten.
+- Vor Übernahme in den Produktkatalog sollten die Vorschläge gegen konkrete Breeder/Produkte und interne Kosten geprüft werden. Checkout, Zahlungen, `main` und Deployments bleiben unverändert.
