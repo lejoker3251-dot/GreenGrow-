@@ -412,3 +412,51 @@ Diese Runde konzentriert sich auf die drei noch offenen regulären Katalogfamili
 - Die Recherche belegt damit nicht, dass es keine solchen Produkte am Markt gibt, sondern nur, dass in den geprüften Treffern kein ausreichend eindeutiger Preisanker bestätigt wurde.
 - Keine SEED³X-Verkaufspreise, Einkaufskosten oder Margen berechnet. Keine Katalogdaten, Lagerbestände, Freigaben, Checkout-Funktionen, `main` oder Deployments verändert.
 
+
+### 4.16 Marktweite Referenzanker und Vorgehen für die spätere Gesamtliste – 25.10.2026
+
+Diese Ergänzung schafft einen **vorläufigen Vergleichsrahmen**, aber noch keine individuellen SEED³X-Preise. Ein Marktmittel darf nicht blind auf 1.269 Katalogdatensätze übertragen werden: Bei den Katalogeinträgen fehlen aktuell freigegebene Packungsgrößen, konkrete Breeder-Zuordnung und Preisfreigaben. Die vorgesehene Packungsgrößen-Auswahl bleibt 1, 3, 5 und 10 Samen.
+
+#### 4.16.1 Beobachtete Referenzpunkte für gleiche Packungsgrößen
+
+| Marktsegment / Quelle | Typ und Packung | Sichtbarer Preis | Rechnerischer Preis je Samen | Aussagekraft |
+|---|---|---:|---:|---|
+| Royal Queen Seeds – Special Queen 1 | feminisiert, 3 Samen | 10,50 € | 3,50 € | Aktueller Kategoriesnapshot; Varianten-Auswahl vorhanden, Preis gilt für die dort ausgewählte 3er-Packung. |
+| Royal Queen Seeds – White Widow | feminisiert, 3 Samen | 20,00 € | 6,67 € | Aktueller Kategoriesnapshot; nicht mit White Widow Regular verwechseln. |
+| Royal Queen Seeds – Amnesia Haze | feminisiert, 3 Samen | 27,00 € | 9,00 € | Aktueller Kategoriesnapshot; Typ feminisiert. |
+| Royal Queen Seeds – Critical | feminisiert, 3 Samen | 18,40 € Angebot (23,00 € zuvor) | 6,13 € Angebot | Aktueller Kategoriesnapshot; Rabattpreis getrennt vom vorherigen Preis halten. |
+| CannaVergleich – Vergleichsübersicht | 3er-Pack, gemischte Typen/Sorten | durchschnittlich 7,99 €/Samen | 7,99 € | Plattformangabe über die dort erfassten Angebote, nicht sorten- oder typbereinigt; daher nur grober Kontext, kein direkter Preisvorschlag. |
+| CannaVergleich – Vergleichsübersicht | 5er-Pack, gemischte Typen/Sorten | durchschnittlich 7,10 €/Samen | 7,10 € | Grober Plattformdurchschnitt, nicht sorten- oder typbereinigt. |
+| CannaVergleich – Vergleichsübersicht | 10er-Pack, gemischte Typen/Sorten | durchschnittlich 6,36 €/Samen | 6,36 € | Grober Plattformdurchschnitt, nicht sorten- oder typbereinigt. |
+
+Quellen: Royal Queen Seeds Bestseller-Kategorie https://www.royalqueenseeds.de/besten-hanfsamen ; CannaVergleich Preisvergleich https://cannavergleich.com/samen/guenstig/ . Diese Werte wurden am 25.10.2026 als Web-Snapshot erfasst. Der RQS-Kategoriesnapshot zeigt ausgewählte 3er-Preise; der CannaVergleich-Durchschnitt umfasst gemischte Produktarten und ist nicht als fairer Vergleich einer einzelnen Sorte geeignet.
+
+#### 4.16.2 Vorläufige Referenzlogik – keine SEED³X-Preisfreigabe
+
+1. **Erst nach Produkttyp trennen:** feminisiert nur mit feminisiert vergleichen, Autoflowering nur mit Autoflowering und Regular nur mit Regular.
+2. **Dann Produktidentität prüfen:** identische Sorte allein reicht nicht immer; Breeder/Marke muss bekannt oder die Abweichung ausdrücklich als „gleicher Sortenname, Breeder unbekannt/abweichend“ markiert sein.
+3. **Packungsgröße normalisieren:** Packpreis und €/Samen getrennt ausweisen. Ein Preis „ab …“ ohne ausgewählte Variante ist kein genauer Packpreis.
+4. **Angebot und regulären Preis trennen:** Rabatte, UVP/gestrichene Preise und Versandkosten nicht vermischen. Versand nach Deutschland und Lagerstatus separat erfassen.
+5. **Referenzwert erst bei mehreren passenden Treffern bilden:** Für eine konkrete Katalogvariante sollen nach Möglichkeit mindestens drei hinreichend vergleichbare Treffer vorliegen. Median der lieferbaren, eindeutig typisierten Treffer ist der bevorzugte Startwert; Angebotspreise und nicht lieferbare Produkte werden als separate Indikatoren geführt.
+6. **Bei weniger Treffern keinen scheinpräzisen Wert erzwingen:** Ein oder zwei Treffer bedeuten „vorläufiger Anker“; kein passender Treffer bedeutet „Recherche offen“.
+7. **Keine finale Preisempfehlung ohne interne Kalkulationsdaten:** Wettbewerbswerte sagen nichts über SEED³X-Einkaufskosten, Versand-/Verpackungskosten, Retouren, Steuern, Zahlungsgebühren oder Zielmarge aus. Diese Faktoren müssen vor einer echten Preisfreigabe intern ergänzt werden.
+
+#### 4.16.3 Arbeitsliste für die vollständige Preisprüfung
+
+Die spätere vollständige Liste soll **alle 1.269 Datensätze** enthalten, nicht nur die bisher recherchierten Beispiele. Je Datensatz sind mindestens diese Felder vorzusehen: Katalog-ID, exakter Sortenname, Typ, bestätigter Breeder (oder „unbekannt“), Packungsgröße, passende externe Vergleichstreffer, Packpreis, €/Samen, Angebots-/Listenpreis-Kennzeichen, Verfügbarkeit, Versand nach Deutschland, Datum der Prüfung, Quellen-URL, Referenzwert/Spanne, Vertrauensstufe und nächster Schritt.
+
+Empfohlene Statuswerte:
+- **A – belastbar:** mindestens drei passende, aktuelle und lieferbare Vergleichstreffer mit eindeutigem Typ und Packungsgröße.
+- **B – vorläufig:** ein bis zwei passende Treffer; Wert ist ein vorläufiger Preisanker.
+- **C – nicht direkt vergleichbar:** nur „ab“-Preise, anderer Typ, anderer Packumfang oder unklarer Breeder.
+- **D – offen:** keine ausreichenden Treffer; keine Zahl einsetzen.
+- **E – nicht verfügbar:** Preis sichtbar, aber Quelle weist ausverkauft/nicht lieferbar aus; separat als Marktindikator führen.
+
+Die im Katalog vorgesehenen Packungen 1/3/5/10 sind eine Zielstruktur, keine Bestätigung, dass jede Sorte tatsächlich in allen Größen verfügbar ist. Fehlende Varianten werden nicht erfunden. Das vom Nutzer angegebene eigene Lager und der Versand aus Deutschland sind interne Rahmenangaben; sie ersetzen keine Prüfung der Vergleichsshops und ändern keine Produktbestände im Repository.
+
+#### Ergebnis und nächste Arbeitsetappe
+
+- Es gibt nun erste marktweite Preisanker und eine einheitliche Methode zur Berechnung späterer Referenzwerte.
+- Die bisher recherchierten konkreten Sortenpreise aus den Abschnitten 4.1–4.15 bleiben Einzelbelege; gemischte Durchschnittswerte werden nicht auf sie übertragen.
+- Die **komplette individuelle Referenzliste für alle 1.269 Produkte ist noch nicht fertig**. Sie erfordert einen systematischen Abgleich pro Sortenfamilie und Samentyp sowie anschließend die Zuordnung zu tatsächlich verfügbaren Packungsgrößen.
+- Keine SEED³X-Preise angepasst oder freigegeben. `src/data/seed-products.json`, `src/data/shop-pricing-config.json`, Lagerbestand, Packvarianten, Freigabestatus, Checkout/Zahlungen, `main` und Deployments bleiben unverändert.
