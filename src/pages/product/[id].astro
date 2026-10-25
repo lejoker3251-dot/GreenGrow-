@@ -1,12 +1,28 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import seedProducts from '../../data/seed-products.json';
+import packPriceDrafts from '../../data/pack-price-drafts.json';
+
+const packSizes = [1, 3, 5, 10];
+const withDraftPrices = (product) => ({
+  ...product,
+  packVariants: (packPriceDrafts[product.id] || []).map((priceEUR, index) => ({
+    quantity: packSizes[index],
+    priceEUR,
+    releaseStatus: 'Entwurf',
+    priceType: 'proposed-retail-price',
+    currency: 'EUR',
+    note: product.packVariants?.length === 4
+      ? 'Individueller Preisentwurf – nicht freigegeben.'
+      : 'Typbasierter Preisanker; Breeder-/Sortenpreis nicht bestätigt. Nicht freigegeben.',
+  })),
+});
 
 export function getStaticPaths() {
-  return seedProducts.map((product) => ({
-    params: { id: product.id },
-    props: { product },
-  }));
+  return seedProducts.map((sourceProduct) => {
+    const product = withDraftPrices(sourceProduct);
+    return { params: { id: product.id }, props: { product } };
+  });
 }
 
 const { product } = Astro.props;
