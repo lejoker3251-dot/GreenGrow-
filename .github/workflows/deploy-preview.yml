@@ -43,7 +43,8 @@ jobs:
           grep -q "Ein kleines Wunder" dist/index.html
           grep -q "grow-doctor" dist/index.html
           grep -q "/shop/" dist/index.html
-          grep -q '/product/seed-0001/' dist/shop/index.html
+          # The catalog is progressively rendered; seed-0001 may not be among the first 24 visible cards.
+          grep -q 'seed-0001' dist/shop/index.html
           grep -q "KATALOG-ID" dist/product/seed-0001/index.html
           echo "Build contains the expected SEED³X homepage markers."
       - name: Deploy isolated preview worker
@@ -66,8 +67,9 @@ jobs:
           grep -q "grow-doctor" /tmp/preview.html
           grep -q "/shop/" /tmp/preview.html
           curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/shop/" -o /tmp/preview-shop.html
-          grep -q '/product/seed-0001/' /tmp/preview-shop.html
+          # Confirm the catalog includes the product ID, not that it is one of the first 24 rendered cards.
+          grep -q 'seed-0001' /tmp/preview-shop.html
           curl --fail --show-error --silent --location --retry 5 --retry-delay 3 "$PREVIEW_URL/product/seed-0001/" -o /tmp/preview-product.html
           test -s /tmp/preview-product.html
           grep -q "KATALOG-ID" /tmp/preview-product.html
-          echo "Preview homepage, shop product link, and product detail route are reachable."
+          echo "Preview homepage, catalog payload, and product detail route are reachable."
