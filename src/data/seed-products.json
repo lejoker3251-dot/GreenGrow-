@@ -426,7 +426,32 @@
     "descriptionSource": "docs/produktbeschreibungen/produktkatalog_full.html",
     "priceEUR": null,
     "packVariants": [],
-    "releaseStatus": "Entwurf"
+    "releaseStatus": "Entwurf",
+    "priceDraft": {
+      "proposedPriceEUR": 29.9,
+      "proposedPackQuantity": 3,
+      "status": "Prüfung",
+      "basis": "Vorläufige Preis-Hypothese auf Basis eines beobachteten Markenangebots; kein freigegebener SEED³X-Verkaufspreis.",
+      "referenceOffers": [
+        {
+          "merchant": "Bloomtech",
+          "breeder": "Anesia",
+          "packQuantity": 3,
+          "observedPriceEUR": 26.32,
+          "observedUnitPriceEUR": 8.77,
+          "sourceUrl": "https://bloomtech.de/Anesia-Afghanica-Fem-3St",
+          "checkedOn": "2026-10-25"
+        }
+      ],
+      "purchaseCostEUR": null,
+      "targetMarginPercent": null,
+      "marginCheckStatus": "Offen",
+      "packSizeCheckStatus": "Offen",
+      "notes": [
+        "Preis erst nach Prüfung von tatsächlichem Einkaufspreis, Nebenkosten, Zielmarge und tatsächlich angebotener Packungsgröße freigeben.",
+        "Das Katalogprodukt nennt derzeit keinen konkreten Züchter; das Anesia-Angebot ist daher nur ein Marktvergleich und kein identisches Produkt."
+      ]
+    }
   },
   {
     "id": "seed-0034",
@@ -842,7 +867,52 @@
     "descriptionSource": "docs/produktbeschreibungen/produktkatalog_full.html",
     "priceEUR": null,
     "packVariants": [],
-    "releaseStatus": "Entwurf"
+    "releaseStatus": "Entwurf",
+    "priceDraft": {
+      "proposedPriceEUR": 29.9,
+      "proposedPackQuantity": 3,
+      "status": "Prüfung",
+      "basis": "Vorläufige Preis-Hypothese nahe dem beobachteten Marken-3er-Pack; kein freigegebener SEED³X-Verkaufspreis.",
+      "referenceOffers": [
+        {
+          "merchant": "Bloomtech",
+          "breeder": "Barney’s Farm",
+          "packQuantity": 3,
+          "observedPriceEUR": 27.19,
+          "observedUnitPriceEUR": 9.06,
+          "sourceUrl": "https://bloomtech.de/Barneys-Farm-Amnesia-Haze-Fem-3St",
+          "checkedOn": "2026-10-25"
+        },
+        {
+          "merchant": "Bloomtech",
+          "breeder": "Royal Queen Seeds",
+          "packQuantity": 3,
+          "observedPriceEUR": 25.9,
+          "observedUnitPriceEUR": 8.63,
+          "sourceUrl": "https://bloomtech.de/Royal-Queen-Seeds-Amnesia-Haze-Fem-3St",
+          "checkedOn": "2026-10-25",
+          "note": "Produktseite widersprüchlich: Staffelpreis ab 3 Stück 25,90 €, zugleich werden 26,90 € als Grund-/Anzeigepreis ausgewiesen; bis zur Klärung nicht als sauberer Vergleichswert verwenden."
+        },
+        {
+          "merchant": "Bloomtech",
+          "breeder": "Bloom Bulk Seeds",
+          "packQuantity": 10,
+          "observedPriceEUR": 24.9,
+          "observedUnitPriceEUR": 2.49,
+          "sourceUrl": "https://bloomtech.de/cannabis-samen",
+          "checkedOn": "2026-10-25",
+          "note": "Separater Bulk-/Budget-Anker; nicht direkt mit Marken-3er-Packs mitteln."
+        }
+      ],
+      "purchaseCostEUR": null,
+      "targetMarginPercent": null,
+      "marginCheckStatus": "Offen",
+      "packSizeCheckStatus": "Offen",
+      "notes": [
+        "Preis erst nach Prüfung von tatsächlichem Einkaufspreis, Nebenkosten, Zielmarge und tatsächlich angebotener Packungsgröße freigeben.",
+        "Das Katalogprodukt nennt derzeit keinen konkreten Züchter; die Markenangebote sind Marktvergleiche und kein Nachweis für ein identisches Produkt."
+      ]
+    }
   },
   {
     "id": "seed-0066",
