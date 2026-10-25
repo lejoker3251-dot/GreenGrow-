@@ -27,10 +27,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: agents/inventory-spike/package.json
       - name: Install isolated test dependencies
-        run: npm install --no-package-lock
+        run: npm install --no-package-lock --no-audit --no-fund --legacy-peer-deps
       - name: Run Durable Object transaction and concurrency tests
         run: npm test
       - name: Type-check prototype
