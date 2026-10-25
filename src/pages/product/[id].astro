@@ -92,8 +92,10 @@ const description = product.name + ' im SEED³X Katalog mit Preisen für 1, 3, 5
     if (!quantity || !price || !selectedPackLabel || !selectedPackValue) {
       if (selectedPackLabel) selectedPackLabel.textContent = 'Bitte Packungsgröße auswählen';
       if (selectedPackValue) selectedPackValue.textContent = '—';
+      if (addToCartButton) addToCartButton.disabled = true;
       return;
     }
+    if (addToCartButton) { addToCartButton.disabled = false; addToCartButton.textContent = 'In den Warenkorb'; }
     selectedPackLabel.textContent = quantity + (quantity === '1' ? ' Samen ausgewählt' : ' Samen ausgewählt');
     selectedPackValue.textContent = Number(price).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
   });
@@ -123,6 +125,10 @@ const description = product.name + ' im SEED³X Katalog mit Preisen für 1, 3, 5
       const items = Array.isArray(saved) ? saved.filter((item) => item && typeof item.id === 'string' && Number.isInteger(item.packSize) && Number.isInteger(item.quantity) && Number.isFinite(item.unitPrice)) : [];
       const key = productData.id + ':' + quantity;
       const existing = items.find((item) => item.key === key);
+      if (existing && existing.quantity >= 99) {
+        if (cartFeedback) cartFeedback.textContent = 'Für diese Variante sind maximal 99 Packungen pro Warenkorb möglich.';
+        return;
+      }
       if (existing) existing.quantity += 1;
       else items.push({ key, id: productData.id, name: productData.name, image: productData.image, packSize: quantity, quantity: 1, unitPrice });
       localStorage.setItem('seedx-cart', JSON.stringify(items));
