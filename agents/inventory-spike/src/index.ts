@@ -161,7 +161,7 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string; R
       for (const item of parsed.requirements) {
         const update = this.sql.exec(
           "UPDATE inventory SET reserved_seeds = reserved_seeds + ?, updated_at = ? WHERE product_id = ? AND on_hand_seeds - reserved_seeds >= ?",
-          item.seedsRequired, now, item.productId, item.seedsRequired
+          item.seedsRequired, nowIso, item.productId, item.seedsRequired
         );
         if (update.rowsWritten !== 1) throw new Error("INVENTORY_CONDITION_FAILED");
         this.sql.exec(
