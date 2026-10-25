@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { makeVariantId, makePackVariantId, validateCartLine, validateCart } from "../src/lib/catalog-pricing.js";
+import { makeVariantId, makeProductTypeId, validateCartLine, validateCart } from "../src/lib/catalog-pricing.js";
 
 const releasedProduct = {
   id: "seed-0001",
@@ -18,9 +18,9 @@ const releasedProduct = {
 const catalog = [releasedProduct];
 
 test("variant IDs are deterministic and include type and pack size", () => {
-  assert.equal(makeVariantId(releasedProduct), "seed-0001--AF");
-  assert.equal(makePackVariantId(releasedProduct, 3), "seed-0001--AF--P3");
-  assert.throws(() => makePackVariantId(releasedProduct, 2), /Unsupported pack size/);
+  assert.equal(makeProductTypeId(releasedProduct), "seed-0001--AF");
+  assert.equal(makeVariantId(releasedProduct, 3), "seed-0001--AF--P3");
+  assert.throws(() => makeVariantId(releasedProduct, 2), /Unsupported pack size/);
 });
 
 test("valid line resolves trusted catalog price in integer cents", () => {
