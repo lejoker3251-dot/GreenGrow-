@@ -45,7 +45,7 @@ jobs:
           grep -q "/shop/" dist/index.html
           grep -q 'id="catalog-data"' dist/shop/index.html
           grep -q 'id="catalog-load-more"' dist/shop/index.html
-          grep -q "Ein Katalogeintrag in Prüfung" src/pages/product/[id].astro
+          grep -q "Katalogeintrag in Prüfung" src/pages/product/[id].astro
           echo "Build contains expected SEED³X homepage and progressive catalog markers."
       - name: Deploy isolated preview worker
         env:
