@@ -27,6 +27,17 @@ for (const [index, product] of products.entries()) {
     assert(allowedStatuses.has(variant.releaseStatus), `Ungültiger Variantenstatus bei ${product.id}`);
   }
 }
-assert(products.every(p => p.priceEUR === null), "Keine Preise dürfen ohne Freigabe eingetragen sein");
-assert(products.every(p => p.packVariants.length === 0), "Keine Packungsvariante darf ohne produktbezogene Freigabe angelegt sein");
-console.log(`Shop-Datenprüfung bestanden: ${products.length} Produkte; keine Preise/Varianten freigegeben; Checkout und Zahlungen deaktiviert.`);
+const draftPricedIds = new Set(["seed-0033", "seed-0065", "seed-0062", "seed-0143", "seed-0119"]);
+assert.equal(products.filter(p => p.packVariants.length > 0).length, 5, "Genau fünf Produkte sollen Preisentwürfe haben");
+for (const product of products) {
+  if (draftPricedIds.has(product.id)) {
+    assert.equal(product.category, "Feminisierte Samen", `Preisdemo muss feminisiert sein: ${product.id}`);
+    assert.deepEqual(product.packVariants.map(v => v.quantity), [1, 3, 5, 10], `Packungsgrößen falsch bei ${product.id}`);
+    assert(product.packVariants.every(v => v.releaseStatus === "Entwurf" && v.priceType === "proposed-retail-price"), `Preise müssen Entwürfe bleiben: ${product.id}`);
+    assert.equal(product.priceEUR, null, `Hauptpreis darf erst nach Freigabe gesetzt werden: ${product.id}`);
+  } else {
+    assert.equal(product.packVariants.length, 0, `Unerwartete Preisvariante bei ${product.id}`);
+  }
+}
+assert(products.every(p => p.priceEUR === null), "Kein Hauptpreis darf ohne Freigabe gesetzt sein");
+console.log(`Shop-Datenprüfung bestanden: ${products.length} Produkte; 5 feminisierte Produkte mit vier Preisentwürfen je Packung; Checkout und Zahlungen deaktiviert.`);
