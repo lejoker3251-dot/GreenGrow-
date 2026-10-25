@@ -1201,3 +1201,25 @@ select:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .botanical-title-art img { transform: none; }
 }
+
+
+/* Navigation visibility regression guard: author styles must never override the native hidden state. */
+.site-header .main-nav[hidden],
+.site-header .nav-submenu[hidden] {
+  display: none !important;
+}
+
+/* Keep the mobile menu usable with touch and keyboard without forcing horizontal overflow. */
+@media (max-width: 800px) {
+  .site-header .main-nav:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: min(75vh, 38rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .site-header .nav-submenu:not([hidden]) {
+    display: grid;
+  }
+}
