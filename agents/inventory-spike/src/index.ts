@@ -56,10 +56,15 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }>
       reservation_id TEXT PRIMARY KEY,
       idempotency_key TEXT NOT NULL UNIQUE,
       request_fingerprint TEXT NOT NULL,
-      status TEXT NOT NULL CHECK(status IN ('reserved','released')),
+      status TEXT NOT NULL CHECK(status IN ('reserved','released','expired')),
       created_at TEXT NOT NULL,
-      updated_at TEXT NOT NULL
+      updated_at TEXT NOT NULL,
+      expires_at TEXT
     )`);
+    const reservationColumns = this.sql.exec<{ name: string }>("PRAGMA table_info(reservations)").toArray();
+    if (!reservationColumns.some((column) => column.name === "expires_at")) {
+      this.sql.exec("ALTER TABLE reservations ADD COLUMN expires_at TEXT");
+    }
     this.sql.exec(`CREATE TABLE IF NOT EXISTS reservation_lines (
       reservation_id TEXT NOT NULL REFERENCES reservations(reservation_id),
       product_id TEXT NOT NULL,
@@ -121,9 +126,14 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }>
     const fingerprint = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(canonical))
       .then((hash) => [...new Uint8Array(hash)].map((byte) => byte.toString(16).padStart(2, "0")).join(""));
     const reservationId = crypto.randomUUID();
-    const now = new Date().toISOString();
+    const now = new Date();
+    const nowIso = now.toISOString();
+    const configuredTtl = Number(this.env.RESERVATION_TTL_SECONDS ?? "900");
+    const ttlSeconds = Number.isSafeInteger(configuredTtl) && configuredTtl >= 1 && configuredTtl <= 86400 ? configuredTtl : 900;
+    const expiresAt = new Date(now.getTime() + ttlSeconds * 1000).toISOString();
 
     const outcome = this.ctx.storage.transactionSync(() => {
+      this.expireDueReservations(nowIso);
       const previous = this.sql.exec<{ reservation_id: string; request_fingerprint: string; status: string }>(
         "SELECT reservation_id, request_fingerprint, status FROM reservations WHERE idempotency_key = ?",
         body.idempotencyKey as string
@@ -144,8 +154,8 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }>
       }
 
       this.sql.exec(
-        "INSERT INTO reservations(reservation_id,idempotency_key,request_fingerprint,status,created_at,updated_at) VALUES(?,?,?,'reserved',?,?)",
-        reservationId, body.idempotencyKey as string, fingerprint, now, now
+        "INSERT INTO reservations(reservation_id,idempotency_key,request_fingerprint,status,created_at,updated_at,expires_at) VALUES(?,?,?,'reserved',?,?,?)",
+        reservationId, body.idempotencyKey as string, fingerprint, nowIso, nowIso, expiresAt
       );
       for (const item of parsed.requirements) {
         const update = this.sql.exec(
@@ -164,7 +174,28 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }>
     if (outcome.kind === "conflict") return json({ error: "IDEMPOTENCY_KEY_REUSED_WITH_DIFFERENT_REQUEST" }, 409);
     if (outcome.kind === "unknown-product") return json({ error: "UNKNOWN_PRODUCT", productId: outcome.productId }, 404);
     if (outcome.kind === "insufficient") return json({ error: "INSUFFICIENT_STOCK", ...outcome }, 409);
-    return json({ ok: true, reservationId: outcome.reservationId, status: outcome.kind === "existing" ? outcome.status : "reserved", replay: outcome.kind === "existing" }, outcome.kind === "existing" && outcome.status === "released" ? 409 : 200);
+    return json({ ok: true, reservationId: outcome.reservationId, status: outcome.kind === "existing" ? outcome.status : "reserved", replay: outcome.kind === "existing" }, outcome.kind === "existing" && outcome.status !== "reserved" ? 409 : 200);
+  }
+
+  private expireDueReservations(now: string): void {
+    const expired = this.sql.exec<{ reservation_id: string }>(
+      "SELECT reservation_id FROM reservations WHERE status='reserved' AND expires_at IS NOT NULL AND expires_at <= ?",
+      now
+    ).toArray();
+    for (const item of expired) {
+      const lines = this.sql.exec<{ product_id: string; seeds_required: number }>(
+        "SELECT product_id, seeds_required FROM reservation_lines WHERE reservation_id = ?",
+        item.reservation_id
+      ).toArray();
+      for (const line of lines) {
+        const update = this.sql.exec(
+          "UPDATE inventory SET reserved_seeds = reserved_seeds - ?, updated_at = ? WHERE product_id = ? AND reserved_seeds >= ?",
+          line.seeds_required, now, line.product_id, line.seeds_required
+        );
+        if (update.rowsWritten !== 1) throw new Error("RESERVATION_EXPIRY_INVARIANT_FAILED");
+      }
+      this.sql.exec("UPDATE reservations SET status='expired', updated_at=? WHERE reservation_id=? AND status='reserved'", now, item.reservation_id);
+    }
   }
 
   private async release(request: Request): Promise<Response> {
@@ -173,6 +204,7 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }>
     if (typeof body?.reservationId !== "string") return json({ error: "INVALID_RESERVATION_ID" }, 400);
     const now = new Date().toISOString();
     const result = this.ctx.storage.transactionSync(() => {
+      this.expireDueReservations(now);
       const reservation = this.sql.exec<{ status: string }>(
         "SELECT status FROM reservations WHERE reservation_id = ?", body.reservationId as string
       ).toArray()[0];
