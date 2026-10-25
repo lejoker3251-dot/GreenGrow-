@@ -2,7 +2,12 @@ import { DurableObject } from "cloudflare:workers";
 
 type PackLine = { productId: string; seedsPerPack: number; packCount: number };
 type Requirement = { productId: string; seedsRequired: number };
-type Env = { INVENTORY_LEDGER: DurableObjectNamespace<InventoryLedger>; SPIKE_TEST_MODE?: string };
+declare global {
+  interface Env {
+    INVENTORY_LEDGER: DurableObjectNamespace<InventoryLedger>;
+    SPIKE_TEST_MODE?: string;
+  }
+}
 
 function json(data: unknown, status = 200): Response {
   return Response.json(data, { status, headers: { "Cache-Control": "no-store" } });
