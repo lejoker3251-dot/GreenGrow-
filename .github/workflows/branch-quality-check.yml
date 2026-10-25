@@ -25,6 +25,8 @@ jobs:
         run: npm install --no-package-lock
       - name: Astro type and diagnostics check
         run: npx astro check
+      - name: Catalog pricing and cart validation tests
+        run: npm run test:catalog-pricing
       - name: Build static site (no deployment)
         run: npm run build
       - name: Botanical hero regression checks
