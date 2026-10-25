@@ -209,3 +209,29 @@ Die beiden vom Nutzer bereitgestellten Quellen wurden als zusätzliche Recherche
 - „Ab“-Preise bleiben als Preisindikator mit unbekannter Packgröße dokumentiert. Es wird daraus weder ein Stückpreis noch ein vermeintlicher 5er-/10er-Preis errechnet.
 - Critical Mass, Critical Haze und Critical Skunk sind nicht automatisch mit der Katalogfamilie Critical gleichzusetzen. Gleiches gilt für White Widow-Produkte verschiedener Züchter: Sortenname und Züchter werden getrennt dokumentiert.
 - Die nächste Prüfrunde muss auf konkrete Produktdetailseiten mit ausgewählter Packungsgröße zielen. Nur wenn Packungsgröße, Regular-Typ, Preis und Verfügbarkeit klar ersichtlich sind, wird der Preis als bestätigt geführt.
+
+
+### 4.6 Bestätigte reguläre Packungsangebote – 25.10.2026
+
+Diese Runde erfasst nur öffentliche Händlerpreise für reguläre Varianten in klar ausgewiesenen 10er-Packungen. Der Züchter ist Teil der Vergleichsangabe; gleichnamige Sorten verschiedener Züchter gelten nicht als genetisch identisch. Preis je Samen ist ausschließlich Packpreis geteilt durch die eindeutig ausgewiesene Anzahl. Versandkosten sind nicht eingerechnet.
+
+| Katalogfamilie / Händlerprodukt | Typ | Züchter / Händler | Packung | Öffentlicher Packpreis | Preis je Samen | Verfügbarkeit / Einschränkung | Quelle |
+|---|---|---|---:|---:|---:|---|---|
+| Amnesia Regular | Regulär | Seedsman / Hanf Vital Shop | 10 | 19,99 € | 2,00 € (gerundet) | Produktseite nennt „Regulär“, SKU HVS001025-R10 und „Verfügbar“. Die Seite zeigt €19,99 pro Packung und €2,00/Samen; der gerundete Stückpreis ergibt rechnerisch nicht exakt den Packpreis. | https://hanfvitalshop.de/amnesia-regulaere |
+| Blue Dream Regular | Regulär | Nirvana / Genetiken.de | 10 | 30,00 € | 3,00 € | Händlerkategorie nennt explizit „Blue Dream Regular Seeds – 10“ für 30,00 €. Verfügbarkeit und Detailseite vor späterer Verwendung erneut prüfen. | https://genetiken.de/produktkategorie/breeder/nirvana-seeds/?filter_bluetezeit=8-to-10-weeks |
+| White Widow Regular | Regulär | Sensi Seeds White Label / Eden Seeds | 10 | 41,00 € | 4,10 € | Produktseite bestätigt 10 Stück und regulär, markiert das Produkt jedoch als „Bald wieder verfügbar“; daher historischer/derzeit nicht verfügbarer Preisindikator, kein verfügbarer Angebotsanker. | https://www.eden-seeds.de/regulare-samen/sensi-seeds-white-label-white-widow-regular |
+
+#### Weitere geprüfte Treffer, nicht als bestätigter 5er-/10er-Packpreis übernommen
+
+| Produkt / Händler | Öffentliche Angabe | Grund für Ausschluss aus bestätigter Packpreis-Tabelle | Quelle |
+|---|---|---|---|
+| White Widow Regular / Seeds2go | 36,90 € (vorher 41,00 €), regulär; Lieferzeit 7–10 Werktage | Die geöffnete Darstellung nennt in den sichtbaren Produktdaten keine eindeutige Samenanzahl; kein Stückpreis ableiten. | https://shop.seeds2go.eu/onlineshop-hanfsamen/alle-samenbanken/white-label/regulaer/1644/white-widow-regular |
+| Critical Regular / Blimburn Seeds | Produktseite bestätigt „Regulär“ | Im geprüften sichtbaren Ausschnitt war keine belastbare Packungsgröße samt Preis zugeordnet. Nicht mit Critical Mass, Critical Haze oder Critical Skunk gleichsetzen. | https://blimburnseeds.de/critical-regular/ |
+| Critical / Bulk Genetics | Ab 2,52 € je Samen, ausdrücklich im 25er-Pack | Packungsgröße liegt außerhalb der angefragten 5er-/10er-Größen; daher separat als 25er-Pack-Indikator, nicht in die 5er-/10er-Vergleichsgruppe aufnehmen. | https://bulkgenetics.com/de/c/regulaere-samen/ |
+
+#### Ergebnis und Grenzen
+
+- In dieser Runde wurden **zwei derzeit nicht eindeutig als verfügbar bestätigte, reguläre 10er-Angebote** mit Packpreis gefunden (Amnesia Regular und Blue Dream Regular); White Widow Regular ist mit einem klaren 10er-Preis dokumentiert, aber laut Händler aktuell nicht verfügbar.
+- Für **Blue Cheese Regular** und **Critical Regular** wurde kein belastbarer 5er-/10er-Packpreis bestätigt. Es werden keine Preise aus feminisierten oder Autoflower-Angeboten übertragen.
+- Die Blue Dream-Angabe stammt von Nirvana, die Amnesia-Angabe von Seedsman und die White-Widow-Angabe von Sensi Seeds White Label. Diese Händlerangebote sind externe Vergleichspunkte und kein Beleg für identische Genetik zum SEED³X-Katalog.
+- Keine Änderungen an Produktkatalog, Lagerbestand, Freigabestatus, Checkout oder Verkaufspreisen; keine Veröffentlichung oder Deployment.
