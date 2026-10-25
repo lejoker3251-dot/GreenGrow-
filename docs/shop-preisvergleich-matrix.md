@@ -46,25 +46,44 @@ Die Sortenfamilie wird durch normalisierte Namen gebildet. Schreibweisen und Gro
 
 **Wichtig:** Im aktuellen Datensatz gibt es kein Breeder-Feld und kein Premium-Kennzeichen. Deshalb lässt sich aktuell kein Produkt belastbar als Premium bestätigen. Bis eine geeignete Quelle oder eine bewusste redaktionelle Entscheidung vorliegt, bleibt der Status „Nicht festgelegt“.
 
-## 4. Erste externe Preisanker
+## 4. Systematische Preisanker – erste Erhebungsrunde
 
-Die folgenden Beispiele sind ein **erster, nicht vollständig normalisierter Marktsnapshot**. Sie stammen aus öffentlich auffindbaren Händlerseiten. Angebots-/Listenpreis, konkrete Variante und Packungsgröße müssen vor einer finalen Kalkulation erneut auf der jeweiligen Produktseite geprüft werden.
+**Prüfdatum der Recherche: 25.10.2026.** Preise sind öffentliche Web-Snapshots, keine garantierten oder dauerhaften Händlerpreise. Die Angaben aus Suchauszügen sind mit dem Hinweis „Snapshot“ markiert; vor einer endgültigen Kalkulation müssen Variante, Endpreis, Versand, Steuern und Verfügbarkeit auf der Produktseite direkt bestätigt werden.
 
-| Händler / Produkt | Typ | Packung laut Quelle | Preis-Snapshot | Verwendung / Einschränkung |
+### 4.1 Gleiche Packungsgröße: 3 Samen
+
+| SEED³X-Katalogfamilie / Typ | Vergleichsprodukt | Händler | Packung | Preis-Snapshot | Preis je Samen | Vergleichsqualität |
+|---|---|---|---:|---:|---:|---|
+| Blue Cheese – feminisiert | Blue Cheese, feminisiert | Bloomtech, RQS-Produkt | 3 | 21,50 € | 7,17 € | Gleicher Sortenname und Packung; Händlerseite kennzeichnet feminisiert |
+| Blue Cheese – autoflowering | Blue Cheese Auto | Royal Queen Seeds (offiziell) | 3 | 21,50 € Listenpreis; 18,27 € Angebots-Snapshot | 7,17 € Listenpreis; 6,09 € Angebot | Gleicher Auto-Sortenname und Packung; Angebotsrabatt separat halten |
+| Green Gelato – autoflowering | Green Gelato Auto | Royal Queen Seeds (offiziell) | 3 | 27,00 € | 9,00 € | Gleicher Auto-Sortenname und Packung |
+| Green Gelato – autoflowering | Green Gelato Auto, 3er-Pack | Bloomtech | 3 | 26,90 € | 8,97 € | Gleicher Sortenname und Packung; Händler nennt das Produkt „feminisiert“ und „Auto“ im Namen |
+| White Widow – feminisiert | White Widow | Royal Queen Seeds (offiziell) | 3 | 20,00 € | 6,67 € | Gleicher Sortenname und Packung; Seite zeigt Typauswahl, vor finaler Zuordnung feminisierte Variante direkt bestätigen |
+| White Widow – regulär | White Widow / reguläre Variante | Dutch Passion (offizielle Produkt-/Angebotsseite) | 10 reguläre Samen | 29,95 € (Preis-Snapshot) | 3,00 € | Typ stimmt; Packung weicht ab. Nur Größenkontext, kein 3er-zu-3er-Vergleich |
+
+### 4.2 Zusätzliche Vergleichsanker – nur bei passender Packung verwenden
+
+| Produkttyp | Produkt / Händler | Packung | Preis-Snapshot | Quelle / Hinweis |
 |---|---|---:|---:|---|
-| Sensi Seeds – Northern Lights #5 x Haze, feminisiert | Feminisierte Samen | 3+1 Samen | 48,38 €; im Suchauszug ca. 16,13 €/Samen | Nicht 1:1 mit einer 3er-Packung vergleichen; Aktions-/Referenzpreis auf Produktseite erneut prüfen |
-| Dutch Passion – Skunk #1 | Reguläre Samen | 10 Samen | 29,95 €; rechnerisch 3,00 €/Samen gerundet | Nur Referenz für reguläre Samen und 10er-Packung |
-| Dutch Passion – Hollands Hope | Feminisierte Samen | 1 Samen | 12,95 € | Einzel-Samen-Referenz; nicht direkt mit 3er-/5er-/10er-Packs vergleichbar |
+| Feminisiert | The 2019 – Royal Queen Seeds | 3 Samen ausgewählt | 29,00 € | Offizielle RQS-Kategorieseite; Auswahlzustand und Preis direkt auf Produktseite bestätigen |
+| Feminisiert | Super Boof – Royal Queen Seeds | 3 Samen ausgewählt | 32,50 € | Offizielle RQS-Kategorieseite; Preis-Snapshot |
+| Autoflowering | Sticky Queen Auto – Royal Queen Seeds | 3 Samen ausgewählt | 30,50 € | Offizielle RQS-Kategorieseite; Preis-Snapshot |
+| Autoflowering | Mexican Rush Auto – Royal Queen Seeds | 3 Samen ausgewählt | 27,00 € | Offizielle RQS-Kategorieseite; Preis-Snapshot |
+| Regulär | Passion #1 – Dutch Passion | 10 reguläre Samen | 44,95 € | Offizielle Produktseite; reguläre Variante eindeutig ausgewiesen, Packung nicht gleich 3 |
+| Regulär | Shaman – Dutch Passion | 10 reguläre Samen | 29,95 € | Offizielle Produktseite; reguläre Variante eindeutig ausgewiesen, Packung nicht gleich 3 |
 
-### Quellen
+### 4.3 Quellen der Preis-Snapshots
 
-- Sensi Seeds, Northern Lights #5 x Haze (deutsche Produktseite): https://sensiseeds.com/de/feminisierte-samen/sensi-seeds/northern-lights-5-x-haze-weiblich
-- Dutch Passion, Skunk #1 (reguläre Samen): https://dutch-passion.com/de/hanfsamen/skunk-1
-- Dutch Passion, Hollands Hope (feminisiertes Saatgut): https://dutch-passion.com/de/hanfsamen/hollands-hope
-- Royal Queen Seeds, feminisierte Samen – Kategorie zur weiteren Erhebung passender Produkt-/Packungsdaten: https://www.royalqueenseeds.de/33-feminisierte-hanfsamen
-- Royal Queen Seeds, Autoflowering-Samen – Kategorie zur weiteren Erhebung passender Produkt-/Packungsdaten: https://www.royalqueenseeds.de/34-autoflowering-hanfsamen
+- CannaVergleich, Marktvergleich mit getrennter Packungsgröße und Preis je Samen: https://cannavergleich.com/
+- Royal Queen Seeds, feminisierte Kategorie (The 2019, Super Boof u. a.): https://www.royalqueenseeds.de/33-feminisierte-hanfsamen
+- Royal Queen Seeds, Autoflower-Kategorie (Sticky Queen Auto, Mexican Rush Auto u. a.): https://www.royalqueenseeds.de/34-autoflowering-hanfsamen
+- Royal Queen Seeds, Bestseller-Kategorie (White Widow, 3 Samen ausgewählt): https://www.royalqueenseeds.de/besten-hanfsamen
+- Dutch Passion, Passion #1 mit getrennten Packungsvarianten einschließlich 10 regulärer Samen: https://dutch-passion.com/de/hanfsamen/passion-1
+- Dutch Passion, Shaman mit getrennten Packungsvarianten einschließlich 10 regulärer Samen: https://dutch-passion.com/de/hanfsamen/shaman
+- Dutch Passion, reguläre Samen Kategorie: https://dutch-passion.com/de/regulare-cannabissamen
+- Bloomtech, Royal Queen Seeds Produktübersicht (u. a. Blue Cheese feminisiert 3er-Pack, Green Gelato Auto 3er-Pack): https://bloomtech.de/Royal-Queen-Seeds
 
-Die Preisangaben sind Momentaufnahmen aus Suchauszügen und können sich durch Rabatte, gewählte Varianten oder Änderungen der Händlerseiten unterscheiden. Sie sind keine bestätigten, dauerhaften Listenpreise. Bei der nächsten Erhebungsrunde sind Produktseite, ausgewählte Packungsgröße, Listenpreis, Angebotspreis und Prüfdatum direkt zu dokumentieren.
+**Grenze der Erhebung:** Für reguläre Samen ist in dieser Runde noch kein verlässlich belegter, exakt passender 3er-Packpreis dokumentiert. Die 10er-Packungen sind ausdrücklich als abweichende Vergleichsgröße markiert und dürfen nicht als gleichwertiger 3er-Packvergleich behandelt werden. Auch die gleichen Sortennamen beweisen nicht automatisch identische Breeder-Genetik; das SEED³X-Katalogmodell enthält derzeit kein Breeder-Feld.
 
 ## 5. Verbindliches Datenschema für die vollständige Vergleichsmatrix
 
