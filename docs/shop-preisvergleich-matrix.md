@@ -353,3 +353,26 @@ Diese Runde prüft weitere Sortenfamilien aus dem SEED³X-Katalog. Aufgenommen w
 - **Bruce Banner Regular** bleibt offen, da Packungsgröße, Packpreis und Verfügbarkeit im geprüften Treffer nicht zusammen eindeutig nachgewiesen wurden.
 - **Super Lemon Haze** bleibt für den Regular-Vergleich offen; der gefundene 10er-Treffer ist feminisiert und darf nicht übertragen werden.
 - Diese Ergänzung dokumentiert nur öffentliche Händlerpreise. Es wurden keine SEED³X-Preise, Einkaufskosten oder Margen berechnet und keine Katalogdaten, Bestände, Freigabestatus, Checkout-Funktionen, `main` oder Deployments verändert.
+
+
+### 4.13 Weitere direkte Regular-Angebote – White Widow und Bruce Banner – 25.10.2026
+
+Diese Runde erweitert die Prüfung um weitere reguläre Katalogsorten. Packpreis und Stückpreis werden nur aus klar ausgewiesener Packungsgröße berechnet. „Lagernd“, Vorbestellung und Nichtverfügbarkeit werden nicht gleichgesetzt. Vergleichsprodukte verschiedener Züchter bleiben getrennte Referenzen.
+
+| Katalogfamilie / Händlerprodukt | Typ | Züchter / Händler | Packung | Sichtbarer Packpreis | Preis je Samen | Verfügbarkeit / Prüfergebnis | Quelle |
+|---|---|---|---:|---:|---:|---|---|
+| Bruce Banner Regular | Regulär | Philosopher Seeds / Philosopher Seeds DE | 5 | 23,10 € Angebot (vorher 33,00 €) | 4,62 € Angebot (6,60 € vorher) | Direkte Produktseite kennzeichnet die 5er-Variante als „LAGERND“ und zeigt eine Warenkorb-Aktion. Versandkosten werden ab 9,50 € angegeben; der Seitenhinweis nennt Versand für Reino Unido, daher Versand nach Deutschland vor späterer Nutzung separat klären. | https://philosopherseeds.de/bruce-banner-p-470.html |
+| Bruce Banner Regular | Regulär | Philosopher Seeds / Philosopher Seeds DE | 10 | 42,00 € Angebot (vorher 60,00 €) | 4,20 € Angebot (6,00 € vorher) | Direkte Produktseite kennzeichnet die 10er-Variante als „LAGERND“. Versand nach Deutschland ist in der geöffneten Ansicht nicht eindeutig bestätigt. | https://philosopherseeds.de/bruce-banner-p-470.html |
+| White Widow Regular | Regulär | Barney’s Farm | 5 | 32,00 € | 6,40 € | Offizielle Züchterseite nennt Typ „Regular“ und die 5er-Variante. Im ausgelesenen Ausschnitt war kein eindeutiger Lagerstatus sichtbar; Preisanker mit Verfügbarkeitsvorbehalt. | https://www.barneysfarm.de/white-widow-_-regular-849 |
+| White Widow Regular | Regulär | Barney’s Farm | 10 | 59,00 € | 5,90 € | Offizielle Züchterseite nennt Typ „Regular“ und die 10er-Variante. Im ausgelesenen Ausschnitt war kein eindeutiger Lagerstatus sichtbar; Preisanker mit Verfügbarkeitsvorbehalt. | https://www.barneysfarm.de/white-widow-_-regular-849 |
+| White Widow Regular | Regulär | Nirvana Seeds / Hanfjack | 10 | 25,68 € | 2,57 € | Direkte Produktseite nennt 10 Stück, regulären Typ und den Preis; Lieferzeit ist mit 5–10 Tagen als Vorbestellung angegeben, also kein bestätigter Sofortbestand. | https://hanfjack.de/produkt/nirvana-seeds-white-widow-regulaer/ |
+| White Widow Regular | Regulär | Royal Queen Seeds | 10 | 60,00 € | 6,00 € | Offizielle Produktseite zeigt 10er-Variante und Preis, meldet aber zugleich „Benachrichtige mich, wenn das Produkt wieder auf Lager ist“. Daher als nicht verfügbarer Preisindikator führen. | https://www.royalqueenseeds.de/regulaere-cannabissamen/541-white-widow-regular.html |
+| White Widow Regular | Regulär | White Label / Sensi Seeds | 10 | 42,50 € | 4,25 € | Offizielle Produktseite nennt 10 Samen und den Stückpreis, kennzeichnet das Produkt aber ausdrücklich als „Nicht auf Lager“. Nicht als verfügbares Angebot behandeln. | https://sensiseeds.com/de/hanfsamen/whitelabel/white-widow |
+
+#### Ergebnis dieser Runde
+
+- **Bruce Banner Regular** hat auf einer direkten Produktseite klar ausgewiesene 5er- und 10er-Preise. Die Seite meldet beide Varianten als lagernd, allerdings muss die Lieferbarkeit nach Deutschland wegen des Versandhinweises vor einer späteren Nutzung geprüft werden.
+- **White Widow Regular** hat weitere konkrete Preisanker von Barney’s Farm (5er und 10er, Lagerstatus in der sichtbaren Ansicht offen) sowie Nirvana/Hanfjack (10er, Vorbestellung). Die Angebote von RQS und Sensi Seeds sind ausdrücklich als nicht auf Lager markiert.
+- Der zuvor dokumentierte White-Widow-Preis von Eden Seeds (41,00 € für 10 Samen, „Bald wieder verfügbar“) bleibt ein separater historischer/verfügbarkeitsbeschränkter Preisindikator; er wird nicht mit den neuen Angeboten vermischt.
+- Für **Super Lemon Haze Regular** wurde in dieser Runde kein belastbarer Regular-Treffer mit konkretem Packpreis und Verfügbarkeit bestätigt. Der gefundene 10er-Treffer von Bloom Bulk Seeds ist feminisiert und daher ausgeschlossen.
+- Diese Ergänzung dokumentiert öffentliche Händlerpreise, keine SEED³X-Verkaufspreise. Keine Einkaufskosten oder Margen berechnet; Katalogpreise, Packvarianten, Bestände, Freigaben, Checkout, `main` und Deployments bleiben unverändert.
