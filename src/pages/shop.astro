@@ -102,134 +102,134 @@ const catalogCount = products.length;
       <div class="catalog-sort"><label for="product-sort">Sortieren</label><select id="product-sort" aria-label="Produkte sortieren"><option value="source">Originale Listenreihenfolge</option><option value="name-asc">Name: A–Z</option><option value="name-desc">Name: Z–A</option><option value="category">Kategorie</option></select></div>
     </div>
     <p class="results-count" id="results-count" aria-live="polite">{catalogCount.toLocaleString('de-DE')} Katalogeinträge</p>
-    <div class="product-grid" id="product-grid">{products.map((product) => <article class="product-card" data-category={product.type} data-id={product.id} data-name={product.name} data-type={product.type} data-image={product.image} data-status={product.status}><a class="product-image product-image-link" href={'/product/' + product.id + '/'} aria-label={`Details zu ${product.name} öffnen`}><span class="product-tag">{product.tag}</span><img src={product.image} alt="Symbolbild aus dem SEED³X Bildarchiv; kein verifiziertes Einzelproduktfoto" loading="lazy" decoding="async" width="280" height="280"/></a><div class="product-info"><span class="product-type">{product.type} </span><h3><a class="product-title-link" href={'/product/' + product.id + '/'}>{product.name}</a></h3><p>Individuelle Sortenangaben werden vor einer Veröffentlichung anhand verlässlicher Züchter- oder Herstellerquellen geprüft.</p>{product.packVariants?.length > 0 && <div class="pack-price-preview" aria-label="Preisvorschau je Packungsgröße"><span class="pack-price-heading">Preise je Packungsgröße</span><div class="pack-price-grid">{product.packVariants.map((variant) => <div class="pack-price-option"><span>{variant.quantity} {variant.quantity === 1 ? 'Samen' : 'Samen'}</span><strong>{variant.priceEUR.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</strong></div>)}</div></div>}<span class="product-note">Katalogname und Kategorie · Sortenmerkmale noch nicht verifiziert</span><div class="product-actions"><a class="text-link product-detail-link" href={'/product/' + product.id + '/'}>Details ansehen ↗</a><button class="save-button" type="button" data-save={product.id} aria-pressed="false">+ Merken</button></div></div></article>)}</div>
-    <p class="empty-state" id="no-results" hidden>Keine passenden Produkte gefunden. Versuche einen anderen Suchbegriff oder eine andere Kategorie.</p>
+    <div class="product-grid" id="product-grid">{products.slice(0, 24).map((product) => <article class="product-card" data-category={product.type} data-id={product.id} data-name={product.name} data-type={product.type} data-image={product.image} data-status={product.status}><a class="product-image product-image-link" href={'/product/' + product.id + '/'} aria-label={`Details zu ${product.name} öffnen`}><span class="product-tag">{product.tag}</span><img src={product.image} alt="Symbolbild aus dem SEED³X Bildarchiv; kein verifiziertes Einzelproduktfoto" loading="lazy" decoding="async" width="280" height="280"/></a><div class="product-info"><span class="product-type">{product.type} </span><h3><a class="product-title-link" href={'/product/' + product.id + '/'}>{product.name}</a></h3><p>Individuelle Sortenangaben werden vor einer Veröffentlichung anhand verlässlicher Züchter- oder Herstellerquellen geprüft.</p>{product.packVariants?.length > 0 && <div class="pack-price-preview" aria-label="Preisvorschau je Packungsgröße"><span class="pack-price-heading">Preise je Packungsgröße</span><div class="pack-price-grid">{product.packVariants.map((variant) => <div class="pack-price-option"><span>{variant.quantity} Samen</span><strong>{variant.priceEUR.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</strong></div>)}</div></div>}<span class="product-note">Katalogname und Kategorie · Sortenmerkmale noch nicht verifiziert</span><div class="product-actions"><a class="text-link product-detail-link" href={'/product/' + product.id + '/'}>Details ansehen ↗</a><button class="save-button" type="button" data-save={product.id} aria-pressed="false">+ Merken</button></div></div></article>)}</div>
+    <button class="button catalog-load-more" id="catalog-load-more" type="button">Mehr anzeigen</button>
+    <script type="application/json" id="catalog-data" set:html={JSON.stringify(products).replace(/</g, '\\u003c')}></script>
+    <p class="empty-state" id="no-results" hidden><p class="empty-state" id="no-results" hidden>Keine passenden Produkte gefunden. Versuche einen anderen Suchbegriff oder eine andere Kategorie.</p>
     <div class="notice">Preisübersicht: Für alle 1.269 Katalogeinträge sind Preise für 1, 3, 5 und 10 Samen hinterlegt. Die Preisstaffeln können bei Bedarf angepasst werden. Produktmerkmale und Lagerbestand werden separat geprüft; Bestellungen und Zahlungen bleiben deaktiviert.</div>
   </section>
 </Layout>
 <script>
-const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
-  const cards = [...document.querySelectorAll<HTMLElement>('.product-card')];
+  type Product = { id: string; name: string; category: string; type?: string; image?: string; status?: string; description?: string; packVariants?: { quantity: number; priceEUR: number }[] };
+  const catalogData = document.querySelector<HTMLScriptElement>('#catalog-data');
+  const allProducts = (catalogData?.textContent ? JSON.parse(catalogData.textContent) : []) as Product[];
+  const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
   const search = document.querySelector<HTMLInputElement>('#product-search');
   const count = document.querySelector<HTMLElement>('#results-count');
   const empty = document.querySelector<HTMLElement>('#no-results');
   const sortSelect = document.querySelector<HTMLSelectElement>('#product-sort');
   const grid = document.querySelector<HTMLElement>('#product-grid');
-  const originalOrder = new Map(cards.map((card, index) => [card.dataset.id || String(index), index]));
+  const loadMore = document.querySelector<HTMLButtonElement>('#catalog-load-more');
+  const pageSize = 24;
   const requestedFilter = new URLSearchParams(window.location.search).get('typ');
   let activeFilter = filterButtons.some((button) => button.dataset.filter === requestedFilter) ? (requestedFilter || 'Alle') : 'Alle';
-  // Reliable product navigation for touch devices: handle taps on the card grid
-  // explicitly instead of relying only on the browser's default anchor activation.
-  // The save button remains independent and never triggers navigation.
-  grid?.addEventListener('click', (event) => {
-    const target = event.target;
-    if (!(target instanceof Element)) return;
-    const card = target.closest<HTMLElement>('.product-card');
-    if (!card) return;
-    if (target.closest('button, input, select, textarea')) return;
-    const link = target.closest<HTMLAnchorElement>('a[href]');
-    const destination = link?.href || card.querySelector<HTMLAnchorElement>('.product-detail-link')?.href;
-    if (!destination) return;
-    event.preventDefault();
-    window.location.assign(destination);
-  }, true);
+  let shownCount = pageSize;
+  let filteredProducts: Product[] = [];
 
-  function sortProducts() {
-    if (!grid || !sortSelect) return;
-    const mode = sortSelect.value;
-    const sorted = [...cards].sort((a, b) => {
-      if (mode === 'name-asc') return (a.dataset.name || '').localeCompare(b.dataset.name || '', 'de', { sensitivity: 'base' });
-      if (mode === 'name-desc') return (b.dataset.name || '').localeCompare(a.dataset.name || '', 'de', { sensitivity: 'base' });
-      if (mode === 'category') {
-        const categoryCompare = (a.dataset.category || '').localeCompare(b.dataset.category || '', 'de');
-        if (categoryCompare !== 0) return categoryCompare;
-      }
-      return (originalOrder.get(a.dataset.id || '') ?? 0) - (originalOrder.get(b.dataset.id || '') ?? 0);
-    });
-    sorted.forEach((card) => grid.append(card));
-  }
-  function readSavedProducts(): { id: string; name: string; type: string; image: string }[] {
+  const escapeHtml = (value: unknown) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char] || char);
+  const formatPrice = (value: number) => new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value);
+  const getSavedIds = () => {
     try {
       const value: unknown = JSON.parse(localStorage.getItem('greengrow-list') || '[]');
-      if (!Array.isArray(value)) return [];
-      return value.filter((item): item is { id: string; name: string; type: string; image: string } =>
-        item && typeof item.id === 'string' && typeof item.name === 'string' &&
-        typeof item.type === 'string' && typeof item.image === 'string'
-      );
-    } catch {
-      return [];
+      return new Set(Array.isArray(value) ? value.filter((item) => item && typeof item.id === 'string').map((item) => item.id) : []);
+    } catch { return new Set<string>(); }
+  };
+  function cardMarkup(product: Product) {
+    const id = escapeHtml(product.id);
+    const name = escapeHtml(product.name);
+    const type = escapeHtml(product.type || product.category);
+    const image = escapeHtml(product.image || '/images/products/seed-archive.png');
+    const saved = getSavedIds().has(product.id);
+    const prices = (product.packVariants || []).map((variant) => `<div class="pack-price-option"><span>${variant.quantity} Samen</span><strong>${formatPrice(variant.priceEUR)}</strong></div>`).join('');
+    return `<article class="product-card" data-category="${type}" data-id="${id}" data-name="${name}" data-type="${type}" data-image="${image}" data-status="${escapeHtml(product.status)}">
+      <a class="product-image product-image-link" href="/product/${encodeURIComponent(id)}/" aria-label="Details zu ${name} öffnen"><span class="product-tag">Sortimentsvorschau</span><img src="${image}" alt="Symbolbild aus dem SEED³X Bildarchiv; kein verifiziertes Einzelproduktfoto" loading="lazy" decoding="async" width="280" height="280"/></a>
+      <div class="product-info"><span class="product-type">${type}</span><h3><a class="product-title-link" href="/product/${encodeURIComponent(id)}/">${name}</a></h3>
+      <p>Individuelle Sortenangaben werden vor einer Veröffentlichung anhand verlässlicher Züchter- oder Herstellerquellen geprüft.</p>
+      ${prices ? `<div class="pack-price-preview" aria-label="Preisvorschau je Packungsgröße"><span class="pack-price-heading">Preise je Packungsgröße</span><div class="pack-price-grid">${prices}</div></div>` : ''}
+      <span class="product-note">Katalogname und Kategorie · Sortenmerkmale noch nicht verifiziert</span><div class="product-actions"><a class="text-link product-detail-link" href="/product/${encodeURIComponent(id)}/">Details ansehen ↗</a><button class="save-button" type="button" data-save="${id}" aria-pressed="${saved}">${saved ? '✓ Gemerkt' : '+ Merken'}</button></div></div></article>`;
+  }
+  function sortAndFilterProducts() {
+    const query = (search?.value || '').trim().toLocaleLowerCase('de');
+    filteredProducts = allProducts.filter((product) => {
+      const type = product.type || product.category || '';
+      const matchesCategory = activeFilter === 'Alle' || type === activeFilter;
+      const searchable = [product.name, type, product.id, product.description].filter(Boolean).join(' ').toLocaleLowerCase('de');
+      return matchesCategory && (!query || searchable.includes(query));
+    });
+    const mode = sortSelect?.value || 'source';
+    if (mode === 'name-asc') filteredProducts.sort((a, b) => a.name.localeCompare(b.name, 'de', { sensitivity: 'base' }));
+    else if (mode === 'name-desc') filteredProducts.sort((a, b) => b.name.localeCompare(a.name, 'de', { sensitivity: 'base' }));
+    else if (mode === 'category') filteredProducts.sort((a, b) => (a.type || a.category || '').localeCompare(b.type || b.category || '', 'de'));
+  }
+  function renderProducts(reset = false) {
+    if (!grid) return;
+    if (reset) shownCount = pageSize;
+    const visibleProducts = filteredProducts.slice(0, shownCount);
+    grid.innerHTML = visibleProducts.map(cardMarkup).join('');
+    if (count) count.textContent = filteredProducts.length.toLocaleString('de-DE') + (filteredProducts.length === 1 ? ' Katalogeintrag' : ' Katalogeinträge');
+    if (empty) empty.hidden = filteredProducts.length !== 0;
+    if (loadMore) {
+      const remaining = Math.max(0, filteredProducts.length - visibleProducts.length);
+      loadMore.hidden = remaining === 0;
+      loadMore.textContent = remaining ? `Mehr anzeigen (${Math.min(pageSize, remaining)} weitere)` : 'Alle Einträge angezeigt';
+      loadMore.setAttribute('aria-label', remaining ? `${Math.min(pageSize, remaining)} weitere Produkte anzeigen` : 'Alle Einträge angezeigt');
     }
   }
-  function syncSavedButtons() {
-    const savedIds = new Set(readSavedProducts().map((item) => item.id));
-    document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => {
-      const isSaved = savedIds.has(button.dataset.save || '');
-      button.setAttribute('aria-pressed', String(isSaved));
-      button.textContent = isSaved ? '✓ Gemerkt' : '+ Merken';
-    });
-    /* The header count belongs to the shopping cart, not the separate favorites list. */
-  }
-  function updateProducts() {
-    const query = (search?.value || '').trim().toLocaleLowerCase('de');
-    let visible = 0;
-    cards.forEach((card) => {
-      const matchesCategory = activeFilter === 'Alle' || card.dataset.category === activeFilter;
-      const searchableText = [
-        card.dataset.name,
-        card.dataset.category,
-        card.dataset.type,
-        card.dataset.id,
-        card.querySelector('.product-description-block')?.textContent,
-        card.querySelector('.product-info p')?.textContent,
-        card.querySelector('.product-note')?.textContent,
-      ].filter(Boolean).join(' ').toLocaleLowerCase('de');
-      const matchesQuery = !query || searchableText.includes(query);
-      const show = matchesCategory && matchesQuery;
-      card.hidden = !show;
-      if (show) visible++;
-    });
-    if (count) count.textContent = visible.toLocaleString('de-DE') + (visible === 1 ? ' Katalogeintrag' : ' Katalogeinträge');
-    if (empty) empty.hidden = visible !== 0;
+  function applyFilters() {
+    sortAndFilterProducts();
+    renderProducts(true);
   }
   filterButtons.forEach((button) => button.addEventListener('click', () => {
     activeFilter = button.dataset.filter || 'Alle';
     filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item.dataset.filter === activeFilter)));
-    updateProducts();
-    if (button.hasAttribute('data-category-entry')) {
-      document.querySelector('#sortiment')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    applyFilters();
+    if (button.hasAttribute('data-category-entry')) document.querySelector('#sortiment')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
-  search?.addEventListener('input', updateProducts);
-  sortSelect?.addEventListener('change', sortProducts);
-  sortProducts();
-  filterButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter)));
-  updateProducts();
-  document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => button.addEventListener('click', () => {
+  search?.addEventListener('input', applyFilters);
+  sortSelect?.addEventListener('change', applyFilters);
+  loadMore?.addEventListener('click', () => {
+    shownCount += pageSize;
+    renderProducts(false);
+  });
+  grid?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const button = target.closest<HTMLButtonElement>('[data-save]');
+    if (!button) return;
     const card = button.closest<HTMLElement>('.product-card');
-    if (!card) return;
-    const id = card.dataset.id;
-    if (!id) return;
-    const saved = readSavedProducts();
-    const exists = saved.some((item) => item.id === id);
-    const next = exists
-      ? saved.filter((item) => item.id !== id)
-      : [...saved, {
-          id,
-          name: card.dataset.name || 'Unbenanntes Produkt',
-          type: card.dataset.type || 'Nicht zugeordnet',
-          image: card.dataset.image || ''
-        }];
+    const id = card?.dataset.id;
+    if (!card || !id) return;
+    event.preventDefault();
+    const name = card.dataset.name || 'Unbenanntes Produkt';
+    const type = card.dataset.type || 'Nicht zugeordnet';
+    const image = card.dataset.image || '';
     try {
+      const saved = JSON.parse(localStorage.getItem('greengrow-list') || '[]');
+      const safeSaved = Array.isArray(saved) ? saved.filter((item) => item && typeof item.id === 'string') : [];
+      const exists = safeSaved.some((item) => item.id === id);
+      const next = exists ? safeSaved.filter((item) => item.id !== id) : [...safeSaved, { id, name, type, image }];
       localStorage.setItem('greengrow-list', JSON.stringify(next));
-      syncSavedButtons();
+      document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((item) => {
+        const isSaved = next.some((savedItem) => savedItem.id === item.dataset.save);
+        item.setAttribute('aria-pressed', String(isSaved));
+        item.textContent = isSaved ? '✓ Gemerkt' : '+ Merken';
+      });
     } catch {
       window.alert('Deine Merkliste konnte auf diesem Gerät nicht gespeichert werden. Bitte prüfe die Browser-Einstellungen.');
     }
-  }));
-  window.addEventListener('storage', (event) => {
-    if (event.key === 'greengrow-list') syncSavedButtons();
   });
-  syncSavedButtons();
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'greengrow-list') {
+      const savedIds = getSavedIds();
+      document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => {
+        const isSaved = savedIds.has(button.dataset.save || '');
+        button.setAttribute('aria-pressed', String(isSaved));
+        button.textContent = isSaved ? '✓ Gemerkt' : '+ Merken';
+      });
+    }
+  });
+  sortAndFilterProducts();
+  renderProducts(false);
 </script>
 <style>
   .cali-editorial-section{padding-top:clamp(2.5rem,5vw,4.5rem);padding-bottom:clamp(2.5rem,5vw,4.5rem)}
@@ -264,7 +264,7 @@ const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-fi
   .shop-catalog .catalog-tools{padding:1.25rem;border:1px solid var(--line);border-radius:20px;background:#fffdf8;box-shadow:0 16px 45px #20362a08;margin:1.5rem 0}
   .shop-catalog .search-box{max-width:none}
   .shop-catalog .filter-row{margin:.5rem 0}
-  .shop-catalog .product-grid{gap:1rem}
+  .shop-catalog .product-grid{gap:1rem}\n  .catalog-load-more{display:block;margin:1.5rem auto 0;min-width:12rem}\n  .catalog-load-more[hidden]{display:none}
   /* Keep the large catalog responsive while scrolling: defer off-screen card layout/paint. */
   .shop-catalog .product-card{content-visibility:auto;contain-intrinsic-size:auto 680px}
   .pack-price-preview{margin:1rem 0;padding:.85rem;border:1px solid var(--line);border-radius:12px;background:#fffdf8}.pack-price-heading{display:block;margin-bottom:.6rem;color:#8a641b;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.pack-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}.pack-price-option{display:flex;align-items:center;justify-content:space-between;gap:.4rem;padding:.55rem .6rem;border-radius:8px;background:#f4f1e8;font-size:.8rem}.pack-price-option strong{color:var(--green);font-variant-numeric:tabular-nums;white-space:nowrap}
