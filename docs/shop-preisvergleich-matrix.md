@@ -187,3 +187,25 @@ Diese Ergänzung erfasst nur öffentlich sichtbare Händlerpreise. Vergleichspro
 - Bei **Blue Dream Auto** ist der Packpreis bei 00 Seeds in der abgerufenen Darstellung nicht eindeutig einer Variante zugeordnet; bis zur Sichtprüfung mit ausgewählter Packungsgröße bleibt der Eintrag ein Recherchehinweis, kein bestätigter Preisanker.
 - Ein Angebotspreis ist kein Listenpreis. Preis je Samen wurde nur berechnet, wenn Packungsgröße und Packpreis eindeutig waren.
 - Für Händlervergleiche gleicher Sortenfamilien bleibt der Züchter ein eigenes Merkmal: gleiche Sortenbezeichnung bedeutet nicht automatisch identische Genetik.
+
+
+### 4.5 Prüfung der neu ergänzten Quellen und regulärer Packungsgrößen – 25.10.2026
+
+Die beiden vom Nutzer bereitgestellten Quellen wurden als zusätzliche Recherchequellen aufgenommen. Bei regulären Sorten werden 5er- und 10er-Packungen getrennt erfasst; ein „ab“-Preis ohne eindeutig ausgewiesene Samenanzahl ist **kein** bestätigter Packpreis und wird nicht auf einen Stückpreis umgerechnet.
+
+| Quelle / Produktbeispiel | Typ | Öffentlich sichtbarer Preis | Packungsgröße | Preis je Samen | Prüfergebnis |
+|---|---|---:|---|---:|---|
+| Zamnesia – „Top 10 der besten regulären Cannabissamen“ | Redaktioneller Ratgeber | Im geöffneten Seiteninhalt kein eindeutig zuordenbarer aktueller Packpreis je gelisteter Sorte | Nicht ausgewiesen | Nicht berechenbar | Als Sortenfinder und Quelle für Kandidaten verwenden, nicht als Preisbeleg. https://www.zamnesia.de/blog-top-10-besten-regulaeren-cannabissamen-n2409 |
+| Zamnesia – reguläre Samen, Kategorie | Regulär | Black Widow (Mr. Nice) 68,00 €; Ruderalis Skunk (Sensi Seeds) 48,00 €; Motavation (Serious Seeds) 70,00 €; Critical Skunk (Mr. Nice) 60,00 €; Dreamtime (Mr. Nice) 35,00 €; G13 Haze (Mr. Nice) 80,00 € | Auf der Kategorieansicht nicht für alle Beispiele eindeutig zugeordnet | Nicht berechenbar | Öffentliche Kategoriepreise; vor Aufnahme in Packungsvergleiche muss die konkrete Produktseite mit ausgewählter 5er-/10er-Variante geprüft werden. https://www.zamnesia.de/35-cannabissamen/296-regulare-hanfsamen |
+| Secret of Eden – Black Widow (Mr Nice Seedbank) | Regulär laut Kategorie | Ab 68,00 € | Nicht eindeutig aus der Kategorieansicht | Nicht berechenbar | „Ab“-Preis; kein bestätigter 5er-/10er-Packpreis. https://secretofeden.de/Samen/Regular/ |
+| Secret of Eden – Critical Mass (Mr Nice Seedbank) | Regulär laut Kategorie | Ab 68,00 € | Nicht eindeutig aus der Kategorieansicht | Nicht berechenbar | Andere Sortenbezeichnung als „Critical“; nicht als identische Katalogsorte zählen. https://secretofeden.de/Samen/Regular/ |
+| Secret of Eden – Jack Herer® Regular (Sensi Seeds) | Regulär | Ab 163,00 € | Nicht eindeutig aus der Kategorieansicht | Nicht berechenbar | Packgröße und Verfügbarkeit auf Produktdetailseite verifizieren. https://secretofeden.de/Samen/Regular/ |
+| Secret of Eden – White Widow® Regular (De Sjamaan) | Regulär | Ab 30,00 € | Nicht eindeutig aus der Kategorieansicht | Nicht berechenbar | Produkt auf der Seite als derzeit ausverkauft / bald wieder verfügbar markiert; daher kein verfügbarer Preisanker. https://secretofeden.de/Samen/Regular/ |
+| Secret of Eden – Peace Maker Regular (De Sjamaan) | Regulär | Ab 30,00 € | Nicht eindeutig aus der Kategorieansicht | Nicht berechenbar | Produkt auf der Seite als derzeit ausverkauft / bald wieder verfügbar markiert. https://secretofeden.de/Samen/Regular/ |
+
+#### Ergebnis dieser Quellenprüfung
+
+- Die neuen Quellen erweitern die Kandidatenliste für reguläre Genetiken, liefern in der abgerufenen Ansicht aber überwiegend **keine verlässlich zuordenbaren 5er-/10er-Packpreise**.
+- „Ab“-Preise bleiben als Preisindikator mit unbekannter Packgröße dokumentiert. Es wird daraus weder ein Stückpreis noch ein vermeintlicher 5er-/10er-Preis errechnet.
+- Critical Mass, Critical Haze und Critical Skunk sind nicht automatisch mit der Katalogfamilie Critical gleichzusetzen. Gleiches gilt für White Widow-Produkte verschiedener Züchter: Sortenname und Züchter werden getrennt dokumentiert.
+- Die nächste Prüfrunde muss auf konkrete Produktdetailseiten mit ausgewählter Packungsgröße zielen. Nur wenn Packungsgröße, Regular-Typ, Preis und Verfügbarkeit klar ersichtlich sind, wird der Preis als bestätigt geführt.
