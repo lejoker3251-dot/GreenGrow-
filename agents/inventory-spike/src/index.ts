@@ -210,6 +210,7 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }>
       ).toArray()[0];
       if (!reservation) return { kind: "missing" as const };
       if (reservation.status === "released") return { kind: "already-released" as const };
+      if (reservation.status === "expired") return { kind: "already-expired" as const };
       const lines = this.sql.exec<{ product_id: string; seeds_required: number }>(
         "SELECT product_id, seeds_required FROM reservation_lines WHERE reservation_id = ?", body.reservationId as string
       ).toArray();
@@ -224,6 +225,7 @@ export class InventoryLedger extends DurableObject<{ SPIKE_TEST_MODE?: string }>
       return { kind: "released" as const };
     });
     if (result.kind === "missing") return json({ error: "RESERVATION_NOT_FOUND" }, 404);
+    if (result.kind === "already-expired") return json({ ok: true, status: "expired", replay: true }, 409);
     return json({ ok: true, status: "released", replay: result.kind === "already-released" });
   }
 }
