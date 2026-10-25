@@ -253,3 +253,20 @@ Diese Runde erfasst nur öffentliche Händlerpreise für reguläre Varianten in 
 - Für Critical Regular ist die Existenz einer regulären Produktlinie bestätigt, aber die klar sichtbaren Packgrößen liegen nicht bei 5 oder 10 Samen. Das Produkt bleibt daher außerhalb der bestätigten Ziel-Packgrößen.
 - Für Blue Cheese Regular liegt weiterhin kein verlässlicher 5er-/10er-Direktbeleg vor.
 - Es wurden ausschließlich öffentliche Händlerpreise recherchiert. Keine Einkaufskosten, Margen oder SEED³X-Verkaufspreise berechnet; Produktdaten, Bestand, Freigaben, Checkout und Veröffentlichung bleiben unverändert.
+
+
+### 4.8 Weitere Direktprüfung regulärer Sorten – 25.10.2026
+
+Diese Runde ergänzt nur Angebote, bei denen die Produktseite den regulären Typ und eine konkrete Packungsgröße erkennen lässt. Angebote mit anderer Packungsgröße bleiben getrennt. Preise sind Momentaufnahmen; die Verfügbarkeit wurde nur so übernommen, wie sie auf der jeweiligen Seite angezeigt wurde.
+
+| Katalogfamilie / Händlerprodukt | Typ | Händler / Züchter | Packung | Öffentlicher Packpreis | Preis je Samen | Verfügbarkeit / Einschränkung | Quelle |
+|---|---|---|---:|---:|---:|---|---|
+| Critical Regular | Regulär | Royal Queen Seeds (RQS) | 10 | 60,00 € | 6,00 € | Offizielle Produktseite nennt „Reguläre“ und eine 10er-Variante für 60,00 €. Seite zeigt einen Hinweis auf wenige verfügbare Exemplare; Bestand kann sich ändern. Genetik wird als Afghan × Skunk beschrieben. | https://www.royalqueenseeds.de/regulaere-cannabissamen/545-critical-regular.html |
+| Critical regulär | Regulär | Cannoptikum / Royal Queen Seeds | 10 | 45,45 € Angebot; 56,81 € vorheriger Preis | 4,55 € Angebot; 5,68 € vorheriger Preis | Produktseite zeigt 10 Samen, Lieferzeit ca. 2–4 Tage und ein Angebot mit ausgewiesenem Enddatum 27.10.2026. Separater Händlerpreis; nicht mit dem offiziellen RQS-Preis vermischen. | https://cannoptikum.com/hanfsamen-kaufen/critical-regulaer |
+
+#### Ergebnis dieser Runde
+
+- Für **Critical Regular** liegt nun ein direkt belegter 10er-Preis bei RQS sowie ein separates Händlerangebot bei Cannoptikum vor. Beide Quellen nennen RQS als Züchter; Preis, Rabattstatus und Verfügbarkeit bleiben dennoch händlerspezifisch.
+- Für **Blue Cheese Regular** konnte weiterhin kein belastbarer direkter 5er-/10er-Preis bestätigt werden. Suchtreffer zu Blue Cheese mit Variantenpreisen waren nicht eindeutig als regulär ausgewiesen; diese Preise wurden deshalb ausdrücklich nicht übernommen.
+- Für **Blue Dream Regular** bleiben die zuvor dokumentierten 10er-Anker bestehen: Hanfjack 31,03 € (nicht vorrätig) und Genetiken.de 30,00 € (Detailseite/Bestand noch offen). Sie werden nicht gemittelt.
+- Die gefundenen Critical-Preise sind Marktvergleichswerte und keine SEED³X-Preise. Keine Einkaufskosten, Margen oder Verkaufspreise berechnet; Produktkatalog, Bestand, Freigabestatus, Checkout, `main` und Deployment bleiben unverändert.
