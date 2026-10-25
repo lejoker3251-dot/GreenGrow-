@@ -235,3 +235,21 @@ Diese Runde erfasst nur öffentliche Händlerpreise für reguläre Varianten in 
 - Für **Blue Cheese Regular** und **Critical Regular** wurde kein belastbarer 5er-/10er-Packpreis bestätigt. Es werden keine Preise aus feminisierten oder Autoflower-Angeboten übertragen.
 - Die Blue Dream-Angabe stammt von Nirvana, die Amnesia-Angabe von Seedsman und die White-Widow-Angabe von Sensi Seeds White Label. Diese Händlerangebote sind externe Vergleichspunkte und kein Beleg für identische Genetik zum SEED³X-Katalog.
 - Keine Änderungen an Produktkatalog, Lagerbestand, Freigabestatus, Checkout oder Verkaufspreisen; keine Veröffentlichung oder Deployment.
+
+
+### 4.7 Nachprüfung der offenen regulären Varianten – 25.10.2026
+
+| Katalogfamilie / Händlerprodukt | Typ | Händler / Züchter | Packung | Preis | Verfügbarkeit / Bewertung | Quelle |
+|---|---|---|---:|---:|---|---|
+| Blue Dream Regular – Nirvana Seeds | Regulär | Hanfjack / Nirvana Seeds | 10 | 31,03 € | Direkte Produktseite bestätigt 10 Stück und regulären Typ, meldet jedoch „Nicht vorrätig“. Das ist ein nicht verfügbarer Preisindikator. | https://hanfjack.de/produkt/nirvana-seeds-blue-dream-regulaer/ |
+| Blue Dream Regular Seeds – 10 | Regulär | Genetiken.de / Nirvana Seeds | 10 | 30,00 € | Händlerübersicht bestätigt 10er-Pack und Regular-Kategorie; konkrete Produktdetailseite und aktueller Lagerstatus bleiben noch zu verifizieren. Preis daher als vorläufiger Kategoriepreis führen. | https://genetiken.de/produktkategorie/breeder/nirvana-seeds/?filter_packungsgroesse=10-seeds |
+| Blue Dream Regular – Nirvana | Regulär | Seeds2go / Nirvana Seeds | Packgröße nicht eindeutig in der Kategorieansicht | 27,00 € Angebot / 30,00 € vorher | Kategorie nennt beide Preise, aber in der geöffneten Übersicht ist die Samenanzahl für genau diesen Eintrag nicht belastbar zugeordnet. Kein Preis je Samen berechnen. | https://shop.seeds2go.eu/onlineshop-hanfsamen/alle-samenbanken/nirvana/regulaer/ |
+| Critical Regular – Blimburn Seeds | Regulär | Blimburn Seeds | Varianten 1, 3, 6, 9; weitere Pakete vorhanden | Für die sichtbaren Varianten: 1 Samen 11,99 €; 3 Samen 30,99 € Angebot; 6 Samen 57,49 € Angebot; 9 Samen 73,99 € Angebot | Direkte Produktseite bestätigt regulären Typ und Packoptionen, aber die sichtbaren Größen passen nicht zur Zielgruppe 5er/10er. Deshalb nicht als 5er-/10er-Preis übernehmen. Züchter beschreibt die Linie als Critical Mass × AK47; nicht ohne weiteres mit jedem „Critical“-Katalogeintrag gleichsetzen. | https://blimburnseeds.de/critical-regular/ |
+| Blue Cheese Regular | Regulär | — | 5 oder 10 | Kein bestätigter Preis gefunden | Die Suchtreffer zu Blue Cheese führten überwiegend zu feminisierten oder Autoflower-Produkten. Diese Preise wurden nicht auf Regular übertragen. | Recherche ohne belastbaren Direktbeleg |
+
+#### Einordnung
+
+- Für Blue Dream Regular gibt es jetzt einen direkten 10er-Produktbeleg, allerdings bei Hanfjack ausverkauft; die Preisangaben von 30,00 € und 31,03 € stammen aus unterschiedlichen Händleransichten und werden nicht zu einem künstlichen Einheitspreis zusammengeführt.
+- Für Critical Regular ist die Existenz einer regulären Produktlinie bestätigt, aber die klar sichtbaren Packgrößen liegen nicht bei 5 oder 10 Samen. Das Produkt bleibt daher außerhalb der bestätigten Ziel-Packgrößen.
+- Für Blue Cheese Regular liegt weiterhin kein verlässlicher 5er-/10er-Direktbeleg vor.
+- Es wurden ausschließlich öffentliche Händlerpreise recherchiert. Keine Einkaufskosten, Margen oder SEED³X-Verkaufspreise berechnet; Produktdaten, Bestand, Freigaben, Checkout und Veröffentlichung bleiben unverändert.
