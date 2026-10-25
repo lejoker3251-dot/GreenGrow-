@@ -15,7 +15,7 @@ export function typeCodeFor(category) {
   return TYPE_CODES[category] ?? null;
 }
 
-export function makeVariantId(product) {
+export function makeProductTypeId(product) {
   if (!product || typeof product.id !== "string" || !product.id.trim()) {
     throw new TypeError("A stable non-empty product id is required.");
   }
@@ -24,9 +24,9 @@ export function makeVariantId(product) {
   return `${product.id}--${typeCode}`;
 }
 
-export function makePackVariantId(product, packSize) {
+export function makeVariantId(product, packSize) {
   if (!PACK_SIZES.includes(packSize)) throw new RangeError("Unsupported pack size.");
-  return `${makeVariantId(product)}--P${packSize}`;
+  return `${makeProductTypeId(product)}--P${packSize}`;
 }
 
 function toCents(eur) {
@@ -86,7 +86,7 @@ export function validateCartLine(line, catalog) {
 
   return {
     ok: true,
-    variantId: makePackVariantId(product, line.packSize),
+    variantId: makeVariantId(product, line.packSize),
     productId: product.id,
     productType: product.category,
     packSize: line.packSize,
