@@ -6,6 +6,7 @@
   "workers_dev": false,
   "vars": {
     "SPIKE_TEST_MODE": "true",
+    "RESERVATION_TTL_SECONDS": "1",
     "RESERVATION_TTL_SECONDS": "1"
   },
   "durable_objects": {
