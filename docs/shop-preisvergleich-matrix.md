@@ -290,3 +290,22 @@ Die folgenden Treffer wurden anhand der geöffneten Händleransichten geprüft. 
 - Für **Blue Dream Regular** bestätigt die aktuelle Genetiken.de-Kategorie den 10er-Pack für 30,00 €. Der Lagerstatus bleibt offen; Hanfjack bestätigt denselben Packumfang bei 31,03 €, markiert das Produkt jedoch als nicht vorrätig. Die Preise werden nicht gemittelt.
 - Für **Blue Cheese Regular** bleibt die Lücke offen. Preise aus feminisierten oder selbstblühenden Varianten sind keine zulässigen Ersatzwerte.
 - Es wurden nur öffentliche Händlerpreise ergänzt. Keine Einkaufskosten, Margen oder SEED³X-Verkaufspreise berechnet; keine Produktdaten, Lagerbestände, Freigaben, Checkout-Funktionen, `main` oder Deployments verändert.
+
+
+### 4.10 Weitere bestätigte Preisanker regulärer Sorten – 25.10.2026
+
+| Katalogfamilie / Händlerprodukt | Typ | Händler / Züchter | Packung | Sichtbarer Preis | Preis je Samen | Verfügbarkeit / Einschränkung | Quelle |
+|---|---|---|---:|---:|---:|---|---|
+| Amnesia Regular – Nirvana Seeds | Regulär | Sunshine State / Nirvana | 10 | 24,00 € Angebot (zuvor 30,00 €) | 2,40 € | Direkte Produktseite nennt 10 Stück, regulären Typ und „Verfügbar bei Nachbestellung“; kein Beleg für sofortigen Lagerbestand. | https://seedstate.de/produkt/amnesia-regular-10-st-nirvana/ |
+| Amnesia Regular – Nirvana Seeds | Regulär | The Maria Shop / Nirvana | 10 | 20,00 € | 2,00 € | Direkte Seite nennt 10 Samen und „In stock“. Versand nach Deutschland und Endpreis inkl. Versand nicht bestätigt; daher Vergleichsanker mit Versandvorbehalt. | https://themariashop.com/en/amnesia-regular/ |
+| Amnesia Regular – Seedsman | Regulär | Hanf Vital Shop / Seedsman | 10 | 19,99 € | ca. 2,00 € | Direkte Seite weist Regulär, Artikelnummer HVS001025-R10 und „Verfügbar“ aus. | https://hanfvitalshop.de/amnesia-regulaere |
+| Amnesia Regular – Seedsman | Regulär | Hanfjack / Seedsman | 10 | 20,33 € | 2,03 € | Direkte Seite bestätigt 10 Stück und regulären Typ, meldet jedoch „Nicht vorrätig“. Nur nicht verfügbarer Preisindikator. | https://hanfjack.de/produkt/seedsman-amnesia-regulaer/ |
+| Amnesia Haze Regular – Nirvana Seeds | Regulär | Genetiken.de / Nirvana | 10 | 30,00 € | 3,00 € | Kategorieansicht bestätigt 10er-Pack und Regular, aber es handelt sich um Amnesia Haze, nicht exakt Amnesia. Nur verwandte Sorte, kein identischer Treffer. | https://genetiken.de/produktkategorie/breeder/nirvana-seeds/?filter_packungsgroesse=10-seeds |
+| Blue Cheese Regular | Regulär | — | 5 oder 10 | Kein bestätigter Preis | — | Kein direkter Beleg mit eindeutigem Regular-Typ und Ziel-Packgröße gefunden. Feminisiert- und Auto-Angebote bleiben ausgeschlossen. | Recherche ohne bestätigten Direktbeleg |
+
+#### Ergebnis und Qualitätsgrenzen
+
+- **Amnesia Regular** hat mehrere getrennte Vergleichsanker: 19,99 € für Seedsman im Hanf Vital Shop (als verfügbar gelistet), 20,33 € bei Hanfjack (nicht vorrätig), sowie Nirvana-Angebote für 20,00 € beim The Maria Shop und 24,00 € bei Sunshine State. Nicht mitteln: Züchter, Händler, Status und Versandbedingungen unterscheiden sich.
+- **Blue Dream Regular** bleibt bei 30,00 € für 10 Samen bei Genetiken.de als Kategoriepreis ohne bestätigten Lagerstatus und 31,03 € bei Hanfjack als ausdrücklich nicht vorrätiger Direktpreis dokumentiert.
+- **Blue Cheese Regular** bleibt offen: feminisierte oder Auto-Angebote sind kein zulässiger Ersatz.
+- Nur öffentliche Händlerpreise; keine Einkaufskosten, Margen oder SEED³X-Preisempfehlungen. Produktkatalog, Preise im Katalog, Bestand, Freigabestatus, Checkout, `main` und Deployment bleiben unverändert.
