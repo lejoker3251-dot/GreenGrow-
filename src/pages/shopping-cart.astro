@@ -39,8 +39,7 @@ import Layout from '../layouts/Layout.astro';
   function renderList(message = '') {
     if (!root) return;
     const items = readSavedProducts();
-    const count = document.querySelector('#cart-count');
-    if (count) count.textContent = String(items.length);
+    // Keep the shared header count reserved for the actual cart; favorites have their own list.
 
     if (!items.length) {
       root.innerHTML = '<div class="empty-state"><h2>Noch nichts vorgemerkt</h2><p>Entdecke das Sortiment und speichere deine Favoriten für später.</p></div>';
