@@ -29,3 +29,6 @@ Der Katalog ist weiterhin ein Entwurfskatalog. Ein Feld mit `null` bedeutet: kei
 ```
 
 Erst nach tatsächlicher Produktprüfung darf eine Variante mit Preis und Verfügbarkeit befüllt werden. Die Konfiguration in `src/data/shop-pricing-config.json` bleibt die maßgebliche globale Sperre für Checkout und Zahlungen.
+## Interne Preisvergleichsmatrix
+
+Die externe Wettbewerbsrecherche und die Regeln zur Sortierung nach feminisierten, autoflowering und regulären Samen sind in [`docs/shop-preisvergleich-matrix.md`](./shop-preisvergleich-matrix.md) dokumentiert. Dort aufgeführte Händlerpreise sind ausschließlich interne Vergleichswerte und dürfen nicht als SEED³X-Preise übernommen werden. Produktpreise, Packungsvarianten, Premium-Status, Checkout und Zahlungen bleiben bis zur separaten Prüfung und Freigabe unverändert.
