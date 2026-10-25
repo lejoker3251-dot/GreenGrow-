@@ -392,3 +392,23 @@ Diese Runde erweitert die Prüfung um weitere reguläre Katalogsorten. Packpreis
 - Der Soma-Seeds-Treffer bei Mr. Hanf nennt 120,00 € für 10 Samen, enthält jedoch widersprüchliche Verfügbarkeitsangaben. Er bleibt deshalb separat gekennzeichnet und ist kein bestätigtes lieferbares Angebot.
 - **Keine SEED³X-Preise wurden angepasst.** Diese Matrix dokumentiert ausschließlich externe Händlerpreise. Der Produktkatalog, Bestand, Packvarianten, Status, Checkout, `main` und Deployments bleiben unverändert.
 
+### 4.15 Nachprüfung der offenen Regular-Sorten – Blue Cheese, Critical und Super Lemon Haze – 25.10.2026
+
+Diese Runde konzentriert sich auf die drei noch offenen regulären Katalogfamilien. Angebote mit feminisiertem oder Autoflowering-Typ werden nicht als Ersatz verwendet. Nicht verfügbare Preise bleiben als solche gekennzeichnet.
+
+| Katalogfamilie / Händlerprodukt | Typ | Händler / Züchter | Packung | Sichtbarer Packpreis | Preis je Samen | Verfügbarkeit / Prüfergebnis | Quelle |
+|---|---|---|---:|---:|---:|---|---|
+| Critical Regular – Royal Queen Seeds | Regulär | Royal Queen Seeds | 10 | 60,00 € | 6,00 € | Direkte Produktseite bestätigt „Critical Regular“, 10 Samen und 60,00 €. Gleichzeitig erscheint „Benachrichtige mich, sobald wieder auf Lager“; daher Preisindikator, kein bestätigtes verfügbares Angebot. | https://www.royalqueenseeds.de/regulaere-cannabissamen/545-critical-regular.html |
+| Blue Cheese – Tanie Sianie Seeds | Nicht eindeutig ausgewiesen | Tanie Sianie Seeds | 5 / 10 | 16,45 € / 31,16 € Angebot | 3,29 € / 3,12 € rechnerisch | Seite zeigt Variantenpreise und Warenkorb, führt aber daneben ausdrücklich „Blue Cheese Auto“ und belegt für den hier sichtbaren Blue-Cheese-Eintrag den regulären Typ nicht eindeutig. Nicht als Regular-Preisanker verwenden. | https://www.taniesianie.de/sorten/cheese |
+| Blue Cheese – Blimburn Seeds | Feminisiert | Blimburn Seeds | 3 / 6 / 9 | 20,49 € / 35,99 € / 49,49 € Angebot | — | Produktseite kennzeichnet Blue Cheese ausdrücklich als feminisiert. Trotz sichtbarer Variantenpreise ausgeschlossen aus dem Regular-Vergleich. | https://blimburnseeds.de/blue-cheese/ |
+| Super Lemon Haze – Blimburn Seeds | Feminisiert | Blimburn Seeds | 3 / 6 / 9 | 23,95 € / 43,45 € / 62,95 € Angebot | — | Produktseite kennzeichnet Super Lemon Haze ausdrücklich als feminisiert. Nicht auf Regular übertragbar. | https://blimburnseeds.de/super-lemon-haze/ |
+| Super Lemon Haze – Green House Seed Company | Feminisiert | Supreme Seeds | 3 | 28,90 € | ca. 9,63 € | Direkte Seite bestätigt feminisierten Typ, 3 Samen und „6 sofort verfügbar“. Kein Regular-Angebot. | https://www.supremeseeds.de/Super-Lemon-Haze/SE03008 |
+
+#### Ergebnis dieser Runde
+
+- **Critical Regular:** Ein sauber zuordenbarer 10er-Preis von 60,00 € ist bei Royal Queen Seeds belegt; die Seite weist das Produkt jedoch als derzeit nicht auf Lager bzw. mit Benachrichtigungsoption aus. Der Preis ist daher kein sofort lieferbarer Wettbewerbsanker.
+- **Blue Cheese Regular:** Trotz mehrerer Seiten mit passendem Sortennamen und Packgrößen wurde in dieser Runde kein direkter Beleg gefunden, der den regulären Typ, einen konkreten Packpreis und eine belastbare Verfügbarkeit gemeinsam bestätigt. Die sichtbaren Treffer werden nicht fälschlich als Regular-Preise eingetragen.
+- **Super Lemon Haze Regular:** Die konkret bepreisten Direktseiten aus dieser Runde sind feminisiert. Sie werden ausdrücklich ausgeschlossen; ein belastbarer Regular-Preis bleibt offen.
+- Die Recherche belegt damit nicht, dass es keine solchen Produkte am Markt gibt, sondern nur, dass in den geprüften Treffern kein ausreichend eindeutiger Preisanker bestätigt wurde.
+- Keine SEED³X-Verkaufspreise, Einkaufskosten oder Margen berechnet. Keine Katalogdaten, Lagerbestände, Freigaben, Checkout-Funktionen, `main` oder Deployments verändert.
+
