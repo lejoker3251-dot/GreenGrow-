@@ -376,3 +376,19 @@ Diese Runde erweitert die Prüfung um weitere reguläre Katalogsorten. Packpreis
 - Der zuvor dokumentierte White-Widow-Preis von Eden Seeds (41,00 € für 10 Samen, „Bald wieder verfügbar“) bleibt ein separater historischer/verfügbarkeitsbeschränkter Preisindikator; er wird nicht mit den neuen Angeboten vermischt.
 - Für **Super Lemon Haze Regular** wurde in dieser Runde kein belastbarer Regular-Treffer mit konkretem Packpreis und Verfügbarkeit bestätigt. Der gefundene 10er-Treffer von Bloom Bulk Seeds ist feminisiert und daher ausgeschlossen.
 - Diese Ergänzung dokumentiert öffentliche Händlerpreise, keine SEED³X-Verkaufspreise. Keine Einkaufskosten oder Margen berechnet; Katalogpreise, Packvarianten, Bestände, Freigaben, Checkout, `main` und Deployments bleiben unverändert.
+
+### 4.14 Weitere Prüfung regulärer Sorten – Amnesia Haze – 25.10.2026
+
+| Katalogfamilie / Händlerprodukt | Typ | Händler / Züchter | Packung | Sichtbarer Packpreis | Preis je Samen | Verfügbarkeit / Einschränkung | Quelle |
+|---|---|---|---:|---:|---:|---|---|
+| Amnesia Haze Regular – Royal Queen Seeds | Regulär | Cludi / Royal Queen Seeds | 10 | 48,00 € Angebot (zuvor 60,00 €) | 4,80 € Angebot (6,00 € zuvor) | Suchauszug nennt Produkt ausdrücklich als reguläre Amnesia-Haze-Samen und 10er-Pack. Der Lagerstatus war im sichtbaren Auszug nicht eindeutig; daher nur Preisindikator, vor endgültiger Verwendung direkt auf der Produktseite prüfen. | https://cludi.com/HS10043/Amnesia-Haze-Regulaere-Hanfsamen-von-Royal-Queen-Seeds-10-Samen |
+| Amnesia Haze Regular – Amsterdam Genetics | Regulär | Amsterdam Genetics | Packgröße/Preis nicht bestätigt | Kein bestätigter Preis | — | Offizielle Produktseite bestätigt „Regular“ und zeigt „In stock“ im Suchauszug, aber Packgröße und Preis sind dort im vorliegenden Auszug nicht sichtbar. Noch kein verwendbarer Preisanker. | https://www.amsterdamgenetics.com/product/amnesia-haze-regular/ |
+| Amnesia Haze Regular – Soma Seeds | Regulär | Mr. Hanf / Soma Seeds | 10 | 120,00 € | 12,00 € | Suchauszug nennt 10 Samen und 120,00 €, zeigt zugleich widersprüchliche Statusangaben („In stock“ und „Currently sold out“). Als widersprüchlicher Preisindikator dokumentiert, nicht als lieferbares Angebot. | https://mr-hanf.de/en/seed-shop/regular-seeds/amnesia-haze-reg |
+
+#### Ergebnis dieser Runde
+
+- Für **Amnesia Haze Regular** liegt ein konkreter 10er-Preisindikator von 48,00 € im Angebot (zuvor 60,00 €) vor. Die verfügbare Quelle bestätigt den regulären Typ und Packumfang im Suchauszug, aber nicht eindeutig den Lagerstatus.
+- Der offizielle Amsterdam-Genetics-Treffer bestätigt den regulären Typ und einen Verfügbarkeitsindikator, liefert im sichtbaren Auszug aber keinen belegten Packpreis.
+- Der Soma-Seeds-Treffer bei Mr. Hanf nennt 120,00 € für 10 Samen, enthält jedoch widersprüchliche Verfügbarkeitsangaben. Er bleibt deshalb separat gekennzeichnet und ist kein bestätigtes lieferbares Angebot.
+- **Keine SEED³X-Preise wurden angepasst.** Diese Matrix dokumentiert ausschließlich externe Händlerpreise. Der Produktkatalog, Bestand, Packvarianten, Status, Checkout, `main` und Deployments bleiben unverändert.
+
