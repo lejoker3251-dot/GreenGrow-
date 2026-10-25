@@ -54,6 +54,33 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
 
   <div class="trust-row luxury-trust-row" aria-label="SEED³X Grundsätze"><div class="trust-item"><img class="trust-brand-icon" src="/images/brand/icon2.jpg" alt="" width="32" height="32" loading="lazy" decoding="async" /><span>Mit Sorgfalt aufgebaut</span></div><div class="trust-item"><span class="trust-icon">◌</span><span>Wissen zum Entdecken</span></div><div class="trust-item"><span class="trust-icon">↗</span><span>Transparent im Aufbau</span></div></div>
 
+  <section class="section home-pathways" aria-labelledby="home-pathways-title">
+    <div class="home-pathways-heading">
+      <span class="eyebrow">Dein nächster Schritt</span>
+      <h2 id="home-pathways-title">Drei Wege, SEED³X zu entdecken.</h2>
+      <p>Ob du gezielt stöbern, dich orientieren oder Wissen vertiefen möchtest – wähle den Einstieg, der gerade zu dir passt.</p>
+    </div>
+    <div class="home-pathways-grid">
+      <a class="home-pathway home-pathway-shop" href="/shop/">
+        <span class="home-pathway-index">01 · SORTIMENT</span>
+        <strong>Im Shop stöbern</strong>
+        <span>Den Katalog durchsuchen und Einträge nach Kategorie filtern.</span>
+        <span class="home-pathway-link">Shop öffnen ↗</span>
+      </a>
+      <a class="home-pathway home-pathway-finder" href="/seed-finder/">
+        <span class="home-pathway-index">02 · ORIENTIERUNG</span>
+        <strong>Mit dem Seed Finder starten</strong>
+        <span>Fragen ordnen und einen passenden nächsten Einstieg finden.</span>
+        <span class="home-pathway-link">Finder starten ↗</span>
+      </a>
+      <a class="home-pathway home-pathway-knowledge" href="/wissen/">
+        <span class="home-pathway-index">03 · WISSEN</span>
+        <strong>Wissen entdecken</strong>
+        <span>Grundlagen und verständliche Informationen in Ruhe nachlesen.</span>
+        <span class="home-pathway-link">Zum Ratgeber ↗</span>
+      </a>
+    </div>
+  </section>
   <section class="section seed-finder-home" aria-labelledby="seed-finder-home-title">
     <div class="seed-finder-home-art" aria-hidden="true"><span class="seed-finder-orbit"></span><span class="seed-finder-mark">SEED<span>³X</span></span></div>
     <div class="seed-finder-home-copy"><span class="eyebrow">Dein persönlicher Auswahlkompass</span><h2 id="seed-finder-home-title">Nicht sicher, wo du anfangen sollst?</h2><p>Der SEED³X Seed Finder sortiert deine Fragen nach Saatguttyp, Genetik und Wissensbedarf. In wenigen Schritten findest du den passenden nächsten Einstieg – ohne pauschale Sortenversprechen.</p><a class="button luxury-button" href="/seed-finder/">Seed Finder starten <span aria-hidden="true">↗</span></a><small>Orientierungshilfe · keine Qualitäts- oder Sortengarantie</small></div>
@@ -126,6 +153,24 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
   .home-category-footer a:hover{color:var(--green-2)}
   .home-category-footer a:focus-visible{outline:3px solid #8ba96b;outline-offset:3px}
   @media(max-width:760px){.home-category-grid{grid-template-columns:1fr}.home-category-card{padding:1.2rem}}
+
+  .home-pathways{padding-top:clamp(2.5rem,5vw,4.5rem);padding-bottom:clamp(2.5rem,5vw,4.5rem)}
+  .home-pathways-heading{max-width:760px;margin:0 auto 1.6rem;text-align:center}
+  .home-pathways-heading h2{margin:.55rem 0 .75rem;color:var(--green);font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:500;line-height:1.08;letter-spacing:-.045em}
+  .home-pathways-heading p{max-width:650px;margin:0 auto;color:var(--muted);line-height:1.8}
+  .home-pathways-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  .home-pathway{display:flex;min-width:0;min-height:220px;flex-direction:column;align-items:flex-start;padding:clamp(1.25rem,2.5vw,2rem);border:1px solid #dce3d7;border-radius:20px;background:#fffdf8;color:var(--green);text-decoration:none;box-shadow:0 12px 32px #20362a08;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+  .home-pathway-shop{background:linear-gradient(145deg,#fffdf8,#f0f4ec)}
+  .home-pathway-finder{background:linear-gradient(145deg,#fffdf8,#f2eef7)}
+  .home-pathway-knowledge{background:linear-gradient(145deg,#fffdf8,#f8f3e7)}
+  .home-pathway-index{margin-bottom:1.5rem;color:#7b765e;font-size:.68rem;font-weight:800;letter-spacing:.14em}
+  .home-pathway strong{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.35rem,2.1vw,1.8rem);font-weight:500;line-height:1.15;letter-spacing:-.025em}
+  .home-pathway>span:nth-of-type(2){margin-top:.7rem;color:#59685c;font-size:.9rem;line-height:1.7}
+  .home-pathway-link{margin-top:auto;padding-top:1.25rem;font-size:.85rem;font-weight:800}
+  .home-pathway:hover{transform:translateY(-3px);border-color:#c8a96a;box-shadow:0 18px 36px #20362a12}
+  .home-pathway:focus-visible{outline:3px solid #8b79a8;outline-offset:4px}
+  @media(max-width:760px){.home-pathways-grid{grid-template-columns:1fr}.home-pathway{min-height:0;padding:1.3rem}.home-pathway-index{margin-bottom:.8rem}}
+  @media(prefers-reduced-motion:reduce){.home-pathway{transition:none}.home-pathway:hover{transform:none}}
 
   /* Full-bleed photographic botanical hero: the plant is the main visual, with typography layered above it. */
   .premium-hero.luxury-hero.botanical-title-hero{
