@@ -757,3 +757,124 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+
+/* SEED³X homepage polish — smoother section rhythm, image discipline and touch navigation. */
+.site-header {
+  background: rgb(251 250 245 / 94%);
+  border-bottom-color: #dcded2;
+  box-shadow: 0 8px 28px rgb(23 51 38 / 4%);
+  backdrop-filter: blur(16px);
+}
+.site-header .brand-banner {
+  display: block;
+  width: clamp(150px, 18vw, 220px);
+  max-height: 54px;
+  object-fit: contain;
+  object-position: left center;
+}
+.site-header .main-nav a,
+.site-header .nav-group-toggle {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 0;
+  border-radius: 999px;
+  padding: .55rem .7rem;
+  background: transparent;
+  color: #263b2d;
+  font: inherit;
+  font-size: .84rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .22s ease, color .22s ease;
+}
+.site-header .main-nav a:hover,
+.site-header .nav-group-toggle:hover,
+.site-header .nav-group.is-open > .nav-group-toggle {
+  background: #edf0e7;
+  color: #315d40;
+}
+.site-header .nav-group { position: relative; }
+.site-header .nav-submenu {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + .45rem);
+  left: 0;
+  display: grid;
+  min-width: 220px;
+  gap: .25rem;
+  padding: .55rem;
+  border: 1px solid #e2e1d7;
+  border-radius: 16px;
+  background: #fffefa;
+  box-shadow: 0 18px 44px rgb(22 43 30 / 12%);
+}
+.site-header .nav-submenu[hidden] { display: none !important; }
+.site-header .nav-submenu a { justify-content: space-between; border-radius: 10px; white-space: normal; }
+.site-header .menu-toggle { border-color: #d8ddcf; background: #fffefa; transition: background-color .2s ease, border-color .2s ease; }
+.site-header .menu-toggle:hover { background: #edf0e7; border-color: #bac8b6; }
+
+.growth-intro {
+  position: relative;
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
+  background: linear-gradient(180deg, #e9e6d8 0%, #f5f3eb 100%);
+}
+.growth-heading { margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+.growth-image-bridge {
+  overflow: hidden;
+  margin: clamp(2rem, 5vw, 4.5rem) auto;
+  border: 1px solid #d9d4c5;
+  border-radius: clamp(16px, 2vw, 26px);
+  background: #f8f6ef;
+  box-shadow: 0 24px 64px rgb(32 54 42 / 8%);
+}
+.growth-image-bridge img {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center 52%;
+}
+.grow-doctor-teaser { background: linear-gradient(180deg, #f5f3eb, #f0eee4); }
+.trust-row.luxury-trust-row { border-block: 1px solid #e2e1d7; background: #eef1e8; }
+.seed-category-visual { background: linear-gradient(145deg, #f4f2ea, #faf9f4 72%); }
+.seed-category-visual-art img { transition: transform .6s cubic-bezier(.2,.72,.2,1); }
+.seed-finder-home { box-shadow: 0 18px 55px rgb(32 54 42 / 5%); }
+.shop-teaser-art { overflow: hidden; border: 1px solid #e0ddd1; background: #fffefa; }
+.shop-teaser-art img { display: block; width: 100%; height: auto; object-fit: contain; }
+.home-category-section { background: linear-gradient(180deg, #fbfaf5, #f5f3eb); }
+.guide-section { background: linear-gradient(180deg, #f0f1e8, #eaf0dc); }
+.homepage-about-teaser { padding-block: clamp(3rem, 6vw, 6rem); }
+.homepage-about-teaser .split-art { box-shadow: 0 24px 60px rgb(32 54 42 / 8%); }
+.site-footer { background: #f0eee4; }
+@media (prefers-reduced-motion: no-preference) {
+  .site-header .brand-banner { transition: opacity .25s ease; }
+  .site-header .brand-seedx:hover .brand-banner { opacity: .88; }
+  .growth-image-bridge img { transition: transform .7s cubic-bezier(.2,.72,.2,1); }
+  .growth-image-bridge:hover img { transform: scale(1.012); }
+}
+@media (max-width: 800px) {
+  .site-header { position: sticky; top: 0; min-height: 70px; padding: .65rem 1rem; gap: .65rem; }
+  .site-header .brand-banner { width: clamp(140px, 42vw, 190px); max-height: 46px; }
+  .site-header .main-nav { position: absolute; top: 100%; left: 0; right: 0; width: 100%; margin: 0; padding: .8rem 1rem 1rem; gap: .25rem; border-bottom: 1px solid #e2e1d7; background: rgb(251 250 245 / 98%); box-shadow: 0 20px 35px rgb(23 51 38 / 10%); }
+  .site-header .main-nav a,
+  .site-header .nav-group-toggle { width: 100%; justify-content: space-between; min-height: 44px; padding: .65rem .8rem; font-size: .95rem; }
+  .site-header .nav-group { width: 100%; }
+  .site-header .nav-submenu { position: static; min-width: 0; margin: .15rem 0 .5rem .65rem; box-shadow: none; border-radius: 12px; background: #f4f3ec; }
+  .premium-hero.luxury-hero.botanical-title-hero { min-height: 0 !important; padding: 0 1.15rem 3.5rem !important; align-items: flex-end !important; }
+  .premium-hero.luxury-hero.botanical-title-hero .botanical-title-art img { object-position: 58% center !important; }
+  .premium-hero.luxury-hero.botanical-title-hero .botanical-title-content { padding: clamp(19rem, 68vw, 25rem) 0 1rem !important; }
+  .growth-image-bridge { margin-block: 2rem; }
+}
+@media (max-width: 560px) {
+  .premium-hero.luxury-hero.botanical-title-hero { padding-bottom: 3.7rem !important; }
+  .premium-hero.luxury-hero.botanical-title-hero .botanical-title-content { padding-top: clamp(17rem, 62vw, 22rem) !important; }
+  .premium-hero.luxury-hero.botanical-title-hero h1 { font-size: clamp(2.7rem, 11.5vw, 3.9rem) !important; line-height: .99; }
+  .premium-hero.luxury-hero.botanical-title-hero .hero-copy { font-size: 1rem; line-height: 1.7; }
+  .premium-hero.luxury-hero.botanical-title-hero .actions { max-width: 100%; }
+  .seed-category-visual-art img { padding: .75rem; }
+  .shop-teaser-art { padding: .5rem; }
+  .growth-image-bridge img { max-height: 300px; }
+}
