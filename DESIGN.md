@@ -1,6 +1,6 @@
 # SEED³X — DESIGN.md
 
-**Status:** Überarbeiteter Prüfentwurf – noch nicht freigegeben  
+**Status:** In Umsetzung – Designsystem und Homepage-Farbwelt aktualisiert; Preview-/Build-Prüfung steht aus  
 **Geltungsbereich:** Bestehendes Framer-Konzept und Astro-Homepage im Branch `feature/premium-storefront-v1`  
 **Ziel:** Ein botanisch geprägtes Premium-Erlebnis mit klarer Navigation, starker Bilddramaturgie und transparentem Katalogstatus.
 
@@ -49,15 +49,16 @@ Weitere Prinzipien aus dem bestehenden Entwurf:
 **Vorläufige Ausgangswerte im bisherigen Entwurf**
 - Porzellan: `#F8F7F2`
 - Weiß: `#FFFEFA`
-- Botanikgrün: `#173D2B`
-- Grün, weicher: `#315B43`
-- Gold: `#C8A96A`
-- Lilac: `#D8CBEA`
-- Lilac-Akzent: `#75618D`
-- Text: `#202C24`
+- Botanikgrün: `#285A40`
+- Grün, weicher: `#426B50`
+- Gold: `#C6A15B`
+- Lilac: `#B9A3D5`
+- Lilac-Fläche: `#F0EAF7`
+- Lilac-Akzent: `#80699B`
+- Text: `#203B2A`
 - Sekundärtext: `#687269`
 
-Diese Werte sind ein Arbeitsstand, keine abschließend freigegebene Markenpalette. Logo und Banner müssen farblich verifiziert werden; Kontrastkombinationen sind noch zu prüfen. Die zuvor in Framer gefundenen dunklen Navy- und kräftigen Lilatöne dokumentieren Bestand und müssen nicht ungeprüft übernommen werden.
+Diese Werte sind jetzt die gemeinsame Umsetzungsbasis für die Botanical-Signature-Runde. Kontrastkombinationen sowie die tatsächliche Darstellung auf allen Seitentypen müssen in der Vorschau noch geprüft werden. Dunkle Flächen bleiben gezielte Akzente, nicht die dominante Seitenwelt.
 
 ## 4. Typografie
 
@@ -109,7 +110,14 @@ Die Startseite soll nicht sämtliche Produkte zeigen. Vollständige Katalogsuche
 
 Desktop, Tablet und Mobilgerät separat gestalten. Texte dürfen nicht abgeschnitten werden; Buttons und Menüs müssen gut bedienbar sein. Fokuszustände, ausreichender Kontrast, Alternativtexte und reduzierte Bewegung berücksichtigen. Intro überspringbar halten; Inhalte müssen auch ohne Animation verständlich bleiben.
 
-## 9. Qualitäts- und Änderungsgrenzen
+## 9. Aktueller Umsetzungsstand
+
+- `src/styles/design-tokens.css`: zentrale Farbvariablen auf Porzellanweiß, Botanikgrün, Gold und Lilac ausgerichtet.
+- `src/styles/botanical-luxury.css`: gemeinsame Komponentenregeln für Navigation, Buttons, Karten, Inhaltsseiten, Produktflächen, Hinweise, Altersabfrage und Footer ergänzt.
+- `src/pages/index.astro`: Homepage-Hero auf eine helle, redaktionelle Botanical-Signature-Darstellung ausgerichtet.
+- Noch offen: Build-/Typecheck, visuelle Prüfung im echten Preview, gezielte responsive Korrekturen und systematische Sichtkontrolle aller Routen. Die Umsetzung ist daher noch nicht als abgeschlossen oder freigegeben zu betrachten.
+
+## 10. Qualitäts- und Änderungsgrenzen
 
 - Diese Designnotiz dokumentiert Zielrichtung und Referenzanalyse, ist aber noch keine finale Freigabe.
 - Keine Änderungen an `main`, kein Merge und keine Produktionsveröffentlichung ohne ausdrückliche Zustimmung.
