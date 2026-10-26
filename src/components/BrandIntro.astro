@@ -21,23 +21,23 @@
 </div>
 
 <style>
-  .brand-intro{position:fixed;inset:0;z-index:900;display:grid;place-items:center;overflow:hidden;background:#10271b;color:#f5f1e5;opacity:0;visibility:hidden;pointer-events:none}
+  .brand-intro{position:fixed;inset:0;z-index:900;display:grid;place-items:center;overflow:hidden;background:#f8f7f2;color:#173d2b;opacity:0;visibility:hidden;pointer-events:none}
   .brand-intro.is-active{opacity:1;visibility:visible;pointer-events:auto}
   .brand-intro.is-leaving{opacity:0;visibility:hidden;transition:opacity .7s cubic-bezier(.2,.72,.2,1),visibility .7s}
-  .brand-intro-light{position:absolute;inset:-20%;background:radial-gradient(ellipse at 50% 45%,rgba(190,214,142,.2),transparent 38%),radial-gradient(ellipse at 50% 100%,rgba(79,128,76,.16),transparent 52%);opacity:0}
-  .brand-intro-botanical{position:absolute;width:min(58vw,500px);height:min(68vh,560px);color:#c5d49e;opacity:0;filter:drop-shadow(0 0 20px rgba(176,205,131,.12));transform:translateY(20px) scale(.94)}
+  .brand-intro-light{position:absolute;inset:-20%;background:radial-gradient(ellipse at 48% 45%,rgba(216,203,234,.42),transparent 40%),radial-gradient(ellipse at 55% 100%,rgba(200,169,106,.18),transparent 54%),radial-gradient(ellipse at 50% 12%,rgba(49,91,67,.08),transparent 48%);opacity:0}
+  .brand-intro-botanical{position:absolute;width:min(58vw,500px);height:min(68vh,560px);color:#315b43;opacity:0;filter:drop-shadow(0 0 18px rgba(200,169,106,.12));transform:translateY(20px) scale(.94)}
   .brand-intro-copy{position:relative;z-index:1;display:flex;align-items:center;flex-direction:column;text-align:center;padding:2rem;opacity:0;transform:translateY(12px)}
-  .brand-intro-kicker{font:500 .62rem/1.5 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.2em;text-transform:uppercase;color:#c5d49e}
-  .brand-intro-logo{margin:1.1rem 0 .65rem;font:500 clamp(3.6rem,10vw,7rem)/.95 var(--font-display,Georgia,serif);letter-spacing:.045em;color:#f8f5eb}
+  .brand-intro-kicker{font:500 .62rem/1.5 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.2em;text-transform:uppercase;color:#75618d}
+  .brand-intro-logo{margin:1.1rem 0 .65rem;font:500 clamp(3.6rem,10vw,7rem)/.95 var(--font-display,Georgia,serif);letter-spacing:.045em;color:#173d2b}
   .brand-intro-logo span{font-size:.46em;vertical-align:super;letter-spacing:0}
-  .brand-intro-tagline{font:500 .72rem/1.5 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.32em;color:#d6dfc0}
-  .brand-intro-skip{position:absolute;right:max(1.25rem,env(safe-area-inset-right));bottom:max(1.25rem,env(safe-area-inset-bottom));z-index:2;border:1px solid rgba(245,241,229,.42);border-radius:999px;background:rgba(16,39,27,.35);padding:.75rem 1rem;color:#fff;font:500 .8rem/1.2 var(--font-body,Inter,system-ui,sans-serif);cursor:pointer}
+  .brand-intro-tagline{font:500 .72rem/1.5 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.32em;color:#8b79a8}
+  .brand-intro-skip{position:absolute;right:max(1.25rem,env(safe-area-inset-right));bottom:max(1.25rem,env(safe-area-inset-bottom));z-index:2;border:1px solid rgba(23,61,43,.28);border-radius:999px;background:rgba(255,254,250,.88);padding:.75rem 1rem;color:#173d2b;font:500 .8rem/1.2 var(--font-body,Inter,system-ui,sans-serif);cursor:pointer}
   .brand-intro-skip span{margin-left:.4rem}
-  .brand-intro-index{position:absolute;left:max(1.25rem,env(safe-area-inset-left));bottom:max(1.6rem,env(safe-area-inset-bottom));font:500 .58rem/1.4 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.15em;color:rgba(245,241,229,.62)}
-  .brand-intro.is-active .brand-intro-light{animation:intro-light 3.6s ease both}
-  .brand-intro.is-active .brand-intro-botanical{animation:intro-botanical 3.6s cubic-bezier(.2,.72,.2,1) both}
-  .brand-intro.is-active .brand-intro-copy{animation:intro-copy 3.6s cubic-bezier(.2,.72,.2,1) both}
-  .brand-intro-skip:focus-visible{outline:3px solid #d6ed9a;outline-offset:4px}
+  .brand-intro-index{position:absolute;left:max(1.25rem,env(safe-area-inset-left));bottom:max(1.6rem,env(safe-area-inset-bottom));font:500 .58rem/1.4 var(--font-body,Inter,system-ui,sans-serif);letter-spacing:.15em;color:rgba(32,44,36,.58)}
+  .brand-intro.is-active .brand-intro-light{animation:intro-light 3.2s ease both}
+  .brand-intro.is-active .brand-intro-botanical{animation:intro-botanical 3.2s cubic-bezier(.2,.72,.2,1) both}
+  .brand-intro.is-active .brand-intro-copy{animation:intro-copy 3.2s cubic-bezier(.2,.72,.2,1) both}
+  .brand-intro-skip:focus-visible{outline:3px solid #c8a96a;outline-offset:4px}
   @keyframes intro-light{0%{opacity:0;transform:scale(.82)}22%{opacity:1}78%{opacity:.9}100%{opacity:.2;transform:scale(1.14)}}
   @keyframes intro-botanical{0%{opacity:0;transform:translateY(22px) scale(.94)}22%{opacity:.45}48%{opacity:.8;transform:translateY(0) scale(1)}82%{opacity:.65}100%{opacity:0;transform:translateY(-8px) scale(1.03)}}
   @keyframes intro-copy{0%,13%{opacity:0;transform:translateY(12px);filter:blur(5px)}34%{opacity:1;transform:translateY(0);filter:blur(0)}76%{opacity:1;transform:translateY(0);filter:blur(0)}100%{opacity:0;transform:translateY(-5px);filter:blur(2px)}}
@@ -77,7 +77,7 @@
       intro.hidden = false;
       intro.classList.add('is-active');
       document.body.classList.add('brand-intro-playing');
-      finishTimer = window.setTimeout(finish, 3600);
+      finishTimer = window.setTimeout(finish, 3200);
     };
 
     skip.addEventListener('click', finish);
