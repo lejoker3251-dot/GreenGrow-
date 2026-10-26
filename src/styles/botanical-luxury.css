@@ -977,3 +977,35 @@ html, body { background: #f8f7f2; color: #203b2a; }
 .age-gate { background: #203b2acc; }
 .age-gate-card { background: #fffefa; border-color: #c6a15b; }
 :where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible { outline-color: #80699b; }
+
+
+/* Botanical Signature — cross-route finishing layer for every page using Layout.astro. */
+:root { --focus-ring-color: #80699b; }
+body { accent-color: #285a40; }
+main { min-width: 0; }
+main a:not(.button):not(.category-entry-link):not(.product-card):not(.knowledge-article a) { text-decoration-color: #c6a15b80; text-underline-offset: .2em; }
+main a:not(.button):hover { text-decoration-color: #80699b; }
+:where(input, select, textarea) { border-color: #d9ded3; background-color: #fffefa; color: #203b2a; }
+:where(input, select, textarea):focus-visible { border-color: #80699b; outline: 3px solid #b9a3d555; outline-offset: 2px; }
+:where(button, .button, .category-entry-link) { transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease; }
+:where(.section, .knowledge-group, .grow-doctor-section, .product-detail, .contact-section) { scroll-margin-top: 6rem; }
+.page-hero { color: #203b2a; border-bottom: 1px solid #c6a15b55; }
+.page-hero .eyebrow, .section-heading .eyebrow, .knowledge-group-head .eyebrow { color: #426b50; }
+.page-hero h1 em, .section-heading h2 em, .knowledge-group h2 em, .grow-doctor-intro h2 em { color: #80699b; }
+.page-hero p, .section-heading p { color: #59675b; }
+.section-heading { border-color: #e4e0d7; }
+.section-kicker, .category-entry-index, .article-index { color: #80699b; }
+:where(.product-card, .category-entry-card, .knowledge-article, .grow-doctor-card, .contact-card, .feature-card) { border-color: #e4e0d7; box-shadow: 0 14px 38px #203b2a08; }
+:where(.product-card, .category-entry-card, .knowledge-article, .grow-doctor-card, .contact-card, .feature-card):hover { border-color: #c6a15b99; box-shadow: 0 18px 42px #203b2a12; }
+:where(.notice, .knowledge-note, .grow-doctor-notice, .rubric-disclaimer) { border-color: #b9a3d577; background: #f0eaf7; color: #3f4c40; }
+:where(.site-footer, .footer-links) a:hover { color: #80699b; }
+.site-footer { background: linear-gradient(135deg, #f0efe7, #f8f7f2 65%, #f0eaf7); }
+@media (max-width: 760px) {
+  .site-header { background: #f8f7f2f7; }
+  .nav-submenu { background: #fffefa; border-color: #e4e0d7; }
+  .page-hero { padding-inline: clamp(1rem, 5vw, 2rem); }
+  .section-heading { gap: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(button, .button, a, .product-card, .category-entry-card, .knowledge-article) { transition: none !important; scroll-behavior: auto !important; }
+}
