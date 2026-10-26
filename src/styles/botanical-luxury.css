@@ -925,3 +925,55 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     overflow-wrap: anywhere;
   }
 }
+
+
+/* SEED³X Botanical Signature — shared light-first palette across every route. */
+:root {
+  --green: #285a40;
+  --green-2: #426b50;
+  --ink: #203b2a;
+  --muted: #687269;
+  --line: #e4e0d7;
+  --cream: #f8f7f2;
+  --lime: #ead8ad;
+  --color-porcelain: #f8f7f2;
+  --color-paper: #fffefa;
+  --color-forest: #285a40;
+  --color-forest-deep: #203b2a;
+  --color-forest-soft: #426b50;
+  --color-champagne: #c6a15b;
+  --color-champagne-light: #ead8ad;
+  --color-lavender: #b9a3d5;
+  --color-lavender-soft: #f0eaf7;
+  --color-ink: #203b2a;
+  --color-muted: #687269;
+  --color-line: #e4e0d7;
+  --color-surface-sage: #edf0e7;
+}
+html, body { background: #f8f7f2; color: #203b2a; }
+.site-header { background: #f8f7f2f2; border-color: #e4e0d7; }
+.site-header .main-nav > a, .site-header .nav-group-toggle { color: #344b3a; }
+.site-header .main-nav > a:hover, .site-header .nav-group-toggle:hover,
+.site-header .main-nav [aria-current="page"] { color: #285a40; }
+.nav-submenu { border-color: #e4e0d7; background: #fffefa; }
+.nav-submenu a:hover { background: #f0eaf7; color: #203b2a; }
+.button { background: #285a40; border-color: #285a40; color: #fffefa; }
+.button:hover { background: #426b50; border-color: #426b50; }
+.luxury-button, .cta .button { background: #c6a15b; border-color: #c6a15b; color: #203b2a; }
+.luxury-button:hover, .cta .button:hover { background: #ead8ad; border-color: #ead8ad; color: #203b2a; }
+.button.secondary { background: transparent; border-color: #b8c4b7; color: #285a40; }
+.page-hero { background: radial-gradient(ellipse at 88% 8%, #b9a3d54a 0, transparent 34%), linear-gradient(120deg, #f8f7f2, #fffefa); border-color: #e4e0d7; }
+.page-hero h1, .section-heading h2, .split-copy h2, .shop-teaser-copy h2 { color: #203b2a; }
+.page-hero h1 em, .growth-heading h2 em { color: #80699b; }
+.product-card, .tip, .home-category-card, .category-entry-card, .knowledge-article, .feature-card { background: #fffefa; border-color: #e4e0d7; }
+.product-image, .saved-item img, .feature-card img { background: linear-gradient(145deg, #f8f7f2, #f0eaf7); }
+.product-tag, .draft-status, .notice { background: #f0eaf7; color: #55466b; }
+.filter-button[aria-pressed="true"], .filter-button:hover { background: #285a40; border-color: #285a40; color: #fffefa; }
+.save-button:hover, .save-button[aria-pressed="true"] { background: #f0eaf7; border-color: #b9a3d5; color: #4f3f67; }
+.split-section { background: #f0f0e8; }
+.split-art { background: linear-gradient(145deg, #edf0e7, #f0eaf7); }
+.benefit-mark { background: #b9a3d5; color: #203b2a; }
+.site-footer { background: #f0efe7; border-top-color: #e4e0d7; }
+.age-gate { background: #203b2acc; }
+.age-gate-card { background: #fffefa; border-color: #c6a15b; }
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible { outline-color: #80699b; }
