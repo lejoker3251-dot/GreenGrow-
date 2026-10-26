@@ -1321,3 +1321,89 @@ select:focus-visible {
   color: #65527f;
   border-color: currentColor;
 }
+
+
+/* SEED³X homepage alignment — Framer concept + approved porcelain/forest/gold/lilac palette */
+.luxury-hero.botanical-title-hero {
+  background:
+    radial-gradient(ellipse at 80% 18%, rgba(216,203,234,.32), transparent 34%),
+    linear-gradient(118deg, #f8f7f2 0%, #fffefa 58%, #f0eaf7 100%);
+  color: #202c24;
+  min-height: min(780px, calc(100svh - 88px));
+  padding-top: clamp(3rem, 6vw, 5.5rem);
+  padding-bottom: clamp(4rem, 7vw, 6rem);
+  border-bottom: 1px solid rgba(23,61,43,.12);
+}
+.luxury-hero.botanical-title-hero::before {
+  opacity: .35;
+  background-image:
+    linear-gradient(115deg, transparent 0 48%, rgba(200,169,106,.32) 48.1%, transparent 48.25%),
+    linear-gradient(25deg, transparent 0 70%, rgba(49,91,67,.12) 70.1%, transparent 70.25%);
+  mask-image: linear-gradient(to right, transparent, #000 80%);
+}
+.luxury-hero.botanical-title-hero .botanical-title-content .eyebrow {
+  background: rgba(240,234,247,.78);
+  border-color: rgba(139,121,168,.32);
+  color: #65527f;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content .hero-overline {
+  color: #75618d;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content h1 {
+  color: #173d2b;
+  text-wrap: balance;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content h1 em {
+  color: #75618d;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content .hero-copy {
+  color: #4d5d51;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content .hero-proof {
+  color: #687269;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content .button.luxury-button {
+  background: #173d2b;
+  border-color: #173d2b;
+  color: #fffefa;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content .button.luxury-button:hover {
+  background: #315b43;
+  border-color: #315b43;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content .button.secondary {
+  background: rgba(255,254,250,.76);
+  border-color: rgba(23,61,43,.25);
+  color: #173d2b;
+}
+.luxury-hero.botanical-title-hero .botanical-title-content .button.secondary:hover {
+  background: #f0eaf7;
+  border-color: #8b79a8;
+}
+.luxury-hero.botanical-title-hero .botanical-title-art {
+  border-color: rgba(200,169,106,.62);
+  box-shadow: 0 24px 70px rgba(23,61,43,.12), 0 3px 0 rgba(255,255,255,.82) inset;
+}
+.luxury-hero.botanical-title-hero .hero-index {
+  color: #687269;
+  border-top-color: rgba(23,61,43,.18);
+}
+@media (max-width: 680px) {
+  .luxury-hero.botanical-title-hero {
+    min-height: auto;
+    padding-top: 2.25rem;
+    padding-bottom: 4.25rem;
+    background:
+      radial-gradient(ellipse at 85% 8%, rgba(216,203,234,.34), transparent 38%),
+      linear-gradient(145deg, #f8f7f2 0%, #fffefa 70%, #f0eaf7 100%);
+  }
+  .luxury-hero.botanical-title-hero .botanical-title-art {
+    min-height: 300px;
+    max-height: 390px;
+    border-radius: 44% 44% 1.2rem 1.2rem;
+  }
+  .luxury-hero.botanical-title-hero .hero-index {
+    bottom: 1rem;
+    font-size: .52rem;
+  }
+}
