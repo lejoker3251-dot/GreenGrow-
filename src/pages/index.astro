@@ -266,3 +266,31 @@ const homepageCategoryCounts = Object.fromEntries(homepageCategories.map((catego
   }
 
 </style>
+
+<style>
+/* Botanical Signature homepage direction: light editorial palette with green, gold and lilac accents. */
+.premium-hero.luxury-hero.botanical-title-hero {
+  background: #f8f7f2 !important;
+  color: #203b2a !important;
+  border-bottom: 1px solid #c6a15b !important;
+}
+.premium-hero.luxury-hero.botanical-title-hero:before {
+  background: linear-gradient(90deg, rgba(248,247,242,.97) 0%, rgba(248,247,242,.9) 38%, rgba(248,247,242,.48) 68%, rgba(248,247,242,.08) 100%), linear-gradient(0deg, rgba(248,247,242,.36), transparent 42%) !important;
+}
+.premium-hero.luxury-hero.botanical-title-hero .botanical-title-content { color: #203b2a !important; }
+.premium-hero.luxury-hero.botanical-title-hero .eyebrow,
+.premium-hero.luxury-hero.botanical-title-hero .hero-overline,
+.premium-hero.luxury-hero.botanical-title-hero .hero-proof,
+.premium-hero.luxury-hero.botanical-title-hero .hero-index { color: #285a40 !important; }
+.premium-hero.luxury-hero.botanical-title-hero h1 { color: #203b2a !important; text-shadow: none !important; }
+.premium-hero.luxury-hero.botanical-title-hero h1 em { color: #80699b !important; text-shadow: none !important; }
+.premium-hero.luxury-hero.botanical-title-hero .hero-copy { color: #4f6253 !important; text-shadow: none !important; }
+.premium-hero.luxury-hero.botanical-title-hero .hero-index { border-color: #c6a15b99 !important; }
+.premium-hero.luxury-hero.botanical-title-hero .button.secondary { color: #285a40 !important; border-color: #c6a15b !important; background: #fffefaad !important; }
+.premium-hero.luxury-hero.botanical-title-hero .hero-art.botanical-title-art { background: #f8f7f2 !important; }
+.premium-hero.luxury-hero.botanical-title-hero .hero-art.botanical-title-art img { filter: saturate(.92) contrast(.98) !important; }
+@media (max-width: 640px) {
+  .premium-hero.luxury-hero.botanical-title-hero:before { background: linear-gradient(0deg, rgba(248,247,242,.98) 0%, rgba(248,247,242,.92) 38%, rgba(248,247,242,.22) 100%) !important; }
+  .premium-hero.luxury-hero.botanical-title-hero .botanical-title-content { padding-top: 270px !important; }
+}
+</style>
