@@ -10,9 +10,9 @@
   --color-champagne-light: #ead8ad;
   --color-lavender: #b9a3d5;
   --color-lavender-soft: #f0eaf7;
-  --color-ink: #202c24;
+  --color-ink: #203b2a;
   --color-muted: #687269;
-  --color-line: #e5e2d8;
+  --color-line: #e4e0d7;
   --color-surface-sage: #edf0e7;
 
   /* Typography */
@@ -52,9 +52,9 @@
   --radius-md: 0.875rem;
   --radius-card: 1.125rem;
   --radius-pill: 999px;
-  --shadow-card: 0 18px 40px #173d2b0d;
-  --shadow-floating: 0 18px 50px #173d2b18;
-  --shadow-luxe: 0 30px 80px #10291d24;
+  --shadow-card: 0 18px 40px #203b2a0d;
+  --shadow-floating: 0 18px 50px #203b2a18;
+  --shadow-luxe: 0 30px 80px #203b2a1c;
 
   /* Keyboard focus */
   --focus-ring-color: #8c6c32;
