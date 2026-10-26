@@ -1,4 +1,4 @@
-# GreenGrow Seeds
+# Seed3X
 
 GreenGrow Seeds ist ein Astro-basiertes Frontend für eine Saatgut-Marke. Die bestehende Hauptseite bleibt unter `/` erreichbar; die zusätzliche Komponenten-Vorschau liegt unter `/template-preview/`.
 
